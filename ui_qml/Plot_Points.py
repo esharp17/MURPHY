@@ -62,7 +62,7 @@ def load_xml_points(path, max_points=MAX_POINTS):
 
     if not positions:
         raise ValueError(f"No <row .../> elements found in {path}")
-
+    
     return positions, xs, ys, zs, 0, 0
 def load_offsets_xml(path, max_points=MAX_POINTS):
     """
