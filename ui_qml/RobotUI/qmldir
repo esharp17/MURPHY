@@ -1,0 +1,12 @@
+module RobotUI
+
+singleton Theme 1.0 Theme.qml
+
+TabBar 1.0 components/TabBar.qml
+SideBar 1.0 components/SideBar.qml
+
+SplashAdminScreen 1.0 screens/SplashAdminScreen.qml
+RobotCommScreen 1.0 screens/RobotCommScreen.qml
+CellStatusScreen 1.0 screens/CellStatusScreen.qml
+WeldingScreen 1.0 screens/WeldingScreen.qml
+

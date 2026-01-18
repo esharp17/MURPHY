@@ -1,0 +1,242 @@
+{
+  "DI1": {
+    "label": "IMSTP"
+  },
+  "DI2": {
+    "label": "Hold"
+  },
+  "DI3": {
+    "label": "SFSPD"
+  },
+  "DI4": {
+    "label": "Cycle Stop"
+  },
+  "DI5": {
+    "label": "Fault Reset"
+  },
+  "DI6": {
+    "label": "Start"
+  },
+  "DI7": {
+    "label": "Home"
+  },
+  "DI8": {
+    "label": "Enable"
+  },
+  "DI9": {
+    "label": "Prod Start"
+  },
+  "DI10": {
+    "label": "Automatic Mode"
+  },
+  "DI11": {
+    "label": "Manual Mode"
+  },
+  "DI12": {
+    "label": "Zero Pass Number "
+  },
+  "DI13": {
+    "label": "DI13"
+  },
+  "DI14": {
+    "label": "Command Weld Enabled"
+  },
+  "DI15": {
+    "label": "George"
+  },
+  "DI16": {
+    "label": "DI16"
+  },
+  "DI17": {
+    "label": "Controlled Stop"
+  },
+  "DI18": {
+    "label": "Move FWD"
+  },
+  "DI19": {
+    "label": "Move REV"
+  },
+  "DI20": {
+    "label": "Jump"
+  },
+  "DI21": {
+    "label": "DI21"
+  },
+  "DI22": {
+    "label": "Scan Data Saved"
+  },
+  "DI23": {
+    "label": "DI23"
+  },
+  "DI24": {
+    "label": "DI24"
+  },
+  "DI25": {
+    "label": "DI25"
+  },
+  "DI26": {
+    "label": "DI26"
+  },
+  "DI27": {
+    "label": "DI27"
+  },
+  "DI28": {
+    "label": "DI28"
+  },
+  "DI29": {
+    "label": "DI29"
+  },
+  "DI30": {
+    "label": "DI30"
+  },
+  "DI31": {
+    "label": "DI31"
+  },
+  "DI32": {
+    "label": "DI32"
+  },
+  "DI33": {
+    "label": "DI33"
+  },
+  "DI34": {
+    "label": "DI34"
+  },
+  "DI35": {
+    "label": "DI35"
+  },
+  "DI36": {
+    "label": "DI36"
+  },
+  "DI37": {
+    "label": "DI37"
+  },
+  "DI38": {
+    "label": "DI38"
+  },
+  "DI39": {
+    "label": "DI39"
+  },
+  "DI40": {
+    "label": "DI40"
+  },
+  "DO1": {
+    "label": "CMD Enabled"
+  },
+  "DO2": {
+    "label": "System Ready"
+  },
+  "DO3": {
+    "label": "Prg Running"
+  },
+  "DO4": {
+    "label": "Prg Paused"
+  },
+  "DO5": {
+    "label": "Motion Held"
+  },
+  "DO6": {
+    "label": "Fault"
+  },
+  "DO7": {
+    "label": "At Home"
+  },
+  "DO8": {
+    "label": "TP Enabled"
+  },
+  "DO9": {
+    "label": "Batt alarm"
+  },
+  "DO10": {
+    "label": "Busy"
+  },
+  "DO11": {
+    "label": "Arc Stable"
+  },
+  "DO12": {
+    "label": "Pulse Enabled"
+  },
+  "DO13": {
+    "label": "FCAW Enabled"
+  },
+  "DO14": {
+    "label": "Weld Enabled"
+  },
+  "DO15": {
+    "label": "Input Simulated"
+  },
+  "DO16": {
+    "label": "Output Simulated"
+  },
+  "DO17": {
+    "label": "Check Pendant for message"
+  },
+  "DO18": {
+    "label": "Move Complete"
+  },
+  "DO19": {
+    "label": "DO19"
+  },
+  "DO20": {
+    "label": "DO20"
+  },
+  "DO21": {
+    "label": "High Speed Test"
+  },
+  "DO22": {
+    "label": "Scan Data Ready"
+  },
+  "DO23": {
+    "label": "Nozzle Check"
+  },
+  "DO24": {
+    "label": "DO24: Bevel 30"
+  },
+  "DO25": {
+    "label": "DO25: Compound"
+  },
+  "DO26": {
+    "label": "DO26: J-Prep"
+  },
+  "DO27": {
+    "label": "DO27"
+  },
+  "DO28": {
+    "label": "DO28"
+  },
+  "DO29": {
+    "label": "DO29"
+  },
+  "DO30": {
+    "label": "DO30"
+  },
+  "DO31": {
+    "label": "DO31"
+  },
+  "DO32": {
+    "label": "DO32"
+  },
+  "DO33": {
+    "label": "DO33"
+  },
+  "DO34": {
+    "label": "DO34"
+  },
+  "DO35": {
+    "label": "DO35"
+  },
+  "DO36": {
+    "label": "DO36"
+  },
+  "DO37": {
+    "label": "DO37"
+  },
+  "DO38": {
+    "label": "DO38"
+  },
+  "DO39": {
+    "label": "DO39"
+  },
+  "DO40": {
+    "label": "DO40"
+  }
+}

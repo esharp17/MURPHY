@@ -1,0 +1,140 @@
+{
+  "project": {
+    "name": "Murphy UI (PySide6 + QML) with Robot EtherNet/IP I/O",
+    "date": "2026-01-02",
+    "status": "RobotComm CYCLIC working on 4 robots. UDP TX outputs confirmed working on all four. UDP RX inputs now parsing and mapping correctly but still need verification against real robot-side input bits."
+  },
+  "repo_layout": {
+    "entrypoint": "ui_qml/main.py",
+    "qml_root": "ui_qml/RobotUI/",
+    "screens": {
+      "robot_comm": "ui_qml/RobotUI/screens/RobotCommScreen.qml",
+      "cell_status": "ui_qml/RobotUI/screens/CellStatusScreen.qml"
+    },
+    "theme_singleton": "ui_qml/RobotUI/Theme.qml",
+    "python_robot_comm": {
+      "bridge": "ui_qml/robot_comm/robot_comm_bridge.py",
+      "config_file": "robot_comm_config.json (written to CWD; dev run currently C:\\py\\murphy\\robot_comm_config.json)"
+    }
+  },
+  "runtime_bootstrap": {
+    "python": "PySide6",
+    "qml_engine": {
+      "context_properties": [
+        {
+          "name": "RobotComm",
+          "type": "RobotCommBridge",
+          "set_in": "ui_qml/main.py"
+        }
+      ],
+      "import_path": "engine.addImportPath(<ui_qml runtime root>) so QML can `import RobotUI 1.0`"
+    },
+    "env": {
+      "QML_XHR_ALLOW_FILE_READ": "1",
+      "QT_QUICK_CONTROLS_STYLE": "Basic"
+    },
+    "window_mode": "Frameless + Maximized (kiosk-ready)"
+  },
+  "robot_comm": {
+    "goal": "Support up to 4 robots simultaneously with per-robot configurable IP/slot/in_words/out_words and show 32-bit indicators for inputs/outputs in the RobotComm UI page.",
+    "current_state": {
+      "connected_robots": 4,
+      "outputs_working": true,
+      "inputs_need_testing": true,
+      "protocol_path": [
+        "TCP connect to 44818",
+        "ListServices (optional)",
+        "RegisterSession",
+        "SendRRData ForwardOpen",
+        "Parse O->T and T->O connection IDs",
+        "UDP bind :2222 (one shared RX socket)",
+        "UDP RX demux by T->O conn_id",
+        "UDP TX cyclic to each robot using its O->T conn_id"
+      ],
+      "concurrency": "One worker thread per robot index (0-3); one shared UDP RX listener thread",
+      "config_persistence": "robot_comm_config.json persists 4 robot configs"
+    },
+    "wire_protocol_notes": {
+      "udp_port": 2222,
+      "word_packing": "Inputs/Outputs are uint16 words; QML displays bits across the configured word arrays.",
+      "rx_demux_rule": "T->O connection ID is at UDP offset 6 (not offset 8).",
+      "rx_io_payload_rule": "Connected Data Item (0x00B1) payload begins with 2-byte sequence header; actual IO words start at payload[2:].",
+      "tx_packet": "Encapsulation header + O->T conn_id + seq + Connected Data Item (0x00B1) containing 2-byte seq + 4-byte run/idle + output words; seq increments per TX."
+    },
+    "debugging": {
+      "where": "Console prints plus per-robot QML log buffer (getDebugLog/getUdpCounts).",
+      "known_debug_findings": [
+        "UDP packets mapped correctly via id6 hit; id8 is unrelated/variable.",
+        "Full packet dump confirmed 0x00B1 length=0x22 for 16-word IO: 2-byte seq + 32-byte IO."
+      ]
+    },
+    "public_qml_api": {
+      "signals": [
+        "ioUpdated(int robotIndex)",
+        "stateChanged(int robotIndex)",
+        "faulted(int robotIndex, string text)",
+        "configChanged(int robotIndex)",
+        "logUpdated(int robotIndex)"
+      ],
+      "slots_getters": [
+        "getState(i) -> int",
+        "getInputs(i) -> list<int>",
+        "getOutputs(i) -> list<int>",
+        "getLastRxMs(i) -> int",
+        "getFault(i) -> string",
+        "getUdpCounts(i) -> [rx, tx]",
+        "getDebugLog(i) -> string",
+        "getConfig(i) -> {ip, port, slot, in_words, out_words}"
+      ],
+      "slots_actions": [
+        "setConfig(i, ip, port, slot, in_words, out_words)",
+        "connectRobot(i)",
+        "disconnectRobot(i)",
+        "clearDebugLog(i)"
+      ]
+    },
+    "known_good_config_example": {
+      "ip": "192.168.2.1",
+      "port": 44818,
+      "slot": 3,
+      "in_words": 16,
+      "out_words": 16
+    }
+  },
+  "qml_robot_comm_screen": {
+    "file": "ui_qml/RobotUI/screens/RobotCommScreen.qml",
+    "purpose": "Robot Communications page with robot selector buttons (1-4), CONFIG popup, status strip, and two 32-bit LED grids (Outputs left, Inputs right).",
+    "ui_layout": {
+      "top_bar": "Robot 1-4 selector + CONFIG button",
+      "status_strip": "State indicator + Last RX ms + Connect/Disconnect + Fault text",
+      "grids": {
+        "left": "ROBOT → HMI (Outputs) 32 bits LED grid",
+        "right": "HMI → ROBOT (Inputs) 32 bits LED grid"
+      },
+      "config_popup": "Edits ip/port/slot/in_words/out_words and calls RobotComm.setConfig()"
+    },
+    "current_limits": [
+      "Outputs confirmed working on all four robots at the protocol level; UI toggling/controls may still be pending depending on how outputs are being set.",
+      "Inputs are parsing but still need validation against known robot-side input bits."
+    ]
+  },
+  "next_tasks": [
+    {
+      "id": "robot_comm_005",
+      "task": "Validate input bit mapping against robot-side produced assembly (pick 3-5 known ON bits on robot 2 and confirm in UI).",
+      "notes": [
+        "Use robot-side forced bits or known status bits to confirm word/bit order.",
+        "Confirm endianness and bit numbering (bit0 = LSB of word0)."
+      ]
+    },
+    {
+      "id": "robot_comm_006",
+      "task": "Add automatic reconnection per robot when watchdog detects RX timeout or socket/FO errors.",
+      "notes": [
+        "Current watchdog stops worker on >2s no RX; needs retry loop with backoff.",
+        "Should re-run full TCP/RegisterSession/ForwardOpen, then resume UDP cyclic.",
+        "Should update state/fault text so UI shows 'reconnecting' instead of dead."
+      ]
+    }
+  ]
+}

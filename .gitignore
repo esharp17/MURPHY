@@ -1,0 +1,20 @@
+# --- Python virtual environments (local-only Python folders) ---
+.venv/
+venv/
+andrew_venv_dont_use/
+
+# --- Python cache (auto-generated compiled files) ---
+__pycache__/
+*.pyc
+
+# --- PyInstaller outputs (auto-generated build + exe files) ---
+build/
+dist/
+andrew_build_dont_use/
+andrew_dist_dont_use/
+
+# --- Local runtime config (machine-specific settings like IP addresses) ---
+
+# --- OS junk ---
+Thumbs.db
+.DS_Store

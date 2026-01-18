@@ -1,0 +1,9 @@
+{
+  "DEBUG": false,
+  "robots": [
+    { "name":"R1", "ROBOT_IP":"192.168.2.1", "ETH_SLOT":3, "INPUT_SIZE":16, "OUTPUT_SIZE":16, "EIP_PORT":44818 },
+    { "name":"R2", "ROBOT_IP":"192.168.2.2", "ETH_SLOT":1, "INPUT_SIZE":4, "OUTPUT_SIZE":4, "EIP_PORT":44818 },
+    { "name":"R3", "ROBOT_IP":"192.168.2.3", "ETH_SLOT":1, "INPUT_SIZE":4, "OUTPUT_SIZE":4, "EIP_PORT":44818 },
+    { "name":"R4", "ROBOT_IP":"192.168.2.4", "ETH_SLOT":1, "INPUT_SIZE":4, "OUTPUT_SIZE":4, "EIP_PORT":44818 }
+  ]
+}

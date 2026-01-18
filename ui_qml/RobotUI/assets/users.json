@@ -1,0 +1,7 @@
+{
+  "users": [
+    { "username": "Andrew Lenehan", "display": "Andrew", "role": "Administrator", "pin": "111111" },
+    { "username": "Ben Hatch",     "display": "Ben",     "role": "Technician", "pin": "123456" },
+    { "username": "Jimmy C",     "display": "Jim",      "role": "Operator", "pin": "123456" }
+  ]
+}

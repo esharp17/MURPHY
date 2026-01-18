@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "role": 3,
+      "hash": "7a5bcb9b917551456b2a11c03a57353b5a04840fc8e9c62295730caf2b8f55f6",
+      "salt": "820d877cee2b32e1b49e019b0fda62a3"
+    },
+    {
+      "username": "operator",
+      "role": 1,
+      "hash": "d533e1a200b639d1d9cfe184e66efc22583b8f3fa5cfb41a687646edfbab7c8b",
+      "salt": "1d79152e82351c1c4ebb869c8fe14acd"
+    },
+    {
+      "username": "tech",
+      "role": 2,
+      "hash": "d7e3c508c6640a4c667c2085e0c4f6c31e02292e89ce128601445a6296af9efe",
+      "salt": "dcb0d2a3fbeb45fb17dd4c3f6d341971"
+    }
+  ]
+}
