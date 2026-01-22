@@ -39,3 +39,4 @@ class MockRobotBackend:
 
     def get_robot_io(self, robot_id: int) -> RobotIO:
         return self._state[robot_id]
+    print("dopme")
