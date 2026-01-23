@@ -79,7 +79,7 @@ Timer {
             z: 1
 
             labels: [
-                win.adminLoggedIn ? "Admin" : "Splash",
+                win.adminLoggedIn ? "Admin" : "Login",
                 "Robot Comm",
                 "Cell Status",
                 "Welding"
