@@ -45,10 +45,10 @@ Item {
     // ----------------------------
     // Local layout tuning
     // ----------------------------
-    property int tile_H: 36
+    property int tile_H: 28
     property int tile_PAD: 2
-    property int led_SZ: 14
-    property int grid_GAP: 8
+    property int led_SZ: 12
+    property int grid_GAP: 6
 
     // ----------------------------
     // I/O naming (loaded from JSON)
@@ -208,7 +208,7 @@ function loadIoNames() {
 
             Rectangle {
                 id: configBtn
-                width: 200
+                width: 140
                 height: parent.height
                 radius: Theme.radius
                 color: Theme.panel
@@ -390,8 +390,8 @@ function loadIoNames() {
         modal: true
         focus: true
         closePolicy: Popup.CloseOnPressOutside | Popup.CloseOnEscape
-        width: Math.min(root.width * 0.8, 900)
-        height: Math.min(root.height * 0.8, 700)
+        width: Math.min(root.width * 0.8, 700)
+        height: Math.min(root.height * 0.8, 500)
         x: (root.width - width) / 2
         y: (root.height - height) / 2
 

@@ -7,7 +7,7 @@ QtObject {
     property color panel: "#151a22"
     property color text: "#e8ecf2"
     property color muted: "#a7b0bf"
-    property color accent: "#3b82f6"
+    property color accent: '#54f63b'
     property color danger: "#ef4444"
 
     // sizing

@@ -86,8 +86,8 @@ Item {
 
             // ---- Logo ----
             Item {
-                width: 832
-                height: 526
+                width: 600
+                height: 380
                 visible: !root.adminModeActive
 
                 Image {
@@ -102,7 +102,7 @@ Item {
             // ---- User row ----
             Column {
                 spacing: Theme.gap
-                width: 900
+                width: 600
 
                 Text {
                     text: loggedIn
@@ -135,8 +135,8 @@ Item {
 
             // ---- Login / Logout button ----
             Rectangle {
-                width: 900
-                height: 84
+                width: 600
+                height: 64
                 radius: Theme.radius
                 color: Theme.accent
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -182,7 +182,7 @@ Item {
                 anchors.fill: parent
                 visible: root.adminModeActive
 
-                height: visible ? 640 : 0
+                height: visible ? 480 : 0
                 radius: Theme.radius
                 color: Theme.sideBtnpanel
                 border.width: 2
