@@ -2,19 +2,47 @@
 .venv/
 venv/
 andrew_venv_dont_use/
+.qtcreator/
+*.venv/
+
+# --- Qt Creator specific ---
+*.user
+*.user.*
+.qmake.stash
 
 # --- Python cache (auto-generated compiled files) ---
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
 # --- PyInstaller outputs (auto-generated build + exe files) ---
 build/
 dist/
 andrew_build_dont_use/
 andrew_dist_dont_use/
+*.spec
+
+# --- IDE settings ---
+.vscode/
+.idea/
+
+# --- Python distribution / packaging ---
+*.egg-info/
+*.egg
+.eggs/
 
 # --- Local runtime config (machine-specific settings like IP addresses) ---
+config.local.py
+*.local
 
 # --- OS junk ---
 Thumbs.db
 .DS_Store
+*~
+
+# --- Logs and databases ---
+*.log
+*.db
+*.sqlite
+*.sqlite3
