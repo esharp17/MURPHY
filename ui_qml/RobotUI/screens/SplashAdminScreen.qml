@@ -428,17 +428,16 @@ Item {
 
         contentItem: Item {
             anchors.fill: parent
-
             Rectangle {
                 id: panel
-                width: Math.min(root.padW, parent.width - (Theme.pad * 2))
+                width: Math.min(root.padW, parent.width*.7 - (Theme.pad * 2))
                 radius: Theme.radius
                 color: Theme.panel
                 border.width: 2
                 border.color: Theme.accent
 
                 anchors.horizontalCenter: parent.horizontalCenter
-                y: ((parent.height - height) / 2) - 420
+                y: ((parent.height - height) / 2)-325
 
                 Column {
                     anchors.fill: parent
@@ -469,7 +468,7 @@ Item {
                 // ===========================
                 Item {
                     width: parent.width
-                    height: 72
+                    height: 55
 
                     // passcode display
                     Rectangle {
@@ -525,7 +524,7 @@ Item {
                                            root.keyW,
                                            (panel.width - (Theme.pad * 2) - (root.keySpacing * (root.keyCols - 1))) / root.keyCols
                                        )
-                                height: root.keyH
+                                height: root.keyH - 30
                                 radius: Theme.radius
                                 color: Theme.sideBtnBase
                                 border.width: 2
@@ -558,7 +557,7 @@ Item {
 
                     Rectangle {
                         width: parent.width
-                        height: 84
+                        height: 60
                         radius: Theme.radius
                         color: Theme.accent
 

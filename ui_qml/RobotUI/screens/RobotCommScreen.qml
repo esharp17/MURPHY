@@ -13,6 +13,7 @@ import RobotUI 1.0
 Item {
     id: root
     anchors.fill: parent
+    anchors.margins: 10
 
     // ----------------------------
     // Auto-connect behavior
@@ -166,7 +167,7 @@ function loadIoNames() {
         Row {
             id: topBar
             width: parent.width
-            height: Theme.btnH
+            height: Theme.btnH - 5
             spacing: Theme.gap
             z: 1000
 
