@@ -1,5 +1,5 @@
 // ui_qml/RobotUI/screens/RobotCommScreen.qml
-// UPDATED: load I/O names from JSON per-robot in:
+// UPDATED: Scrollable I/O grids + load I/O names from JSON per-robot in:
 //   C:\Py\Murphy\ui_qml\RobotUI\assets\IO_config_Robot_N.json
 //
 // Expected JSON shape (example keys):
@@ -55,64 +55,63 @@ Item {
     // I/O naming (loaded from JSON)
     // - outNames = DI1..DI32 labels (HMI->ROBOT)
     // - inNames  = DO1..DO32 labels (ROBOT->HMI)
-// I/O name tables (DI1..DI32 for outputs grid, DO1..DO32 for inputs grid)
-property var outNames: []
-property var inNames:  []
+    property var outNames: []
+    property var inNames:  []
 
-function _defaultOutNames() {
-    var a = []
-    for (var i = 1; i <= 32; i++) a.push("OUT" + i)
-    return a
-}
-function _defaultInNames() {
-    var a = []
-    for (var i = 1; i <= 32; i++) a.push("IN" + i)
-    return a
-}
-
-function _ioFileUrlForRobot(idx) {
-    var n = idx + 1
-    // relative to this QML file; works in dev + PyInstaller
-    return Qt.resolvedUrl("../assets/IO_config_Robot_" + n + ".json")
-}
-
-// Expected JSON: { "DI1": {"label":"..."}, ..., "DO1": {"label":"..."}, ... }
-function loadIoNames() {
-    outNames = _defaultOutNames()
-    inNames  = _defaultInNames()
-
-    var url = _ioFileUrlForRobot(robotIndex)
-    console.log("IO_CONFIG load:", url)
-
-    var xhr = new XMLHttpRequest()
-    xhr.open("GET", url)
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState !== XMLHttpRequest.DONE) return
-
-        console.log("IO_CONFIG status:", xhr.status, "bytes:", xhr.responseText ? xhr.responseText.length : 0)
-
-        // file:// often returns 0 on success
-        if (!(xhr.status === 200 || xhr.status === 0)) return
-        if (!xhr.responseText || xhr.responseText.length < 2) return
-
-        var obj
-        try { obj = JSON.parse(xhr.responseText) }
-        catch (e) { console.log("IO_CONFIG JSON parse fail:", e); return }
-
-        var o = []
-        var inn = []
-        for (var i = 1; i <= 32; i++) {
-            var dik = "DI" + i
-            var dok = "DO" + i
-            o.push((obj[dik] && obj[dik].label) ? obj[dik].label : ("OUT" + i))
-            inn.push((obj[dok] && obj[dok].label) ? obj[dok].label : ("IN" + i))
-        }
-        outNames = o
-        inNames  = inn
-        console.log("IO_CONFIG loaded for robot", robotIndex + 1)
+    function _defaultOutNames() {
+        var a = []
+        for (var i = 1; i <= 32; i++) a.push("OUT" + i)
+        return a
     }
-    xhr.send()
-}
+    function _defaultInNames() {
+        var a = []
+        for (var i = 1; i <= 32; i++) a.push("IN" + i)
+        return a
+    }
+
+    function _ioFileUrlForRobot(idx) {
+        var n = idx + 1
+        // relative to this QML file; works in dev + PyInstaller
+        return Qt.resolvedUrl("../assets/IO_config_Robot_" + n + ".json")
+    }
+
+    // Expected JSON: { "DI1": {"label":"..."}, ..., "DO1": {"label":"..."}, ... }
+    function loadIoNames() {
+        outNames = _defaultOutNames()
+        inNames  = _defaultInNames()
+
+        var url = _ioFileUrlForRobot(robotIndex)
+        console.log("IO_CONFIG load:", url)
+
+        var xhr = new XMLHttpRequest()
+        xhr.open("GET", url)
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return
+
+            console.log("IO_CONFIG status:", xhr.status, "bytes:", xhr.responseText ? xhr.responseText.length : 0)
+
+            // file:// often returns 0 on success
+            if (!(xhr.status === 200 || xhr.status === 0)) return
+            if (!xhr.responseText || xhr.responseText.length < 2) return
+
+            var obj
+            try { obj = JSON.parse(xhr.responseText) }
+            catch (e) { console.log("IO_CONFIG JSON parse fail:", e); return }
+
+            var o = []
+            var inn = []
+            for (var i = 1; i <= 32; i++) {
+                var dik = "DI" + i
+                var dok = "DO" + i
+                o.push((obj[dik] && obj[dik].label) ? obj[dik].label : ("OUT" + i))
+                inn.push((obj[dok] && obj[dok].label) ? obj[dok].label : ("IN" + i))
+            }
+            outNames = o
+            inNames  = inn
+            console.log("IO_CONFIG loaded for robot", robotIndex + 1)
+        }
+        xhr.send()
+    }
 
     // ----------------------------
     // Helpers
@@ -247,7 +246,9 @@ function loadIoNames() {
             height: parent.height - topBar.height - (Theme.pad * 2)
             spacing: Theme.gap
 
+            // LEFT PANEL: HMI → ROBOT (Outputs)
             Rectangle {
+                id: outputsPanel
                 width: (gridsRow.width - Theme.gap) / 2
                 height: gridsRow.height
                 radius: Theme.radius
@@ -266,46 +267,55 @@ function loadIoNames() {
                         font.bold: true
                     }
 
-                    Grid {
-                        id: outGrid
+                    ScrollView {
                         width: parent.width
-                        columns: 2
-                        columnSpacing: grid_GAP
-                        rowSpacing: grid_GAP
+                        height: parent.height - parent.spacing - 20
+                        clip: true
+                        
+                        ScrollBar.vertical.policy: ScrollBar.AsNeeded
+                        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
-                        Repeater {
-                            model: 32
-                            delegate: Rectangle {
-                                width: (outGrid.width - (outGrid.columnSpacing * (outGrid.columns - 1))) / outGrid.columns
-                                height: tile_H
-                                radius: Theme.radius
-                                color: Theme.bg
+                        Grid {
+                            id: outGrid
+                            width: outputsPanel.width - Theme.pad * 2 - 10
+                            columns: 2
+                            columnSpacing: grid_GAP
+                            rowSpacing: grid_GAP
 
-                                readonly property int bitIndex: index
-                                readonly property int bitVal: root.bitFromWords(root.outputsWords, bitIndex)
+                            Repeater {
+                                model: 32
+                                delegate: Rectangle {
+                                    width: (outGrid.width - (outGrid.columnSpacing * (outGrid.columns - 1))) / outGrid.columns
+                                    height: tile_H
+                                    radius: Theme.radius
+                                    color: Theme.bg
 
-                                Row {
-                                    anchors.fill: parent
-                                    anchors.margins: tile_PAD
-                                    spacing: 10
+                                    readonly property int bitIndex: index
+                                    readonly property int bitVal: root.bitFromWords(root.outputsWords, bitIndex)
 
-                                    Rectangle {
-                                        width: led_SZ
-                                        height: led_SZ
-                                        radius: led_SZ / 2
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        color: bitVal ? "#00ff3a" : "#003300"
-                                    }
+                                    Row {
+                                        anchors.fill: parent
+                                        anchors.margins: tile_PAD
+                                        spacing: 10
 
-                                    Text {
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        text: (root.outNames && root.outNames.length > bitIndex) ? root.outNames[bitIndex] : ("OUT" + (bitIndex + 1))
-                                        color: Theme.text
-                                        font.family: Theme.fontFamily
-                                        font.pixelSize: Theme.body
-                                        font.bold: true
-                                        elide: Text.ElideRight
-                                        width: parent.width - (led_SZ + 18)
+                                        Rectangle {
+                                            width: led_SZ
+                                            height: led_SZ
+                                            radius: led_SZ / 2
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            color: bitVal ? "#00ff3a" : "#003300"
+                                        }
+
+                                        Text {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            text: (root.outNames && root.outNames.length > bitIndex) ? root.outNames[bitIndex] : ("OUT" + (bitIndex + 1))
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
+                                            elide: Text.ElideRight
+                                            width: parent.width - (led_SZ + 18)
+                                        }
                                     }
                                 }
                             }
@@ -314,7 +324,9 @@ function loadIoNames() {
                 }
             }
 
+            // RIGHT PANEL: ROBOT → HMI (Inputs)
             Rectangle {
+                id: inputsPanel
                 width: (gridsRow.width - Theme.gap) / 2
                 height: gridsRow.height
                 radius: Theme.radius
@@ -333,46 +345,55 @@ function loadIoNames() {
                         font.bold: true
                     }
 
-                    Grid {
-                        id: inGrid
+                    ScrollView {
                         width: parent.width
-                        columns: 2
-                        columnSpacing: grid_GAP
-                        rowSpacing: grid_GAP
+                        height: parent.height - parent.spacing - 20
+                        clip: true
+                        
+                        ScrollBar.vertical.policy: ScrollBar.AsNeeded
+                        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
-                        Repeater {
-                            model: 32
-                            delegate: Rectangle {
-                                width: (inGrid.width - (inGrid.columnSpacing * (inGrid.columns - 1))) / inGrid.columns
-                                height: tile_H
-                                radius: Theme.radius
-                                color: Theme.bg
+                        Grid {
+                            id: inGrid
+                            width: inputsPanel.width - Theme.pad * 2 - 10
+                            columns: 2
+                            columnSpacing: grid_GAP
+                            rowSpacing: grid_GAP
 
-                                readonly property int bitIndex: index
-                                readonly property int bitVal: root.bitFromWords(root.inputsWords, bitIndex)
+                            Repeater {
+                                model: 32
+                                delegate: Rectangle {
+                                    width: (inGrid.width - (inGrid.columnSpacing * (inGrid.columns - 1))) / inGrid.columns
+                                    height: tile_H
+                                    radius: Theme.radius
+                                    color: Theme.bg
 
-                                Row {
-                                    anchors.fill: parent
-                                    anchors.margins: tile_PAD
-                                    spacing: 10
+                                    readonly property int bitIndex: index
+                                    readonly property int bitVal: root.bitFromWords(root.inputsWords, bitIndex)
 
-                                    Rectangle {
-                                        width: led_SZ
-                                        height: led_SZ
-                                        radius: led_SZ / 2
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        color: bitVal ? "#00ff3a" : "#003300"
-                                    }
+                                    Row {
+                                        anchors.fill: parent
+                                        anchors.margins: tile_PAD
+                                        spacing: 10
 
-                                    Text {
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        text: (root.inNames && root.inNames.length > bitIndex) ? root.inNames[bitIndex] : ("IN" + (bitIndex + 1))
-                                        color: Theme.text
-                                        font.family: Theme.fontFamily
-                                        font.pixelSize: Theme.body
-                                        font.bold: true
-                                        elide: Text.ElideRight
-                                        width: parent.width - (led_SZ + 18)
+                                        Rectangle {
+                                            width: led_SZ
+                                            height: led_SZ
+                                            radius: led_SZ / 2
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            color: bitVal ? "#00ff3a" : "#003300"
+                                        }
+
+                                        Text {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            text: (root.inNames && root.inNames.length > bitIndex) ? root.inNames[bitIndex] : ("IN" + (bitIndex + 1))
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
+                                            elide: Text.ElideRight
+                                            width: parent.width - (led_SZ + 18)
+                                        }
                                     }
                                 }
                             }
@@ -384,7 +405,7 @@ function loadIoNames() {
     }
 
     // ----------------------------
-    // Config popup (unchanged)
+    // Config popup
     // ----------------------------
     Popup {
         id: configPopup

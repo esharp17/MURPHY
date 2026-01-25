@@ -12,7 +12,7 @@ Rectangle {
     // TUNING KNOBS (edit these to move/size things)
     // ============================================================
     // Split: left 2/3, right 1/3
-    property real splitLeftFrac: 0.7
+    property real splitLeftFrac: 0.65
 
     // Padding + gaps
     property int outerPad: Theme.pad
@@ -29,6 +29,9 @@ Rectangle {
     // Robot panel internal control sizes
     property real panelBtnHFrac: 0.16
     property real panelBtnWFrac: 0.46
+    
+    // Ring horizontal offset (positive = right, negative = left)
+    property real ringOffsetX: 80  // <-- NEW: shift ring to the right
     // ============================================================
 
     // ---------- wire later ----------
@@ -306,6 +309,7 @@ Rectangle {
             Item {
                 id: ringArea
                 anchors.centerIn: parent
+                anchors.horizontalCenterOffset: root.ringOffsetX  // <-- APPLY OFFSET HERE
                 width: Math.min(leftPane.width, leftPane.height)
                 height: width
 
@@ -422,7 +426,7 @@ Rectangle {
                             property real aimDegW: aimRadW * 180.0 / Math.PI
                             property real link2DegW: (th1 + th2) * 180.0 / Math.PI
 
-                            // “moving” detector based on posDeg changing
+                            // "moving" detector based on posDeg changing
                             property bool isMoving: false
 
                             Timer {
@@ -784,8 +788,8 @@ Rectangle {
                         item.name = "Robot 1"
                         item.pos = 0
 
-                        item.x = -90
-                        item.y = 0
+                        item.x = -ringArea.panelW - 80 // <-- ADJUSTED: position panel to left of ring
+                        item.y = -20
                     }
 
                     Binding {
@@ -815,7 +819,7 @@ Rectangle {
                 // -------- indicators (upper half) --------
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: rightPane.height * 0.45
+                    Layout.preferredHeight: rightPane.height * 0.42
                     radius: Theme.radius
                     color: Theme.sideBtnpanel
 
@@ -830,6 +834,7 @@ Rectangle {
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.h2
                             font.bold: true
+                            Layout.fillWidth: true
                         }
 
                         Component {
@@ -849,8 +854,8 @@ Rectangle {
 
                                 ColumnLayout {
                                     anchors.fill: parent
-                                    anchors.margins: Theme.pad
-                                    spacing: 6
+                                    anchors.margins: 4
+                                    spacing: 2
 
                                     Text {
                                         text: t.label
@@ -860,17 +865,18 @@ Rectangle {
                                         font.bold: true
                                         Layout.fillWidth: true
                                         horizontalAlignment: Text.AlignHCenter
+                                        elide: Text.ElideRight
                                     }
 
                                     RowLayout {
                                         Layout.fillWidth: true
-                                        spacing: Theme.gap
+                                        spacing: 4
                                         Layout.alignment: Qt.AlignHCenter
 
                                         Rectangle {
-                                            width: 14
-                                            height: 14
-                                            radius: 7
+                                            width: 12
+                                            height: 12
+                                            radius: 6
                                             color: t.on ? "#1fbf4a" : "#8a8a8a"
                                         }
 
@@ -878,7 +884,7 @@ Rectangle {
                                             text: t.on ? t.onText : t.offText
                                             color: Theme.text
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.fontMed
+                                            font.pixelSize: Theme.fontSmall
                                         }
                                     }
                                 }
@@ -929,12 +935,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
                             columns: 2
-                            rowSpacing: Theme.gap
-                            columnSpacing: Theme.gap
+                            rowSpacing: 4
+                            columnSpacing: 4
 
                             Loader {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
+                                Layout.minimumHeight: 40
                                 sourceComponent: indicatorTile
                                 onLoaded: {
                                     item.label = "Door 1"
@@ -947,6 +954,7 @@ Rectangle {
                             Loader {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
+                                Layout.minimumHeight: 40
                                 sourceComponent: indicatorTile
                                 onLoaded: {
                                     item.label = "Door 2"
@@ -959,6 +967,7 @@ Rectangle {
                             Loader {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
+                                Layout.minimumHeight: 40
                                 sourceComponent: indicatorTile
                                 onLoaded: {
                                     item.label = "Floor"
@@ -971,6 +980,7 @@ Rectangle {
                             Loader {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
+                                Layout.minimumHeight: 40
                                 sourceComponent: indicatorTile
                                 onLoaded: {
                                     item.label = "Fans"
@@ -983,6 +993,7 @@ Rectangle {
                             Loader {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
+                                Layout.minimumHeight: 40
                                 sourceComponent: indicatorTile
                                 onLoaded: {
                                     item.label = "Lights"
