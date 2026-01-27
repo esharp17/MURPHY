@@ -16,6 +16,7 @@ ApplicationWindow {
     property bool sessionLoggedIn: false
     property string sessionUser: ""
     property bool sessionIsAdmin: false
+    property int sessionRole: 0  // Role enum: 0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN
 
 // Main.qml (ApplicationWindow)
 // Global robot comm watchdog:
@@ -88,15 +89,19 @@ Timer {
             currentIndex: win.tabIndex
 
             onTabSelected: (i) => {
-                if (i === 3 && !win.sessionLoggedIn)
+                // Check if user has permission to access this page
+                if (!PermissionChecker.canAccessPage(i, win.sessionRole)) {
+                    console.log("Access denied to page " + i + " with role " + win.sessionRole)
                     return
+                }
                 win.tabIndex = i
             }
 
             // safety net if someone sets tabIndex directly
             onCurrentIndexChanged: {
-                if (currentIndex === 3 && !win.sessionLoggedIn)
+                if (!PermissionChecker.canAccessPage(currentIndex, win.sessionRole)) {
                     win.tabIndex = 0
+                }
             }
         }
 
@@ -152,6 +157,7 @@ Timer {
             onLoggedInChanged: win.sessionLoggedIn = loggedIn
             onLoggedInUserChanged: win.sessionUser = loggedInUser
             onLoggedInIsAdminChanged: win.sessionIsAdmin = loggedInIsAdmin
+            onLoggedInRoleChanged: win.sessionRole = loggedInRole
         }
     }
 

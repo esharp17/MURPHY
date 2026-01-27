@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Optional
 from robot_ui.models import User, Role
+from robot_ui.permissions import can_access_page_by_index
 
 
 @dataclass
@@ -23,3 +24,7 @@ class AppState:
             self.login_time = None
         else:
             self.login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    def can_access_page(self, page_index: int) -> bool:
+        """Check if the current user can access a page by index."""
+        return can_access_page_by_index(page_index, self.role())

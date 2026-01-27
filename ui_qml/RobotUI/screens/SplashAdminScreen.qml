@@ -10,6 +10,7 @@ Item {
     property bool loggedIn: false
     property string loggedInUser: ""
     property bool loggedInIsAdmin: false
+    property int loggedInRole: 0  // Role enum: 0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN
 
     // local UI state
     property string passcode: ""
@@ -20,11 +21,6 @@ Item {
     property int keyH: 120
     property int keySpacing: Theme.gap
     property int padW: (keyW * keyCols) + (keySpacing * (keyCols - 1)) + (Theme.pad * 2)
-
-    // admin editor UI (in-memory only for now)
-    property string editUserName: ""
-    property string editPasscode: ""
-    property bool showPasscode: false
 
     // login data (loaded from JSON)
     ListModel { id: usersModel }
@@ -84,7 +80,7 @@ Item {
             anchors.topMargin: Theme.pad * 2
             spacing: Theme.gap * 2
 
-            // ---- Logo ----
+            // ---- Logo (only shown when NOT in admin mode) ----
             Item {
                 width: 600
                 height: 380
@@ -99,10 +95,11 @@ Item {
                 }
             }
 
-            // ---- User row ----
+            // ---- User row (only shown when NOT in admin mode) ----
             Column {
                 spacing: Theme.gap
                 width: 600
+                visible: !root.adminModeActive
 
                 Text {
                     text: loggedIn
@@ -112,34 +109,32 @@ Item {
                     font.pixelSize: Theme.fontMed
                 }
 
-                    ComboBox {
-                        id: userBox
-                        width: parent.width
-                        height: 64
-                        enabled: !loggedIn
+                ComboBox {
+                    id: userBox
+                    width: parent.width
+                    height: 64
+                    enabled: !loggedIn
 
-                        model: usersModel
-                        textRole: "display"
+                    model: usersModel
+                    textRole: "display"
 
-                        currentIndex: root.userIndex
+                    currentIndex: root.userIndex
 
-                        onCurrentIndexChanged: {
-                            root.userIndex = (currentIndex >= 0 ? currentIndex : 0)
-                            root.userChosen = (usersModel.count > 0)
-                        }
+                    onCurrentIndexChanged: {
+                        root.userIndex = (currentIndex >= 0 ? currentIndex : 0)
+                        root.userChosen = (usersModel.count > 0)
                     }
-
-
                 }
-            
+            }
 
-            // ---- Login / Logout button ----
+            // ---- Login / Logout button (only shown when NOT in admin mode) ----
             Rectangle {
                 width: 600
                 height: 64
                 radius: Theme.radius
                 color: Theme.accent
                 anchors.horizontalCenter: parent.horizontalCenter
+                visible: !root.adminModeActive
 
                 Text {
                     anchors.centerIn: parent
@@ -161,6 +156,7 @@ Item {
                             root.loggedIn = false
                             root.loggedInUser = ""
                             root.loggedInIsAdmin = false
+                            root.loggedInRole = 0
                             root.passcode = ""
                             return
                         }
@@ -175,120 +171,32 @@ Item {
                     }
                 }
             }
-}
+
             // ---- Admin Panel (only when admin logged in) ----
             Rectangle {
                 id: adminPanel
-                anchors.fill: parent
+                width: 1200
+                height: adminGrid.height + (Theme.pad * 2)
                 visible: root.adminModeActive
-
-                height: visible ? 480 : 0
                 radius: Theme.radius
-                color: Theme.sideBtnpanel
-                border.width: 2
+                color: "transparent"
+                border.width: 0
                 border.color: Theme.accent
 
-                Column {
-                    anchors.fill: parent
+                Grid {
+                    id: adminGrid
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.top: parent.top
                     anchors.margins: Theme.pad
-                    spacing: Theme.gap
-
-                    Text {
-                        text: "Admin"
-                        color: Theme.text
-                        font.pixelSize: Theme.fontLg
-                        font.bold: true
-                    }
-
-                    Rectangle {
-                        width: parent.width
-                        height: 220
-                        radius: Theme.radius
-                        color: Qt.darker(Theme.panel, 1.05)
-                        border.width: 2
-                        border.color: "#2a3442"
-
-                        Column {
-                            anchors.fill: parent
-                            anchors.margins: Theme.pad
-                            spacing: Theme.gap
-
-                            Text {
-                                text: "User + Passcode Editor"
-                                color: Theme.text
-                                font.pixelSize: Theme.fontMed
-                                font.bold: true
-                            }
-
-                            Row {
-                                spacing: Theme.gap
-                                width: parent.width
-
-                                Column {
-                                    spacing: 6
-                                    width: (parent.width - Theme.gap) * 0.60
-
-                                    Text { text: "Username"; color: Theme.text; font.pixelSize: Theme.fontMed }
-
-                                    TextField {
-                                        width: parent.width
-                                        height: 64
-                                        text: root.editUserName
-                                        onTextChanged: root.editUserName = text
-                                        font.pixelSize: Theme.fontMed
-                                        placeholderText: "e.g. operator1"
-                                    }
-                                }
-
-                                Column {
-                                    spacing: 6
-                                    width: (parent.width - Theme.gap) * 0.40
-
-                                    Text { text: "Passcode (6)"; color: Theme.text; font.pixelSize: Theme.fontMed }
-
-                                    TextField {
-                                        width: parent.width
-                                        height: 64
-                                        text: root.editPasscode
-                                        echoMode: root.showPasscode ? TextInput.Normal : TextInput.Password
-                                        inputMethodHints: Qt.ImhDigitsOnly
-                                        validator: RegularExpressionValidator { regularExpression: /^[0-9]{0,6}$/ }
-                                        onTextChanged: root.editPasscode = text
-                                        font.pixelSize: Theme.fontMed
-                                        placeholderText: "000000"
-                                    }
-                                }
-                            }
-
-                            Row {
-                                spacing: Theme.gap
-                                width: parent.width
-
-                                CheckBox {
-                                    checked: root.showPasscode
-                                    text: "Show passcode"
-                                    onCheckedChanged: root.showPasscode = checked
-                                }
-                            }
-                        }
-                    }
-
-                    Text {
-                        text: "Actions"
-                        color: Theme.text
-                        font.pixelSize: Theme.fontMed
-                        font.bold: true
-                    }
-
-                    Grid {
-                        columns: 2
-                        columnSpacing: Theme.gap
-                        rowSpacing: Theme.gap
-                        width: parent.width
+                    columns: 2
+                    rows: 3
+                    columnSpacing: Theme.gap
+                    rowSpacing: Theme.gap
 
                         Rectangle {
-                            width: (parent.width - Theme.gap) / 2
-                            height: 96
+                            width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
+                            height: 190
                             radius: Theme.radius
                             color: Theme.accent
 
@@ -304,8 +212,8 @@ Item {
                         }
 
                         Rectangle {
-                            width: (parent.width - Theme.gap) / 2
-                            height: 96
+                            width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
+                            height: 190
                             radius: Theme.radius
                             color: Theme.accent
 
@@ -321,8 +229,8 @@ Item {
                         }
 
                         Rectangle {
-                            width: (parent.width - Theme.gap) / 2
-                            height: 96
+                            width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
+                            height: 190
                             radius: Theme.radius
                             color: Theme.accent
 
@@ -338,8 +246,8 @@ Item {
                         }
 
                         Rectangle {
-                            width: (parent.width - Theme.gap) / 2
-                            height: 96
+                            width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
+                            height: 190
                             radius: Theme.radius
                             color: Theme.accent
 
@@ -353,32 +261,27 @@ Item {
 
                             MouseArea { anchors.fill: parent; onPressed: console.log("ADMIN: restart ui") }
                         }
-                    }
-
-                    Row {
-                        spacing: Theme.gap
-                        width: parent.width
 
                         Rectangle {
-                            width: (parent.width - Theme.gap) / 2
-                            height: 84
+                            width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
+                            height: 190
                             radius: Theme.radius
-                            color: Qt.darker(Theme.accent, 1.1)
+                            color: Theme.accent
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "SAVE USER/PASSCODE"
+                                text: "EDIT USERS"
                                 color: Theme.panel
                                 font.pixelSize: Theme.fontMed
                                 font.bold: true
                             }
 
-                            MouseArea { anchors.fill: parent; onPressed: console.log("ADMIN: save user/pass", root.editUserName, root.editPasscode) }
+                            MouseArea { anchors.fill: parent; onPressed: console.log("ADMIN: edit users") }
                         }
 
                         Rectangle {
-                            width: (parent.width - Theme.gap) / 2
-                            height: 84
+                            width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
+                            height: 190
                             radius: Theme.radius
                             color: Qt.darker(Theme.panel, 1.1)
                             border.width: 2
@@ -386,26 +289,27 @@ Item {
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "Log Out"
+                                text: "LOG OUT"
                                 color: Theme.text
                                 font.pixelSize: Theme.fontMed
                                 font.bold: true
                             }
 
                             MouseArea {
-                                    anchors.fill: parent
-                                    onPressed: {
-                                        root.loggedIn = false
-                                        root.loggedInUser = ""
-                                        root.loggedInIsAdmin = false
-                                        root.passcode = ""
-                                    }
+                                anchors.fill: parent
+                                onPressed: {
+                                    root.loggedIn = false
+                                    root.loggedInUser = ""
+                                    root.loggedInIsAdmin = false
+                                    root.loggedInRole = 0
+                                    root.passcode = ""
+                                }
                             }
                         }
                     }
-                }
             }
         }
+    }
     
     // ===== PASSCODE MODAL (all users) =====
     Popup {
@@ -591,6 +495,14 @@ Item {
                                 root.loggedIn = true
                                 root.loggedInUser = root.selectedDisplay
                                 root.loggedInIsAdmin = root.isAdminRole
+                                // Map role string to Role enum: "Operator"=1, "Technician"=2, "Administrator"=3
+                                if (root.selectedRole === "Administrator") {
+                                    root.loggedInRole = 3
+                                } else if (root.selectedRole === "Technician") {
+                                    root.loggedInRole = 2
+                                } else {
+                                    root.loggedInRole = 1  // default to Operator
+                                }
                                 root.passcode = ""
                                 pinPopup.close()
                             }
