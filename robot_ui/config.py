@@ -37,7 +37,13 @@ else:
 
 DATA_DIR = BASE_DIR / "data"
 
-USERS_JSON = DATA_DIR / "users.json"
+# QML loads users from ui_qml/RobotUI/assets/users.json, so we need to point there
+# When frozen (packaged), we use data/users.json; when developing, we use the QML assets location
+if getattr(sys, "frozen", False):
+    USERS_JSON = DATA_DIR / "users.json"
+else:
+    # Point to the QML assets location during development
+    USERS_JSON = BASE_DIR.parent / "ui_qml" / "RobotUI" / "assets" / "users.json"
 SIGNAL_NAMES_JSON = DATA_DIR / "signal_names.json"
 SYSTEM_LOG_JSONL = DATA_DIR / "system_log.jsonl"
 

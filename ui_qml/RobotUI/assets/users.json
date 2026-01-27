@@ -1,7 +1,36 @@
 {
   "users": [
-    { "username": "Andrew Lenehan", "display": "Andrew", "role": "Administrator", "pin": "111111" },
-    { "username": "Ben Hatch",     "display": "Ben",     "role": "Technician", "pin": "123456" },
-    { "username": "Jimmy C",     "display": "Jim",      "role": "Operator", "pin": "123456" }
+    {
+      "username": "Andrew Lenehan",
+      "firstName": "Andrew",
+      "lastName": "Lenehan",
+      "role": "Administrator",
+      "pin": "111111",
+      "hash": "fc5ef89094095da3b4ec51d225b55df2ce052080f4f5f1ce4738dfb2ab15c6c1",
+      "salt": "9d84f67b6abc65cac978f93441ee151a"
+    },
+    {
+      "username": "Ben Hatch",
+      "firstName": "Ben",
+      "lastName": "Hatch",
+      "role": "Technician",
+      "pin": "123456"
+    },
+    {
+      "username": "Jimmy C",
+      "firstName": "Jimmy",
+      "lastName": "C",
+      "role": "Operator",
+      "pin": "123456"
+    },
+    {
+      "username": "Evan Sharp",
+      "firstName": "Evan",
+      "lastName": "Sharp",
+      "role": "Administrator",
+      "hash": "55d30d8ad8f90c38f704c1de187404894027469fc5f1b44a0567312dcc2554cc",
+      "salt": "63d7d40476fd73d60182daa725548920",
+      "pin": "121213"
+    }
   ]
 }

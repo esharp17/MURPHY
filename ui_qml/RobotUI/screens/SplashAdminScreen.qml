@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 import RobotUI 1.0
 
 Item {
@@ -30,6 +31,10 @@ Item {
 
     // passcode error UI (popup)
     property bool pinErrorVisible: false
+    
+    // user management UI
+    property bool userManagementVisible: false
+    ListModel { id: allUsersModel }
 
     function loadUsers() {
         var xhr = new XMLHttpRequest()
@@ -58,9 +63,19 @@ Item {
 
     Component.onCompleted: loadUsers()
 
+    // Listen for user changes from UserService and reload
+    Connections {
+        target: UserService
+        function onUsersChanged() {
+            root.loadUsers()
+        }
+    }
+
     // derived
     readonly property string selectedUser: (usersModel.count > 0) ? (usersModel.get(userIndex).username || "") : ""
-    readonly property string selectedDisplay: (usersModel.count > 0) ? (usersModel.get(userIndex).display || "") : ""
+    readonly property string selectedFirstName: (usersModel.count > 0) ? (usersModel.get(userIndex).firstName || "") : ""
+    readonly property string selectedLastName: (usersModel.count > 0) ? (usersModel.get(userIndex).lastName || "") : ""
+    readonly property string selectedFullName: selectedFirstName + " " + selectedLastName
     readonly property string selectedRole: (usersModel.count > 0) ? (usersModel.get(userIndex).role || "") : ""
     readonly property string selectedPin: (usersModel.count > 0) ? (usersModel.get(userIndex).pin || "") : ""
     readonly property bool isAdminRole: selectedRole === "Administrator"
@@ -116,7 +131,18 @@ Item {
                     enabled: !loggedIn
 
                     model: usersModel
-                    textRole: "display"
+                    textRole: "fullName"
+
+                    // Add delegate to compute fullName from firstName and lastName
+                    delegate: ItemDelegate {
+                        width: userBox.width
+                        text: model.firstName + " " + model.lastName
+                        highlighted: userBox.highlightedIndex === index
+                    }
+
+                    displayText: (usersModel.count > 0 && currentIndex >= 0)
+                                 ? (usersModel.get(currentIndex).firstName + " " + usersModel.get(currentIndex).lastName)
+                                 : ""
 
                     currentIndex: root.userIndex
 
@@ -276,7 +302,7 @@ Item {
                                 font.bold: true
                             }
 
-                            MouseArea { anchors.fill: parent; onPressed: console.log("ADMIN: edit users") }
+                            MouseArea { anchors.fill: parent; onPressed: root.userManagementVisible = true }
                         }
 
                         Rectangle {
@@ -493,7 +519,7 @@ Item {
 
                                 root.pinErrorVisible = false
                                 root.loggedIn = true
-                                root.loggedInUser = root.selectedDisplay
+                                root.loggedInUser = root.selectedFullName
                                 root.loggedInIsAdmin = root.isAdminRole
                                 // Map role string to Role enum: "Operator"=1, "Technician"=2, "Administrator"=3
                                 if (root.selectedRole === "Administrator") {
@@ -531,6 +557,561 @@ Item {
                                 root.passcode = ""
                                 root.pinErrorVisible = false
                                 pinPopup.close()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // ===== USER MANAGEMENT PAGE =====
+    Rectangle {
+        id: userManagementPanel
+        anchors.fill: parent
+        visible: root.userManagementVisible
+        color: "#000000"
+        opacity: 0.95
+        z: 100
+        
+        Column {
+            anchors.fill: parent
+            anchors.margins: Theme.pad
+            spacing: Theme.gap
+            
+            // Header
+            Row {
+                width: parent.width
+                spacing: Theme.gap
+                
+                Rectangle {
+                    width: parent.width - 200 - Theme.gap
+                    height: 80
+                    radius: Theme.radius
+                    color: Theme.panel
+                    border.width: 2
+                    border.color: Theme.accent
+                    
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: Theme.pad
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "User Management"
+                        color: Theme.text
+                        font.pixelSize: Theme.fontLg
+                        font.bold: true
+                    }
+                }
+                
+                Rectangle {
+                    width: 200
+                    height: 80
+                    radius: Theme.radius
+                    color: Theme.accent
+                    
+                    Text {
+                        anchors.centerIn: parent
+                        text: "Close"
+                        color: Theme.panel
+                        font.pixelSize: Theme.fontMed
+                        font.bold: true
+                    }
+                    
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed: root.userManagementVisible = false
+                    }
+                }
+            }
+            
+            // Content Area with tabs/sections
+            Rectangle {
+                width: parent.width
+                height: parent.parent.height - 80 - Theme.gap - (Theme.pad * 2)
+                radius: Theme.radius
+                color: Theme.panel
+                border.width: 2
+                border.color: Theme.accent
+                
+                Column {
+                    anchors.fill: parent
+                    anchors.margins: Theme.pad
+                    spacing: Theme.gap
+                    
+                    // View Users Section
+                    Text {
+                        text: "Manage Users"
+                        color: Theme.text
+                        font.pixelSize: Theme.fontMed
+                        font.bold: true
+                    }
+                    
+                    // User Selection and Quick Actions
+                    Row {
+                        width: parent.width
+                        spacing: Theme.gap
+                        
+                        Column {
+                            width: 450
+                            spacing: 4
+                            
+                            Text {
+                                text: "Select User"
+                                color: Theme.text
+                                font.pixelSize: Theme.fontSm
+                            }
+                            
+                            ComboBox {
+                                id: userComboBox
+                                width: parent.width
+                                height: 48
+                                model: usersModel
+                                textRole: "fullName"
+
+                                delegate: ItemDelegate {
+                                    width: userComboBox.width
+                                    text: model.firstName + " " + model.lastName
+                                }
+
+                                displayText: (usersModel.count > 0 && currentIndex >= 0)
+                                             ? (usersModel.get(currentIndex).firstName + " " + usersModel.get(currentIndex).lastName)
+                                             : ""
+
+                                onCurrentIndexChanged: {
+                                    if (currentIndex >= 0 && usersModel.count > 0) {
+                                        var user = usersModel.get(currentIndex)
+                                        root.selectedEditUser = user.username || ""
+                                        root.selectedEditFirstName = user.firstName || ""
+                                        root.selectedEditLastName = user.lastName || ""
+                                        root.selectedEditRole = user.role || "Operator"
+                                        root.editPasscode = user.pin || ""
+                                    }
+                                }
+                            }
+                        }
+                        
+                        Column {
+                            width: 190
+                            spacing: 4
+                            
+                            Text {
+                                text: " "
+                                color: Theme.text
+                                font.pixelSize: Theme.fontSm
+                            }
+                            
+                            Rectangle {
+                                width: parent.width
+                                height: 48
+                                radius: Theme.radius
+                                color: Theme.accent
+                                
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: "Edit Selected"
+                                    color: Theme.panel
+                                    font.pixelSize: Theme.fontSm
+                                    font.bold: true
+                                }
+                                
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onPressed: {
+                                        if (userComboBox.currentIndex >= 0) {
+                                            editDialogVisible = true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Users List
+                    Rectangle {
+                        width: parent.width
+                        height: 300
+                        radius: Theme.radius
+                        color: Qt.darker(Theme.panel, 1.05)
+                        border.width: 1
+                        border.color: "#2a3442"
+                        
+                        ListView {
+                            anchors.fill: parent
+                            anchors.margins: Theme.pad
+                            model: usersModel
+                            spacing: Theme.gap
+                            clip: true
+                            
+                            delegate: Rectangle {
+                                width: ListView.view.width
+                                height: 72
+                                radius: Theme.radius
+                                color: root.selectedEditUser === username ? Theme.accent : "#1a1f2e"
+                                border.width: 1
+                                border.color: root.selectedEditUser === username ? Theme.accent : "#2a3442"
+                                
+                                Row {
+                                    anchors.fill: parent
+                                    anchors.margins: Theme.pad
+                                    spacing: Theme.gap
+                                    
+                                    Column {
+                                        width: 200
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        
+                                        Text {
+                                            text: "First Name"
+                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
+                                            font.pixelSize: Theme.fontSm
+                                            opacity: 0.7
+                                        }
+                                        
+                                        Text {
+                                            text: firstName || "Unknown"
+                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
+                                            font.pixelSize: Theme.fontMed
+                                            font.bold: true
+                                        }
+                                    }
+
+                                    Column {
+                                        width: 200
+                                        anchors.verticalCenter: parent.verticalCenter
+
+                                        Text {
+                                            text: "Last Name"
+                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
+                                            font.pixelSize: Theme.fontSm
+                                            opacity: 0.7
+                                        }
+
+                                        Text {
+                                            text: lastName || "Unknown"
+                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
+                                            font.pixelSize: Theme.fontMed
+                                            font.bold: true
+                                        }
+                                    }
+                                    
+                                    Column {
+                                        width: parent.width - 520
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        
+                                        Text {
+                                            text: "Role"
+                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
+                                            font.pixelSize: Theme.fontSm
+                                            opacity: 0.7
+                                        }
+                                        
+                                        Text {
+                                            text: role || "No Role"
+                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
+                                            font.pixelSize: Theme.fontMed
+                                            font.bold: true
+                                        }
+                                    }
+                                    
+                                    Rectangle {
+                                        width: 100
+                                        height: parent.height
+                                        radius: Theme.radius
+                                        color: root.selectedEditUser === username ? Qt.darker(Theme.accent, 1.2) : Theme.accent
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "Edit"
+                                            color: Theme.panel
+                                            font.pixelSize: Theme.fontMed
+                                            font.bold: true
+                                        }
+                                        
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onPressed: {
+                                                root.selectedEditUser = username || ""
+                                                root.selectedEditFirstName = firstName || ""
+                                                root.selectedEditLastName = lastName || ""
+                                                root.selectedEditRole = role || "Operator"
+                                                root.editPasscode = pin || ""
+                                                editDialogVisible = true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Add New User Section
+                    Row {
+                        width: parent.width
+                        spacing: Theme.gap
+                        
+                        Rectangle {
+                            width: parent.width
+                            height: 56
+                            radius: Theme.radius
+                            color: Theme.accent
+                            
+                            Text {
+                                anchors.centerIn: parent
+                                text: "Add New User"
+                                color: Theme.panel
+                                font.pixelSize: Theme.fontMed
+                                font.bold: true
+                            }
+                            
+                            MouseArea {
+                                anchors.fill: parent
+                                onPressed: {
+                                    root.selectedEditUser = ""
+                                    root.selectedEditFirstName = ""
+                                    root.selectedEditLastName = ""
+                                    root.editPasscode = ""
+                                    root.selectedEditRole = "Operator"
+                                    editDialogVisible = true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Edit User Dialog
+    property string selectedEditUser: ""
+    property string selectedEditFirstName: ""
+    property string selectedEditLastName: ""
+    property string editPasscode: ""
+    property string selectedEditRole: "Operator"
+    property bool editDialogVisible: false
+    
+    Popup {
+        id: editUserPopup
+        modal: true
+        focus: true
+        width: parent.width
+        height: parent.height
+        visible: editDialogVisible
+        closePolicy: Popup.NoAutoClose
+        
+        background: Rectangle {
+            color: "#000000"
+            opacity: 0.65
+        }
+        
+        contentItem: Item {
+            anchors.fill: parent
+            
+            Rectangle {
+                width: 600
+                height: 580
+                radius: Theme.radius
+                color: Theme.panel
+                border.width: 2
+                border.color: Theme.accent
+
+                anchors.centerIn: parent
+                
+                Column {
+                    anchors.fill: parent
+                    anchors.margins: Theme.pad
+                    spacing: Theme.gap
+                    
+                    Text {
+                        text: selectedEditUser ? "Edit User" : "Add New User"
+                        color: Theme.text
+                        font.pixelSize: Theme.fontLg
+                        font.bold: true
+                    }
+                    
+                    // First Name
+                    Column {
+                        width: parent.width
+                        spacing: 4
+
+                        Text {
+                            text: "First Name *"
+                            color: Theme.text
+                            font.pixelSize: Theme.fontSm
+                        }
+
+                        TextField {
+                            id: firstNameField
+                            width: parent.width
+                            height: 48
+                            text: root.selectedEditFirstName
+                            onTextChanged: root.selectedEditFirstName = text
+                            font.pixelSize: Theme.fontMed
+                            placeholderText: "Required"
+                        }
+                    }
+
+                    // Last Name
+                    Column {
+                        width: parent.width
+                        spacing: 4
+
+                        Text {
+                            text: "Last Name *"
+                            color: Theme.text
+                            font.pixelSize: Theme.fontSm
+                        }
+
+                        TextField {
+                            id: lastNameField
+                            width: parent.width
+                            height: 48
+                            text: root.selectedEditLastName
+                            onTextChanged: root.selectedEditLastName = text
+                            font.pixelSize: Theme.fontMed
+                            placeholderText: "Required"
+                        }
+                    }
+                    
+                    // Passcode
+                    Column {
+                        width: parent.width
+                        spacing: 4
+
+                        Text {
+                            text: "Passcode (6 digits) *"
+                            color: Theme.text
+                            font.pixelSize: Theme.fontSm
+                        }
+
+                        TextField {
+                            id: passcodeField
+                            width: parent.width
+                            height: 48
+                            text: root.editPasscode
+                            inputMethodHints: Qt.ImhDigitsOnly
+                            validator: RegularExpressionValidator { regularExpression: /^[0-9]{0,6}$/ }
+                            onTextChanged: root.editPasscode = text
+                            font.pixelSize: Theme.fontMed
+                            placeholderText: "Required"
+                        }
+                    }
+                    
+                    // Role
+                    Column {
+                        width: parent.width
+                        spacing: 4
+
+                        Text {
+                            text: "Role *"
+                            color: Theme.text
+                            font.pixelSize: Theme.fontSm
+                        }
+
+                        ComboBox {
+                            width: parent.width
+                            height: 48
+                            model: ["Operator", "Technician", "Administrator"]
+                            currentIndex: find(root.selectedEditRole)
+                            onCurrentTextChanged: root.selectedEditRole = currentText
+                        }
+                    }
+                    
+                    Item { width: 1; height: 1 }  // spacer
+                    
+                    // Buttons
+                    Row {
+                        width: parent.width
+                        spacing: Theme.gap
+                        
+                        Rectangle {
+                            width: parent.width / 2 - Theme.gap/2
+                            height: 56
+                            radius: Theme.radius
+                            color: Theme.accent
+                            
+                            Text {
+                                anchors.centerIn: parent
+                                text: "Save"
+                                color: Theme.panel
+                                font.pixelSize: Theme.fontMed
+                                font.bold: true
+                            }
+                            
+                            MouseArea {
+                                anchors.fill: parent
+                                onPressed: {
+                                    // Validate all required fields
+                                    if (root.selectedEditFirstName.length === 0 ||
+                                        root.selectedEditLastName.length === 0 ||
+                                        root.editPasscode.length !== 6) {
+                                        console.log("Invalid input: All fields are required")
+                                        return
+                                    }
+
+                                    if (root.selectedEditUser) {
+                                        // Update existing user
+                                        UserService.updateUser(root.selectedEditUser, root.selectedEditFirstName,
+                                                              root.selectedEditLastName, root.editPasscode,
+                                                              root.selectedEditRole)
+                                    } else {
+                                        // Add new user - generate username from first and last name
+                                        var username = root.selectedEditFirstName + " " + root.selectedEditLastName
+                                        UserService.addUser(username, root.selectedEditFirstName,
+                                                           root.selectedEditLastName, root.selectedEditRole,
+                                                           root.editPasscode)
+                                    }
+
+                                    editDialogVisible = false
+                                }
+                            }
+                        }
+                        
+                        Rectangle {
+                            width: parent.width / 2 - Theme.gap/2
+                            height: 56
+                            radius: Theme.radius
+                            color: Qt.darker(Theme.panel, 1.1)
+                            border.width: 2
+                            border.color: "#2a3442"
+                            
+                            Text {
+                                anchors.centerIn: parent
+                                text: "Cancel"
+                                color: Theme.text
+                                font.pixelSize: Theme.fontMed
+                                font.bold: true
+                            }
+                            
+                            MouseArea {
+                                anchors.fill: parent
+                                onPressed: {
+                                    editDialogVisible = false
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Delete button (only if editing)
+                    Rectangle {
+                        width: parent.width
+                        height: 56
+                        radius: Theme.radius
+                        color: Theme.danger
+                        visible: selectedEditUser.length > 0
+                        
+                        Text {
+                            anchors.centerIn: parent
+                            text: "Delete User"
+                            color: Theme.panel
+                            font.pixelSize: Theme.fontMed
+                            font.bold: true
+                        }
+                        
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed: {
+                                UserService.deleteUser(root.selectedEditUser)
+                                editDialogVisible = false
                             }
                         }
                     }

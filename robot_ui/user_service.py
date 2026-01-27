@@ -23,10 +23,11 @@ class UserService(QObject):
     
     @Slot(result=list)
     def getAllUsers(self) -> list:
-        """Get list of all users as dicts with username and display."""
+        """Get list of all users as dicts with username, firstName, and lastName."""
         users = self.manager.get_all_users()
         # Return simplified list for QML combobox
-        return [{'username': u['username'], 'display': u['display'], 'role': u['role']} 
+        return [{'username': u['username'], 'firstName': u.get('firstName', ''),
+                 'lastName': u.get('lastName', ''), 'role': u['role']}
                 for u in users]
     
     @Slot(str, result=dict)
@@ -36,16 +37,17 @@ class UserService(QObject):
         if user:
             return {
                 'username': user['username'],
-                'display': user['display'],
+                'firstName': user.get('firstName', ''),
+                'lastName': user.get('lastName', ''),
                 'role': user['role'],
                 'pin': user.get('pin', '')
             }
         return {}
     
-    @Slot(str, str, str, str)
-    def addUser(self, username: str, display: str, role: str, passcode_6: str):
+    @Slot(str, str, str, str, str)
+    def addUser(self, username: str, first_name: str, last_name: str, role: str, passcode_6: str):
         """Add a new user."""
-        if self.manager.add_user(username, display, role, passcode_6):
+        if self.manager.add_user(username, first_name, last_name, role, passcode_6):
             self.successOccurred.emit(f"User '{username}' added successfully")
             self.usersChanged.emit()
         else:
@@ -60,10 +62,11 @@ class UserService(QObject):
         else:
             self.errorOccurred.emit(f"Failed to delete user '{username}'")
     
-    @Slot(str, str, str, str)
-    def updateUser(self, username: str, display: str, passcode_6: str, role: str):
-        """Update a user's display, passcode, and/or role."""
-        if self.manager.update_user(username, display=display, passcode_6=passcode_6, role=role):
+    @Slot(str, str, str, str, str)
+    def updateUser(self, username: str, first_name: str, last_name: str, passcode_6: str, role: str):
+        """Update a user's first name, last name, passcode, and/or role."""
+        if self.manager.update_user(username, first_name=first_name, last_name=last_name,
+                                    passcode_6=passcode_6, role=role):
             self.successOccurred.emit(f"User '{username}' updated successfully")
             self.usersChanged.emit()
         else:

@@ -52,51 +52,53 @@ class UserManager:
                 return user
         return None
     
-    def add_user(self, username: str, display: str, role: str, passcode_6: str) -> bool:
+    def add_user(self, username: str, first_name: str, last_name: str, role: str, passcode_6: str) -> bool:
         """
         Add a new user.
-        
+
         Args:
-            username: Unique username
-            display: Display name
+            username: Unique username (will be auto-generated from first and last name)
+            first_name: User's first name
+            last_name: User's last name
             role: "Operator", "Technician", or "Administrator"
             passcode_6: 6-digit numeric passcode
-        
+
         Returns:
             True if successful, False otherwise
         """
-        # Validate inputs
-        if not username or not display or not role or not passcode_6:
+        # Validate inputs - all fields required
+        if not username or not first_name or not last_name or not role or not passcode_6:
             print("Invalid input: all fields required")
             return False
-        
+
         if len(passcode_6) != 6 or not passcode_6.isdigit():
             print("Invalid passcode: must be 6 digits")
             return False
-        
+
         if self.get_user_by_username(username):
             print(f"User '{username}' already exists")
             return False
-        
+
         # Map role string to int
         role_int = self._map_role_to_int(role)
         if role_int is None:
             print(f"Invalid role: {role}")
             return False
-        
+
         # Hash passcode
         hash_hex, salt_hex = hash_passcode(passcode_6)
-        
+
         # Add user
         new_user = {
             'username': username,
-            'display': display,
+            'firstName': first_name,
+            'lastName': last_name,
             'role': role,
             'hash': hash_hex,
             'salt': salt_hex,
             'pin': passcode_6  # For compatibility with existing QML
         }
-        
+
         self.users.append(new_user)
         return self.save_users()
     
@@ -110,17 +112,19 @@ class UserManager:
         self.users.remove(user)
         return self.save_users()
     
-    def update_user(self, username: str, display: Optional[str] = None, 
-                   passcode_6: Optional[str] = None, role: Optional[str] = None) -> bool:
+    def update_user(self, username: str, first_name: Optional[str] = None,
+                   last_name: Optional[str] = None, passcode_6: Optional[str] = None,
+                   role: Optional[str] = None) -> bool:
         """
-        Update a user's display name, passcode, or role.
-        
+        Update a user's first name, last name, passcode, or role.
+
         Args:
             username: Username to update (cannot be changed)
-            display: New display name (optional)
+            first_name: New first name (optional)
+            last_name: New last name (optional)
             passcode_6: New 6-digit passcode (optional)
             role: New role (optional)
-        
+
         Returns:
             True if successful, False otherwise
         """
@@ -128,11 +132,21 @@ class UserManager:
         if not user:
             print(f"User '{username}' not found")
             return False
-        
-        # Update display name
-        if display is not None:
-            user['display'] = display
-        
+
+        # Update first name
+        if first_name is not None:
+            if not first_name:
+                print("First name cannot be empty")
+                return False
+            user['firstName'] = first_name
+
+        # Update last name
+        if last_name is not None:
+            if not last_name:
+                print("Last name cannot be empty")
+                return False
+            user['lastName'] = last_name
+
         # Update passcode
         if passcode_6 is not None:
             if len(passcode_6) != 6 or not passcode_6.isdigit():
@@ -142,7 +156,7 @@ class UserManager:
             user['hash'] = hash_hex
             user['salt'] = salt_hex
             user['pin'] = passcode_6
-        
+
         # Update role
         if role is not None:
             role_int = self._map_role_to_int(role)
@@ -150,7 +164,7 @@ class UserManager:
                 print(f"Invalid role: {role}")
                 return False
             user['role'] = role
-        
+
         return self.save_users()
     
     @staticmethod
