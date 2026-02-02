@@ -28,9 +28,9 @@
       "firstName": "Evan",
       "lastName": "Sharp",
       "role": "Administrator",
-      "hash": "55d30d8ad8f90c38f704c1de187404894027469fc5f1b44a0567312dcc2554cc",
-      "salt": "63d7d40476fd73d60182daa725548920",
-      "pin": "121213"
+      "hash": "03e47055e9ae8d0d2c2557f9a19de5f09f3caacd1f0bbe5c1921ff56c62607eb",
+      "salt": "1286276174ca14a7f04889fccadf4c09",
+      "pin": "111111"
     }
   ]
 }

@@ -12,14 +12,14 @@ QtObject {
     property color muted: "#8891a8"        // Subdued gray (secondary text)
     property color accent: "#4a9eff"       // Calm blue (primary actions)
     property color danger: "#f87171"       // Soft coral (alerts without alarm)
-    
+
     // Extended palette for richer UI
     property color success: "#4ade80"      // Soft green (ready states)
     property color warning: "#fbbf24"      // Warm amber (caution states)
     property color surface: "#1a2029"      // Alternate surface
     property color border: "#2a3441"       // Subtle borders
     property color hover: "#1f2937"        // Hover states
-    
+
     // ============================================================
     // SPACING & SIZING - Generous breathing room
     // ============================================================
@@ -120,7 +120,7 @@ QtObject {
     property color panelElevated: "#1a2029"   // Slightly elevated
     property color panelRecessed: "#0d1117"   // Slightly recessed
     property color panelHighlight: "#1f2937"  // Highlighted state
-    
+
     // ============================================================
     // BUTTON STATES - Consistent interactive feedback
     // ============================================================

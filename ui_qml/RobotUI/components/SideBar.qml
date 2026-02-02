@@ -14,6 +14,7 @@ Rectangle {
     property var bridge: null
     property int robotIndex: 0          // only used for reference reads
     property bool driveAllRobots: true  // broadcast commands
+    property int loggedInRole: 0         // Role enum: 0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN
 
     // Word indices
     property int cmdWord: 0             // outputs word index
@@ -368,6 +369,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             border.width: 2
             border.color: "#2a3442"
             opacity: sb.autoEnabled() ? 1.0 : 0.35
+            visible: sb.loggedInRole !== 0  // hide if not logged in
 
             Text {
                 anchors.centerIn: parent
@@ -394,6 +396,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             color: sb.manualActive ? "yellow" : Theme.sideBtnBase
             border.width: 2
             border.color: "#2a3442"
+            visible: sb.loggedInRole !== 0  // hide if not logged in
 
             Text {
                 anchors.centerIn: parent
@@ -420,6 +423,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             border.width: 2
             border.color: "#2a3442"
             opacity: sb._autoReq ? 1.0 : 0.35
+            visible: sb.loggedInRole !== 0  // hide if not logged in
 
             Text {
                 anchors.centerIn: parent
@@ -449,6 +453,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             border.width: 2
             border.color: "#2a3442"
             opacity: sb._autoReq ? 1.0 : 0.35
+            visible: sb.loggedInRole !== 0  // hide if not logged in
 
             Text {
                 anchors.centerIn: parent
@@ -477,6 +482,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             color: sb.resetActive ? "blue" : Theme.sideBtnBase
             border.width: sb.faultAny ? 3 : 2
             border.color: sb.faultAny ? "red" : "#2a3442"
+            visible: sb.loggedInRole !== 0  // hide if not logged in
 
             Text {
                 anchors.centerIn: parent

@@ -9,9 +9,9 @@ from robot_ui.models import Role
 PAGE_PERMISSIONS = {
     "Login": [Role.NONE, Role.OPERATOR, Role.TECHNICIAN, Role.ADMIN],
     "Admin": [Role.ADMIN],
-    "Robot Comm": [Role.TECHNICIAN, Role.ADMIN],
-    "Cell Status": [Role.OPERATOR, Role.TECHNICIAN, Role.ADMIN],
-    "Welding": [Role.OPERATOR, Role.TECHNICIAN, Role.ADMIN],
+    "Robot Comm": [Role.TECHNICIAN, Role.ADMIN, Role.OPERATOR],
+    "Cell Status": [Role.NONE, Role.OPERATOR, Role.TECHNICIAN, Role.ADMIN],
+    "Welding": [Role.NONE,Role.OPERATOR, Role.TECHNICIAN, Role.ADMIN],
 }
 
 PAGE_NAMES = ["Login", "Robot Comm", "Cell Status", "Welding"]
@@ -28,3 +28,4 @@ def can_access_page_by_index(page_index: int, role: Role) -> bool:
         page_name = PAGE_NAMES[page_index]
         return can_access_page(page_name, role)
     return False
+

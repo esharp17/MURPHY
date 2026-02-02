@@ -591,7 +591,7 @@ Item {
                     color: Theme.panel
                     border.width: 2
                     border.color: Theme.accent
-                    
+
                     Text {
                         anchors.left: parent.left
                         anchors.leftMargin: Theme.pad
@@ -602,13 +602,13 @@ Item {
                         font.bold: true
                     }
                 }
-                
+
                 Rectangle {
                     width: 200
                     height: 80
                     radius: Theme.radius
                     color: Theme.accent
-                    
+
                     Text {
                         anchors.centerIn: parent
                         text: "Close"
@@ -616,7 +616,7 @@ Item {
                         font.pixelSize: Theme.fontMed
                         font.bold: true
                     }
-                    
+
                     MouseArea {
                         anchors.fill: parent
                         onPressed: root.userManagementVisible = false
@@ -691,32 +691,32 @@ Item {
                         }
                         
                         Column {
-                            width: 190
+                            width: 200
                             spacing: 4
-                            
+
                             Text {
                                 text: " "
                                 color: Theme.text
-                                font.pixelSize: Theme.fontSm
+                                font.pixelSize: Theme.body
                             }
-                            
+
                             Rectangle {
                                 width: parent.width
                                 height: 48
                                 radius: Theme.radius
                                 color: Theme.accent
-                                
+
                                 Text {
                                     anchors.centerIn: parent
                                     text: "Edit Selected"
                                     color: Theme.panel
-                                    font.pixelSize: Theme.fontSm
+                                    font.pixelSize: Theme.body
                                     font.bold: true
                                 }
-                                
+
                                 MouseArea {
                                     anchors.fill: parent
-                                    onPressed: {
+                                    onClicked: {
                                         if (userComboBox.currentIndex >= 0) {
                                             editDialogVisible = true
                                         }
@@ -746,31 +746,29 @@ Item {
                                 width: ListView.view.width
                                 height: 72
                                 radius: Theme.radius
-                                color: root.selectedEditUser === username ? Theme.accent : "#1a1f2e"
-                                border.width: 1
-                                border.color: root.selectedEditUser === username ? Theme.accent : "#2a3442"
-                                
+                                color: Theme.sideBtnBase
+                                border.width: 2
+                                border.color: "#2a3442"
+
                                 Row {
                                     anchors.fill: parent
                                     anchors.margins: Theme.pad
                                     spacing: Theme.gap
-                                    
+
                                     Column {
                                         width: 200
                                         anchors.verticalCenter: parent.verticalCenter
-                                        
+
                                         Text {
                                             text: "First Name"
-                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
-                                            font.pixelSize: Theme.fontSm
-                                            opacity: 0.7
+                                            color: Theme.muted
+                                            font.pixelSize: Theme.bodySm
                                         }
-                                        
+
                                         Text {
                                             text: firstName || "Unknown"
-                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
-                                            font.pixelSize: Theme.fontMed
-                                            font.bold: true
+                                            color: Theme.text
+                                            font.pixelSize: Theme.body
                                         }
                                     }
 
@@ -780,56 +778,52 @@ Item {
 
                                         Text {
                                             text: "Last Name"
-                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
-                                            font.pixelSize: Theme.fontSm
-                                            opacity: 0.7
+                                            color: Theme.muted
+                                            font.pixelSize: Theme.bodySm
                                         }
 
                                         Text {
                                             text: lastName || "Unknown"
-                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
-                                            font.pixelSize: Theme.fontMed
-                                            font.bold: true
+                                            color: Theme.text
+                                            font.pixelSize: Theme.body
                                         }
                                     }
-                                    
+
                                     Column {
                                         width: parent.width - 520
                                         anchors.verticalCenter: parent.verticalCenter
-                                        
+
                                         Text {
                                             text: "Role"
-                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
-                                            font.pixelSize: Theme.fontSm
-                                            opacity: 0.7
+                                            color: Theme.muted
+                                            font.pixelSize: Theme.bodySm
                                         }
-                                        
+
                                         Text {
                                             text: role || "No Role"
-                                            color: root.selectedEditUser === username ? Theme.panel : Theme.text
-                                            font.pixelSize: Theme.fontMed
-                                            font.bold: true
+                                            color: Theme.text
+                                            font.pixelSize: Theme.body
                                         }
                                     }
-                                    
+
                                     Rectangle {
                                         width: 100
-                                        height: parent.height
+                                        height: 40
                                         radius: Theme.radius
-                                        color: root.selectedEditUser === username ? Qt.darker(Theme.accent, 1.2) : Theme.accent
+                                        color: Theme.accent
                                         anchors.verticalCenter: parent.verticalCenter
-                                        
+
                                         Text {
                                             anchors.centerIn: parent
                                             text: "Edit"
                                             color: Theme.panel
-                                            font.pixelSize: Theme.fontMed
+                                            font.pixelSize: Theme.body
                                             font.bold: true
                                         }
-                                        
+
                                         MouseArea {
                                             anchors.fill: parent
-                                            onPressed: {
+                                            onClicked: {
                                                 root.selectedEditUser = username || ""
                                                 root.selectedEditFirstName = firstName || ""
                                                 root.selectedEditLastName = lastName || ""
@@ -848,24 +842,24 @@ Item {
                     Row {
                         width: parent.width
                         spacing: Theme.gap
-                        
+
                         Rectangle {
                             width: parent.width
                             height: 56
                             radius: Theme.radius
                             color: Theme.accent
-                            
+
                             Text {
                                 anchors.centerIn: parent
                                 text: "Add New User"
                                 color: Theme.panel
-                                font.pixelSize: Theme.fontMed
+                                font.pixelSize: Theme.body
                                 font.bold: true
                             }
-                            
+
                             MouseArea {
                                 anchors.fill: parent
-                                onPressed: {
+                                onClicked: {
                                     root.selectedEditUser = ""
                                     root.selectedEditFirstName = ""
                                     root.selectedEditLastName = ""
@@ -915,19 +909,19 @@ Item {
                 border.color: Theme.accent
 
                 anchors.centerIn: parent
-                
+
                 Column {
                     anchors.fill: parent
                     anchors.margins: Theme.pad
                     spacing: Theme.gap
-                    
+
                     Text {
                         text: selectedEditUser ? "Edit User" : "Add New User"
                         color: Theme.text
-                        font.pixelSize: Theme.fontLg
+                        font.pixelSize: Theme.fontMed
                         font.bold: true
                     }
-                    
+
                     // First Name
                     Column {
                         width: parent.width
@@ -936,17 +930,28 @@ Item {
                         Text {
                             text: "First Name *"
                             color: Theme.text
-                            font.pixelSize: Theme.fontSm
+                            font.pixelSize: Theme.body
                         }
 
-                        TextField {
-                            id: firstNameField
+                        Rectangle {
                             width: parent.width
                             height: 48
-                            text: root.selectedEditFirstName
-                            onTextChanged: root.selectedEditFirstName = text
-                            font.pixelSize: Theme.fontMed
-                            placeholderText: "Required"
+                            color: Theme.sideBtnpanel
+                            border.width: 2
+                            border.color: Theme.accent
+                            radius: Theme.radius
+
+                            TextField {
+                                id: firstNameField
+                                anchors.fill: parent
+                                anchors.margins: Theme.pad
+                                text: root.selectedEditFirstName
+                                onTextChanged: root.selectedEditFirstName = text
+                                font.pixelSize: Theme.body
+                                color: Theme.text
+                                placeholderText: "Required"
+                                background: Rectangle { color: "transparent" }
+                            }
                         }
                     }
 
@@ -958,20 +963,31 @@ Item {
                         Text {
                             text: "Last Name *"
                             color: Theme.text
-                            font.pixelSize: Theme.fontSm
+                            font.pixelSize: Theme.body
                         }
 
-                        TextField {
-                            id: lastNameField
+                        Rectangle {
                             width: parent.width
                             height: 48
-                            text: root.selectedEditLastName
-                            onTextChanged: root.selectedEditLastName = text
-                            font.pixelSize: Theme.fontMed
-                            placeholderText: "Required"
+                            color: Theme.sideBtnpanel
+                            border.width: 2
+                            border.color: Theme.accent
+                            radius: Theme.radius
+
+                            TextField {
+                                id: lastNameField
+                                anchors.fill: parent
+                                anchors.margins: Theme.pad
+                                text: root.selectedEditLastName
+                                onTextChanged: root.selectedEditLastName = text
+                                font.pixelSize: Theme.body
+                                color: Theme.text
+                                placeholderText: "Required"
+                                background: Rectangle { color: "transparent" }
+                            }
                         }
                     }
-                    
+
                     // Passcode
                     Column {
                         width: parent.width
@@ -980,22 +996,33 @@ Item {
                         Text {
                             text: "Passcode (6 digits) *"
                             color: Theme.text
-                            font.pixelSize: Theme.fontSm
+                            font.pixelSize: Theme.body
                         }
 
-                        TextField {
-                            id: passcodeField
+                        Rectangle {
                             width: parent.width
                             height: 48
-                            text: root.editPasscode
-                            inputMethodHints: Qt.ImhDigitsOnly
-                            validator: RegularExpressionValidator { regularExpression: /^[0-9]{0,6}$/ }
-                            onTextChanged: root.editPasscode = text
-                            font.pixelSize: Theme.fontMed
-                            placeholderText: "Required"
+                            color: Theme.sideBtnpanel
+                            border.width: 2
+                            border.color: Theme.accent
+                            radius: Theme.radius
+
+                            TextField {
+                                id: passcodeField
+                                anchors.fill: parent
+                                anchors.margins: Theme.pad
+                                text: root.editPasscode
+                                inputMethodHints: Qt.ImhDigitsOnly
+                                validator: RegularExpressionValidator { regularExpression: /^[0-9]{0,6}$/ }
+                                onTextChanged: root.editPasscode = text
+                                font.pixelSize: Theme.body
+                                color: Theme.text
+                                placeholderText: "Required"
+                                background: Rectangle { color: "transparent" }
+                            }
                         }
                     }
-                    
+
                     // Role
                     Column {
                         width: parent.width
@@ -1004,7 +1031,7 @@ Item {
                         Text {
                             text: "Role *"
                             color: Theme.text
-                            font.pixelSize: Theme.fontSm
+                            font.pixelSize: Theme.body
                         }
 
                         ComboBox {
@@ -1013,33 +1040,34 @@ Item {
                             model: ["Operator", "Technician", "Administrator"]
                             currentIndex: find(root.selectedEditRole)
                             onCurrentTextChanged: root.selectedEditRole = currentText
+                            font.pixelSize: Theme.body
                         }
                     }
-                    
-                    Item { width: 1; height: 1 }  // spacer
-                    
+
+                    Item { width: 1; height: Theme.gap }  // spacer
+
                     // Buttons
                     Row {
                         width: parent.width
                         spacing: Theme.gap
-                        
+
                         Rectangle {
-                            width: parent.width / 2 - Theme.gap/2
+                            width: (parent.width - Theme.gap) / 2
                             height: 56
                             radius: Theme.radius
                             color: Theme.accent
-                            
+
                             Text {
                                 anchors.centerIn: parent
                                 text: "Save"
                                 color: Theme.panel
-                                font.pixelSize: Theme.fontMed
+                                font.pixelSize: Theme.body
                                 font.bold: true
                             }
-                            
+
                             MouseArea {
                                 anchors.fill: parent
-                                onPressed: {
+                                onClicked: {
                                     // Validate all required fields
                                     if (root.selectedEditFirstName.length === 0 ||
                                         root.selectedEditLastName.length === 0 ||
@@ -1065,51 +1093,53 @@ Item {
                                 }
                             }
                         }
-                        
+
                         Rectangle {
-                            width: parent.width / 2 - Theme.gap/2
+                            width: (parent.width - Theme.gap) / 2
                             height: 56
                             radius: Theme.radius
-                            color: Qt.darker(Theme.panel, 1.1)
+                            color: Qt.darker(Theme.panel, 1.15)
                             border.width: 2
                             border.color: "#2a3442"
-                            
+
                             Text {
                                 anchors.centerIn: parent
                                 text: "Cancel"
                                 color: Theme.text
-                                font.pixelSize: Theme.fontMed
+                                font.pixelSize: Theme.body
                                 font.bold: true
                             }
-                            
+
                             MouseArea {
                                 anchors.fill: parent
-                                onPressed: {
+                                onClicked: {
                                     editDialogVisible = false
                                 }
                             }
                         }
                     }
-                    
+
                     // Delete button (only if editing)
                     Rectangle {
                         width: parent.width
                         height: 56
                         radius: Theme.radius
-                        color: Theme.danger
+                        color: "transparent"
+                        border.width: 2
+                        border.color: Theme.danger
                         visible: selectedEditUser.length > 0
-                        
+
                         Text {
                             anchors.centerIn: parent
                             text: "Delete User"
-                            color: Theme.panel
-                            font.pixelSize: Theme.fontMed
+                            color: Theme.danger
+                            font.pixelSize: Theme.body
                             font.bold: true
                         }
-                        
+
                         MouseArea {
                             anchors.fill: parent
-                            onPressed: {
+                            onClicked: {
                                 UserService.deleteUser(root.selectedEditUser)
                                 editDialogVisible = false
                             }

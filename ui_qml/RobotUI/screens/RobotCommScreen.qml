@@ -15,6 +15,8 @@ Item {
     anchors.fill: parent
     anchors.margins: 10
 
+    property int loggedInRole: 0  // User's current role (0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN)
+
     // ----------------------------
     // Auto-connect behavior
     // ----------------------------
@@ -213,6 +215,7 @@ Item {
                 radius: Theme.radius
                 color: Theme.panel
                 z: 2000
+                visible: root.loggedInRole !== 0 && root.loggedInRole !== 1  // hide if not logged in or operator
 
                 Text {
                     anchors.centerIn: parent

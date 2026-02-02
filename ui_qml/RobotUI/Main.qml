@@ -55,7 +55,9 @@ Timer {
             id: sidebar
             bridge: RobotCommBridge
             robotIndex: 0
+            loggedInRole: win.sessionRole
             width: Theme.sideBarW
+
 
             anchors.top: parent.top
             anchors.right: parent.right
@@ -161,7 +163,7 @@ Timer {
         }
     }
 
-    Component { id: robot;  RobotCommScreen {} }
+    Component { id: robot;  RobotCommScreen { loggedInRole: win.sessionRole } }
     Component { id: status; CellStatusScreen {} }
     Component { id: weld;   WeldingScreen {} }
 }
