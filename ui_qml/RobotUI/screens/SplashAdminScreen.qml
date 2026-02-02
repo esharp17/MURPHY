@@ -201,7 +201,7 @@ Item {
             // ---- Admin Panel (only when admin logged in) ----
             Rectangle {
                 id: adminPanel
-                width: 1200
+                width: 900
                 height: adminGrid.height + (Theme.pad * 2)
                 visible: root.adminModeActive
                 radius: Theme.radius
