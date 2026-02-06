@@ -15,6 +15,7 @@ ApplicationWindow {
     property int tabIndex: 0
     property bool sessionLoggedIn: false
     property string sessionUser: ""
+    property string sessionUserFirstName: ""
     property bool sessionIsAdmin: false
     property int sessionRole: 0  // Role enum: 0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN
 
@@ -158,6 +159,7 @@ Timer {
             // push state from screen -> Main
             onLoggedInChanged: win.sessionLoggedIn = loggedIn
             onLoggedInUserChanged: win.sessionUser = loggedInUser
+            onLoggedInUserFirstNameChanged: win.sessionUserFirstName = loggedInUserFirstName
             onLoggedInIsAdminChanged: win.sessionIsAdmin = loggedInIsAdmin
             onLoggedInRoleChanged: win.sessionRole = loggedInRole
         }
@@ -165,5 +167,5 @@ Timer {
 
     Component { id: robot;  RobotCommScreen { loggedInRole: win.sessionRole } }
     Component { id: status; CellStatusScreen {} }
-    Component { id: weld;   WeldingScreen {} }
+    Component { id: weld;   WeldingScreen { loggedInUserFirstName: win.sessionUserFirstName } }
 }

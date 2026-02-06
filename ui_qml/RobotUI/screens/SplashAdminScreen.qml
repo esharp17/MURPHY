@@ -10,6 +10,7 @@ Item {
     // app-level state
     property bool loggedIn: false
     property string loggedInUser: ""
+    property string loggedInUserFirstName: ""
     property bool loggedInIsAdmin: false
     property int loggedInRole: 0  // Role enum: 0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN
 
@@ -181,6 +182,7 @@ Item {
                         if (root.loggedIn) {
                             root.loggedIn = false
                             root.loggedInUser = ""
+                            root.loggedInUserFirstName = ""
                             root.loggedInIsAdmin = false
                             root.loggedInRole = 0
                             root.passcode = ""
@@ -326,6 +328,7 @@ Item {
                                 onPressed: {
                                     root.loggedIn = false
                                     root.loggedInUser = ""
+                                    root.loggedInUserFirstName = ""
                                     root.loggedInIsAdmin = false
                                     root.loggedInRole = 0
                                     root.passcode = ""
@@ -520,6 +523,7 @@ Item {
                                 root.pinErrorVisible = false
                                 root.loggedIn = true
                                 root.loggedInUser = root.selectedFullName
+                                root.loggedInUserFirstName = root.selectedFirstName
                                 root.loggedInIsAdmin = root.isAdminRole
                                 // Map role string to Role enum: "Operator"=1, "Technician"=2, "Administrator"=3
                                 if (root.selectedRole === "Administrator") {
@@ -752,7 +756,10 @@ Item {
 
                                 Row {
                                     anchors.fill: parent
-                                    anchors.margins: Theme.pad
+                                    anchors.leftMargin: Theme.pad
+                                    anchors.topMargin: Theme.pad
+                                    anchors.bottomMargin: Theme.pad
+                                    anchors.rightMargin: Theme.pad * 2
                                     spacing: Theme.gap
 
                                     Column {
@@ -790,7 +797,7 @@ Item {
                                     }
 
                                     Column {
-                                        width: parent.width - 520
+                                        width: parent.width - 540
                                         anchors.verticalCenter: parent.verticalCenter
 
                                         Text {
