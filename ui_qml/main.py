@@ -23,6 +23,7 @@ from robot_comm.scan_plot_helpers import fetch_offsets_xml_from_robot, normalize
 from robot_ui.permissions import can_access_page_by_index
 from robot_ui.models import Role
 from robot_ui.user_service import UserService
+from robot_ui.weld_record_service import WeldRecordService
 
 
 class PermissionChecker(QObject):
@@ -59,6 +60,7 @@ def main() -> int:
     robotCtl = RobotController(robotComm, robotState)
     permissionChecker = PermissionChecker()
     userService = UserService()
+    weldRecordService = WeldRecordService()
 
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
@@ -74,6 +76,7 @@ def main() -> int:
     engine.rootContext().setContextProperty("RobotCtl", robotCtl)
     engine.rootContext().setContextProperty("PermissionChecker", permissionChecker)
     engine.rootContext().setContextProperty("UserService", userService)
+    engine.rootContext().setContextProperty("WeldRecordService", weldRecordService)
 
     root = _runtime_root()
     engine.addImportPath(str(root))

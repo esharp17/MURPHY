@@ -19,6 +19,21 @@ ApplicationWindow {
     property bool sessionIsAdmin: false
     property int sessionRole: 0  // Role enum: 0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN
 
+    // Persistent weld screen state
+    property bool weldPreCheckConfirmed: false
+    property bool weldShowWeldRecord: false
+    property string weldId: ""
+    property string weldProject: ""
+    property string weldClient: ""
+    property string weldComments: ""
+    property string weldUpstreamHeat: ""
+    property string weldDownstreamHeat: ""
+    property bool weldShowScanView: false
+    property string weldScanPlotImage: ""
+    property real weldScanAzim: 140
+    property real weldScanElev: 20
+    property real weldScanZoom: 1.0
+
 // Main.qml (ApplicationWindow)
 // Global robot comm watchdog:
 // - tries to connect all 4 robots on startup
@@ -167,5 +182,36 @@ Timer {
 
     Component { id: robot;  RobotCommScreen { loggedInRole: win.sessionRole } }
     Component { id: status; CellStatusScreen {} }
-    Component { id: weld;   WeldingScreen { loggedInUserFirstName: win.sessionUserFirstName } }
+    Component {
+        id: weld
+        WeldingScreen {
+            loggedInUserFirstName: win.sessionUserFirstName
+            preCheckConfirmed: win.weldPreCheckConfirmed
+            showWeldRecord: win.weldShowWeldRecord
+            weldId: win.weldId
+            weldProject: win.weldProject
+            weldClient: win.weldClient
+            weldComments: win.weldComments
+            weldUpstreamHeat: win.weldUpstreamHeat
+            weldDownstreamHeat: win.weldDownstreamHeat
+            onPreCheckConfirmedChanged: win.weldPreCheckConfirmed = preCheckConfirmed
+            onShowWeldRecordChanged: win.weldShowWeldRecord = showWeldRecord
+            onWeldIdChanged: win.weldId = weldId
+            onWeldProjectChanged: win.weldProject = weldProject
+            onWeldClientChanged: win.weldClient = weldClient
+            onWeldCommentsChanged: win.weldComments = weldComments
+            onWeldUpstreamHeatChanged: win.weldUpstreamHeat = weldUpstreamHeat
+            onWeldDownstreamHeatChanged: win.weldDownstreamHeat = weldDownstreamHeat
+            showScanView: win.weldShowScanView
+            scanPlotImage: win.weldScanPlotImage
+            scanAzim: win.weldScanAzim
+            scanElev: win.weldScanElev
+            scanZoom: win.weldScanZoom
+            onShowScanViewChanged: win.weldShowScanView = showScanView
+            onScanPlotImageChanged: win.weldScanPlotImage = scanPlotImage
+            onScanAzimChanged: win.weldScanAzim = scanAzim
+            onScanElevChanged: win.weldScanElev = scanElev
+            onScanZoomChanged: win.weldScanZoom = scanZoom
+        }
+    }
 }

@@ -951,10 +951,14 @@ Item {
                             TextField {
                                 id: firstNameField
                                 anchors.fill: parent
-                                anchors.margins: Theme.pad
+                                anchors.leftMargin: Theme.pad
+                                anchors.rightMargin: Theme.pad
+                                anchors.topMargin: 0
+                                anchors.bottomMargin: 0
                                 text: root.selectedEditFirstName
                                 onTextChanged: root.selectedEditFirstName = text
                                 font.pixelSize: Theme.body
+                                verticalAlignment: Text.AlignVCenter
                                 color: Theme.text
                                 placeholderText: "Required"
                                 background: Rectangle { color: "transparent" }
@@ -984,10 +988,14 @@ Item {
                             TextField {
                                 id: lastNameField
                                 anchors.fill: parent
-                                anchors.margins: Theme.pad
+                                anchors.leftMargin: Theme.pad
+                                anchors.rightMargin: Theme.pad
+                                anchors.topMargin: 0
+                                anchors.bottomMargin: 0
                                 text: root.selectedEditLastName
                                 onTextChanged: root.selectedEditLastName = text
                                 font.pixelSize: Theme.body
+                                verticalAlignment: Text.AlignVCenter
                                 color: Theme.text
                                 placeholderText: "Required"
                                 background: Rectangle { color: "transparent" }
@@ -1017,12 +1025,16 @@ Item {
                             TextField {
                                 id: passcodeField
                                 anchors.fill: parent
-                                anchors.margins: Theme.pad
+                                anchors.leftMargin: Theme.pad
+                                anchors.rightMargin: Theme.pad
+                                anchors.topMargin: 0
+                                anchors.bottomMargin: 0
                                 text: root.editPasscode
                                 inputMethodHints: Qt.ImhDigitsOnly
                                 validator: RegularExpressionValidator { regularExpression: /^[0-9]{0,6}$/ }
                                 onTextChanged: root.editPasscode = text
                                 font.pixelSize: Theme.body
+                                verticalAlignment: Text.AlignVCenter
                                 color: Theme.text
                                 placeholderText: "Required"
                                 background: Rectangle { color: "transparent" }

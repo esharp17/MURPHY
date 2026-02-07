@@ -49,3 +49,58 @@ class ScanPlotBridge(QObject):
             subprocess.Popen([sys.executable, self._plot_script], cwd=self._base_dir)
 
         self._pool.start(_Worker(job, self.launched, self.error))
+
+    @Slot()
+    def showScanDataLocal(self):
+        """Launch the plot using local XML files (no FTP fetch)."""
+        def job():
+            offsets_norm = os.path.join(self._base_dir, "offsets_norm.xml")
+            base_points = os.path.join(self._base_dir, "base_points.xml")
+
+            if not os.path.exists(offsets_norm):
+                raise FileNotFoundError(f"Missing local file: {offsets_norm}")
+            if not os.path.exists(base_points):
+                raise FileNotFoundError(f"Missing local file: {base_points}")
+            if not os.path.exists(self._plot_script):
+                raise FileNotFoundError(f"Missing plot script: {self._plot_script}")
+
+            subprocess.Popen([sys.executable, self._plot_script], cwd=self._base_dir)
+
+        self._pool.start(_Worker(job, self.launched, self.error))
+
+    @Slot(result=str)
+    def renderScanPlotLocal(self):
+        """Render the plot to a PNG image with default view and return the file path."""
+        return self._renderPlot(20.0, 140.0, 1.0)
+
+    @Slot(float, float, float, result=str)
+    def renderScanPlotView(self, elev, azim, zoom):
+        """Render the plot to a PNG image with specified view and return the file path."""
+        return self._renderPlot(elev, azim, zoom)
+
+    def _renderPlot(self, elev, azim, zoom):
+        render_script = os.path.join(self._base_dir, "Plot_to_image.py")
+        output_path = os.path.join(self._base_dir, "scan_plot.png")
+
+        offsets_norm = os.path.join(self._base_dir, "offsets_norm.xml")
+        base_points = os.path.join(self._base_dir, "base_points.xml")
+
+        if not os.path.exists(offsets_norm):
+            return ""
+        if not os.path.exists(base_points):
+            return ""
+        if not os.path.exists(render_script):
+            return ""
+
+        try:
+            result = subprocess.run(
+                [sys.executable, render_script, output_path,
+                 "--elev", str(elev), "--azim", str(azim), "--zoom", str(zoom)],
+                cwd=self._base_dir,
+                capture_output=True, text=True, timeout=30
+            )
+            if result.returncode == 0 and os.path.exists(output_path):
+                return output_path.replace("\\", "/")
+            return ""
+        except Exception:
+            return ""
