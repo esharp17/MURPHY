@@ -28,7 +28,7 @@ Item {
         onTriggered: {
             refresh()
             if (state !== 2) {
-                RobotComm.connectRobot(robotIndex+1)
+                RobotComm.connectRobot(robotIndex)
             }
         }
     }

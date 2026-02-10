@@ -98,8 +98,8 @@ Item {
 
             // ---- Logo (only shown when NOT in admin mode) ----
             Item {
-                width: 600
-                height: 380
+                width: 750
+                height: 420
                 visible: !root.adminModeActive
 
                 Image {
@@ -116,6 +116,7 @@ Item {
                 spacing: Theme.gap
                 width: 600
                 visible: !root.adminModeActive
+                anchors.horizontalCenter: parent.horizontalCenter
 
                 Text {
                     text: loggedIn

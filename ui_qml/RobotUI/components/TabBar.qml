@@ -8,14 +8,14 @@ Rectangle {
     property int currentIndex: 0
     signal tabSelected(int index)
 
-    // Colors match tab order.
-    // If labels length changes, activeColor clamps safely.
-    property var tabColors: [
-        "#3b82f6", // Splash/Admin
-        "#22c55e", // Robot
-        "#f59e0b", // Status
-        "#a855f7"  // Weld
-    ]
+    // Blue color scheme for all tabs
+    property color tabSelectedColor: "#3b82f6"    // Lighter blue (selected, matches border)
+    property color tabUnselectedColor: "#1e3a5f"  // Darker blue (unselected)
+    property color tabDisabledColor: "#2a3040"    // Greyed out (inaccessible)
+    property color tabDisabledText: "#555e6e"     // Greyed out text
+
+    // Current user role for permission checking
+    property int sessionRole: 0
 
     // Default labels; Main.qml can override (and should).
     // Keep 4 tabs now (Splash/Admin combined).
@@ -23,7 +23,7 @@ Rectangle {
 
     readonly property int tabCount: (labels && labels.length > 0) ? labels.length : 0
     readonly property int safeIndex: tabCount > 0 ? Math.min(Math.max(currentIndex, 0), tabCount - 1) : 0
-    property color activeColor: tabCount > 0 ? tabColors[Math.min(safeIndex, tabColors.length - 1)] : "#3b82f6"
+    property color activeColor: tabSelectedColor
 
     height: 92
     radius: Theme.radius
@@ -48,23 +48,30 @@ Rectangle {
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.tabFont
 
+                readonly property bool accessible: (typeof PermissionChecker !== "undefined" && PermissionChecker !== null) ? PermissionChecker.canAccessPage(idx, tabs.sessionRole) : true
+
                 background: Rectangle {
                     radius: Theme.radius
 
-                    // Clamp color index in case tabColors length differs.
-                    readonly property color base: tabs.tabColors[Math.min(idx, tabs.tabColors.length - 1)]
+                    color: !parent.accessible
+                           ? tabs.tabDisabledColor
+                           : (tabs.safeIndex === idx)
+                             ? tabs.tabSelectedColor
+                             : tabs.tabUnselectedColor
 
-                    color: (tabs.safeIndex === idx)
-                           ? base
-                           : Qt.darker(base, 1.45)
-
-                    border.width: (tabs.safeIndex === idx) ? 0 : 2
-                    border.color: "#2a3442"
+                    border.width: (tabs.safeIndex === idx) ? 3 : 1
+                    border.color: (tabs.safeIndex === idx)
+                                  ? tabs.tabSelectedColor
+                                  : !parent.accessible
+                                    ? "#3a3f4a"
+                                    : "#2a4a6a"
                 }
 
                 contentItem: Text {
                     text: parent.text
-                    color: (tabs.safeIndex === idx) ? "white" : Theme.text
+                    color: !parent.accessible
+                           ? tabs.tabDisabledText
+                           : (tabs.safeIndex === idx) ? "#ffffff" : "#8891a8"
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.body
                     font.bold: true

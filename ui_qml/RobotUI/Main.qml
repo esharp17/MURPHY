@@ -29,7 +29,7 @@ ApplicationWindow {
     property string weldUpstreamHeat: ""
     property string weldDownstreamHeat: ""
     property bool weldShowScanView: false
-    property string weldScanPlotImage: ""
+    property bool weldScanDataLoaded: false
     property real weldScanAzim: 140
     property real weldScanElev: 20
     property real weldScanZoom: 1.0
@@ -104,6 +104,7 @@ Timer {
                 "Welding"
             ]
 
+            sessionRole: win.sessionRole
             currentIndex: win.tabIndex
 
             onTabSelected: (i) => {
@@ -203,12 +204,12 @@ Timer {
             onWeldUpstreamHeatChanged: win.weldUpstreamHeat = weldUpstreamHeat
             onWeldDownstreamHeatChanged: win.weldDownstreamHeat = weldDownstreamHeat
             showScanView: win.weldShowScanView
-            scanPlotImage: win.weldScanPlotImage
+            scanDataLoaded: win.weldScanDataLoaded
             scanAzim: win.weldScanAzim
             scanElev: win.weldScanElev
             scanZoom: win.weldScanZoom
             onShowScanViewChanged: win.weldShowScanView = showScanView
-            onScanPlotImageChanged: win.weldScanPlotImage = scanPlotImage
+            onScanDataLoadedChanged: win.weldScanDataLoaded = scanDataLoaded
             onScanAzimChanged: win.weldScanAzim = scanAzim
             onScanElevChanged: win.weldScanElev = scanElev
             onScanZoomChanged: win.weldScanZoom = scanZoom
