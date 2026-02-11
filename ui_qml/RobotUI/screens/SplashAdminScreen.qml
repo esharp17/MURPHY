@@ -161,8 +161,9 @@ Item {
                 height: 64
                 radius: Theme.radius
                 normalColor: Theme.accent
-                pressedColor: Theme.btnPressed
+                pressedColor: Qt.darker(Theme.accent, 1.4)
                 disabledColor: Theme.btnDisabled
+                glowColor: "#ffffff"
                 borderWidth: 2
                 borderColor: Theme.border
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -180,7 +181,7 @@ Item {
                 // MAIN SCREEN BUTTON HANDLER
                 // LOG IN / LOG OUT (opens popup for login)
                 // ===========================
-                onPressed: {
+                onClicked: {
                     // LOG OUT
                     if (root.loggedIn) {
                         root.loggedIn = false
@@ -229,12 +230,13 @@ Item {
                             height: 190
                             radius: Theme.radius
                             normalColor: Theme.accent
-                            pressedColor: Theme.btnPressed
+                            pressedColor: Qt.darker(Theme.accent, 1.4)
                             disabledColor: Theme.btnDisabled
+                            glowColor: "#ffffff"
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onPressed: console.log("ADMIN: view logs")
+                            onClicked: console.log("ADMIN: view logs")
 
                             Text {
                                 anchors.centerIn: parent
@@ -250,12 +252,13 @@ Item {
                             height: 190
                             radius: Theme.radius
                             normalColor: Theme.accent
-                            pressedColor: Theme.btnPressed
+                            pressedColor: Qt.darker(Theme.accent, 1.4)
                             disabledColor: Theme.btnDisabled
+                            glowColor: "#ffffff"
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onPressed: console.log("ADMIN: export logs")
+                            onClicked: console.log("ADMIN: export logs")
 
                             Text {
                                 anchors.centerIn: parent
@@ -271,12 +274,13 @@ Item {
                             height: 190
                             radius: Theme.radius
                             normalColor: Theme.accent
-                            pressedColor: Theme.btnPressed
+                            pressedColor: Qt.darker(Theme.accent, 1.4)
                             disabledColor: Theme.btnDisabled
+                            glowColor: "#ffffff"
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onPressed: console.log("ADMIN: system info")
+                            onClicked: console.log("ADMIN: system info")
 
                             Text {
                                 anchors.centerIn: parent
@@ -292,12 +296,13 @@ Item {
                             height: 190
                             radius: Theme.radius
                             normalColor: Theme.accent
-                            pressedColor: Theme.btnPressed
+                            pressedColor: Qt.darker(Theme.accent, 1.4)
                             disabledColor: Theme.btnDisabled
+                            glowColor: "#ffffff"
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onPressed: console.log("ADMIN: restart ui")
+                            onClicked: console.log("ADMIN: restart ui")
 
                             Text {
                                 anchors.centerIn: parent
@@ -313,12 +318,13 @@ Item {
                             height: 190
                             radius: Theme.radius
                             normalColor: Theme.accent
-                            pressedColor: Theme.btnPressed
+                            pressedColor: Qt.darker(Theme.accent, 1.4)
                             disabledColor: Theme.btnDisabled
+                            glowColor: "#ffffff"
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onPressed: root.userManagementVisible = true
+                            onClicked: root.userManagementVisible = true
 
                             Text {
                                 anchors.centerIn: parent
@@ -334,12 +340,13 @@ Item {
                             height: 190
                             radius: Theme.radius
                             normalColor: Theme.accent
-                            pressedColor: Theme.btnPressed
+                            pressedColor: Qt.darker(Theme.accent, 1.4)
                             disabledColor: Theme.btnDisabled
+                            glowColor: "#ffffff"
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onPressed: {
+                            onClicked: {
                                 root.loggedIn = false
                                 root.loggedInUser = ""
                                 root.loggedInUserFirstName = ""
@@ -513,8 +520,9 @@ Item {
                         height: 60
                         radius: Theme.radius
                         normalColor: Theme.accent
-                        pressedColor: Theme.btnPressed
+                        pressedColor: Qt.darker(Theme.accent, 1.4)
                         disabledColor: Theme.btnDisabled
+                        glowColor: "#ffffff"
                         borderWidth: 2
                         borderColor: Theme.border
 
@@ -522,7 +530,7 @@ Item {
                         // POPUP LOG IN BUTTON HANDLER
                         // validates passcode, sets loggedIn state, shows 2s error banner
                         // ===========================
-                        onPressed: {
+                        onClicked: {
                             if (!root.userChosen || usersModel.count === 0)
                                 return
                             if (root.passcode.length !== 6)
@@ -632,12 +640,13 @@ Item {
                     height: 80
                     radius: Theme.radius
                     normalColor: Theme.accent
-                    pressedColor: Theme.btnPressed
+                    pressedColor: Qt.darker(Theme.accent, 1.4)
                     disabledColor: Theme.btnDisabled
+                    glowColor: "#ffffff"
                     borderWidth: 2
                     borderColor: Theme.border
 
-                    onPressed: root.userManagementVisible = false
+                    onClicked: root.userManagementVisible = false
 
                     Text {
                         anchors.centerIn: parent
@@ -730,8 +739,9 @@ Item {
                                 height: 48
                                 radius: Theme.radius
                                 normalColor: Theme.accent
-                                pressedColor: Theme.btnPressed
+                                pressedColor: Qt.darker(Theme.accent, 1.4)
                                 disabledColor: Theme.btnDisabled
+                                glowColor: "#ffffff"
                                 borderWidth: 2
                                 borderColor: Theme.border
 
@@ -840,8 +850,9 @@ Item {
                                         height: 40
                                         radius: Theme.radius
                                         normalColor: Theme.accent
-                                        pressedColor: Theme.btnPressed
+                                        pressedColor: Qt.darker(Theme.accent, 1.4)
                                         disabledColor: Theme.btnDisabled
+                                        glowColor: "#ffffff"
                                         borderWidth: 2
                                         borderColor: Theme.border
                                         anchors.verticalCenter: parent.verticalCenter
@@ -878,8 +889,9 @@ Item {
                             height: 56
                             radius: Theme.radius
                             normalColor: Theme.accent
-                            pressedColor: Theme.btnPressed
+                            pressedColor: Qt.darker(Theme.accent, 1.4)
                             disabledColor: Theme.btnDisabled
+                            glowColor: "#ffffff"
                             borderWidth: 2
                             borderColor: Theme.border
 
@@ -1094,11 +1106,41 @@ Item {
                         width: parent.width
                         spacing: Theme.gap
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: (parent.width - Theme.gap) / 2
                             height: 56
                             radius: Theme.radius
-                            color: Theme.accent
+                            normalColor: Theme.accent
+                            pressedColor: Qt.darker(Theme.accent, 1.4)
+                            disabledColor: Theme.btnDisabled
+                            glowColor: "#ffffff"
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            onClicked: {
+                                // Validate all required fields
+                                if (root.selectedEditFirstName.length === 0 ||
+                                    root.selectedEditLastName.length === 0 ||
+                                    root.editPasscode.length !== 6) {
+                                    console.log("Invalid input: All fields are required")
+                                    return
+                                }
+
+                                if (root.selectedEditUser) {
+                                    // Update existing user
+                                    UserService.updateUser(root.selectedEditUser, root.selectedEditFirstName,
+                                                          root.selectedEditLastName, root.editPasscode,
+                                                          root.selectedEditRole)
+                                } else {
+                                    // Add new user - generate username from first and last name
+                                    var username = root.selectedEditFirstName + " " + root.selectedEditLastName
+                                    UserService.addUser(username, root.selectedEditFirstName,
+                                                       root.selectedEditLastName, root.selectedEditRole,
+                                                       root.editPasscode)
+                                }
+
+                                editDialogVisible = false
+                            }
 
                             Text {
                                 anchors.centerIn: parent
@@ -1107,43 +1149,19 @@ Item {
                                 font.pixelSize: Theme.body
                                 font.bold: true
                             }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    // Validate all required fields
-                                    if (root.selectedEditFirstName.length === 0 ||
-                                        root.selectedEditLastName.length === 0 ||
-                                        root.editPasscode.length !== 6) {
-                                        console.log("Invalid input: All fields are required")
-                                        return
-                                    }
-
-                                    if (root.selectedEditUser) {
-                                        // Update existing user
-                                        UserService.updateUser(root.selectedEditUser, root.selectedEditFirstName,
-                                                              root.selectedEditLastName, root.editPasscode,
-                                                              root.selectedEditRole)
-                                    } else {
-                                        // Add new user - generate username from first and last name
-                                        var username = root.selectedEditFirstName + " " + root.selectedEditLastName
-                                        UserService.addUser(username, root.selectedEditFirstName,
-                                                           root.selectedEditLastName, root.selectedEditRole,
-                                                           root.editPasscode)
-                                    }
-
-                                    editDialogVisible = false
-                                }
-                            }
                         }
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: (parent.width - Theme.gap) / 2
                             height: 56
                             radius: Theme.radius
-                            color: Qt.darker(Theme.panel, 1.15)
-                            border.width: 2
-                            border.color: "#2a3442"
+                            normalColor: Qt.darker(Theme.panel, 1.15)
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: "#2a3442"
+
+                            onClicked: editDialogVisible = false
 
                             Text {
                                 anchors.centerIn: parent
@@ -1152,25 +1170,26 @@ Item {
                                 font.pixelSize: Theme.body
                                 font.bold: true
                             }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    editDialogVisible = false
-                                }
-                            }
                         }
                     }
 
                     // Delete button (only if editing)
-                    Rectangle {
+                    InteractiveSurface {
                         width: parent.width
                         height: 56
                         radius: Theme.radius
-                        color: "transparent"
-                        border.width: 2
-                        border.color: Theme.danger
+                        normalColor: "transparent"
+                        pressedColor: Qt.darker(Theme.danger, 1.3)
+                        disabledColor: Theme.btnDisabled
+                        glowColor: Theme.danger
+                        borderWidth: 2
+                        borderColor: Theme.danger
                         visible: selectedEditUser.length > 0
+
+                        onClicked: {
+                            UserService.deleteUser(root.selectedEditUser)
+                            editDialogVisible = false
+                        }
 
                         Text {
                             anchors.centerIn: parent
@@ -1178,14 +1197,6 @@ Item {
                             color: Theme.danger
                             font.pixelSize: Theme.body
                             font.bold: true
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                UserService.deleteUser(root.selectedEditUser)
-                                editDialogVisible = false
-                            }
                         }
                     }
                 }
