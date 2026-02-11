@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import Qt5Compat.GraphicalEffects 1.0
 import RobotUI 1.0
 
 Item {
@@ -103,11 +104,29 @@ Item {
                 visible: !root.adminModeActive
 
                 Image {
+                    id: logoImage
                     anchors.fill: parent
                     source: "../assets/images/pipecell.png"
                     fillMode: Image.PreserveAspectFit
                     smooth: true
                     mipmap: true
+                    visible: false
+                }
+
+                Glow {
+                    anchors.fill: logoImage
+                    source: logoImage
+                    radius: 24
+                    samples: 16
+                    spread: 0.25
+                    color: Theme.accent
+                    opacity: 0.18
+                }
+
+                ColorOverlay {
+                    anchors.fill: logoImage
+                    source: logoImage
+                    color: Theme.accent
                 }
             }
 
