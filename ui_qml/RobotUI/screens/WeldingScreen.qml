@@ -850,13 +850,17 @@ Rectangle {
             spacing: Theme.gap
 
             // I/O Button
-            Rectangle {
+            InteractiveSurface {
                 width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
-                color: Theme.sideBtnBase
-                border.width: 2
-                border.color: Theme.border
+                normalColor: Theme.sideBtnBase
+                pressedColor: Theme.btnPressed
+                disabledColor: Theme.btnDisabled
+                borderWidth: 2
+                borderColor: Theme.border
+
+                onClicked: console.log("I/O clicked")
 
                 Text {
                     anchors.centerIn: parent
@@ -866,22 +870,20 @@ Rectangle {
                     font.pixelSize: Theme.body
                     font.bold: true
                 }
-
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: console.log("I/O clicked")
-                }
             }
 
             // New Weld Button
-            Rectangle {
+            InteractiveSurface {
                 width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
-                color: Theme.sideBtnBase
-                border.width: 2
-                border.color: Theme.border
+                normalColor: Theme.sideBtnBase
+                pressedColor: Theme.btnPressed
+                disabledColor: Theme.btnDisabled
+                borderWidth: 2
+                borderColor: Theme.border
+
+                onClicked: console.log("New Weld clicked")
 
                 Text {
                     anchors.centerIn: parent
@@ -891,22 +893,20 @@ Rectangle {
                     font.pixelSize: Theme.body
                     font.bold: true
                 }
-
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: console.log("New Weld clicked")
-                }
             }
 
             // View WSM Button
-            Rectangle {
+            InteractiveSurface {
                 width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
-                color: Theme.sideBtnBase
-                border.width: 2
-                border.color: Theme.border
+                normalColor: Theme.sideBtnBase
+                pressedColor: Theme.btnPressed
+                disabledColor: Theme.btnDisabled
+                borderWidth: 2
+                borderColor: Theme.border
+
+                onClicked: console.log("View WSM clicked")
 
                 Text {
                     anchors.centerIn: parent
@@ -916,22 +916,39 @@ Rectangle {
                     font.pixelSize: Theme.body
                     font.bold: true
                 }
-
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: console.log("View WSM clicked")
-                }
             }
 
             // Save Weld Button
-            Rectangle {
+            InteractiveSurface {
                 width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
-                color: Theme.success
-                border.width: 2
-                border.color: "#3ab86a"
+                normalColor: Theme.success
+                pressedColor: Theme.btnPressed
+                disabledColor: Theme.btnDisabled
+                borderWidth: 2
+                borderColor: "#3ab86a"
+
+                onClicked: {
+                    root.saveErrorMessage = ""
+                    root.saveSuccessMessage = ""
+                    var result = WeldRecordService.saveWeldRecord(
+                        root.weldId,
+                        root.weldProject,
+                        root.weldClient,
+                        root.loggedInUserFirstName + " " + root.loggedInUserLastName,
+                        root.weldUpstreamHeat,
+                        root.weldDownstreamHeat,
+                        root.weldComments,
+                        "GPS pending"
+                    )
+                    if (result === "") {
+                        root.saveSuccessMessage = "Weld record saved successfully!"
+                        successTimer.restart()
+                    } else {
+                        root.saveErrorMessage = result
+                    }
+                }
 
                 Text {
                     anchors.centerIn: parent
@@ -941,41 +958,23 @@ Rectangle {
                     font.pixelSize: Theme.body
                     font.bold: true
                 }
-
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        root.saveErrorMessage = ""
-                        root.saveSuccessMessage = ""
-                        var result = WeldRecordService.saveWeldRecord(
-                            root.weldId,
-                            root.weldProject,
-                            root.weldClient,
-                            root.loggedInUserFirstName + " " + root.loggedInUserLastName,
-                            root.weldUpstreamHeat,
-                            root.weldDownstreamHeat,
-                            root.weldComments,
-                            "GPS pending"
-                        )
-                        if (result === "") {
-                            root.saveSuccessMessage = "Weld record saved successfully!"
-                            successTimer.restart()
-                        } else {
-                            root.saveErrorMessage = result
-                        }
-                    }
-                }
             }
 
             // Start Scan Button
-            Rectangle {
+            InteractiveSurface {
                 width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
-                color: Theme.success
-                border.width: 2
-                border.color: "#3ab86a"
+                normalColor: Theme.success
+                pressedColor: Theme.btnPressed
+                disabledColor: Theme.btnDisabled
+                borderWidth: 2
+                borderColor: "#3ab86a"
+
+                onClicked: {
+                    root.scanLoading = true
+                    scanLoadTimer.start()
+                }
 
                 Text {
                     anchors.centerIn: parent
@@ -984,15 +983,6 @@ Rectangle {
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.body
                     font.bold: true
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        root.scanLoading = true
-                        scanLoadTimer.start()
-                    }
                 }
             }
         }

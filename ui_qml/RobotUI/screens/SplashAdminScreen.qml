@@ -156,11 +156,15 @@ Item {
             }
 
             // ---- Login / Logout button (only shown when NOT in admin mode) ----
-            Rectangle {
+            InteractiveSurface {
                 width: 600
                 height: 64
                 radius: Theme.radius
-                color: Theme.accent
+                normalColor: Theme.accent
+                pressedColor: Theme.btnPressed
+                disabledColor: Theme.btnDisabled
+                borderWidth: 2
+                borderColor: Theme.border
                 anchors.horizontalCenter: parent.horizontalCenter
                 visible: !root.adminModeActive
 
@@ -176,28 +180,25 @@ Item {
                 // MAIN SCREEN BUTTON HANDLER
                 // LOG IN / LOG OUT (opens popup for login)
                 // ===========================
-                MouseArea {
-                    anchors.fill: parent
-                    onPressed: {
-                        // LOG OUT
-                        if (root.loggedIn) {
-                            root.loggedIn = false
-                            root.loggedInUser = ""
-                            root.loggedInUserFirstName = ""
-                            root.loggedInIsAdmin = false
-                            root.loggedInRole = 0
-                            root.passcode = ""
-                            return
-                        }
-
-                        // LOG IN requires user selection
-                        if (!root.userChosen || usersModel.count === 0)
-                            return
-
-                        // all users require passcode -> open modal
-                        root.pinErrorVisible = false
-                        pinPopup.open()
+                onPressed: {
+                    // LOG OUT
+                    if (root.loggedIn) {
+                        root.loggedIn = false
+                        root.loggedInUser = ""
+                        root.loggedInUserFirstName = ""
+                        root.loggedInIsAdmin = false
+                        root.loggedInRole = 0
+                        root.passcode = ""
+                        return
                     }
+
+                    // LOG IN requires user selection
+                    if (!root.userChosen || usersModel.count === 0)
+                        return
+
+                    // all users require passcode -> open modal
+                    root.pinErrorVisible = false
+                    pinPopup.open()
                 }
             }
 
@@ -223,11 +224,17 @@ Item {
                     columnSpacing: Theme.gap
                     rowSpacing: Theme.gap
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
                             height: 190
                             radius: Theme.radius
-                            color: Theme.accent
+                            normalColor: Theme.accent
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            onPressed: console.log("ADMIN: view logs")
 
                             Text {
                                 anchors.centerIn: parent
@@ -236,32 +243,40 @@ Item {
                                 font.pixelSize: Theme.fontMed
                                 font.bold: true
                             }
-
-                            MouseArea { anchors.fill: parent; onPressed: console.log("ADMIN: view logs") }
                         }
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
                             height: 190
                             radius: Theme.radius
-                            color: Theme.accent
+                            normalColor: Theme.accent
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            onPressed: console.log("ADMIN: export logs")
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "EXPORT LOGS"
+                                text: "EXPORT LOG FILES"
                                 color: Theme.panel
                                 font.pixelSize: Theme.fontMed
                                 font.bold: true
                             }
-
-                            MouseArea { anchors.fill: parent; onPressed: console.log("ADMIN: export logs") }
                         }
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
                             height: 190
                             radius: Theme.radius
-                            color: Theme.accent
+                            normalColor: Theme.accent
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            onPressed: console.log("ADMIN: system info")
 
                             Text {
                                 anchors.centerIn: parent
@@ -270,15 +285,19 @@ Item {
                                 font.pixelSize: Theme.fontMed
                                 font.bold: true
                             }
-
-                            MouseArea { anchors.fill: parent; onPressed: console.log("ADMIN: system info") }
                         }
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
                             height: 190
                             radius: Theme.radius
-                            color: Theme.accent
+                            normalColor: Theme.accent
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            onPressed: console.log("ADMIN: restart ui")
 
                             Text {
                                 anchors.centerIn: parent
@@ -287,53 +306,54 @@ Item {
                                 font.pixelSize: Theme.fontMed
                                 font.bold: true
                             }
-
-                            MouseArea { anchors.fill: parent; onPressed: console.log("ADMIN: restart ui") }
                         }
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
                             height: 190
                             radius: Theme.radius
-                            color: Theme.accent
+                            normalColor: Theme.accent
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            onPressed: root.userManagementVisible = true
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "EDIT USERS"
+                                text: "USER MANAGEMENT"
                                 color: Theme.panel
                                 font.pixelSize: Theme.fontMed
                                 font.bold: true
                             }
-
-                            MouseArea { anchors.fill: parent; onPressed: root.userManagementVisible = true }
                         }
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: (adminPanel.width - (Theme.pad * 2) - Theme.gap) / 2
                             height: 190
                             radius: Theme.radius
-                            color: Qt.darker(Theme.panel, 1.1)
-                            border.width: 2
-                            border.color: "#2a3442"
+                            normalColor: Theme.accent
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            onPressed: {
+                                root.loggedIn = false
+                                root.loggedInUser = ""
+                                root.loggedInUserFirstName = ""
+                                root.loggedInIsAdmin = false
+                                root.loggedInRole = 0
+                                root.passcode = ""
+                            }
 
                             Text {
                                 anchors.centerIn: parent
                                 text: "LOG OUT"
-                                color: Theme.text
+                                color: Theme.panel
                                 font.pixelSize: Theme.fontMed
                                 font.bold: true
-                            }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onPressed: {
-                                    root.loggedIn = false
-                                    root.loggedInUser = ""
-                                    root.loggedInUserFirstName = ""
-                                    root.loggedInIsAdmin = false
-                                    root.loggedInRole = 0
-                                    root.passcode = ""
-                                }
                             }
                         }
                     }
@@ -453,16 +473,29 @@ Item {
                         Repeater {
                             model: ["1","2","3","4","5","6","7","8","9","CLR","0","DEL"]
 
-                            delegate: Rectangle {
+                            delegate: InteractiveSurface {
                                 width: Math.min(
                                            root.keyW,
                                            (panel.width - (Theme.pad * 2) - (root.keySpacing * (root.keyCols - 1))) / root.keyCols
                                        )
                                 height: root.keyH - 30
                                 radius: Theme.radius
-                                color: Theme.sideBtnBase
-                                border.width: 2
-                                border.color: "#2a3442"
+                                normalColor: Theme.sideBtnBase
+                                pressedColor: Theme.btnPressed
+                                disabledColor: Theme.btnDisabled
+                                borderWidth: 2
+                                borderColor: "#2a3442"
+
+                                onPressed: {
+                                    if (modelData === "CLR") { root.passcode = ""; return }
+                                    if (modelData === "DEL") {
+                                        if (root.passcode.length > 0)
+                                            root.passcode = root.passcode.slice(0, root.passcode.length - 1)
+                                        return
+                                    }
+                                    if (root.passcode.length < 6)
+                                        root.passcode = root.passcode + modelData
+                                }
 
                                 Text {
                                     anchors.centerIn: parent
@@ -471,29 +504,52 @@ Item {
                                     font.pixelSize: 40
                                     font.bold: true
                                 }
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onPressed: {
-                                        if (modelData === "CLR") { root.passcode = ""; return }
-                                        if (modelData === "DEL") {
-                                            if (root.passcode.length > 0)
-                                                root.passcode = root.passcode.slice(0, root.passcode.length - 1)
-                                            return
-                                        }
-                                        if (root.passcode.length < 6)
-                                            root.passcode = root.passcode + modelData
-                                    }
-                                }
                             }
                         }
                     }
 
-                    Rectangle {
+                    InteractiveSurface {
                         width: parent.width
                         height: 60
                         radius: Theme.radius
-                        color: Theme.accent
+                        normalColor: Theme.accent
+                        pressedColor: Theme.btnPressed
+                        disabledColor: Theme.btnDisabled
+                        borderWidth: 2
+                        borderColor: Theme.border
+
+                        // ===========================
+                        // POPUP LOG IN BUTTON HANDLER
+                        // validates passcode, sets loggedIn state, shows 2s error banner
+                        // ===========================
+                        onPressed: {
+                            if (!root.userChosen || usersModel.count === 0)
+                                return
+                            if (root.passcode.length !== 6)
+                                return
+
+                            if (root.passcode !== root.selectedPin) {
+                                root.pinErrorVisible = true
+                                pinErrorTimer.restart()
+                                return
+                            }
+
+                            root.pinErrorVisible = false
+                            root.loggedIn = true
+                            root.loggedInUser = root.selectedFullName
+                            root.loggedInUserFirstName = root.selectedFirstName
+                            root.loggedInIsAdmin = root.isAdminRole
+                            // Map role string to Role enum: "Operator"=1, "Technician"=2, "Administrator"=3
+                            if (root.selectedRole === "Administrator") {
+                                root.loggedInRole = 3
+                            } else if (root.selectedRole === "Technician") {
+                                root.loggedInRole = 2
+                            } else {
+                                root.loggedInRole = 1  // default to Operator
+                            }
+                            root.passcode = ""
+                            pinPopup.close()
+                        }
 
                         Text {
                             anchors.centerIn: parent
@@ -502,51 +558,23 @@ Item {
                             font.pixelSize: Theme.fontLg
                             font.bold: true
                         }
-
-                        // ===========================
-                        // POPUP LOG IN BUTTON HANDLER
-                        // validates passcode, sets loggedIn state, shows 2s error banner
-                        // ===========================
-                        MouseArea {
-                            anchors.fill: parent
-                            onPressed: {
-                                if (!root.userChosen || usersModel.count === 0)
-                                    return
-                                if (root.passcode.length !== 6)
-                                    return
-
-                                if (root.passcode !== root.selectedPin) {
-                                    root.pinErrorVisible = true
-                                    pinErrorTimer.restart()
-                                    return
-                                }
-
-                                root.pinErrorVisible = false
-                                root.loggedIn = true
-                                root.loggedInUser = root.selectedFullName
-                                root.loggedInUserFirstName = root.selectedFirstName
-                                root.loggedInIsAdmin = root.isAdminRole
-                                // Map role string to Role enum: "Operator"=1, "Technician"=2, "Administrator"=3
-                                if (root.selectedRole === "Administrator") {
-                                    root.loggedInRole = 3
-                                } else if (root.selectedRole === "Technician") {
-                                    root.loggedInRole = 2
-                                } else {
-                                    root.loggedInRole = 1  // default to Operator
-                                }
-                                root.passcode = ""
-                                pinPopup.close()
-                            }
-                        }
                     }
 
-                    Rectangle {
+                    InteractiveSurface {
                         width: parent.width
                         height: 64
                         radius: Theme.radius
-                        color: Qt.darker(Theme.panel, 1.15)
-                        border.width: 2
-                        border.color: "#2a3442"
+                        normalColor: Qt.darker(Theme.panel, 1.15)
+                        pressedColor: Theme.btnPressed
+                        disabledColor: Theme.btnDisabled
+                        borderWidth: 2
+                        borderColor: "#2a3442"
+
+                        onPressed: {
+                            root.passcode = ""
+                            root.pinErrorVisible = false
+                            pinPopup.close()
+                        }
 
                         Text {
                             anchors.centerIn: parent
@@ -554,15 +582,6 @@ Item {
                             color: Theme.text
                             font.pixelSize: Theme.fontMed
                             font.bold: true
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onPressed: {
-                                root.passcode = ""
-                                root.pinErrorVisible = false
-                                pinPopup.close()
-                            }
                         }
                     }
                 }
@@ -608,11 +627,17 @@ Item {
                     }
                 }
 
-                Rectangle {
+                InteractiveSurface {
                     width: 200
                     height: 80
                     radius: Theme.radius
-                    color: Theme.accent
+                    normalColor: Theme.accent
+                    pressedColor: Theme.btnPressed
+                    disabledColor: Theme.btnDisabled
+                    borderWidth: 2
+                    borderColor: Theme.border
+
+                    onPressed: root.userManagementVisible = false
 
                     Text {
                         anchors.centerIn: parent
@@ -620,11 +645,6 @@ Item {
                         color: Theme.panel
                         font.pixelSize: Theme.fontMed
                         font.bold: true
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onPressed: root.userManagementVisible = false
                     }
                 }
             }
@@ -705,11 +725,21 @@ Item {
                                 font.pixelSize: Theme.body
                             }
 
-                            Rectangle {
+                            InteractiveSurface {
                                 width: parent.width
                                 height: 48
                                 radius: Theme.radius
-                                color: Theme.accent
+                                normalColor: Theme.accent
+                                pressedColor: Theme.btnPressed
+                                disabledColor: Theme.btnDisabled
+                                borderWidth: 2
+                                borderColor: Theme.border
+
+                                onClicked: {
+                                    if (userComboBox.currentIndex >= 0) {
+                                        editDialogVisible = true
+                                    }
+                                }
 
                                 Text {
                                     anchors.centerIn: parent
@@ -717,15 +747,6 @@ Item {
                                     color: Theme.panel
                                     font.pixelSize: Theme.body
                                     font.bold: true
-                                }
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        if (userComboBox.currentIndex >= 0) {
-                                            editDialogVisible = true
-                                        }
-                                    }
                                 }
                             }
                         }
@@ -814,12 +835,25 @@ Item {
                                         }
                                     }
 
-                                    Rectangle {
+                                    InteractiveSurface {
                                         width: 100
                                         height: 40
                                         radius: Theme.radius
-                                        color: Theme.accent
+                                        normalColor: Theme.accent
+                                        pressedColor: Theme.btnPressed
+                                        disabledColor: Theme.btnDisabled
+                                        borderWidth: 2
+                                        borderColor: Theme.border
                                         anchors.verticalCenter: parent.verticalCenter
+
+                                        onClicked: {
+                                            root.selectedEditUser = username || ""
+                                            root.selectedEditFirstName = firstName || ""
+                                            root.selectedEditLastName = lastName || ""
+                                            root.selectedEditRole = role || "Operator"
+                                            root.editPasscode = pin || ""
+                                            editDialogVisible = true
+                                        }
 
                                         Text {
                                             anchors.centerIn: parent
@@ -827,18 +861,6 @@ Item {
                                             color: Theme.panel
                                             font.pixelSize: Theme.body
                                             font.bold: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: {
-                                                root.selectedEditUser = username || ""
-                                                root.selectedEditFirstName = firstName || ""
-                                                root.selectedEditLastName = lastName || ""
-                                                root.selectedEditRole = role || "Operator"
-                                                root.editPasscode = pin || ""
-                                                editDialogVisible = true
-                                            }
                                         }
                                     }
                                 }
@@ -851,11 +873,24 @@ Item {
                         width: parent.width
                         spacing: Theme.gap
 
-                        Rectangle {
+                        InteractiveSurface {
                             width: parent.width
                             height: 56
                             radius: Theme.radius
-                            color: Theme.accent
+                            normalColor: Theme.accent
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            onClicked: {
+                                root.selectedEditUser = ""
+                                root.selectedEditFirstName = ""
+                                root.selectedEditLastName = ""
+                                root.editPasscode = ""
+                                root.selectedEditRole = "Operator"
+                                editDialogVisible = true
+                            }
 
                             Text {
                                 anchors.centerIn: parent
@@ -863,18 +898,6 @@ Item {
                                 color: Theme.panel
                                 font.pixelSize: Theme.body
                                 font.bold: true
-                            }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    root.selectedEditUser = ""
-                                    root.selectedEditFirstName = ""
-                                    root.selectedEditLastName = ""
-                                    root.editPasscode = ""
-                                    root.selectedEditRole = "Operator"
-                                    editDialogVisible = true
-                                }
                             }
                         }
                     }

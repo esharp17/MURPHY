@@ -38,38 +38,32 @@ Rectangle {
         Repeater {
             model: tabs.tabCount
 
-            delegate: Button {
+            delegate: InteractiveSurface {
                 property int idx: model.index
-
-                text: tabs.labels[idx]
-                width: (row.width - (row.spacing * (tabs.tabCount - 1))) / tabs.tabCount
-                height: row.height
-
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.tabFont
-
                 readonly property bool accessible: (typeof PermissionChecker !== "undefined" && PermissionChecker !== null) ? PermissionChecker.canAccessPage(idx, tabs.sessionRole) : true
 
-                background: Rectangle {
-                    radius: Theme.radius
+                width: (row.width - (row.spacing * (tabs.tabCount - 1))) / tabs.tabCount
+                height: row.height
+                enabled: accessible
+                active: tabs.safeIndex === idx
 
-                    color: !parent.accessible
-                           ? tabs.tabDisabledColor
-                           : (tabs.safeIndex === idx)
+                normalColor: tabs.tabUnselectedColor
+                pressedColor: tabs.tabSelectedColor
+                disabledColor: tabs.tabDisabledColor
+                borderWidth: (tabs.safeIndex === idx) ? 3 : 1
+                borderColor: (tabs.safeIndex === idx)
                              ? tabs.tabSelectedColor
-                             : tabs.tabUnselectedColor
+                             : !accessible
+                               ? "#3a3f4a"
+                               : "#2a4a6a"
 
-                    border.width: (tabs.safeIndex === idx) ? 3 : 1
-                    border.color: (tabs.safeIndex === idx)
-                                  ? tabs.tabSelectedColor
-                                  : !parent.accessible
-                                    ? "#3a3f4a"
-                                    : "#2a4a6a"
-                }
+                onClicked: tabs.tabSelected(idx)
 
-                contentItem: Text {
-                    text: parent.text
-                    color: !parent.accessible
+                Text {
+                    anchors.centerIn: parent
+                    anchors.verticalCenterOffset: 6
+                    text: tabs.labels[idx]
+                    color: !accessible
                            ? tabs.tabDisabledText
                            : (tabs.safeIndex === idx) ? "#ffffff" : "#8891a8"
                     font.family: Theme.fontFamily
@@ -78,11 +72,7 @@ Rectangle {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     elide: Text.ElideRight
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.verticalCenterOffset: 6
                 }
-
-                onClicked: tabs.tabSelected(idx)
             }
         }
     }

@@ -181,11 +181,22 @@ Item {
 
                 Repeater {
                     model: 4
-                    delegate: Rectangle {
+                    delegate: InteractiveSurface {
                         width: (robotBtns.width - (Theme.gap * 3)) / 4
                         height: robotBtns.height
                         radius: Theme.radius
-                        color: (index === robotIndex) ? Theme.accent : Theme.panel
+                        normalColor: Theme.panel
+                        pressedColor: Theme.btnPressed
+                        disabledColor: Theme.btnDisabled
+                        borderWidth: (index === robotIndex) ? 3 : 1
+                        borderColor: (index === robotIndex) ? Theme.accent : Theme.border
+                        active: index === robotIndex
+
+                        onClicked: {
+                            robotIndex = index
+                            refresh()
+                            loadIoNames()
+                        }
 
                         Text {
                             anchors.centerIn: parent
@@ -195,27 +206,32 @@ Item {
                             font.pixelSize: Theme.h2
                             font.bold: true
                         }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                robotIndex = index
-                                refresh()
-                                loadIoNames()
-                            }
-                        }
                     }
                 }
             }
 
-            Rectangle {
+            InteractiveSurface {
                 id: configBtn
                 width: 140
                 height: parent.height
                 radius: Theme.radius
-                color: Theme.panel
+                normalColor: Theme.panel
+                pressedColor: Theme.btnPressed
+                disabledColor: Theme.btnDisabled
+                borderWidth: 2
+                borderColor: Theme.border
                 z: 2000
                 visible: root.loggedInRole !== 0 && root.loggedInRole !== 1  // hide if not logged in or operator
+
+                onClicked: {
+                    var c = RobotComm.getConfig(robotIndex)
+                    configPopup.ip     = c.ip
+                    configPopup.port   = "" + c.port
+                    configPopup.slot   = "" + c.slot
+                    configPopup.inSize = "" + c.in_words
+                    configPopup.outSize= "" + c.out_words
+                    configPopup.open()
+                }
 
                 Text {
                     anchors.centerIn: parent
@@ -224,21 +240,6 @@ Item {
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.h2
                     font.bold: true
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.LeftButton
-                    preventStealing: true
-                    onClicked: {
-                        var c = RobotComm.getConfig(robotIndex)
-                        configPopup.ip     = c.ip
-                        configPopup.port   = "" + c.port
-                        configPopup.slot   = "" + c.slot
-                        configPopup.inSize = "" + c.in_words
-                        configPopup.outSize= "" + c.out_words
-                        configPopup.open()
-                    }
                 }
             }
         }

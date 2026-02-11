@@ -360,16 +360,22 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
         anchors.margins: Theme.sideBtngap
         spacing: Theme.sideBtngap
 
-        Rectangle {
+        InteractiveSurface {
             id: bAuto
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            color: sb.autoActive ? "green" : Theme.sideBtnBase
-            border.width: 2
-            border.color: "#2a3442"
+            normalColor: Theme.sideBtnBase
+            pressedColor: Theme.btnPressed
+            disabledColor: Theme.btnDisabled
+            borderWidth: 2
+            borderColor: "#2a3442"
+            enabled: sb.autoEnabled()
+            active: sb.autoActive
             opacity: sb.autoEnabled() ? 1.0 : 0.35
             visible: sb.loggedInRole !== 0  // hide if not logged in
+
+            onClicked: { sb.pressAuto(); sb.pressed("auto") }
 
             Text {
                 anchors.centerIn: parent
@@ -380,23 +386,23 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 font.pixelSize: Theme.sideBtnFont
                 font.bold: true
             }
-
-            MouseArea {
-                anchors.fill: parent
-                enabled: sb.autoEnabled()
-                onClicked: { sb.pressAuto(); sb.pressed("auto") }
-            }
         }
 
-        Rectangle {
+        InteractiveSurface {
             id: bManual
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            color: sb.manualActive ? "yellow" : Theme.sideBtnBase
-            border.width: 2
-            border.color: "#2a3442"
+            normalColor: Theme.sideBtnBase
+            pressedColor: Theme.btnPressed
+            disabledColor: Theme.btnDisabled
+            borderWidth: 2
+            borderColor: "#2a3442"
+            enabled: sb.loggedInRole !== 0
+            active: sb.manualActive
             visible: sb.loggedInRole !== 0  // hide if not logged in
+
+            onClicked: { sb.pressManual(); sb.pressed("manual") }
 
             Text {
                 anchors.centerIn: parent
@@ -407,23 +413,25 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 font.pixelSize: Theme.sideBtnFont
                 font.bold: true
             }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: { sb.pressManual(); sb.pressed("manual") }
-            }
         }
 
-        Rectangle {
+        InteractiveSurface {
             id: bStart
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            color: sb.startActive ? "blue" : Theme.sideBtnBase
-            border.width: 2
-            border.color: "#2a3442"
+            normalColor: Theme.sideBtnBase
+            pressedColor: Theme.btnPressed
+            disabledColor: Theme.btnDisabled
+            borderWidth: 2
+            borderColor: "#2a3442"
+            enabled: sb._autoReq
+            active: sb.startActive
             opacity: sb._autoReq ? 1.0 : 0.35
             visible: sb.loggedInRole !== 0  // hide if not logged in
+
+            onPressed: { sb.pressStart(true); sb.pressed("start") }
+            onReleased:{ sb.pressStart(false) }
 
             Text {
                 anchors.centerIn: parent
@@ -434,26 +442,25 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 font.pixelSize: Theme.sideBtnFont
                 font.bold: true
             }
-
-            MouseArea {
-                anchors.fill: parent
-                enabled: sb._autoReq
-                onPressed: { sb.pressStart(true); sb.pressed("start") }
-                onReleased:{ sb.pressStart(false) }
-                onCanceled:{ sb.pressStart(false) }
-            }
         }
 
-        Rectangle {
+        InteractiveSurface {
             id: bStop
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            color: sb.stopActive ? "blue" : Theme.sideBtnBase
-            border.width: 2
-            border.color: "#2a3442"
+            normalColor: Theme.sideBtnBase
+            pressedColor: Theme.btnPressed
+            disabledColor: Theme.btnDisabled
+            borderWidth: 2
+            borderColor: "#2a3442"
+            enabled: sb._autoReq
+            active: sb.stopActive
             opacity: sb._autoReq ? 1.0 : 0.35
             visible: sb.loggedInRole !== 0  // hide if not logged in
+
+            onPressed: { sb.pressStop(true); sb.pressed("stop") }
+            onReleased:{ sb.pressStop(false) }
 
             Text {
                 anchors.centerIn: parent
@@ -464,25 +471,24 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 font.pixelSize: Theme.sideBtnFont
                 font.bold: true
             }
-
-            MouseArea {
-                anchors.fill: parent
-                enabled: sb._autoReq
-                onPressed: { sb.pressStop(true); sb.pressed("stop") }
-                onReleased:{ sb.pressStop(false) }
-                onCanceled:{ sb.pressStop(false) }
-            }
         }
 
-                Rectangle {
+        InteractiveSurface {
             id: bReset
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            color: sb.resetActive ? "blue" : Theme.sideBtnBase
-            border.width: sb.faultAny ? 3 : 2
-            border.color: sb.faultAny ? "red" : "#2a3442"
+            normalColor: Theme.sideBtnBase
+            pressedColor: Theme.btnPressed
+            disabledColor: Theme.btnDisabled
+            borderWidth: sb.faultAny ? 3 : 2
+            borderColor: sb.faultAny ? "red" : "#2a3442"
+            enabled: sb.loggedInRole !== 0
+            active: sb.resetActive
             visible: sb.loggedInRole !== 0  // hide if not logged in
+
+            onPressed: { sb.pressReset(true); sb.pressed("reset") }
+            onReleased:{ sb.pressReset(false) }
 
             Text {
                 anchors.centerIn: parent
@@ -493,23 +499,23 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 font.pixelSize: Theme.sideBtnFont
                 font.bold: true
             }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: { sb.pressReset(true); sb.pressed("reset") }
-                onReleased:{ sb.pressReset(false) }
-                onCanceled:{ sb.pressReset(false) }
-            }
         }
 
-        Rectangle {
+        InteractiveSurface {
             id: bEstop
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            border.width: 3
-            border.color: "#000000"
-            color: sb.stopButtonColor()
+            normalColor: sb.stopButtonColor()
+            pressedColor: Theme.btnPressed
+            disabledColor: Theme.btnDisabled
+            borderWidth: 3
+            borderColor: "#000000"
+            enabled: true
+            active: sb.stopSafe
+
+            onPressed: { sb.pressImstp(true); sb.pressed("estop") }
+            onReleased: { sb.pressImstp(false) }
 
             Text {
                 anchors.centerIn: parent
@@ -519,14 +525,6 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.sideBtnFont + 4
                 font.bold: true
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: { sb.pressImstp(true); sb.pressed("estop") }
-                // latch behavior; release does not force OFF
-                onReleased: { sb.pressImstp(false) }
-                onCanceled: { sb.pressImstp(false) }
             }
         }
     }
