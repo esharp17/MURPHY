@@ -41,7 +41,8 @@ class WeldRecordService(QObject):
         os.makedirs(self._save_dir, exist_ok=True)
         self._csv_path = os.path.join(self._save_dir, "weld_records.csv")
 
-    @Slot(str, str, str, str, str, str, str, str, result=str)
+    @Slot(str, str, str, str, str, str, str, str,
+          str, str, str, str, str, str, str, str, result=str)
     def saveWeldRecord(
         self,
         weld_id: str,
@@ -52,6 +53,14 @@ class WeldRecordService(QObject):
         downstream_heat: str,
         comments: str,
         location_coords: str,
+        pipe_diameter: str = "",
+        wall_thickness: str = "",
+        bevel_prep: str = "",
+        pre_heat_temp: str = "",
+        wire_type: str = "",
+        wire_diameter: str = "",
+        wire_brand: str = "",
+        shield_gas: str = "",
     ) -> str:
         """
         Validate required fields and append a row to the CSV.
@@ -89,14 +98,14 @@ class WeldRecordService(QObject):
                     upstream_heat.strip(),
                     downstream_heat.strip(),
                     comments.strip(),
-                    "1,219mm / 48\"",
-                    "15.88mm / 0.625\"",
-                    "30°",
-                    "100° C / 212°F",
-                    "GMAW",
-                    "1.2mm / 0.045\"",
-                    "Lincoln",
-                    "Ar/Co2 85/15",
+                    pipe_diameter.strip(),
+                    wall_thickness.strip(),
+                    bevel_prep.strip(),
+                    pre_heat_temp.strip(),
+                    wire_type.strip(),
+                    wire_diameter.strip(),
+                    wire_brand.strip(),
+                    shield_gas.strip(),
                 ])
             self.saveSuccess.emit(self._csv_path)
             return ""

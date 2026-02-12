@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Dialogs
 import RobotUI 1.0
 import ScanPlot 1.0
 
@@ -31,6 +32,34 @@ Rectangle {
     property real scanZoom: 1.0
     property bool scanDataLoaded: false
     property string scanSelectedInfo: ""
+
+    // Essential Variables from WSM PDF
+    property var essentialVarsModel: []
+    property string wsmPdfName: ""
+    property string wsmFolder: WsmService ? WsmService.folder : ""
+
+    Connections {
+        target: WsmService
+        function onDataChanged() {
+            root.essentialVarsModel = WsmService.essentialVariables()
+            root.wsmPdfName = WsmService.pdfName
+        }
+    }
+
+    Component.onCompleted: {
+        if (WsmService && WsmService.folder) {
+            root.essentialVarsModel = WsmService.essentialVariables()
+            root.wsmPdfName = WsmService.pdfName
+        }
+    }
+
+    FolderDialog {
+        id: wsmFolderDialog
+        title: "Select WSM Folder"
+        onAccepted: {
+            WsmService.setFolder(selectedFolder.toString())
+        }
+    }
 
     // Get current date formatted as "Month Day, Year"
     function getCurrentDate() {
@@ -73,18 +102,10 @@ Rectangle {
 
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
-                        text: "Running WSM"
-                        color: Theme.muted
+                        text: root.wsmPdfName ? ("Running WSM: " + root.wsmPdfName.replace(".pdf", "").replace(".PDF", "")) : "Running WSM"
+                        color: root.wsmPdfName ? Theme.text : Theme.muted
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.bodySm
-                    }
-
-                    Text {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: ""
-                        color: Theme.text
-                        font.family: Theme.fontFamily
-                        font.pixelSize: Theme.body
                         font.bold: true
                     }
                 }
@@ -449,17 +470,88 @@ Rectangle {
                         }
                     }
 
+                    // WSM folder selector + PDF name
+                    Rectangle {
+                        width: parent.width
+                        height: 36
+                        color: Theme.sideBtnpanel
+
+                        Row {
+                            anchors.fill: parent
+                            anchors.leftMargin: Theme.pad
+                            anchors.rightMargin: 4
+                            spacing: 6
+
+                            Text {
+                                width: parent.width - selectFolderBtn.width - refreshBtn.width - 18
+                                height: parent.height
+                                text: root.wsmPdfName ? ("Running WSM: " + root.wsmPdfName.replace(".pdf", "").replace(".PDF", "")) : (root.wsmFolder ? "No PDF found" : "No WSM folder selected")
+                                color: root.wsmPdfName ? Theme.text : Theme.muted
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.bodySm
+                                verticalAlignment: Text.AlignVCenter
+                                elide: Text.ElideMiddle
+                            }
+
+                            Rectangle {
+                                id: refreshBtn
+                                width: 28; height: 28
+                                radius: 4
+                                color: Theme.accent
+                                anchors.verticalCenter: parent.verticalCenter
+                                visible: root.wsmFolder !== ""
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: "\u21BB"
+                                    color: "white"
+                                    font.pixelSize: 16
+                                    font.bold: true
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: WsmService.reload()
+                                }
+                            }
+
+                            Rectangle {
+                                id: selectFolderBtn
+                                width: 80; height: 28
+                                radius: 4
+                                color: Theme.accent
+                                anchors.verticalCenter: parent.verticalCenter
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: "Browse..."
+                                    color: "white"
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.bodySm
+                                    font.bold: true
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: wsmFolderDialog.open()
+                                }
+                            }
+                        }
+                    }
+
                     // Rows
                     Repeater {
-                        model: [
-                            { label: "Pipe Diameter", val1: "1,219mm", val2: "48\"" },
-                            { label: "Wall Thickness", val1: "15.88mm", val2: "0.625\"" },
-                            { label: "Bevel Prep", val1: "30\u00b0", val2: "" },
-                            { label: "Pre-Heat Temp", val1: "100\u00b0 C", val2: "212\u00b0F" },
-                            { label: "Wire Type", val1: "GMAW", val2: "" },
-                            { label: "Wire Diameter", val1: "1.2mm", val2: "0.045\"" },
-                            { label: "Wire Brand", val1: "Lincoln", val2: "" },
-                            { label: "Shield Gas", val1: "Ar/Co2 85/15", val2: "" }
+                        model: root.essentialVarsModel.length > 0 ? root.essentialVarsModel : [
+                            { label: "Pipe Diameter", val1: "--", val2: "" },
+                            { label: "Wall Thickness", val1: "--", val2: "" },
+                            { label: "Bevel Prep", val1: "--", val2: "" },
+                            { label: "Pre-Heat Temp", val1: "--", val2: "" },
+                            { label: "Wire Type", val1: "--", val2: "" },
+                            { label: "Wire Diameter", val1: "--", val2: "" },
+                            { label: "Wire Brand", val1: "--", val2: "" },
+                            { label: "Shield Gas", val1: "--", val2: "" }
                         ]
                         delegate: Rectangle {
                             width: parent ? parent.width : 0
@@ -940,6 +1032,7 @@ Rectangle {
                 onClicked: {
                     root.saveErrorMessage = ""
                     root.saveSuccessMessage = ""
+                    var ev = root.essentialVarsModel
                     var result = WeldRecordService.saveWeldRecord(
                         root.weldId,
                         root.weldProject,
@@ -948,7 +1041,15 @@ Rectangle {
                         root.weldUpstreamHeat,
                         root.weldDownstreamHeat,
                         root.weldComments,
-                        "GPS pending"
+                        "GPS pending",
+                        ev.length > 0 ? (ev[0].val1 + (ev[0].val2 ? " / " + ev[0].val2 : "")) : "",
+                        ev.length > 1 ? (ev[1].val1 + (ev[1].val2 ? " / " + ev[1].val2 : "")) : "",
+                        ev.length > 2 ? ev[2].val1 : "",
+                        ev.length > 3 ? (ev[3].val1 + (ev[3].val2 ? " / " + ev[3].val2 : "")) : "",
+                        ev.length > 4 ? ev[4].val1 : "",
+                        ev.length > 5 ? (ev[5].val1 + (ev[5].val2 ? " / " + ev[5].val2 : "")) : "",
+                        ev.length > 6 ? ev[6].val1 : "",
+                        ev.length > 7 ? ev[7].val1 : ""
                     )
                     if (result === "") {
                         root.saveSuccessMessage = "Weld record saved successfully!"

@@ -24,6 +24,7 @@ from robot_ui.permissions import can_access_page_by_index
 from robot_ui.models import Role
 from robot_ui.user_service import UserService
 from robot_ui.weld_record_service import WeldRecordService
+from robot_ui.wsm_service import WsmService
 from robot_ui.scan_data_provider import ScanDataProvider
 from robot_ui.scan_plot_item import ScanPlotItem
 
@@ -63,6 +64,7 @@ def main() -> int:
     permissionChecker = PermissionChecker()
     userService = UserService()
     weldRecordService = WeldRecordService()
+    wsmService = WsmService()
 
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
@@ -79,6 +81,7 @@ def main() -> int:
     engine.rootContext().setContextProperty("PermissionChecker", permissionChecker)
     engine.rootContext().setContextProperty("UserService", userService)
     engine.rootContext().setContextProperty("WeldRecordService", weldRecordService)
+    engine.rootContext().setContextProperty("WsmService", wsmService)
 
     scanDataProvider = ScanDataProvider()
     engine.rootContext().setContextProperty("ScanDataProvider", scanDataProvider)
