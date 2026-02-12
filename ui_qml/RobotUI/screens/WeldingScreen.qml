@@ -41,14 +41,16 @@ Rectangle {
     }
 
     // =========================================================
-    // PRE-CHECK VIEW
+    // ALWAYS-VISIBLE HEADER (Top Info Bar + Welcome)
     // =========================================================
     Column {
-        id: preCheckView
-        anchors.fill: parent
+        id: alwaysVisibleHeader
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
         anchors.margins: Theme.pad
         spacing: Theme.gap
-        visible: !root.showWeldRecord
+        visible: !root.showScanView
 
         // Top Info Bar
         Row {
@@ -205,11 +207,27 @@ Rectangle {
                 font.bold: true
             }
         }
+    }
+
+    // =========================================================
+    // PRE-CHECK VIEW
+    // =========================================================
+    Item {
+        id: preCheckView
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: alwaysVisibleHeader.bottom
+        anchors.bottom: parent.bottom
+        anchors.leftMargin: Theme.pad
+        anchors.rightMargin: Theme.pad
+        anchors.topMargin: Theme.gap
+        anchors.bottomMargin: Theme.pad
+        visible: !root.showWeldRecord
 
         // Pre-Check List
         Item {
             width: parent.width
-            height: parent.height - 60 - 50 - (Theme.gap * 2)
+            height: parent.height
 
             Column {
                 id: checkListContent
@@ -370,8 +388,14 @@ Rectangle {
     // =========================================================
     Item {
         id: weldRecordView
-        anchors.fill: parent
-        anchors.margins: Theme.pad
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: alwaysVisibleHeader.bottom
+        anchors.bottom: parent.bottom
+        anchors.leftMargin: Theme.pad
+        anchors.rightMargin: Theme.pad
+        anchors.topMargin: Theme.gap
+        anchors.bottomMargin: Theme.pad
         visible: root.showWeldRecord && !root.showScanView
 
         // Two tables side by side
@@ -843,38 +867,15 @@ Rectangle {
         // Bottom Navigation Bar
         Row {
             id: bottomBar
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
+            width: parent.width
             height: 48
             spacing: Theme.gap
 
-            // I/O Button
-            InteractiveSurface {
-                width: (parent.width - Theme.gap * 4) / 5
-                height: parent.height
-                radius: Theme.radius
-                normalColor: Theme.sideBtnBase
-                pressedColor: Theme.btnPressed
-                disabledColor: Theme.btnDisabled
-                borderWidth: 2
-                borderColor: Theme.border
-
-                onClicked: console.log("I/O clicked")
-
-                Text {
-                    anchors.centerIn: parent
-                    text: "I/O"
-                    color: Theme.text
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.body
-                    font.bold: true
-                }
-            }
-
             // New Weld Button
             InteractiveSurface {
-                width: (parent.width - Theme.gap * 4) / 5
+                width: (parent.width - Theme.gap * 3) / 4
                 height: parent.height
                 radius: Theme.radius
                 normalColor: Theme.sideBtnBase
@@ -883,7 +884,14 @@ Rectangle {
                 borderWidth: 2
                 borderColor: Theme.border
 
-                onClicked: console.log("New Weld clicked")
+                onClicked: {
+                    root.weldId = ""
+                    root.weldComments = ""
+                    root.weldUpstreamHeat = ""
+                    root.weldDownstreamHeat = ""
+                    root.saveErrorMessage = ""
+                    root.saveSuccessMessage = ""
+                }
 
                 Text {
                     anchors.centerIn: parent
@@ -897,7 +905,7 @@ Rectangle {
 
             // View WSM Button
             InteractiveSurface {
-                width: (parent.width - Theme.gap * 4) / 5
+                width: (parent.width - Theme.gap * 3) / 4
                 height: parent.height
                 radius: Theme.radius
                 normalColor: Theme.sideBtnBase
@@ -920,7 +928,7 @@ Rectangle {
 
             // Save Weld Button
             InteractiveSurface {
-                width: (parent.width - Theme.gap * 4) / 5
+                width: (parent.width - Theme.gap * 3) / 4
                 height: parent.height
                 radius: Theme.radius
                 normalColor: Theme.success
@@ -962,7 +970,7 @@ Rectangle {
 
             // Start Scan Button
             InteractiveSurface {
-                width: (parent.width - Theme.gap * 4) / 5
+                width: (parent.width - Theme.gap * 3) / 4
                 height: parent.height
                 radius: Theme.radius
                 normalColor: Theme.success

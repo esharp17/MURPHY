@@ -65,12 +65,7 @@ class WeldRecordService(QObject):
             missing.append("Project")
         if not client.strip():
             missing.append("Client")
-        if not upstream_heat.strip():
-            missing.append("Upstream Heat #")
-        if not downstream_heat.strip():
-            missing.append("Downstream Heat #")
-        if not comments.strip():
-            missing.append("Comments")
+        
 
         if missing:
             msg = "Missing required fields: " + ", ".join(missing)

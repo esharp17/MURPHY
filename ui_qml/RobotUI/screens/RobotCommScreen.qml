@@ -48,10 +48,9 @@ Item {
     // ----------------------------
     // Local layout tuning
     // ----------------------------
-    property int tile_H: 28
     property int tile_PAD: 2
     property int led_SZ: 12
-    property int grid_GAP: 6
+    property int grid_GAP: 4
 
     // ----------------------------
     // I/O naming (loaded from JSON)
@@ -271,55 +270,50 @@ Item {
                         font.bold: true
                     }
 
-                    ScrollView {
+                    Grid {
+                        id: outGrid
                         width: parent.width
-                        height: parent.height - parent.spacing - 20
-                        clip: true
-                        
-                        ScrollBar.vertical.policy: ScrollBar.AsNeeded
-                        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                        columns: 2
+                        columnSpacing: grid_GAP
+                        rowSpacing: grid_GAP
 
-                        Grid {
-                            id: outGrid
-                            width: outputsPanel.width - Theme.pad * 2 - 10
-                            columns: 2
-                            columnSpacing: grid_GAP
-                            rowSpacing: grid_GAP
+                        // 32 items / 2 columns = 16 rows
+                        property real availH: outputsPanel.height - Theme.pad * 2 - Theme.pad - 24
+                        property real tileH: Math.max(16, (availH - (grid_GAP * 15)) / 16)
 
-                            Repeater {
-                                model: 32
-                                delegate: Rectangle {
-                                    width: (outGrid.width - (outGrid.columnSpacing * (outGrid.columns - 1))) / outGrid.columns
-                                    height: tile_H
-                                    radius: Theme.radius
-                                    color: Theme.bg
+                        Repeater {
+                            model: 32
+                            delegate: Rectangle {
+                                width: (outGrid.width - (outGrid.columnSpacing * (outGrid.columns - 1))) / outGrid.columns
+                                height: outGrid.tileH
+                                radius: Theme.radius
+                                color: Theme.bg
 
-                                    readonly property int bitIndex: index
-                                    readonly property int bitVal: root.bitFromWords(root.outputsWords, bitIndex)
+                                readonly property int bitIndex: index
+                                readonly property int bitVal: root.bitFromWords(root.outputsWords, bitIndex)
 
-                                    Row {
-                                        anchors.fill: parent
-                                        anchors.margins: tile_PAD
-                                        spacing: 10
+                                Row {
+                                    anchors.fill: parent
+                                    anchors.margins: tile_PAD
+                                    spacing: 10
 
-                                        Rectangle {
-                                            width: led_SZ
-                                            height: led_SZ
-                                            radius: led_SZ / 2
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            color: bitVal ? "#00ff3a" : "#003300"
-                                        }
+                                    Rectangle {
+                                        width: led_SZ
+                                        height: led_SZ
+                                        radius: led_SZ / 2
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        color: bitVal ? "#00ff3a" : "#003300"
+                                    }
 
-                                        Text {
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            text: (root.outNames && root.outNames.length > bitIndex) ? root.outNames[bitIndex] : ("OUT" + (bitIndex + 1))
-                                            color: Theme.text
-                                            font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.body
-                                            font.bold: true
-                                            elide: Text.ElideRight
-                                            width: parent.width - (led_SZ + 18)
-                                        }
+                                    Text {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        text: (root.outNames && root.outNames.length > bitIndex) ? root.outNames[bitIndex] : ("OUT" + (bitIndex + 1))
+                                        color: Theme.text
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.bodySm
+                                        font.bold: true
+                                        elide: Text.ElideRight
+                                        width: parent.width - (led_SZ + 18)
                                     }
                                 }
                             }
@@ -349,55 +343,50 @@ Item {
                         font.bold: true
                     }
 
-                    ScrollView {
+                    Grid {
+                        id: inGrid
                         width: parent.width
-                        height: parent.height - parent.spacing - 20
-                        clip: true
-                        
-                        ScrollBar.vertical.policy: ScrollBar.AsNeeded
-                        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                        columns: 2
+                        columnSpacing: grid_GAP
+                        rowSpacing: grid_GAP
 
-                        Grid {
-                            id: inGrid
-                            width: inputsPanel.width - Theme.pad * 2 - 10
-                            columns: 2
-                            columnSpacing: grid_GAP
-                            rowSpacing: grid_GAP
+                        // 32 items / 2 columns = 16 rows
+                        property real availH: inputsPanel.height - Theme.pad * 2 - Theme.pad - 24
+                        property real tileH: Math.max(16, (availH - (grid_GAP * 15)) / 16)
 
-                            Repeater {
-                                model: 32
-                                delegate: Rectangle {
-                                    width: (inGrid.width - (inGrid.columnSpacing * (inGrid.columns - 1))) / inGrid.columns
-                                    height: tile_H
-                                    radius: Theme.radius
-                                    color: Theme.bg
+                        Repeater {
+                            model: 32
+                            delegate: Rectangle {
+                                width: (inGrid.width - (inGrid.columnSpacing * (inGrid.columns - 1))) / inGrid.columns
+                                height: inGrid.tileH
+                                radius: Theme.radius
+                                color: Theme.bg
 
-                                    readonly property int bitIndex: index
-                                    readonly property int bitVal: root.bitFromWords(root.inputsWords, bitIndex)
+                                readonly property int bitIndex: index
+                                readonly property int bitVal: root.bitFromWords(root.inputsWords, bitIndex)
 
-                                    Row {
-                                        anchors.fill: parent
-                                        anchors.margins: tile_PAD
-                                        spacing: 10
+                                Row {
+                                    anchors.fill: parent
+                                    anchors.margins: tile_PAD
+                                    spacing: 10
 
-                                        Rectangle {
-                                            width: led_SZ
-                                            height: led_SZ
-                                            radius: led_SZ / 2
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            color: bitVal ? "#00ff3a" : "#003300"
-                                        }
+                                    Rectangle {
+                                        width: led_SZ
+                                        height: led_SZ
+                                        radius: led_SZ / 2
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        color: bitVal ? "#00ff3a" : "#003300"
+                                    }
 
-                                        Text {
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            text: (root.inNames && root.inNames.length > bitIndex) ? root.inNames[bitIndex] : ("IN" + (bitIndex + 1))
-                                            color: Theme.text
-                                            font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.body
-                                            font.bold: true
-                                            elide: Text.ElideRight
-                                            width: parent.width - (led_SZ + 18)
-                                        }
+                                    Text {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        text: (root.inNames && root.inNames.length > bitIndex) ? root.inNames[bitIndex] : ("IN" + (bitIndex + 1))
+                                        color: Theme.text
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.bodySm
+                                        font.bold: true
+                                        elide: Text.ElideRight
+                                        width: parent.width - (led_SZ + 18)
                                     }
                                 }
                             }
