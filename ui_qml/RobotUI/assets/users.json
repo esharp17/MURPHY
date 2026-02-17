@@ -6,8 +6,8 @@
       "lastName": "Lenehan",
       "role": "Administrator",
       "pin": "111111",
-      "hash": "fc5ef89094095da3b4ec51d225b55df2ce052080f4f5f1ce4738dfb2ab15c6c1",
-      "salt": "9d84f67b6abc65cac978f93441ee151a"
+      "hash": "d13e4b4408bd5fa8accfdfb8b6e0ddd2fcfa6b54f09527e091cdaabb3506d635",
+      "salt": "498be7eed1a74052f10de81548c8f6ff"
     },
     {
       "username": "Ben Hatch",
