@@ -30,8 +30,12 @@ Rectangle {
     property real scanAzim: 140
     property real scanElev: 20
     property real scanZoom: 1.0
+    property real scanPanX: 0.0
+    property real scanPanY: 0.0
     property bool scanDataLoaded: false
     property string scanSelectedInfo: ""
+    property bool showScanDataPage: false
+    property var scanRowData: []
 
     // Essential Variables from WSM PDF
     property var essentialVarsModel: []
@@ -1153,13 +1157,10 @@ Rectangle {
         id: scanView
         anchors.fill: parent
         anchors.margins: Theme.pad
-        visible: root.showScanView && !root.scanLoading
+        visible: root.showScanView && !root.scanLoading && !root.showScanDataPage
 
-        property real dragStartX: 0
-        property real dragStartElev: 0
-
-        // Main plot area
-        Rectangle {
+        // Main plot area (no border — blends with panel)
+        Item {
             id: scanPlotContainer
             anchors.left: parent.left
             anchors.top: parent.top
@@ -1167,19 +1168,16 @@ Rectangle {
             anchors.bottomMargin: Theme.gapSm
             anchors.right: scanButtonsCol.left
             anchors.rightMargin: Theme.gap
-            radius: Theme.radius
-            color: "#0d1117"
-            border.width: 2
-            border.color: Theme.border
             clip: true
 
             ScanPlotItem {
                 id: scanPlotItem
                 anchors.fill: parent
-                anchors.margins: 2
                 elev: root.scanElev
                 azim: root.scanAzim
                 zoom: root.scanZoom
+                panX: root.scanPanX
+                panY: root.scanPanY
 
                 Component.onCompleted: {
                     if (root.scanDataLoaded) {
@@ -1188,34 +1186,92 @@ Rectangle {
                 }
             }
 
-            MouseArea {
+            // Two-finger: pinch-to-zoom + pan
+            PinchArea {
+                id: pinchArea
                 anchors.fill: parent
-                acceptedButtons: Qt.LeftButton
-                hoverEnabled: true
-                cursorShape: pressed ? Qt.ClosedHandCursor : Qt.OpenHandCursor
 
-                onPressed: function(mouse) {
-                    scanView.dragStartX = mouse.x
-                    scanView.dragStartElev = root.scanElev
+                property real startZoom: 1.0
+                property real startPanX: 0.0
+                property real startPanY: 0.0
+                property real startCenterX: 0.0
+                property real startCenterY: 0.0
+
+                onPinchStarted: function(pinch) {
+                    startZoom = root.scanZoom
+                    startPanX = root.scanPanX
+                    startPanY = root.scanPanY
+                    startCenterX = pinch.center.x
+                    startCenterY = pinch.center.y
                 }
 
-                onPositionChanged: function(mouse) {
-                    if (pressed) {
-                        var dx = mouse.x - scanView.dragStartX
-                        root.scanElev = scanView.dragStartElev + dx * 0.3
+                onPinchUpdated: function(pinch) {
+                    var oldZoom = root.scanZoom
+                    // Pinch zoom
+                    var newZoom = Math.max(0.05, Math.min(3.0, startZoom / pinch.scale))
+                    root.scanZoom = newZoom
+
+                    // Two-finger pan
+                    var dx = pinch.center.x - startCenterX
+                    var dy = pinch.center.y - startCenterY
+                    var panScale = newZoom * 2.0
+                    var basePanX = startPanX - dx * panScale
+                    var basePanY = startPanY + dy * panScale
+
+                    // Zoom toward pinch center
+                    var dz = oldZoom - newZoom
+                    var relX = (pinch.center.x / scanPlotContainer.width - 0.5) * 2.0
+                    var relY = (pinch.center.y / scanPlotContainer.height - 0.5) * 2.0
+                    root.scanPanX = basePanX + scanPlotItem.xzHalf * dz * relX
+                    root.scanPanY = basePanY - scanPlotItem.yHalf * dz * relY
+                }
+
+                // Single-finger: rotate (azim + elev) + mouse wheel zoom + tap-to-pick
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.LeftButton
+                    hoverEnabled: true
+
+                    property real dragStartX: 0
+                    property real dragStartY: 0
+                    property real dragStartAzim: 0
+                    property real dragStartElev: 0
+
+                    onPressed: function(mouse) {
+                        dragStartX = mouse.x
+                        dragStartY = mouse.y
+                        dragStartAzim = root.scanAzim
+                        dragStartElev = root.scanElev
                     }
-                }
 
-                onWheel: function(wheel) {
-                    if (wheel.angleDelta.y > 0) {
-                        root.scanZoom = Math.max(0.3, root.scanZoom * 0.9)
-                    } else {
-                        root.scanZoom = Math.min(3.0, root.scanZoom / 0.9)
+                    onPositionChanged: function(mouse) {
+                        if (pressed) {
+                            root.scanAzim = dragStartAzim - (mouse.x - dragStartX) * 0.5
+                            root.scanElev = Math.max(-90, Math.min(90, dragStartElev + (mouse.y - dragStartY) * 0.3))
+                        }
                     }
-                }
 
-                onClicked: function(mouse) {
-                    scanPlotItem.pickPoint(mouse.x, mouse.y)
+                    onWheel: function(wheel) {
+                        var oldZoom = root.scanZoom
+                        var newZoom
+                        if (wheel.angleDelta.y > 0) {
+                            newZoom = Math.max(0.05, oldZoom * 0.9)
+                        } else {
+                            newZoom = Math.min(3.0, oldZoom / 0.9)
+                        }
+
+                        // Zoom toward cursor position
+                        var dz = oldZoom - newZoom
+                        var relX = (wheel.x / scanPlotContainer.width - 0.5) * 2.0
+                        var relY = (wheel.y / scanPlotContainer.height - 0.5) * 2.0
+                        root.scanPanX += scanPlotItem.xzHalf * dz * relX
+                        root.scanPanY -= scanPlotItem.yHalf * dz * relY
+                        root.scanZoom = newZoom
+                    }
+
+                    onClicked: function(mouse) {
+                        scanPlotItem.pickPoint(mouse.x, mouse.y)
+                    }
                 }
             }
         }
@@ -1229,7 +1285,7 @@ Rectangle {
             anchors.bottom: parent.bottom
             height: 36
             radius: Theme.radiusSm
-            color: "#11141F"
+            color: Theme.panelRecessed
             border.width: 1
             border.color: Theme.border
 
@@ -1240,9 +1296,9 @@ Rectangle {
 
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
-                    text: scanPlotItem.selectedInfo !== "" ? scanPlotItem.selectedInfo : "Click a point to see details"
+                    text: scanPlotItem.selectedInfo !== "" ? scanPlotItem.selectedInfo : "Tap a point to see details"
                     color: scanPlotItem.selectedInfo !== "" ? Theme.text : Theme.muted
-                    font.family: Theme.fontFamilyMono
+                    font.family: Theme.fontFamily
                     font.pixelSize: Theme.caption
                     elide: Text.ElideRight
                     width: parent.width - statsText.width - 24
@@ -1253,7 +1309,7 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     text: scanPlotItem.pointCount + " pts  |  " + scanPlotItem.gapRange
                     color: Theme.muted
-                    font.family: Theme.fontFamilyMono
+                    font.family: Theme.fontFamily
                     font.pixelSize: Theme.caption
                 }
             }
@@ -1289,49 +1345,42 @@ Rectangle {
                 width: parent.width; height: 38; radius: Theme.radius
                 color: Theme.sideBtnBase; border.width: 1; border.color: Theme.border
                 Text { anchors.centerIn: parent; text: "Iso Home"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 20; root.scanAzim = 140; root.scanZoom = 1.0 } }
+                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 20; root.scanAzim = 140; root.scanZoom = 1.0; root.scanPanX = 0; root.scanPanY = 0 } }
             }
             // Front
             Rectangle {
                 width: parent.width; height: 38; radius: Theme.radius
                 color: Theme.sideBtnBase; border.width: 1; border.color: Theme.border
                 Text { anchors.centerIn: parent; text: "Front"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = 90; root.scanZoom = 1.0 } }
+                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = 90; root.scanZoom = 1.0; root.scanPanX = 0; root.scanPanY = 0 } }
             }
             // Back
             Rectangle {
                 width: parent.width; height: 38; radius: Theme.radius
                 color: Theme.sideBtnBase; border.width: 1; border.color: Theme.border
                 Text { anchors.centerIn: parent; text: "Back View"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = -90; root.scanZoom = 1.0 } }
+                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = -90; root.scanZoom = 1.0; root.scanPanX = 0; root.scanPanY = 0 } }
             }
             // Left
             Rectangle {
                 width: parent.width; height: 38; radius: Theme.radius
                 color: Theme.sideBtnBase; border.width: 1; border.color: Theme.border
                 Text { anchors.centerIn: parent; text: "Left"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = 0; root.scanZoom = 1.0 } }
+                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = 0; root.scanZoom = 1.0; root.scanPanX = 0; root.scanPanY = 0 } }
             }
             // Right
             Rectangle {
                 width: parent.width; height: 38; radius: Theme.radius
                 color: Theme.sideBtnBase; border.width: 1; border.color: Theme.border
                 Text { anchors.centerIn: parent; text: "Right"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = 180; root.scanZoom = 1.0 } }
+                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = 180; root.scanZoom = 1.0; root.scanPanX = 0; root.scanPanY = 0 } }
             }
             // Top
             Rectangle {
                 width: parent.width; height: 38; radius: Theme.radius
                 color: Theme.sideBtnBase; border.width: 1; border.color: Theme.border
                 Text { anchors.centerIn: parent; text: "Top"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 90; root.scanAzim = 140; root.scanZoom = 1.0 } }
-            }
-            // Side
-            Rectangle {
-                width: parent.width; height: 38; radius: Theme.radius
-                color: Theme.sideBtnBase; border.width: 1; border.color: Theme.border
-                Text { anchors.centerIn: parent; text: "Side"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 0; root.scanAzim = 0; root.scanZoom = 1.0 } }
+                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanElev = 90; root.scanAzim = 140; root.scanZoom = 1.0; root.scanPanX = 0; root.scanPanY = 0 } }
             }
 
             // --- Spacer ---
@@ -1350,7 +1399,7 @@ Rectangle {
                 width: parent.width; height: 48; radius: Theme.radius
                 color: Theme.accent; border.width: 2; border.color: Theme.accent
                 Text { anchors.centerIn: parent; text: "Scan Data"; color: Theme.panel; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { ScanPlot.showScanDataLocal() } }
+                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanRowData = ScanDataProvider.getAllRowData(); root.showScanDataPage = true } }
             }
             // Start Weld
             Rectangle {
@@ -1365,6 +1414,131 @@ Rectangle {
         onVisibleChanged: {
             if (visible && root.scanDataLoaded) {
                 feedDataToPlot()
+            }
+        }
+    }
+
+    // =========================================================
+    // SCAN DATA TABLE PAGE
+    // =========================================================
+    Item {
+        id: scanDataPage
+        anchors.fill: parent
+        anchors.margins: Theme.pad
+        visible: root.showScanView && root.showScanDataPage && !root.scanLoading
+
+        // Header bar
+        Rectangle {
+            id: dataPageHeader
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            height: 48
+            radius: Theme.radius
+            color: Theme.panelRecessed
+            border.width: 1
+            border.color: Theme.border
+
+            Text {
+                anchors.centerIn: parent
+                text: "Scan Offset Data  (​" + root.scanRowData.length + " points)"
+                color: Theme.text
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.body
+                font.bold: true
+            }
+
+            // Back button
+            Rectangle {
+                anchors.left: parent.left
+                anchors.leftMargin: 8
+                anchors.verticalCenter: parent.verticalCenter
+                width: 80; height: 34; radius: Theme.radius
+                color: Theme.sideBtnBase
+                border.width: 1; border.color: Theme.border
+                Text { anchors.centerIn: parent; text: "\u2190  Back"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; font.bold: true }
+                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.showScanDataPage = false } }
+            }
+        }
+
+        // Column headers
+        Rectangle {
+            id: tableHeader
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: dataPageHeader.bottom
+            anchors.topMargin: Theme.gapSm
+            height: 32
+            radius: Theme.radiusSm
+            color: Theme.panelRecessed
+
+            Row {
+                anchors.fill: parent
+                anchors.leftMargin: 12
+                anchors.rightMargin: 12
+                spacing: 0
+
+                Text { width: parent.width * 0.06; text: "Pos"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                Text { width: parent.width * 0.10; text: "Gap (mm)"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                Text { width: parent.width * 0.08; text: "Sched"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                Text { width: parent.width * 0.11; text: "Off X"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                Text { width: parent.width * 0.11; text: "Off Y"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                Text { width: parent.width * 0.11; text: "Off Z"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                Text { width: parent.width * 0.11; text: "Act X"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                Text { width: parent.width * 0.11; text: "Act Y"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                Text { width: parent.width * 0.11; text: "Act Z"; color: Theme.muted; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; font.bold: true; verticalAlignment: Text.AlignVCenter; height: parent.height }
+            }
+        }
+
+        // Scrollable data rows
+        ListView {
+            id: dataListView
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: tableHeader.bottom
+            anchors.topMargin: 2
+            anchors.bottom: parent.bottom
+            clip: true
+            model: root.scanRowData
+            flickDeceleration: 3000
+            boundsBehavior: Flickable.StopAtBounds
+
+            delegate: Rectangle {
+                width: dataListView.width
+                height: 34
+                radius: 0
+                color: index % 2 === 0 ? "transparent" : Qt.rgba(1, 1, 1, 0.02)
+
+                Row {
+                    anchors.fill: parent
+                    anchors.leftMargin: 12
+                    anchors.rightMargin: 12
+                    spacing: 0
+
+                    Text { width: parent.width * 0.06; text: modelData.pos; color: Theme.text; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Text { width: parent.width * 0.10; text: modelData.gap.toFixed(3); color: Theme.text; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Text { width: parent.width * 0.08; text: Number(modelData.sched).toFixed(0); color: Theme.text; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Text { width: parent.width * 0.11; text: modelData.offX.toFixed(3); color: Theme.text; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Text { width: parent.width * 0.11; text: modelData.offY.toFixed(3); color: Theme.text; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Text { width: parent.width * 0.11; text: modelData.offZ.toFixed(3); color: Theme.text; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Text { width: parent.width * 0.11; text: modelData.actX.toFixed(2); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Text { width: parent.width * 0.11; text: modelData.actY.toFixed(2); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Text { width: parent.width * 0.11; text: modelData.actZ.toFixed(2); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                }
+
+                // Bottom border
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 1
+                    color: Theme.border
+                    opacity: 0.3
+                }
+            }
+
+            ScrollBar.vertical: ScrollBar {
+                policy: ScrollBar.AsNeeded
             }
         }
     }

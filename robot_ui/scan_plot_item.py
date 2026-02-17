@@ -15,7 +15,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
-from PySide6.QtCore import Signal, Slot, Property, QPointF, QObject, Qt
+from PySide6.QtCore import Signal, Slot, Property, QPointF, QObject, Qt, QTimer
 from PySide6.QtGui import QImage, QPainter, QColor
 from PySide6.QtQuick import QQuickPaintedItem
 
@@ -41,6 +41,8 @@ class ScanPlotItem(QQuickPaintedItem):
     elevChanged = Signal()
     azimChanged = Signal()
     zoomChanged = Signal()
+    panXChanged = Signal()
+    panYChanged = Signal()
     selectedInfoChanged = Signal()
     pointCountChanged = Signal()
     gapRangeChanged = Signal()
@@ -54,6 +56,8 @@ class ScanPlotItem(QQuickPaintedItem):
         self._elev = 20.0
         self._azim = 140.0
         self._zoom = 1.0
+        self._pan_x = 0.0
+        self._pan_y = 0.0
 
         # Data (set by provider)
         self._base_x = []
@@ -84,6 +88,10 @@ class ScanPlotItem(QQuickPaintedItem):
         self._image = None
         self._dirty = True
         self._loaded = False
+        self._fast_mode = False
+
+        # Pre-computed color arrays (rebuilt on data load)
+        self._colors_cache = []
 
         # Selection
         self._selected_info = ""
@@ -91,6 +99,18 @@ class ScanPlotItem(QQuickPaintedItem):
 
         # Scatter artist screen coords cache (for picking)
         self._scatter_screen_coords = []
+
+        # Render throttle: limits redraws to ~20 FPS during interaction
+        self._render_timer = QTimer(self)
+        self._render_timer.setInterval(50)
+        self._render_timer.setSingleShot(True)
+        self._render_timer.timeout.connect(self._on_render_tick)
+
+        # Full-quality timer: fires after interaction stops
+        self._quality_timer = QTimer(self)
+        self._quality_timer.setInterval(400)
+        self._quality_timer.setSingleShot(True)
+        self._quality_timer.timeout.connect(self._on_quality_tick)
 
     # ---- QML Properties ----
 
@@ -100,9 +120,8 @@ class ScanPlotItem(QQuickPaintedItem):
     def _set_elev(self, v):
         if self._elev != v:
             self._elev = v
-            self._dirty = True
             self.elevChanged.emit()
-            self.update()
+            self._schedule_update()
 
     elev = Property(float, _get_elev, _set_elev, notify=elevChanged)
 
@@ -112,9 +131,8 @@ class ScanPlotItem(QQuickPaintedItem):
     def _set_azim(self, v):
         if self._azim != v:
             self._azim = v
-            self._dirty = True
             self.azimChanged.emit()
-            self.update()
+            self._schedule_update()
 
     azim = Property(float, _get_azim, _set_azim, notify=azimChanged)
 
@@ -122,14 +140,35 @@ class ScanPlotItem(QQuickPaintedItem):
         return self._zoom
 
     def _set_zoom(self, v):
-        v = max(0.3, min(3.0, v))
+        v = max(0.05, min(3.0, v))
         if self._zoom != v:
             self._zoom = v
-            self._dirty = True
             self.zoomChanged.emit()
-            self.update()
+            self._schedule_update()
 
     zoom = Property(float, _get_zoom, _set_zoom, notify=zoomChanged)
+
+    def _get_pan_x(self):
+        return self._pan_x
+
+    def _set_pan_x(self, v):
+        if self._pan_x != v:
+            self._pan_x = v
+            self.panXChanged.emit()
+            self._schedule_update()
+
+    panX = Property(float, _get_pan_x, _set_pan_x, notify=panXChanged)
+
+    def _get_pan_y(self):
+        return self._pan_y
+
+    def _set_pan_y(self, v):
+        if self._pan_y != v:
+            self._pan_y = v
+            self.panYChanged.emit()
+            self._schedule_update()
+
+    panY = Property(float, _get_pan_y, _set_pan_y, notify=panYChanged)
 
     def _get_selected_info(self):
         return self._selected_info
@@ -147,6 +186,16 @@ class ScanPlotItem(QQuickPaintedItem):
         return f"Gap: {self._gap_min:.3f} - {self._gap_max:.3f} mm"
 
     gapRange = Property(str, _get_gap_range_str, notify=gapRangeChanged)
+
+    def _get_xz_half(self):
+        return self._xz_half
+
+    xzHalf = Property(float, _get_xz_half, notify=pointCountChanged)
+
+    def _get_y_half(self):
+        return self._y_half
+
+    yHalf = Property(float, _get_y_half, notify=pointCountChanged)
 
     # ---- Data loading ----
 
@@ -198,8 +247,17 @@ class ScanPlotItem(QQuickPaintedItem):
                 if self._gap_max == self._gap_min:
                     self._gap_max = self._gap_min + 1.0
 
+        # Pre-compute gap colors
+        self._colors_cache = []
+        if self._gaps:
+            for g in self._gaps:
+                t = ((g - self._gap_min) / (self._gap_max - self._gap_min)
+                     if self._gap_max > self._gap_min else 0.0)
+                self._colors_cache.append(_gap_to_rgba(t))
+
         self._loaded = True
         self._dirty = True
+        self._fast_mode = False
         self.pointCountChanged.emit()
         self.gapRangeChanged.emit()
         self.update()
@@ -249,39 +307,54 @@ class ScanPlotItem(QQuickPaintedItem):
         self._dirty = True
         self.update()
 
+    # ---- Render scheduling ----
+
+    def _schedule_update(self):
+        """Mark dirty and schedule a throttled re-render."""
+        self._dirty = True
+        self._fast_mode = True
+        # Start throttle timer if not already running
+        if not self._render_timer.isActive():
+            self._render_timer.start()
+        # Reset the full-quality timer
+        self._quality_timer.start()
+
+    def _on_render_tick(self):
+        """Throttle timer fired — trigger a paint if still dirty."""
+        if self._dirty:
+            self.update()
+
+    def _on_quality_tick(self):
+        """Interaction stopped — render full quality."""
+        self._fast_mode = False
+        self._dirty = True
+        self.update()
+
     # ---- Rendering ----
 
-    def _render_plot(self):
-        """Render the matplotlib figure to a QImage."""
+    def _render_plot(self, fast=False):
+        """Render the matplotlib figure to a QImage.
+        If fast=True, skip expensive elements (cylinder, colorbar, picking coords)
+        and use lower DPI for responsive interaction.
+        """
         w = int(self.width())
         h = int(self.height())
         if w <= 0 or h <= 0:
             return
 
-        dpi = 100
+        dpi = 60 if fast else 100
         fig_w = w / dpi
         fig_h = h / dpi
 
         fig = plt.figure(figsize=(fig_w, fig_h), dpi=dpi)
-        fig.patch.set_facecolor("#0d1117")
+        fig.patch.set_facecolor("none")
+        fig.patch.set_alpha(0.0)
         ax = fig.add_subplot(111, projection="3d")
         ax.set_box_aspect((1, 1, 1))
         ax.set_facecolor("none")
 
-        # Remove grid and axes
-        ax.grid(False)
-        for axis in (ax.xaxis, ax.yaxis, ax.zaxis):
-            axis._axinfo["grid"]["linewidth"] = 0
-            axis._axinfo["grid"]["color"] = (0, 0, 0, 0)
-        ax.set_xticks([])
-        ax.set_yticks([])
-        ax.set_zticks([])
-        try:
-            ax.w_xaxis.line.set_lw(0.)
-            ax.w_yaxis.line.set_lw(0.)
-            ax.w_zaxis.line.set_lw(0.)
-        except Exception:
-            pass
+        # Remove all axis decorations (panes, spines, grid, ticks, labels)
+        ax.set_axis_off()
 
         if self._loaded and self._base_x:
             # Base path
@@ -294,42 +367,28 @@ class ScanPlotItem(QQuickPaintedItem):
                     linewidth=1.8, alpha=0.9,
                     label="Actual Path", color="#4FFBFF")
 
-            # Scatter points colored by gap (green->yellow->orange->red)
+            # Scatter points colored by gap
             n = len(self._actual_x)
-            colors = []
-            for i in range(n):
-                t = ((self._gaps[i] - self._gap_min) / (self._gap_max - self._gap_min)
-                     if self._gap_max > self._gap_min else 0.0)
-                colors.append(_gap_to_rgba(t))
+            colors = self._colors_cache if self._colors_cache else [(0, 1, 0, 1)] * n
+            pt_size = 12 if fast else 25
+            sizes = [pt_size] * n
+            edge_colors = ["none"] * n
+            if not fast and self._selected_index >= 0 and self._selected_index < n:
+                sizes[self._selected_index] = 50
+                edge_colors[self._selected_index] = "white"
 
-            sizes = [50 if i == self._selected_index else 25 for i in range(n)]
-            edge_colors = ["white" if i == self._selected_index else "none" for i in range(n)]
-
-            sc = ax.scatter(
+            ax.scatter(
                 self._actual_x, self._actual_y, self._actual_z,
                 c=colors, s=sizes, depthshade=False,
-                edgecolors=edge_colors, linewidths=1.5
+                edgecolors=edge_colors, linewidths=1.5 if not fast else 0
             )
 
-            # Colorbar-like legend
-            import matplotlib.colors as mcolors
-            from matplotlib.cm import ScalarMappable
-            cmap_colors = [_gap_to_rgba(t) for t in np.linspace(0, 1, 256)]
-            cmap = mcolors.ListedColormap(cmap_colors)
-            norm = mcolors.Normalize(vmin=self._gap_min, vmax=self._gap_max)
-            sm = ScalarMappable(cmap=cmap, norm=norm)
-            sm.set_array([])
-            cbar = fig.colorbar(sm, ax=ax, shrink=0.6, pad=0.02)
-            cbar.set_label("Gap (mm)", color="#E0E4FF", fontsize=9)
-            cbar.ax.yaxis.set_tick_params(color="#A8B0FF", labelsize=8)
-            for t in cbar.ax.get_yticklabels():
-                t.set_color("#A8B0FF")
-            cbar.ax.set_facecolor("#0d1117")
-
-            # Cylinder
+            # Cylinder pipe (always rendered, fewer segments in fast mode)
             cyl_radius = (DEFAULT_CYL_DIAM_IN * INCH_TO_MM) / 2.0
-            theta = np.linspace(0, 2 * np.pi, 60)
-            y_line = np.linspace(self._y_min, self._y_max, 30)
+            n_theta = 24 if fast else 60
+            n_y = 10 if fast else 30
+            theta = np.linspace(0, 2 * np.pi, n_theta)
+            y_line = np.linspace(self._y_min, self._y_max, n_y)
             theta_grid, y_grid = np.meshgrid(theta, y_line)
             x_grid = 0.0 + cyl_radius * np.cos(theta_grid)
             z_grid = 0.0 + cyl_radius * np.sin(theta_grid)
@@ -341,65 +400,86 @@ class ScanPlotItem(QQuickPaintedItem):
             ax.plot_surface(x_grid, y_grid, z_grid, facecolors=rgba,
                             linewidth=0, edgecolor="none", shade=False)
 
-            # Set limits
+            if not fast:
+                # Colorbar (expensive — skip during interaction)
+                import matplotlib.colors as mcolors
+                from matplotlib.cm import ScalarMappable
+                cmap_colors = [_gap_to_rgba(t) for t in np.linspace(0, 1, 256)]
+                cmap = mcolors.ListedColormap(cmap_colors)
+                norm = mcolors.Normalize(vmin=self._gap_min, vmax=self._gap_max)
+                sm = ScalarMappable(cmap=cmap, norm=norm)
+                sm.set_array([])
+                cbar = fig.colorbar(sm, ax=ax, shrink=0.6, pad=0.02)
+                cbar.set_label("Gap (mm)", color="#E0E4FF", fontsize=9)
+                cbar.ax.yaxis.set_tick_params(color="#A8B0FF", labelsize=8)
+                for t in cbar.ax.get_yticklabels():
+                    t.set_color("#A8B0FF")
+                cbar.ax.set_facecolor("none")
+
+            # Set limits (apply pan offsets)
             zm = self._zoom
-            ax.set_xlim(self._center_x - self._xz_half * zm,
-                        self._center_x + self._xz_half * zm)
-            ax.set_ylim(self._center_y - self._y_half * zm,
-                        self._center_y + self._y_half * zm)
-            ax.set_zlim(self._center_z - self._xz_half * zm,
-                        self._center_z + self._xz_half * zm)
+            cx = self._center_x + self._pan_x
+            cy = self._center_y + self._pan_y
+            cz = self._center_z
+            ax.set_xlim(cx - self._xz_half * zm,
+                        cx + self._xz_half * zm)
+            ax.set_ylim(cy - self._y_half * zm,
+                        cy + self._y_half * zm)
+            ax.set_zlim(cz - self._xz_half * zm,
+                        cz + self._xz_half * zm)
 
             ax.view_init(elev=self._elev, azim=self._azim)
 
-            ax.legend(loc="upper left", facecolor="#11141F", edgecolor="#262B3D",
-                      labelcolor="#E0E4FF", fontsize=8)
+            if not fast:
+                ax.legend(loc="upper left", facecolor="#11141F", edgecolor="#262B3D",
+                          labelcolor="#E0E4FF", fontsize=8)
 
-            # Title
-            fig.suptitle("Ring Weld Scan", fontsize=14, color="#E0E4FF", y=0.96)
+        plt.subplots_adjust(left=0.0, right=0.95, bottom=0.02, top=0.95)
 
-        plt.subplots_adjust(left=0.0, right=0.95, bottom=0.02, top=0.92)
-
-        # Render to buffer
+        # Render to buffer — use raw format for speed in fast mode
         buf = io.BytesIO()
-        fig.savefig(buf, format="png", facecolor=fig.get_facecolor(),
-                    edgecolor="none", bbox_inches="tight", pad_inches=0.05)
+        fig.savefig(buf, format="raw" if fast else "png",
+                    facecolor="none", edgecolor="none", transparent=True)
         buf.seek(0)
 
-        # Compute scatter screen coords for picking
-        self._scatter_screen_coords = []
-        if self._loaded and self._actual_x:
-            try:
-                from mpl_toolkits.mplot3d import proj3d
-                renderer = fig.canvas.get_renderer()
-                fig.draw(renderer)
-                fig_w_px = fig.get_figwidth() * fig.dpi
-                fig_h_px = fig.get_figheight() * fig.dpi
-                for i in range(len(self._actual_x)):
-                    x3 = self._actual_x[i]
-                    y3 = self._actual_y[i]
-                    z3 = self._actual_z[i]
-                    # Project 3D data coords to 2D display coords
-                    x2, y2, _ = proj3d.proj_transform(x3, y3, z3, ax.get_proj())
-                    x2d, y2d = ax.transData.transform((x2, y2))
-                    # Convert from matplotlib coords (bottom-left origin) to QML coords (top-left)
-                    qml_x = x2d * (self.width() / fig_w_px)
-                    qml_y = (fig_h_px - y2d) * (self.height() / fig_h_px)
-                    self._scatter_screen_coords.append((qml_x, qml_y))
-            except Exception:
-                self._scatter_screen_coords = []
+        if fast:
+            # Raw RGBA buffer — much faster than PNG encode/decode
+            raw_w = int(fig.get_figwidth() * fig.dpi)
+            raw_h = int(fig.get_figheight() * fig.dpi)
+            self._image = QImage(buf.getvalue(), raw_w, raw_h, QImage.Format_RGBA8888).copy()
+        else:
+            # Full quality PNG
+            self._image = QImage()
+            self._image.loadFromData(buf.getvalue())
+
+            # Compute scatter screen coords for picking (only in full mode)
+            self._scatter_screen_coords = []
+            if self._loaded and self._actual_x:
+                try:
+                    from mpl_toolkits.mplot3d import proj3d
+                    renderer = fig.canvas.get_renderer()
+                    fig.draw(renderer)
+                    fig_w_px = fig.get_figwidth() * fig.dpi
+                    fig_h_px = fig.get_figheight() * fig.dpi
+                    for i in range(len(self._actual_x)):
+                        x3 = self._actual_x[i]
+                        y3 = self._actual_y[i]
+                        z3 = self._actual_z[i]
+                        x2, y2, _ = proj3d.proj_transform(x3, y3, z3, ax.get_proj())
+                        x2d, y2d = ax.transData.transform((x2, y2))
+                        qml_x = x2d * (self.width() / fig_w_px)
+                        qml_y = (fig_h_px - y2d) * (self.height() / fig_h_px)
+                        self._scatter_screen_coords.append((qml_x, qml_y))
+                except Exception:
+                    self._scatter_screen_coords = []
 
         plt.close(fig)
-
-        # Load QImage from buffer
-        self._image = QImage()
-        self._image.loadFromData(buf.getvalue())
         self._dirty = False
 
     def paint(self, painter: QPainter):
         if self._dirty or self._image is None:
             try:
-                self._render_plot()
+                self._render_plot(fast=self._fast_mode)
             except Exception as e:
                 print(f"[ScanPlotItem] render error: {e}")
                 import traceback
@@ -407,13 +487,12 @@ class ScanPlotItem(QQuickPaintedItem):
                 self._dirty = False
 
         if self._image and not self._image.isNull():
-            # Scale image to fill the item
             scaled = self._image.scaled(
                 int(self.width()), int(self.height()),
                 Qt.IgnoreAspectRatio,
-                Qt.SmoothTransformation
+                Qt.SmoothTransformation if not self._fast_mode else Qt.FastTransformation
             )
             painter.drawImage(0, 0, scaled)
         else:
             painter.fillRect(0, 0, int(self.width()), int(self.height()),
-                             QColor("#0d1117"))
+                             QColor("transparent"))

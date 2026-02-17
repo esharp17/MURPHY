@@ -261,6 +261,27 @@ class ScanDataProvider(QObject):
         return (f"Pos: {pos}  |  Gap: {gap:.3f}mm  |  Sched: {sched:g}  |  "
                 f"Offset: X={ox:.3f}, Y={oy:.3f}, Z={oz:.3f}")
 
+    @Slot(result=list)
+    def getAllRowData(self):
+        """Returns list of dicts with all data per point for QML table display."""
+        rows = []
+        for i in range(len(self._positions)):
+            rows.append({
+                "pos": self._positions[i],
+                "gap": round(self._gaps[i], 3),
+                "sched": self._schedules[i],
+                "offX": round(self._offset_x[i], 3),
+                "offY": round(self._offset_y[i], 3),
+                "offZ": round(self._offset_z[i], 3),
+                "baseX": round(self._base_x[i], 2),
+                "baseY": round(self._base_y[i], 2),
+                "baseZ": round(self._base_z[i], 2),
+                "actX": round(self._actual_x[i], 2),
+                "actY": round(self._actual_y[i], 2),
+                "actZ": round(self._actual_z[i], 2),
+            })
+        return rows
+
     @Slot(int, result=str)
     def getGapColor(self, index):
         """Returns hex color for a point based on its gap value (green->yellow->orange->red)."""

@@ -33,6 +33,8 @@ ApplicationWindow {
     property real weldScanAzim: 140
     property real weldScanElev: 20
     property real weldScanZoom: 1.0
+    property real weldScanPanX: 0.0
+    property real weldScanPanY: 0.0
 
 // Main.qml (ApplicationWindow)
 // Global robot comm watchdog:
@@ -208,11 +210,15 @@ Timer {
             scanAzim: win.weldScanAzim
             scanElev: win.weldScanElev
             scanZoom: win.weldScanZoom
+            scanPanX: win.weldScanPanX
+            scanPanY: win.weldScanPanY
             onShowScanViewChanged: win.weldShowScanView = showScanView
             onScanDataLoadedChanged: win.weldScanDataLoaded = scanDataLoaded
             onScanAzimChanged: win.weldScanAzim = scanAzim
             onScanElevChanged: win.weldScanElev = scanElev
             onScanZoomChanged: win.weldScanZoom = scanZoom
+            onScanPanXChanged: win.weldScanPanX = scanPanX
+            onScanPanYChanged: win.weldScanPanY = scanPanY
         }
     }
 }
