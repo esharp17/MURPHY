@@ -13,7 +13,7 @@ os.environ["QT_QUICK_CONTROLS_STYLE"] = "Basic"
 
 from PySide6.QtCore import Qt, QUrl, QObject, Slot
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
 
 from robot_comm.robot_comm_bridge import RobotCommBridge
 from robot_comm.robot_state import RobotState
@@ -23,6 +23,10 @@ from robot_comm.scan_plot_helpers import fetch_offsets_xml_from_robot, normalize
 from robot_ui.permissions import can_access_page_by_index
 from robot_ui.models import Role
 from robot_ui.user_service import UserService
+from robot_ui.weld_record_service import WeldRecordService
+from robot_ui.wsm_service import WsmService
+from robot_ui.scan_data_provider import ScanDataProvider
+from robot_ui.scan_plot_item import ScanPlotItem
 
 
 class PermissionChecker(QObject):
@@ -59,6 +63,8 @@ def main() -> int:
     robotCtl = RobotController(robotComm, robotState)
     permissionChecker = PermissionChecker()
     userService = UserService()
+    weldRecordService = WeldRecordService()
+    wsmService = WsmService()
 
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
@@ -74,6 +80,14 @@ def main() -> int:
     engine.rootContext().setContextProperty("RobotCtl", robotCtl)
     engine.rootContext().setContextProperty("PermissionChecker", permissionChecker)
     engine.rootContext().setContextProperty("UserService", userService)
+    engine.rootContext().setContextProperty("WeldRecordService", weldRecordService)
+    engine.rootContext().setContextProperty("WsmService", wsmService)
+
+    scanDataProvider = ScanDataProvider()
+    engine.rootContext().setContextProperty("ScanDataProvider", scanDataProvider)
+
+    # Register ScanPlotItem as a QML type
+    qmlRegisterType(ScanPlotItem, "ScanPlot", 1, 0, "ScanPlotItem")
 
     root = _runtime_root()
     engine.addImportPath(str(root))

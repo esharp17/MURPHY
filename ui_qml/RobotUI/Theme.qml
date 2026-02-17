@@ -6,7 +6,7 @@ QtObject {
     // COLOR PALETTE - "Precision Calm"
     // Deep blues for focus, soft contrasts for reduced fatigue
     // ============================================================
-    property color bg: "#0b0e13"           // Deep midnight (primary background)
+    property color bg: "#1a2233"           // Lighter blue-grey (primary background)
     property color panel: "#151921"        // Elevated surfaces
     property color text: "#e3e8f0"         // Soft white (primary text)
     property color muted: "#8891a8"        // Subdued gray (secondary text)

@@ -24,22 +24,22 @@
     "label": "Enable"
   },
   "DI9": {
-    "label": "Prod Start"
+    "label": "DI9"
   },
   "DI10": {
-    "label": "Automatic Mode"
+    "label": "DI10"
   },
   "DI11": {
-    "label": "Manual Mode"
+    "label": "DI11"
   },
   "DI12": {
-    "label": "Zero Pass Number "
+    "label": "DI12"
   },
   "DI13": {
     "label": "DI13"
   },
   "DI14": {
-    "label": "Command Weld Enabled"
+    "label": "DI14"
   },
   "DI15": {
     "label": "DI15"
@@ -48,22 +48,22 @@
     "label": "DI16"
   },
   "DI17": {
-    "label": "Controlled Stop"
+    "label": "DI17"
   },
   "DI18": {
-    "label": "Move FWD"
+    "label": "DI18"
   },
   "DI19": {
-    "label": "Move REV"
+    "label": "DI19"
   },
   "DI20": {
-    "label": "Jump"
+    "label": "DI20"
   },
   "DI21": {
     "label": "DI21"
   },
   "DI22": {
-    "label": "Scan Data Saved"
+    "label": "DI22"
   },
   "DI23": {
     "label": "DI23"
@@ -150,28 +150,28 @@
     "label": "Busy"
   },
   "DO11": {
-    "label": "Arc Stable"
+    "label": "DO11"
   },
   "DO12": {
-    "label": "Pulse Enabled"
+    "label": "DO12"
   },
   "DO13": {
-    "label": "FCAW Enabled"
+    "label": "DO13"
   },
   "DO14": {
-    "label": "Weld Enabled"
+    "label": "DO14"
   },
   "DO15": {
-    "label": "Input Simulated"
+    "label": "DO15"
   },
   "DO16": {
-    "label": "Output Simulated"
+    "label": "DO16"
   },
   "DO17": {
-    "label": "Check Pendant for message"
+    "label": "DO17"
   },
   "DO18": {
-    "label": "Move Complete"
+    "label": "DO18"
   },
   "DO19": {
     "label": "DO19"
@@ -180,22 +180,22 @@
     "label": "DO20"
   },
   "DO21": {
-    "label": "High Speed Test"
+    "label": "DO21"
   },
   "DO22": {
-    "label": "Scan Data Ready"
+    "label": "DO22"
   },
   "DO23": {
-    "label": "Nozzle Check"
+    "label": "DO23"
   },
   "DO24": {
-    "label": "DO24: Bevel 30"
+    "label": "DO24"
   },
   "DO25": {
-    "label": "DO25: Compound"
+    "label": "DO25"
   },
   "DO26": {
-    "label": "DO26: J-Prep"
+    "label": "DO26"
   },
   "DO27": {
     "label": "DO27"

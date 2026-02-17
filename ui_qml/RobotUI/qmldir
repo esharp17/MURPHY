@@ -4,6 +4,7 @@ singleton Theme 1.0 Theme.qml
 
 TabBar 1.0 components/TabBar.qml
 SideBar 1.0 components/SideBar.qml
+InteractiveSurface 1.0 components/InteractiveSurface.qml
 
 SplashAdminScreen 1.0 screens/SplashAdminScreen.qml
 RobotCommScreen 1.0 screens/RobotCommScreen.qml

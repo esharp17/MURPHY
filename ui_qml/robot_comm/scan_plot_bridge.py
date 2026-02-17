@@ -49,3 +49,24 @@ class ScanPlotBridge(QObject):
             subprocess.Popen([sys.executable, self._plot_script], cwd=self._base_dir)
 
         self._pool.start(_Worker(job, self.launched, self.error))
+
+    @Slot()
+    def showScanDataLocal(self):
+        """Launch the plot using local XML files (no FTP fetch)."""
+        def job():
+            offsets_norm = os.path.join(self._base_dir, "offsets_norm.xml")
+            base_points = os.path.join(self._base_dir, "base_points.xml")
+
+            if not os.path.exists(offsets_norm):
+                raise FileNotFoundError(f"Missing local file: {offsets_norm}")
+            if not os.path.exists(base_points):
+                raise FileNotFoundError(f"Missing local file: {base_points}")
+            if not os.path.exists(self._plot_script):
+                raise FileNotFoundError(f"Missing plot script: {self._plot_script}")
+
+            subprocess.Popen([sys.executable, self._plot_script], cwd=self._base_dir)
+
+        self._pool.start(_Worker(job, self.launched, self.error))
+
+    # renderScanPlotLocal and renderScanPlotView removed.
+    # Rendering is now handled in-process by ScanPlotItem (QQuickPaintedItem).

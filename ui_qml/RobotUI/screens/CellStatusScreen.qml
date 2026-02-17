@@ -629,14 +629,28 @@ Rectangle {
                         property string state: "ready"
 
                         // ---- top row: C-STOP + STATUS INDICATOR ----
-                        Button {
+                        InteractiveSurface {
                             id: cstop
-                            text: "C-STOP"
                             anchors.left: parent.left
                             anchors.top: parent.top
                             anchors.margins: Theme.pad
                             width: parent.width * panelBtnWFrac
                             height: parent.height * panelBtnHFrac
+                            radius: Theme.radius * 0.6
+                            normalColor: Theme.sideBtnBase
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
+
+                            Text {
+                                anchors.centerIn: parent
+                                text: "C-STOP"
+                                color: Theme.text
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSmall
+                                font.bold: true
+                            }
                         }
 
                         Rectangle {
@@ -664,34 +678,30 @@ Rectangle {
                                 font.pixelSize: Theme.fontSmall
                                 font.bold: true
                             }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                enabled: false
-                            }
                         }
 
                         // ---- weld enable toggle (full width) ----
-                        Button {
+                        InteractiveSurface {
                             id: weldEnableBtn
                             anchors.left: parent.left
                             anchors.right: parent.right
                             anchors.top: cstop.bottom
                             anchors.margins: Theme.pad
                             height: parent.height * panelBtnHFrac
+                            radius: Theme.radius * 0.6
+                            normalColor: root.stWeldEnabled ? "#3a3a3a" : "#bdbdbd"
+                            pressedColor: Theme.btnPressed
+                            disabledColor: Theme.btnDisabled
+                            borderWidth: 2
+                            borderColor: Theme.border
 
                             // Drive appearance from robot feedback, not local state
                             readonly property bool fb: root.stWeldEnabled
-                            text: fb ? "Weld Enabled" : "Weld Disabled"
 
-                            background: Rectangle {
-                                radius: Theme.radius * 0.6
-                                color: weldEnableBtn.fb ? "#3a3a3a" : "#bdbdbd"
-                            }
-
-                            contentItem: Text {
-                                text: weldEnableBtn.text
-                                color: weldEnableBtn.fb ? "#1fbf4a" : "#000000"
+                            Text {
+                                anchors.centerIn: parent
+                                text: fb ? "Weld Enabled" : "Weld Disabled"
+                                color: fb ? "#1fbf4a" : "#000000"
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSmall
                                 font.bold: true
@@ -702,7 +712,7 @@ Rectangle {
 
                             onClicked: {
                                 // Toggle output bit 14 on robot (single robot for now)
-                                var desired = !weldEnableBtn.fb
+                                var desired = !fb
 
                                 // Bit numbers are 1-based; bit 14 => word 0, bit 13
                                 var mask = 1 << (root.bit_WELD_ENABLE_FB - 1)
