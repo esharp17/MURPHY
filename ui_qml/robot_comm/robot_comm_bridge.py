@@ -353,6 +353,8 @@ class RobotCommBridge(QObject):
         i = self._clamp_robot(i)
         c = self._cfgs[i]
 
+        print(f"[CONNECT] robot={i} ip={c.ip} port={c.port} slot={c.slot}", flush=True)
+
         self.logLine.emit(
             i,
             f"CONNECT requested: ip={c.ip} port={c.port} slot={c.slot} in={c.in_words} out={c.out_words}",
@@ -360,6 +362,7 @@ class RobotCommBridge(QObject):
 
         t = self._threads[i]
         if t and t.is_alive():
+            print(f"[CONNECT] robot={i} SKIPPED - worker already alive", flush=True)
             self.logLine.emit(i, "Worker already running")
             return
 

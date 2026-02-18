@@ -267,7 +267,7 @@ class DummyEipAdapter:
                 self._last_udp_rx_ts = time.time()
 
     def _udp_rx_loop(self):
-        while self_run.is_set():
+        while self._run.is_set():
             try:
                 data, addr = self._udp_sock.recvfrom(4096)
                 log(f"UDP RX from {addr} len={len(data)}")
@@ -506,7 +506,7 @@ class App(tk.Tk):
     def on_stop(self):
         log("UI stop pressed")
         self.sim.stop()
-        self.lbl_statusconfig(text="Stopped")
+        self.lbl_status.config(text="Stopped")
 
     def _ui_tick(self):
         # Update outputs bits
