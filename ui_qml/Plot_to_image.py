@@ -8,6 +8,7 @@ import sys
 import xml.etree.ElementTree as ET
 import numpy as np
 
+
 # Use non-interactive backend so no window pops up
 import matplotlib
 matplotlib.use("Agg")
