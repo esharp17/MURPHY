@@ -43,6 +43,9 @@ class ScanPlotItem(QQuickPaintedItem):
     zoomChanged = Signal()
     panXChanged = Signal()
     panYChanged = Signal()
+    yScaleChanged = Signal()
+    cylDiamChanged = Signal()
+    transparencyChanged = Signal()
     selectedInfoChanged = Signal()
     pointCountChanged = Signal()
     gapRangeChanged = Signal()
@@ -58,6 +61,9 @@ class ScanPlotItem(QQuickPaintedItem):
         self._zoom = 1.0
         self._pan_x = 0.0
         self._pan_y = 0.0
+        self._y_scale = 1.0
+        self._cyl_diam = DEFAULT_CYL_DIAM_IN
+        self._transparency = 0.25
 
         # Data (set by provider)
         self._base_x = []
@@ -169,6 +175,42 @@ class ScanPlotItem(QQuickPaintedItem):
             self._schedule_update()
 
     panY = Property(float, _get_pan_y, _set_pan_y, notify=panYChanged)
+
+    def _get_y_scale(self):
+        return self._y_scale
+
+    def _set_y_scale(self, v):
+        v = max(0.1, min(5.0, v))
+        if self._y_scale != v:
+            self._y_scale = v
+            self.yScaleChanged.emit()
+            self._schedule_update()
+
+    yScale = Property(float, _get_y_scale, _set_y_scale, notify=yScaleChanged)
+
+    def _get_cyl_diam(self):
+        return self._cyl_diam
+
+    def _set_cyl_diam(self, v):
+        v = max(1.0, min(200.0, v))
+        if self._cyl_diam != v:
+            self._cyl_diam = v
+            self.cylDiamChanged.emit()
+            self._schedule_update()
+
+    cylDiam = Property(float, _get_cyl_diam, _set_cyl_diam, notify=cylDiamChanged)
+
+    def _get_transparency(self):
+        return self._transparency
+
+    def _set_transparency(self, v):
+        v = max(0.0, min(1.0, v))
+        if self._transparency != v:
+            self._transparency = v
+            self.transparencyChanged.emit()
+            self._schedule_update()
+
+    transparency = Property(float, _get_transparency, _set_transparency, notify=transparencyChanged)
 
     def _get_selected_info(self):
         return self._selected_info
@@ -347,11 +389,11 @@ class ScanPlotItem(QQuickPaintedItem):
         fig_h = h / dpi
 
         fig = plt.figure(figsize=(fig_w, fig_h), dpi=dpi)
-        fig.patch.set_facecolor("none")
-        fig.patch.set_alpha(0.0)
+        fig.patch.set_facecolor("#f0f2f5")
+        fig.patch.set_alpha(1.0)
         ax = fig.add_subplot(111, projection="3d")
         ax.set_box_aspect((1, 1, 1))
-        ax.set_facecolor("none")
+        ax.set_facecolor("#f0f2f5")
 
         # Remove all axis decorations (panes, spines, grid, ticks, labels)
         ax.set_axis_off()
@@ -384,7 +426,7 @@ class ScanPlotItem(QQuickPaintedItem):
             )
 
             # Cylinder pipe (always rendered, fewer segments in fast mode)
-            cyl_radius = (DEFAULT_CYL_DIAM_IN * INCH_TO_MM) / 2.0
+            cyl_radius = (self._cyl_diam * INCH_TO_MM) / 2.0
             n_theta = 24 if fast else 60
             n_y = 10 if fast else 30
             theta = np.linspace(0, 2 * np.pi, n_theta)
@@ -396,7 +438,7 @@ class ScanPlotItem(QQuickPaintedItem):
             rgba[..., 0] = 0.25
             rgba[..., 1] = 0.7
             rgba[..., 2] = 1.0
-            rgba[..., 3] = 0.15
+            rgba[..., 3] = self._transparency
             ax.plot_surface(x_grid, y_grid, z_grid, facecolors=rgba,
                             linewidth=0, edgecolor="none", shade=False)
 
@@ -410,11 +452,11 @@ class ScanPlotItem(QQuickPaintedItem):
                 sm = ScalarMappable(cmap=cmap, norm=norm)
                 sm.set_array([])
                 cbar = fig.colorbar(sm, ax=ax, shrink=0.6, pad=0.02)
-                cbar.set_label("Gap (mm)", color="#E0E4FF", fontsize=9)
-                cbar.ax.yaxis.set_tick_params(color="#A8B0FF", labelsize=8)
+                cbar.set_label("Gap (mm)", color="#1a2233", fontsize=9)
+                cbar.ax.yaxis.set_tick_params(color="#4a5568", labelsize=8)
                 for t in cbar.ax.get_yticklabels():
-                    t.set_color("#A8B0FF")
-                cbar.ax.set_facecolor("none")
+                    t.set_color("#4a5568")
+                cbar.ax.set_facecolor("#f0f2f5")
 
             # Set limits (apply pan offsets)
             zm = self._zoom
@@ -423,23 +465,24 @@ class ScanPlotItem(QQuickPaintedItem):
             cz = self._center_z
             ax.set_xlim(cx - self._xz_half * zm,
                         cx + self._xz_half * zm)
-            ax.set_ylim(cy - self._y_half * zm,
-                        cy + self._y_half * zm)
+            y_extent = self._y_half * zm * self._y_scale
+            ax.set_ylim(cy - y_extent,
+                        cy + y_extent)
             ax.set_zlim(cz - self._xz_half * zm,
                         cz + self._xz_half * zm)
 
             ax.view_init(elev=self._elev, azim=self._azim)
 
             if not fast:
-                ax.legend(loc="upper left", facecolor="#11141F", edgecolor="#262B3D",
-                          labelcolor="#E0E4FF", fontsize=8)
+                ax.legend(loc="upper left", facecolor="#e2e5ea", edgecolor="#4a9eff",
+                          labelcolor="#1a2233", fontsize=8)
 
         plt.subplots_adjust(left=0.0, right=0.95, bottom=0.02, top=0.95)
 
         # Render to buffer — use raw format for speed in fast mode
         buf = io.BytesIO()
         fig.savefig(buf, format="raw" if fast else "png",
-                    facecolor="none", edgecolor="none", transparent=True)
+                    facecolor="#f0f2f5", edgecolor="none", transparent=False)
         buf.seek(0)
 
         if fast:

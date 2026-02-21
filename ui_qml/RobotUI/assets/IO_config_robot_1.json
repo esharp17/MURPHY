@@ -117,7 +117,67 @@
     "label": "DI39"
   },
   "DI40": {
-    "label": "DI40"
+    "label": "Scan obstructed. Would you like to continue the partial scan?"
+  },
+  "DI41": {
+    "label": "Scan complete but partially obstructed. Would you like to partially weld the root pass?"
+  },
+  "DI42": {
+    "label": "Root weld is partially complete, please confirm if the obstruction has been removed and the scan can resume."
+  },
+  "DI43": {
+    "label": "DI43"
+  },
+  "DI44": {
+    "label": "DI44"
+  },
+  "DI45": {
+    "label": "DI45"
+  },
+  "DI46": {
+    "label": "DI46"
+  },
+  "DI47": {
+    "label": "DI47"
+  },
+  "DI48": {
+    "label": "DI48"
+  },
+  "DI49": {
+    "label": "DI49"
+  },
+  "DI50": {
+    "label": "DI50"
+  },
+  "DI51": {
+    "label": "DI51"
+  },
+  "DI52": {
+    "label": "DI52"
+  },
+  "DI53": {
+    "label": "DI53"
+  },
+  "DI54": {
+    "label": "DI54"
+  },
+  "DI55": {
+    "label": "DI55"
+  },
+  "DI56": {
+    "label": "DI56"
+  },
+  "DI57": {
+    "label": "DI57"
+  },
+  "DI58": {
+    "label": "DI58"
+  },
+  "DI59": {
+    "label": "DI59"
+  },
+  "DI60": {
+    "label": "DI60"
   },
   "DO1": {
     "label": "CMD Enabled"
