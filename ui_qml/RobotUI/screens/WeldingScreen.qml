@@ -1193,7 +1193,7 @@ Rectangle {
 
         Component.onCompleted: {
             loadIoConfigRobot1()
-            debugForceAlerts = true
+            debugForceAlerts = false
         }
 
         function _bitFromWords(words, bit1) {
