@@ -1162,7 +1162,7 @@ Rectangle {
         visible: root.showScanView && !root.scanLoading && !root.showScanDataPage
 
         property var ioConfigObj: null
-        property int alertRobotIndex: 1
+        property int alertRobotIndex: 0
         property var watchAlertKeys: []
         property var dismissedAlertKeys: ({})
         property bool debugForceAlerts: false
