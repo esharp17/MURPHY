@@ -1163,7 +1163,7 @@ Rectangle {
 
         property var ioConfigObj: null
         property int alertRobotIndex: 1
-        property var watchAlertKeys: ["DI40"]
+        property var watchAlertKeys: ["DI41"]
         property var dismissedAlertKeys: ({})
         property bool debugForceAlerts: false
 
@@ -1194,7 +1194,6 @@ Rectangle {
         Component.onCompleted: {
             loadIoConfigRobot1()
             debugForceAlerts = true
-            refreshAlerts()
         }
 
         function _bitFromWords(words, bit1) {
@@ -1331,6 +1330,7 @@ Rectangle {
                                         font.pixelSize: Theme.body
                                         font.bold: true
                                         wrapMode: Text.WordWrap
+                                        width: parent.width
                                     }
 
                                     Text {
@@ -1339,6 +1339,7 @@ Rectangle {
                                         font.family: Theme.fontFamily
                                         font.pixelSize: Theme.body
                                         wrapMode: Text.WordWrap
+                                        width: parent.width
                                     }
 
                                     Row {
