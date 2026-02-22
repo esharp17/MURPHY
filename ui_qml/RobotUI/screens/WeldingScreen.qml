@@ -1214,13 +1214,9 @@ Rectangle {
             debugForceAlerts = false
         }
 
-        // Timer for continuous refresh like RobotComm screen
-        Timer {
-            interval: 250
-            repeat: true
-            running: true
-            onTriggered: {
-                inputsWords = RobotComm.getInputs(alertRobotIndex)
+        Connections {
+            target: robotComm
+            function onInWordsChanged() {
                 refreshAlerts()
             }
         }
@@ -1247,14 +1243,7 @@ Rectangle {
             if (debugForceAlerts) return true
             var bit1 = _ioKeyToBit1(key)
             if (bit1 <= 0) return false
-
-            if (String(key).indexOf("DI") === 0) {
-                return _bitFromWords(inputsWords, bit1) === 1
-            }
-            if (String(key).indexOf("DO") === 0) {
-                return _bitFromWords(RobotComm.getOutputs(alertRobotIndex), bit1) === 1
-            }
-            return false
+            return _bitFromWords(robotComm.in_words, bit1) === 1
         }
 
         function _alertLabelForKey(key) {
@@ -1305,13 +1294,6 @@ Rectangle {
             dismissedAlertKeys[key] = true
             var idx = _indexOfAlertKey(key)
             if (idx >= 0) activeAlertsModel.remove(idx)
-        }
-
-        Connections {
-            target: RobotComm
-            function onIoUpdated(i) {
-                if (i === scanView.alertRobotIndex) scanView.refreshAlerts()
-            }
         }
 
         // Right side: alert stack
