@@ -1120,6 +1120,13 @@ Rectangle {
         }
     }
 
+    Connections {
+        target: robotComm
+        function onInWordsChanged() {
+            scanView.refreshAlerts()
+        }
+    }
+
     // =========================================================
     // LOADING OVERLAY
     // =========================================================
@@ -1212,13 +1219,6 @@ Rectangle {
             loadAlarmCatalog()
             generateAlertKeys()
             debugForceAlerts = false
-        }
-
-        Connections {
-            target: robotComm
-            function onInWordsChanged() {
-                refreshAlerts()
-            }
         }
 
         function _bitFromWords(words, bit1) {
@@ -1358,51 +1358,26 @@ Rectangle {
                                         width: parent.width
                                     }
 
-                                    Row {
-                                        spacing: Theme.gapSm
+                                    Rectangle {
+                                        width: 120
+                                        height: 34
                                         anchors.horizontalCenter: parent.horizontalCenter
-
-                                        Rectangle {
-                                            width: 90
-                                            height: 34
-                                            radius: Theme.radius
-                                            color: Theme.sideBtnBase
-                                            border.width: 1
-                                            border.color: Theme.border
-                                            Text {
-                                                anchors.centerIn: parent
-                                                text: "No"
-                                                color: Theme.text
-                                                font.family: Theme.fontFamily
-                                                font.pixelSize: Theme.body
-                                                font.bold: true
-                                            }
-                                            MouseArea {
-                                                anchors.fill: parent
-                                                cursorShape: Qt.PointingHandCursor
-                                            }
+                                        radius: Theme.radius
+                                        color: Theme.sideBtnBase
+                                        border.width: 1
+                                        border.color: Theme.border
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "Dismiss"
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
                                         }
-
-                                        Rectangle {
-                                            width: 90
-                                            height: 34
-                                            radius: Theme.radius
-                                            color: Theme.sideBtnBase
-                                            border.width: 1
-                                            border.color: Theme.border
-                                            Text {
-                                                anchors.centerIn: parent
-                                                text: "Yes"
-                                                color: Theme.text
-                                                font.family: Theme.fontFamily
-                                                font.pixelSize: Theme.body
-                                                font.bold: true
-                                            }
-                                            MouseArea {
-                                                anchors.fill: parent
-                                                cursorShape: Qt.PointingHandCursor
-                                                onClicked: scanView.acknowledgeAlert(key)
-                                            }
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: scanView.acknowledgeAlert(key)
                                         }
                                     }
 
@@ -1423,7 +1398,7 @@ Rectangle {
                             radius: Theme.radius
                             color: "#e6e6e6"
                             border.width: 2
-                            border.color: "#cc0000"
+                            border.color: "#3ab86a"
                             Text {
                                 anchors.centerIn: parent
                                 text: "No Alerts"
