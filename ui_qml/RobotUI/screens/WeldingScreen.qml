@@ -1161,7 +1161,7 @@ Rectangle {
         anchors.margins: Theme.gapSm
         visible: root.showScanView && !root.scanLoading && !root.showScanDataPage
 
-        property var ioConfigObj: null
+        property var alarmCatalog: ({})
         property int alertRobotIndex: 0
         property var watchAlertKeys: []
         property var dismissedAlertKeys: ({})
@@ -1178,12 +1178,13 @@ Rectangle {
         }
 
         ListModel { id: activeAlertsModel }
-        function _ioConfigUrlRobot1() {
-            return Qt.resolvedUrl("../assets/IO_config_robot_1.json")
+
+        function _alarmCatalogUrl() {
+            return Qt.resolvedUrl("../assets/alarms.json")
         }
 
-        function loadIoConfigRobot1() {
-            var url = _ioConfigUrlRobot1()
+        function loadAlarmCatalog() {
+            var url = _alarmCatalogUrl()
             var xhr = new XMLHttpRequest()
             xhr.open("GET", url)
             xhr.onreadystatechange = function() {
@@ -1192,16 +1193,23 @@ Rectangle {
                 if (!xhr.responseText || xhr.responseText.length < 2) return
 
                 var obj
-                try { obj = JSON.parse(xhr.responseText) }
-                catch (e) { console.log("IO_CONFIG JSON parse fail:", e); return }
-                ioConfigObj = obj
+                try { 
+                    var txt = xhr.responseText || ""
+                    if (txt.length && txt.charCodeAt(0) === 0xFEFF) txt = txt.slice(1)
+                    obj = JSON.parse(txt)
+                } catch (e) { 
+                    console.log("[WeldingScreen] alarms.json parse fail:", e)
+                    return 
+                }
+                alarmCatalog = obj
+                console.log("[WeldingScreen] alarmCatalog loaded:", Object.keys(alarmCatalog).length, "entries")
                 refreshAlerts()
             }
             xhr.send()
         }
 
         Component.onCompleted: {
-            loadIoConfigRobot1()
+            loadAlarmCatalog()
             generateAlertKeys()
             debugForceAlerts = false
         }
@@ -1250,8 +1258,13 @@ Rectangle {
         }
 
         function _alertLabelForKey(key) {
-            if (ioConfigObj && ioConfigObj[key] && ioConfigObj[key].label)
-                return String(ioConfigObj[key].label)
+            // Extract bit number from key (e.g., "DI40" -> "40")
+            var bitNum = key.replace(/^DI/, "")
+            var def = alarmCatalog[bitNum]
+            if (def && def.desc)
+                return String(def.desc)
+            if (def && def.name)
+                return String(def.name)
             return String(key)
         }
 

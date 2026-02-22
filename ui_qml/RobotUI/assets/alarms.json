@@ -1,5 +1,8 @@
 {
   "40": { "name": "Robot not in Auto", "desc": "Robot # is not in Automatic Mode. Please check Key switch.", "severity": "Fault", "stop": "ROBOT", "textColor": "#e53935" },
   "41": { "name": "TP Enabled", "desc": "Teach pendant enabled. Please check robot # and set the pendant to auto.", "severity": "Fault", "stop": "ALL", "textColor": "#e53935" },
-  "42": { "name": "Shielding Gas Low", "desc": "Shielding gas level is low. Weld quality may be affected.", "severity": "Warning", "stop": "NONE", "textColor": "#f2c94c" }
+  "42": { "name": "Shielding Gas Low", "desc": "Shielding gas level is low. Weld quality may be affected.", "severity": "Warning", "stop": "NONE", "textColor": "#f2c94c" },
+  "43": { "name": "Scan Obstructed", "desc": "Scan obstructed. Would you like to continue the partial scan?", "severity": "Warning", "stop": "NONE", "textColor": "#f2c94c" },
+  "44": { "name": "Scan Partially Obstructed", "desc": "Scan complete but partially obstructed. Would you like to partially weld the root pass?", "severity": "Warning", "stop": "NONE", "textColor": "#f2c94c" },
+  "45": { "name": "Root Weld Partially Complete", "desc": "Root weld is partially complete, please confirm if the obstruction has been removed and the scan can resume.", "severity": "Warning", "stop": "NONE", "textColor": "#f2c94c" }
 }
