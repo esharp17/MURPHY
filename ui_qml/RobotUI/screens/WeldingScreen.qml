@@ -1163,12 +1163,21 @@ Rectangle {
 
         property var ioConfigObj: null
         property int alertRobotIndex: 1
-        property var watchAlertKeys: ["DI41"]
+        property var watchAlertKeys: []
         property var dismissedAlertKeys: ({})
         property bool debugForceAlerts: false
+        property var inputsWords: []
+
+        // Generate DI 40-60 keys to monitor
+        function generateAlertKeys() {
+            var keys = []
+            for (var i = 40; i <= 60; i++) {
+                keys.push("DI" + i)
+            }
+            watchAlertKeys = keys
+        }
 
         ListModel { id: activeAlertsModel }
-
         function _ioConfigUrlRobot1() {
             return Qt.resolvedUrl("../assets/IO_config_robot_1.json")
         }
@@ -1193,7 +1202,19 @@ Rectangle {
 
         Component.onCompleted: {
             loadIoConfigRobot1()
+            generateAlertKeys()
             debugForceAlerts = false
+        }
+
+        // Timer for continuous refresh like RobotComm screen
+        Timer {
+            interval: 250
+            repeat: true
+            running: true
+            onTriggered: {
+                inputsWords = RobotComm.getInputs(alertRobotIndex)
+                refreshAlerts()
+            }
         }
 
         function _bitFromWords(words, bit1) {
@@ -1220,7 +1241,7 @@ Rectangle {
             if (bit1 <= 0) return false
 
             if (String(key).indexOf("DI") === 0) {
-                return _bitFromWords(RobotComm.getInputs(alertRobotIndex), bit1) === 1
+                return _bitFromWords(inputsWords, bit1) === 1
             }
             if (String(key).indexOf("DO") === 0) {
                 return _bitFromWords(RobotComm.getOutputs(alertRobotIndex), bit1) === 1
