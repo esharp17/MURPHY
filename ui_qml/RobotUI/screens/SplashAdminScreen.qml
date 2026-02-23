@@ -95,6 +95,7 @@ Item {
             anchors.top: parent.top
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.topMargin: Theme.pad * 2
+            bottomPadding: Theme.pad
             spacing: Theme.gap * 2
 
             // ---- Logo (only shown when NOT in admin mode) ----

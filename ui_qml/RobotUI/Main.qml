@@ -19,6 +19,13 @@ ApplicationWindow {
     property bool sessionIsAdmin: false
     property int sessionRole: 0  // Role enum: 0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN
 
+    // Redirect to Login tab when role changes and current tab is no longer accessible
+    onSessionRoleChanged: {
+        if (!PermissionChecker.canAccessPage(win.tabIndex, win.sessionRole)) {
+            win.tabIndex = 0
+        }
+    }
+
     // Persistent weld screen state
     property bool weldPreCheckConfirmed: false
     property bool weldShowWeldRecord: false
@@ -35,6 +42,7 @@ ApplicationWindow {
     property real weldScanZoom: 1.0
     property real weldScanPanX: 0.0
     property real weldScanPanY: 0.0
+    property var weldDismissedAlertKeys: ({})
 
 // Main.qml (ApplicationWindow)
 // Global robot comm watchdog:
@@ -146,79 +154,72 @@ Timer {
             border.width: 6
             border.color: tabs.activeColor
 
-            Loader {
+            StackLayout {
                 anchors.fill: parent
                 anchors.margins: Theme.pad
+                currentIndex: win.tabIndex
 
-                sourceComponent: (
-                    win.tabIndex === 0 ? splash :
-                    win.tabIndex === 1 ? robot  :
-                    win.tabIndex === 2 ? status :
-                    win.tabIndex === 3 ? weld   :
-                    splash
-                )
+                // Tab 0 — Login / Admin
+                SplashAdminScreen {
+                    loggedIn: win.sessionLoggedIn
+                    loggedInUser: win.sessionUser
+                    loggedInIsAdmin: win.sessionIsAdmin
+                    adminModeActive: loggedIn && loggedInIsAdmin
+                    onAdminModeActiveChanged: win.adminLoggedIn = adminModeActive
+                    onLoggedInChanged: win.sessionLoggedIn = loggedIn
+                    onLoggedInUserChanged: win.sessionUser = loggedInUser
+                    onLoggedInUserFirstNameChanged: win.sessionUserFirstName = loggedInUserFirstName
+                    onLoggedInIsAdminChanged: win.sessionIsAdmin = loggedInIsAdmin
+                    onLoggedInRoleChanged: win.sessionRole = loggedInRole
+                }
+
+                // Tab 1 — Robot Comm
+                RobotCommScreen {
+                    loggedInRole: win.sessionRole
+                    isLoggedIn: win.sessionLoggedIn
+                }
+
+                // Tab 2 — Cell Status
+                CellStatusScreen {}
+
+                // Tab 3 — Welding
+                WeldingScreen {
+                    loggedInUserFirstName: win.sessionUserFirstName
+                    preCheckConfirmed: win.weldPreCheckConfirmed
+                    showWeldRecord: win.weldShowWeldRecord
+                    weldId: win.weldId
+                    weldProject: win.weldProject
+                    weldClient: win.weldClient
+                    weldComments: win.weldComments
+                    weldUpstreamHeat: win.weldUpstreamHeat
+                    weldDownstreamHeat: win.weldDownstreamHeat
+                    onPreCheckConfirmedChanged: win.weldPreCheckConfirmed = preCheckConfirmed
+                    onShowWeldRecordChanged: win.weldShowWeldRecord = showWeldRecord
+                    onWeldIdChanged: win.weldId = weldId
+                    onWeldProjectChanged: win.weldProject = weldProject
+                    onWeldClientChanged: win.weldClient = weldClient
+                    onWeldCommentsChanged: win.weldComments = weldComments
+                    onWeldUpstreamHeatChanged: win.weldUpstreamHeat = weldUpstreamHeat
+                    onWeldDownstreamHeatChanged: win.weldDownstreamHeat = weldDownstreamHeat
+                    showScanView: win.weldShowScanView
+                    scanDataLoaded: win.weldScanDataLoaded
+                    scanAzim: win.weldScanAzim
+                    scanElev: win.weldScanElev
+                    scanZoom: win.weldScanZoom
+                    scanPanX: win.weldScanPanX
+                    scanPanY: win.weldScanPanY
+                    dismissedAlertKeys: win.weldDismissedAlertKeys
+                    isLoggedIn: win.sessionLoggedIn
+                    onShowScanViewChanged: win.weldShowScanView = showScanView
+                    onDismissedAlertKeysChanged: win.weldDismissedAlertKeys = dismissedAlertKeys
+                    onScanDataLoadedChanged: win.weldScanDataLoaded = scanDataLoaded
+                    onScanAzimChanged: win.weldScanAzim = scanAzim
+                    onScanElevChanged: win.weldScanElev = scanElev
+                    onScanZoomChanged: win.weldScanZoom = scanZoom
+                    onScanPanXChanged: win.weldScanPanX = scanPanX
+                    onScanPanYChanged: win.weldScanPanY = scanPanY
+                }
             }
-        }
-    }
-
-    // Combined Splash/Admin screen
-    Component {
-        id: splash
-        SplashAdminScreen {
-            // pull state from Main -> screen
-            loggedIn: win.sessionLoggedIn
-            loggedInUser: win.sessionUser
-            loggedInIsAdmin: win.sessionIsAdmin
-
-            // keep label swap in sync
-            adminModeActive: loggedIn && loggedInIsAdmin
-            onAdminModeActiveChanged: win.adminLoggedIn = adminModeActive
-
-            // push state from screen -> Main
-            onLoggedInChanged: win.sessionLoggedIn = loggedIn
-            onLoggedInUserChanged: win.sessionUser = loggedInUser
-            onLoggedInUserFirstNameChanged: win.sessionUserFirstName = loggedInUserFirstName
-            onLoggedInIsAdminChanged: win.sessionIsAdmin = loggedInIsAdmin
-            onLoggedInRoleChanged: win.sessionRole = loggedInRole
-        }
-    }
-
-    Component { id: robot;  RobotCommScreen { loggedInRole: win.sessionRole } }
-    Component { id: status; CellStatusScreen {} }
-    Component {
-        id: weld
-        WeldingScreen {
-            loggedInUserFirstName: win.sessionUserFirstName
-            preCheckConfirmed: win.weldPreCheckConfirmed
-            showWeldRecord: win.weldShowWeldRecord
-            weldId: win.weldId
-            weldProject: win.weldProject
-            weldClient: win.weldClient
-            weldComments: win.weldComments
-            weldUpstreamHeat: win.weldUpstreamHeat
-            weldDownstreamHeat: win.weldDownstreamHeat
-            onPreCheckConfirmedChanged: win.weldPreCheckConfirmed = preCheckConfirmed
-            onShowWeldRecordChanged: win.weldShowWeldRecord = showWeldRecord
-            onWeldIdChanged: win.weldId = weldId
-            onWeldProjectChanged: win.weldProject = weldProject
-            onWeldClientChanged: win.weldClient = weldClient
-            onWeldCommentsChanged: win.weldComments = weldComments
-            onWeldUpstreamHeatChanged: win.weldUpstreamHeat = weldUpstreamHeat
-            onWeldDownstreamHeatChanged: win.weldDownstreamHeat = weldDownstreamHeat
-            showScanView: win.weldShowScanView
-            scanDataLoaded: win.weldScanDataLoaded
-            scanAzim: win.weldScanAzim
-            scanElev: win.weldScanElev
-            scanZoom: win.weldScanZoom
-            scanPanX: win.weldScanPanX
-            scanPanY: win.weldScanPanY
-            onShowScanViewChanged: win.weldShowScanView = showScanView
-            onScanDataLoadedChanged: win.weldScanDataLoaded = scanDataLoaded
-            onScanAzimChanged: win.weldScanAzim = scanAzim
-            onScanElevChanged: win.weldScanElev = scanElev
-            onScanZoomChanged: win.weldScanZoom = scanZoom
-            onScanPanXChanged: win.weldScanPanX = scanPanX
-            onScanPanYChanged: win.weldScanPanY = scanPanY
         }
     }
 }

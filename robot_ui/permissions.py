@@ -11,7 +11,7 @@ PAGE_PERMISSIONS = {
     "Admin": [Role.ADMIN],
     "Robot Comm": [Role.TECHNICIAN, Role.ADMIN, Role.OPERATOR],
     "Cell Status": [Role.NONE, Role.OPERATOR, Role.TECHNICIAN, Role.ADMIN],
-    "Welding": [Role.NONE,Role.OPERATOR, Role.TECHNICIAN, Role.ADMIN],
+    "Welding": [Role.OPERATOR, Role.TECHNICIAN, Role.ADMIN],
 }
 
 PAGE_NAMES = ["Login", "Robot Comm", "Cell Status", "Welding"]

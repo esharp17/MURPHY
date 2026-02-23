@@ -39,6 +39,8 @@ Rectangle {
     property real scanYScale: 1.0
     property real scanCylDiam: 45.0
     property real scanTransparency: 0.25
+    property var dismissedAlertKeys: ({})
+    property bool isLoggedIn: false
 
     // Essential Variables from WSM PDF
     property var essentialVarsModel: []
@@ -1171,7 +1173,6 @@ Rectangle {
         property var alarmCatalog: ({})
         property int alertRobotIndex: 0
         property var watchAlertKeys: []
-        property var dismissedAlertKeys: ({})
         property bool debugForceAlerts: false
         property var inputsWords: []
 
@@ -1272,11 +1273,15 @@ Rectangle {
 
                 if (!active) {
                     if (idx >= 0) activeAlertsModel.remove(idx)
-                    if (dismissedAlertKeys && dismissedAlertKeys[key]) dismissedAlertKeys[key] = false
+                    if (root.dismissedAlertKeys && root.dismissedAlertKeys[key]) {
+                        var copy1 = Object.assign({}, root.dismissedAlertKeys)
+                        copy1[key] = false
+                        root.dismissedAlertKeys = copy1
+                    }
                     continue
                 }
 
-                if (dismissedAlertKeys && dismissedAlertKeys[key]) {
+                if (root.dismissedAlertKeys && root.dismissedAlertKeys[key]) {
                     if (idx >= 0) activeAlertsModel.remove(idx)
                     continue
                 }
@@ -1291,7 +1296,9 @@ Rectangle {
         }
 
         function acknowledgeAlert(key) {
-            dismissedAlertKeys[key] = true
+            var copy = Object.assign({}, root.dismissedAlertKeys)
+            copy[key] = true
+            root.dismissedAlertKeys = copy
             var idx = _indexOfAlertKey(key)
             if (idx >= 0) activeAlertsModel.remove(idx)
         }
@@ -1445,10 +1452,13 @@ Rectangle {
 
             // Start Weld
             Rectangle {
+                property bool weldBlocked: activeAlertsModel.count > 0
                 width: parent.width; height: 48; radius: Theme.radius
-                color: Theme.success; border.width: 2; border.color: "#3ab86a"
-                Text { anchors.centerIn: parent; text: "Start Weld"; color: Theme.panel; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { console.log("Start Weld clicked") } }
+                color: weldBlocked ? "#3a3f4a" : Theme.success
+                border.width: 2; border.color: weldBlocked ? "#555e6e" : "#3ab86a"
+                opacity: weldBlocked ? 0.6 : 1.0
+                Text { anchors.centerIn: parent; text: "Start Weld"; color: weldBlocked ? "#555e6e" : Theme.panel; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
+                MouseArea { anchors.fill: parent; enabled: !parent.weldBlocked; cursorShape: parent.weldBlocked ? Qt.ForbiddenCursor : Qt.PointingHandCursor; onClicked: { console.log("Start Weld clicked") } }
             }
         }
 
@@ -1916,5 +1926,29 @@ Rectangle {
             root.saveErrorMessage = "Scan failed: Could not connect to robot. Check network connection."
         }
         function onLaunched() { console.log("Scan plot launched") }
+    }
+
+    // =========================================================
+    // LOGIN-GATE OVERLAY — covers entire screen when not logged in
+    // =========================================================
+    Rectangle {
+        anchors.fill: parent
+        color: "#80000000"
+        visible: !root.isLoggedIn
+        z: 9999
+
+        Text {
+            anchors.centerIn: parent
+            text: "Please log in to access the Welding screen"
+            color: "#ffffff"
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontLg
+            font.bold: true
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {}
+        }
     }
 }

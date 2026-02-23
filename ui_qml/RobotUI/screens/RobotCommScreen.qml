@@ -16,6 +16,7 @@ Item {
     anchors.margins: 10
 
     property int loggedInRole: 0  // User's current role (0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN)
+    property bool isLoggedIn: false
 
     // ----------------------------
     // Auto-connect behavior
@@ -517,6 +518,30 @@ Item {
                     }
                 }
             }
+        }
+    }
+
+    // =========================================================
+    // LOGIN-GATE OVERLAY — covers entire screen when not logged in
+    // =========================================================
+    Rectangle {
+        anchors.fill: parent
+        color: "#80000000"
+        visible: !root.isLoggedIn
+        z: 9999
+
+        Text {
+            anchors.centerIn: parent
+            text: "Please log in to access the Robot Comm screen"
+            color: "#ffffff"
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontLg
+            font.bold: true
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {}
         }
     }
 }
