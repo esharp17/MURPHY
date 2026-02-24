@@ -1522,20 +1522,12 @@ Rectangle {
                     root.scanElev = Math.max(-90, Math.min(90, dragStartElev + dy * 0.3))
                 }
 
-                onWheel: function(wheel) {
-                    if (wheel.angleDelta.y > 0) {
-                        root.scanZoom = Math.max(0.05, root.scanZoom * 0.9)
-                    } else {
-                        root.scanZoom = Math.min(3.0, root.scanZoom / 0.9)
-                    }
-                }
-
                 onClicked: function(mouse) {
                     scanPlotItem.pickPoint(mouse.x, mouse.y)
                 }
             }
 
-            // Touch screen: 1-finger drag rotate, double-tap zoom in 10%, triple-tap zoom out 10%
+            // Touch screen: 1-finger drag rotate, tap reset
             MultiPointTouchArea {
                 id: touchArea
                 anchors.fill: parent
@@ -1549,10 +1541,6 @@ Rectangle {
                 property real dragStartAzim: 0
                 property real dragStartElev: 0
                 property bool hasDragged: false
-
-                // Multi-tap detection
-                property int tapCount: 0
-                property real lastTapTime: 0
 
                 touchPoints: [
                     TouchPoint { id: tp1 }
@@ -1575,32 +1563,12 @@ Rectangle {
                 }
 
                 onReleased: function(touchPoints) {
-                    if (!hasDragged) {
-                        var now = Date.now()
-                        if (now - lastTapTime < 400) {
-                            tapCount++
-                        } else {
-                            tapCount = 1
-                        }
-                        lastTapTime = now
-
-                        if (tapCount === 2) {
-                            // Double-tap: zoom in 10%
-                            root.scanZoom = Math.max(0.05, root.scanZoom * 0.9)
-                        } else if (tapCount >= 3) {
-                            // Triple-tap: zoom out 10%
-                            root.scanZoom = Math.min(3.0, root.scanZoom / 0.9)
-                            tapCount = 0
-                        }
-                    } else {
-                        tapCount = 0
-                    }
                     hasDragged = false
                 }
             }
         }
 
-        // Bottom control bar: view buttons on left, sliders on right
+        // Bottom control bar: view buttons on left, zoom slider on right
         Rectangle {
             id: scanControlBar
             anchors.left: parent.left
@@ -1608,7 +1576,7 @@ Rectangle {
             anchors.rightMargin: Theme.gapSm
             anchors.bottom: infoStrip.top
             anchors.bottomMargin: Theme.gapSm
-            height: 110
+            height: 60
             radius: Theme.radius
             color: Theme.panelRecessed
             border.width: 1
@@ -1631,7 +1599,7 @@ Rectangle {
                             { label: "Iso",  elev: 25,  azim: -60 }
                         ]
                         delegate: Rectangle {
-                            width: 80; height: 48; radius: Theme.radius
+                            width: 80; height: 34; radius: Theme.radius
                             color: Theme.sideBtnBase
                             border.width: 2
                             border.color: Theme.border
@@ -1657,56 +1625,24 @@ Rectangle {
 
                 Rectangle { width: 1; height: parent.height; color: Theme.border; opacity: 0.5 }
 
-                // Sliders
-                Column {
-                    spacing: 6
+                // Zoom slider
+                Row {
+                    spacing: 10
                     anchors.verticalCenter: parent.verticalCenter
                     width: scanControlBar.width - 270
 
-                    Row {
-                        spacing: 10
-                        Text { width: 90; text: "Y Scale"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm }
-                        Slider {
-                            id: yScaleSlider
-                            from: 0.1
-                            to: 5.0
-                            stepSize: 0.05
-                            value: root.scanYScale
-                            onValueChanged: root.scanYScale = value
-                            width: parent.width - 140
-                        }
-                        Text { width: 40; text: root.scanYScale.toFixed(2); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption }
+                    Text { width: 50; text: "Zoom:"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Slider {
+                        id: zoomSlider
+                        from: 0.05
+                        to: 3.0
+                        stepSize: 0.05
+                        value: root.scanZoom
+                        onValueChanged: root.scanZoom = value
+                        width: parent.width - 100
+                        anchors.verticalCenter: parent.verticalCenter
                     }
-
-                    Row {
-                        spacing: 10
-                        Text { width: 90; text: "Cyl Diam"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm }
-                        Slider {
-                            id: cylDiamSlider
-                            from: 1
-                            to: 200
-                            stepSize: 0.5
-                            value: root.scanCylDiam
-                            onValueChanged: root.scanCylDiam = value
-                            width: parent.width - 140
-                        }
-                        Text { width: 40; text: root.scanCylDiam.toFixed(1); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption }
-                    }
-
-                    Row {
-                        spacing: 10
-                        Text { width: 90; text: "Transparency"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm }
-                        Slider {
-                            id: transparencySlider
-                            from: 0.0
-                            to: 1.0
-                            stepSize: 0.01
-                            value: root.scanTransparency
-                            onValueChanged: root.scanTransparency = value
-                            width: parent.width - 140
-                        }
-                        Text { width: 40; text: root.scanTransparency.toFixed(2); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption }
-                    }
+                    Text { width: 40; text: root.scanZoom.toFixed(2); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
                 }
             }
         }
