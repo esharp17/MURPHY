@@ -1625,21 +1625,20 @@ Rectangle {
 
                 Rectangle { width: 1; height: parent.height; color: Theme.border; opacity: 0.5 }
 
-                // Zoom slider
+                // Zoom slider (inverted: right = zoom in / closer, left = zoom out / farther)
                 Row {
                     spacing: 10
                     anchors.verticalCenter: parent.verticalCenter
-                    width: scanControlBar.width - 270
 
                     Text { width: 50; text: "Zoom:"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; verticalAlignment: Text.AlignVCenter; height: parent.height }
                     Slider {
                         id: zoomSlider
-                        from: 0.05
-                        to: 3.0
+                        from: 3.0
+                        to: 0.05
                         stepSize: 0.05
                         value: root.scanZoom
                         onValueChanged: root.scanZoom = value
-                        width: parent.width - 100
+                        width: 200
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     Text { width: 40; text: root.scanZoom.toFixed(2); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
