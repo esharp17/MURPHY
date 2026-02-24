@@ -1496,67 +1496,7 @@ Rectangle {
                 }
             }
 
-            // Touch: two-finger pinch-to-zoom + two-finger pan
-            MultiPointTouchArea {
-                id: touchArea
-                anchors.fill: parent
-                minimumTouchPoints: 2
-                maximumTouchPoints: 2
-                mouseEnabled: false
-
-                property real startDist: 1.0
-                property real startZoom: 1.0
-                property real startCenterX: 0.0
-                property real startCenterY: 0.0
-                property real startPanX: 0.0
-                property real startPanY: 0.0
-
-                touchPoints: [
-                    TouchPoint { id: tp1 },
-                    TouchPoint { id: tp2 }
-                ]
-
-                onPressed: {
-                    var dx = tp2.x - tp1.x
-                    var dy = tp2.y - tp1.y
-                    startDist = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-                    startZoom = root.scanZoom
-                    startCenterX = (tp1.x + tp2.x) / 2.0
-                    startCenterY = (tp1.y + tp2.y) / 2.0
-                    startPanX = root.scanPanX
-                    startPanY = root.scanPanY
-                }
-
-                onUpdated: {
-                    var dx = tp2.x - tp1.x
-                    var dy = tp2.y - tp1.y
-                    var dist = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-
-                    // Pinch zoom
-                    var scale = startDist / dist
-                    var oldZoom = root.scanZoom
-                    var newZoom = Math.max(0.05, Math.min(3.0, startZoom * scale))
-                    root.scanZoom = newZoom
-
-                    // Two-finger pan
-                    var cx = (tp1.x + tp2.x) / 2.0
-                    var cy = (tp1.y + tp2.y) / 2.0
-                    var panDx = cx - startCenterX
-                    var panDy = cy - startCenterY
-                    var panScale = newZoom * 2.0
-                    root.scanPanX = startPanX + panDx * panScale
-                    root.scanPanY = startPanY - panDy * panScale
-
-                    // Zoom toward pinch center
-                    var dz = oldZoom - newZoom
-                    var relX = (cx / scanPlotContainer.width - 0.5) * 2.0
-                    var relY = (cy / scanPlotContainer.height - 0.5) * 2.0
-                    root.scanPanX += scanPlotItem.xzHalf * dz * relX
-                    root.scanPanY -= scanPlotItem.yHalf * dz * relY
-                }
-            }
-
-            // Mouse: left-drag rotate, right-drag pan, scroll zoom, click pick
+            // Mouse/trackpad: left-drag rotate, right-drag pan, scroll zoom, click pick
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -1625,6 +1565,108 @@ Rectangle {
                     if (mouse.button === Qt.LeftButton) {
                         scanPlotItem.pickPoint(mouse.x, mouse.y)
                     }
+                }
+            }
+
+            // Touch screen: 1-finger rotate, 2-finger pinch-zoom + pan, tap pick
+            // Sits on top of MouseArea; mouseEnabled:false lets trackpad/mouse
+            // events pass through to MouseArea underneath.
+            MultiPointTouchArea {
+                id: touchArea
+                anchors.fill: parent
+                minimumTouchPoints: 1
+                maximumTouchPoints: 2
+                mouseEnabled: false
+
+                // Gesture mode: 1 = single-finger rotate, 2 = two-finger pinch+pan
+                property int fingerCount: 0
+
+                // Single-finger rotate state
+                property real dragStartX: 0
+                property real dragStartY: 0
+                property real dragStartAzim: 0
+                property real dragStartElev: 0
+                property bool hasDragged: false
+
+                // Two-finger pinch+pan state
+                property real startDist: 1.0
+                property real startZoom: 1.0
+                property real startCenterX: 0.0
+                property real startCenterY: 0.0
+                property real startPanX: 0.0
+                property real startPanY: 0.0
+
+                touchPoints: [
+                    TouchPoint { id: tp1 },
+                    TouchPoint { id: tp2 }
+                ]
+
+                onPressed: function(touchPoints) {
+                    fingerCount = Math.max(fingerCount, touchPoints.length)
+                    if (fingerCount >= 2 && tp1.pressed && tp2.pressed) {
+                        // Switch to two-finger mode
+                        fingerCount = 2
+                        var dx = tp2.x - tp1.x
+                        var dy = tp2.y - tp1.y
+                        startDist = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+                        startZoom = root.scanZoom
+                        startCenterX = (tp1.x + tp2.x) / 2.0
+                        startCenterY = (tp1.y + tp2.y) / 2.0
+                        startPanX = root.scanPanX
+                        startPanY = root.scanPanY
+                    } else {
+                        // Single finger: start rotate
+                        fingerCount = 1
+                        dragStartX = tp1.x
+                        dragStartY = tp1.y
+                        dragStartAzim = root.scanAzim
+                        dragStartElev = root.scanElev
+                        hasDragged = false
+                    }
+                }
+
+                onUpdated: function(touchPoints) {
+                    if (fingerCount >= 2 && tp1.pressed && tp2.pressed) {
+                        // Two-finger: pinch-zoom + pan
+                        var dx = tp2.x - tp1.x
+                        var dy = tp2.y - tp1.y
+                        var dist = Math.max(1, Math.sqrt(dx * dx + dy * dy))
+
+                        var scale = startDist / dist
+                        var oldZoom = root.scanZoom
+                        var newZoom = Math.max(0.05, Math.min(3.0, startZoom * scale))
+                        root.scanZoom = newZoom
+
+                        var cx = (tp1.x + tp2.x) / 2.0
+                        var cy = (tp1.y + tp2.y) / 2.0
+                        var panDx = cx - startCenterX
+                        var panDy = cy - startCenterY
+                        var panScale = newZoom * 2.0
+                        root.scanPanX = startPanX + panDx * panScale
+                        root.scanPanY = startPanY - panDy * panScale
+
+                        var dz = oldZoom - newZoom
+                        var relX = (cx / scanPlotContainer.width - 0.5) * 2.0
+                        var relY = (cy / scanPlotContainer.height - 0.5) * 2.0
+                        root.scanPanX += scanPlotItem.xzHalf * dz * relX
+                        root.scanPanY -= scanPlotItem.yHalf * dz * relY
+                    } else if (fingerCount === 1 && tp1.pressed) {
+                        // Single finger: rotate
+                        var sdx = tp1.x - dragStartX
+                        var sdy = tp1.y - dragStartY
+                        if (Math.abs(sdx) > 3 || Math.abs(sdy) > 3) hasDragged = true
+                        root.scanAzim = dragStartAzim - sdx * 0.5
+                        root.scanElev = Math.max(-90, Math.min(90, dragStartElev + sdy * 0.3))
+                    }
+                }
+
+                onReleased: function(touchPoints) {
+                    // Tap to pick (single finger, no drag)
+                    if (fingerCount === 1 && !hasDragged) {
+                        scanPlotItem.pickPoint(tp1.x, tp1.y)
+                    }
+                    fingerCount = 0
+                    hasDragged = false
                 }
             }
         }
