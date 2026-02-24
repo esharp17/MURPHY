@@ -90,21 +90,10 @@ Item {
         color: Theme.panel
         radius: Theme.radius
 
-        Flickable {
-            anchors.fill: parent
-            contentWidth: col.width
-            contentHeight: col.height
-            clip: true
-            boundsBehavior: Flickable.StopAtBounds
-
-            ScrollBar.vertical: ScrollBar { policy: ScrollBar.AsNeeded }
-
-            Column {
-                id: col
-                anchors.horizontalCenter: parent.horizontalCenter
-                topPadding: Theme.pad * 2
-                bottomPadding: Theme.pad * 2
-                spacing: Theme.gap * 2
+        Column {
+            id: col
+            anchors.centerIn: parent
+            spacing: Theme.gap * 2
 
             // ---- Logo (only shown when NOT in admin mode) ----
             Item {
@@ -1229,7 +1218,6 @@ Item {
                     }
                 }
             }
-        }
         }
     }
 }

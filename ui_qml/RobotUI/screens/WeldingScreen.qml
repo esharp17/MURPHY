@@ -1496,176 +1496,105 @@ Rectangle {
                 }
             }
 
-            // Mouse/trackpad: left-drag rotate, right-drag pan, scroll zoom, click pick
+            // Mouse/trackpad: drag rotate, scroll zoom
             MouseArea {
                 anchors.fill: parent
-                acceptedButtons: Qt.LeftButton | Qt.RightButton
+                acceptedButtons: Qt.LeftButton
                 hoverEnabled: true
 
-                property int activeButton: Qt.NoButton
                 property real dragStartX: 0
                 property real dragStartY: 0
                 property real dragStartAzim: 0
                 property real dragStartElev: 0
-                property real dragStartPanX: 0
-                property real dragStartPanY: 0
 
                 onPressed: function(mouse) {
-                    activeButton = mouse.button
                     dragStartX = mouse.x
                     dragStartY = mouse.y
-                    if (mouse.button === Qt.LeftButton) {
-                        dragStartAzim = root.scanAzim
-                        dragStartElev = root.scanElev
-                    } else if (mouse.button === Qt.RightButton) {
-                        dragStartPanX = root.scanPanX
-                        dragStartPanY = root.scanPanY
-                    }
+                    dragStartAzim = root.scanAzim
+                    dragStartElev = root.scanElev
                 }
 
                 onPositionChanged: function(mouse) {
                     if (!pressed) return
                     var dx = mouse.x - dragStartX
                     var dy = mouse.y - dragStartY
-                    if (activeButton === Qt.LeftButton) {
-                        // Rotate
-                        root.scanAzim = dragStartAzim - dx * 0.5
-                        root.scanElev = Math.max(-90, Math.min(90, dragStartElev + dy * 0.3))
-                    } else if (activeButton === Qt.RightButton) {
-                        // Pan
-                        var panScale = root.scanZoom * 2.0
-                        root.scanPanX = dragStartPanX + dx * panScale
-                        root.scanPanY = dragStartPanY - dy * panScale
-                    }
-                }
-
-                onReleased: function(mouse) {
-                    activeButton = Qt.NoButton
+                    root.scanAzim = dragStartAzim - dx * 0.5
+                    root.scanElev = Math.max(-90, Math.min(90, dragStartElev + dy * 0.3))
                 }
 
                 onWheel: function(wheel) {
-                    var oldZoom = root.scanZoom
-                    var newZoom
                     if (wheel.angleDelta.y > 0) {
-                        newZoom = Math.max(0.05, oldZoom * 0.9)
+                        root.scanZoom = Math.max(0.05, root.scanZoom * 0.9)
                     } else {
-                        newZoom = Math.min(3.0, oldZoom / 0.9)
+                        root.scanZoom = Math.min(3.0, root.scanZoom / 0.9)
                     }
-
-                    // Zoom toward cursor
-                    var dz = oldZoom - newZoom
-                    var relX = (wheel.x / scanPlotContainer.width - 0.5) * 2.0
-                    var relY = (wheel.y / scanPlotContainer.height - 0.5) * 2.0
-                    root.scanPanX += scanPlotItem.xzHalf * dz * relX
-                    root.scanPanY -= scanPlotItem.yHalf * dz * relY
-                    root.scanZoom = newZoom
                 }
 
                 onClicked: function(mouse) {
-                    if (mouse.button === Qt.LeftButton) {
-                        scanPlotItem.pickPoint(mouse.x, mouse.y)
-                    }
+                    scanPlotItem.pickPoint(mouse.x, mouse.y)
                 }
             }
 
-            // Touch screen: 1-finger rotate, 2-finger pinch-zoom + pan, tap pick
-            // Sits on top of MouseArea; mouseEnabled:false lets trackpad/mouse
-            // events pass through to MouseArea underneath.
+            // Touch screen: 1-finger drag rotate, double-tap zoom in 10%, triple-tap zoom out 10%
             MultiPointTouchArea {
                 id: touchArea
                 anchors.fill: parent
                 minimumTouchPoints: 1
-                maximumTouchPoints: 2
+                maximumTouchPoints: 1
                 mouseEnabled: false
 
-                // Gesture mode: 1 = single-finger rotate, 2 = two-finger pinch+pan
-                property int fingerCount: 0
-
-                // Single-finger rotate state
+                // Rotate state
                 property real dragStartX: 0
                 property real dragStartY: 0
                 property real dragStartAzim: 0
                 property real dragStartElev: 0
                 property bool hasDragged: false
 
-                // Two-finger pinch+pan state
-                property real startDist: 1.0
-                property real startZoom: 1.0
-                property real startCenterX: 0.0
-                property real startCenterY: 0.0
-                property real startPanX: 0.0
-                property real startPanY: 0.0
+                // Multi-tap detection
+                property int tapCount: 0
+                property real lastTapTime: 0
 
                 touchPoints: [
-                    TouchPoint { id: tp1 },
-                    TouchPoint { id: tp2 }
+                    TouchPoint { id: tp1 }
                 ]
 
                 onPressed: function(touchPoints) {
-                    fingerCount = Math.max(fingerCount, touchPoints.length)
-                    if (fingerCount >= 2 && tp1.pressed && tp2.pressed) {
-                        // Switch to two-finger mode
-                        fingerCount = 2
-                        var dx = tp2.x - tp1.x
-                        var dy = tp2.y - tp1.y
-                        startDist = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-                        startZoom = root.scanZoom
-                        startCenterX = (tp1.x + tp2.x) / 2.0
-                        startCenterY = (tp1.y + tp2.y) / 2.0
-                        startPanX = root.scanPanX
-                        startPanY = root.scanPanY
-                    } else {
-                        // Single finger: start rotate
-                        fingerCount = 1
-                        dragStartX = tp1.x
-                        dragStartY = tp1.y
-                        dragStartAzim = root.scanAzim
-                        dragStartElev = root.scanElev
-                        hasDragged = false
-                    }
+                    dragStartX = tp1.x
+                    dragStartY = tp1.y
+                    dragStartAzim = root.scanAzim
+                    dragStartElev = root.scanElev
+                    hasDragged = false
                 }
 
                 onUpdated: function(touchPoints) {
-                    if (fingerCount >= 2 && tp1.pressed && tp2.pressed) {
-                        // Two-finger: pinch-zoom + pan
-                        var dx = tp2.x - tp1.x
-                        var dy = tp2.y - tp1.y
-                        var dist = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-
-                        var scale = startDist / dist
-                        var oldZoom = root.scanZoom
-                        var newZoom = Math.max(0.05, Math.min(3.0, startZoom * scale))
-                        root.scanZoom = newZoom
-
-                        var cx = (tp1.x + tp2.x) / 2.0
-                        var cy = (tp1.y + tp2.y) / 2.0
-                        var panDx = cx - startCenterX
-                        var panDy = cy - startCenterY
-                        var panScale = newZoom * 2.0
-                        root.scanPanX = startPanX + panDx * panScale
-                        root.scanPanY = startPanY - panDy * panScale
-
-                        var dz = oldZoom - newZoom
-                        var relX = (cx / scanPlotContainer.width - 0.5) * 2.0
-                        var relY = (cy / scanPlotContainer.height - 0.5) * 2.0
-                        root.scanPanX += scanPlotItem.xzHalf * dz * relX
-                        root.scanPanY -= scanPlotItem.yHalf * dz * relY
-                    } else if (fingerCount === 1 && tp1.pressed) {
-                        // Single finger: rotate
-                        var sdx = tp1.x - dragStartX
-                        var sdy = tp1.y - dragStartY
-                        if (Math.abs(sdx) > 3 || Math.abs(sdy) > 3) hasDragged = true
-                        root.scanAzim = dragStartAzim - sdx * 0.5
-                        root.scanElev = Math.max(-90, Math.min(90, dragStartElev + sdy * 0.3))
-                    }
+                    var sdx = tp1.x - dragStartX
+                    var sdy = tp1.y - dragStartY
+                    if (Math.abs(sdx) > 3 || Math.abs(sdy) > 3) hasDragged = true
+                    root.scanAzim = dragStartAzim - sdx * 0.5
+                    root.scanElev = Math.max(-90, Math.min(90, dragStartElev + sdy * 0.3))
                 }
 
                 onReleased: function(touchPoints) {
-                    // Tap to pick (single finger, no drag)
-                    if (fingerCount === 1 && !hasDragged) {
-                        scanPlotItem.pickPoint(tp1.x, tp1.y)
+                    if (!hasDragged) {
+                        var now = Date.now()
+                        if (now - lastTapTime < 400) {
+                            tapCount++
+                        } else {
+                            tapCount = 1
+                        }
+                        lastTapTime = now
+
+                        if (tapCount === 2) {
+                            // Double-tap: zoom in 10%
+                            root.scanZoom = Math.max(0.05, root.scanZoom * 0.9)
+                        } else if (tapCount >= 3) {
+                            // Triple-tap: zoom out 10%
+                            root.scanZoom = Math.min(3.0, root.scanZoom / 0.9)
+                            tapCount = 0
+                        }
+                    } else {
+                        tapCount = 0
                     }
-                    fingerCount = 0
                     hasDragged = false
                 }
             }
