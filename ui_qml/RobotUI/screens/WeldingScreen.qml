@@ -1470,6 +1470,7 @@ Rectangle {
                         var w0 = (outs.length > 0) ? (Number(outs[0]) & 0xFFFF) : 0
                         var newWord = w0 | (1 << 1)  // bit 2 is index 1 (0-based)
                         robotComm.setOutputWord(0, 0, newWord)
+                        LogService.logSimple("WELD_START", "")
                         // Switch to Cell Status screen
                         root.weldStarted()
                     }

@@ -123,6 +123,8 @@ Timer {
                     console.log("Access denied to page " + i + " with role " + win.sessionRole)
                     return
                 }
+                var tabNames = ["Login", "Welding", "Cell Status", "Robot Comm"]
+                LogService.log("TAB_SWITCH", win.sessionUser, JSON.stringify({"tab": tabNames[i] || String(i)}))
                 win.tabIndex = i
             }
 

@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import Qt5Compat.GraphicalEffects 1.0
+import Qt.labs.platform 1.1 as Platform
 import RobotUI 1.0
 
 Item {
@@ -17,6 +18,7 @@ Item {
 
     // local UI state
     property string passcode: ""
+    property bool logViewerVisible: false
 
     // keypad tuning knobs
     property int keyCols: 3
@@ -24,6 +26,9 @@ Item {
     property int keyH: 120
     property int keySpacing: Theme.gap
     property int padW: (keyW * keyCols) + (keySpacing * (keyCols - 1)) + (Theme.pad * 2)
+
+    // log viewer data
+    ListModel { id: logViewModel }
 
     // login data (loaded from JSON)
     ListModel { id: usersModel }
@@ -201,6 +206,7 @@ Item {
                 onClicked: {
                     // LOG OUT
                     if (root.loggedIn) {
+                        LogService.logSimple("LOGOUT", root.loggedInUser)
                         root.loggedIn = false
                         root.loggedInUser = ""
                         root.loggedInUserFirstName = ""
@@ -253,7 +259,21 @@ Item {
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onClicked: console.log("ADMIN: view logs")
+                            onClicked: {
+                                logViewModel.clear()
+                                var raw = LogService.tail(200)
+                                var entries = JSON.parse(raw)
+                                for (var i = entries.length - 1; i >= 0; i--) {
+                                    var e = entries[i]
+                                    logViewModel.append({
+                                        ts: e.ts || "",
+                                        user: e.user || "",
+                                        action: e.action || "",
+                                        details: JSON.stringify(e.details || {})
+                                    })
+                                }
+                                root.logViewerVisible = true
+                            }
 
                             Text {
                                 anchors.centerIn: parent
@@ -275,7 +295,7 @@ Item {
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onClicked: console.log("ADMIN: export logs")
+                            onClicked: exportLogDialog.open()
 
                             Text {
                                 anchors.centerIn: parent
@@ -364,6 +384,7 @@ Item {
                             borderColor: Theme.border
 
                             onClicked: {
+                                LogService.logSimple("LOGOUT", root.loggedInUser)
                                 root.loggedIn = false
                                 root.loggedInUser = ""
                                 root.loggedInUserFirstName = ""
@@ -560,6 +581,7 @@ Item {
                             }
 
                             root.pinErrorVisible = false
+                            LogService.log("LOGIN", root.selectedFullName, JSON.stringify({"role": root.selectedRole}))
                             root.loggedIn = true
                             root.loggedInUser = root.selectedFullName
                             root.loggedInUserFirstName = root.selectedFirstName
@@ -1216,6 +1238,134 @@ Item {
                             font.bold: true
                         }
                     }
+                }
+            }
+        }
+    }
+
+    // ======================================================
+    // EXPORT LOG FILE DIALOG
+    // ======================================================
+    Platform.FileDialog {
+        id: exportLogDialog
+        title: "Export System Log"
+        fileMode: Platform.FileDialog.SaveFile
+        nameFilters: ["Text files (*.txt)", "All files (*)"]
+        defaultSuffix: "txt"
+        onAccepted: {
+            var ok = LogService.exportToFile(file.toString())
+            if (ok) {
+                console.log("Log exported to: " + file)
+            } else {
+                console.log("Log export failed")
+            }
+        }
+    }
+
+    // ======================================================
+    // LOG VIEWER OVERLAY
+    // ======================================================
+    Rectangle {
+        id: logViewerOverlay
+        anchors.fill: parent
+        visible: root.logViewerVisible
+        color: "#cc000000"
+        z: 100
+
+        MouseArea { anchors.fill: parent; onClicked: {} }
+
+        Rectangle {
+            anchors.centerIn: parent
+            width: parent.width * 0.75
+            height: parent.height * 0.80
+            radius: Theme.radius
+            color: Theme.panel
+            border.width: 2
+            border.color: Theme.accent
+
+            Column {
+                anchors.fill: parent
+                anchors.margins: Theme.pad
+                spacing: Theme.gap
+
+                Row {
+                    width: parent.width
+                    height: 40
+
+                    Text {
+                        text: "System Log  (" + logViewModel.count + " entries)"
+                        color: Theme.text
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontMed
+                        font.bold: true
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    Item { width: parent.width - closeLogBtn.width - 300; height: 1 }
+
+                    Rectangle {
+                        id: closeLogBtn
+                        width: 120; height: 36; radius: Theme.radius
+                        color: Theme.accent
+                        anchors.verticalCenter: parent.verticalCenter
+                        Text {
+                            anchors.centerIn: parent
+                            text: "CLOSE"
+                            color: Theme.panel
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: root.logViewerVisible = false
+                        }
+                    }
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 1
+                    color: Theme.border
+                }
+
+                Row {
+                    width: parent.width
+                    height: 28
+                    spacing: 0
+
+                    Text { width: parent.width * 0.18; text: "Timestamp"; color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; font.bold: true }
+                    Text { width: parent.width * 0.15; text: "User"; color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; font.bold: true }
+                    Text { width: parent.width * 0.22; text: "Action"; color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; font.bold: true }
+                    Text { width: parent.width * 0.45; text: "Details"; color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; font.bold: true }
+                }
+
+                ListView {
+                    id: logListView
+                    width: parent.width
+                    height: parent.height - 120
+                    clip: true
+                    model: logViewModel
+
+                    delegate: Rectangle {
+                        width: logListView.width
+                        height: 30
+                        color: index % 2 === 0 ? "transparent" : Qt.rgba(1,1,1,0.03)
+
+                        Row {
+                            anchors.fill: parent
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 0
+
+                            Text { width: parent.width * 0.18; text: ts; color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; elide: Text.ElideRight; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                            Text { width: parent.width * 0.15; text: user; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.caption; elide: Text.ElideRight; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                            Text { width: parent.width * 0.22; text: action; color: Theme.accent; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; font.bold: true; elide: Text.ElideRight; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                            Text { width: parent.width * 0.45; text: details === "{}" ? "" : details; color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; elide: Text.ElideRight; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                        }
+                    }
+
+                    ScrollBar.vertical: ScrollBar { policy: ScrollBar.AsNeeded }
                 }
             }
         }

@@ -25,6 +25,7 @@ from robot_ui.models import Role
 from robot_ui.user_service import UserService
 from robot_ui.weld_record_service import WeldRecordService
 from robot_ui.wsm_service import WsmService
+from robot_ui.log_service import LogService
 from robot_ui.scan_data_provider import ScanDataProvider
 from robot_ui.scan_plot_item import ScanPlotItem
 
@@ -65,6 +66,7 @@ def main() -> int:
     userService = UserService()
     weldRecordService = WeldRecordService()
     wsmService = WsmService()
+    logService = LogService()
 
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
@@ -82,6 +84,7 @@ def main() -> int:
     engine.rootContext().setContextProperty("UserService", userService)
     engine.rootContext().setContextProperty("WeldRecordService", weldRecordService)
     engine.rootContext().setContextProperty("WsmService", wsmService)
+    engine.rootContext().setContextProperty("LogService", logService)
 
     scanDataProvider = ScanDataProvider()
     engine.rootContext().setContextProperty("ScanDataProvider", scanDataProvider)
@@ -115,6 +118,8 @@ def main() -> int:
     win = engine.rootObjects()[0]
     win.setFlags(win.flags() | Qt.FramelessWindowHint)
     win.showMaximized()
+
+    logService.log_from_python("APP_START")
 
     return app.exec()
 

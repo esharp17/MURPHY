@@ -11,6 +11,9 @@ from dataclasses import dataclass, asdict
 
 from PySide6.QtCore import QObject, Signal, Slot, Property
 
+from robot_ui.config import SYSTEM_LOG_JSONL
+from robot_ui.storage_log import append_log as _sys_log
+
 
 print("LOADED RobotCommBridge FROM:", __file__)
 print("USING ROBOT_COMM_BRIDGE FROM:", __file__, flush=True)
@@ -294,6 +297,7 @@ class RobotCommBridge(QObject):
         self._cfgs[i] = c
         self._save_config()
         self._append_log(i, f"Saved config: {c}")
+        _sys_log(SYSTEM_LOG_JSONL, "ROBOT_CONFIG_SAVE", None, {"robot": i, "ip": c.ip, "port": c.port})
         self.configChanged.emit(i)
 
     @Slot(int)
@@ -307,6 +311,7 @@ class RobotCommBridge(QObject):
             i,
             f"CONNECT requested: ip={c.ip} port={c.port} slot={c.slot} in={c.in_words} out={c.out_words}",
         )
+        _sys_log(SYSTEM_LOG_JSONL, "ROBOT_CONNECT", None, {"robot": i, "ip": c.ip, "port": c.port})
 
         t = self._threads[i]
         if t and t.is_alive():
@@ -423,6 +428,7 @@ class RobotCommBridge(QObject):
                 self._fault[i] = str(e)
                 self.stateChanged.emit(i)
                 self.faulted.emit(i, self._fault[i])
+                _sys_log(SYSTEM_LOG_JSONL, "ROBOT_FAULT", None, {"robot": i, "error": str(e)})
                 print(f"[BRIDGE] Robot {i}: FAULT: {e}", flush=True)
                 self.logLine.emit(i, f"FAULT: {e}")
                 self.logLine.emit(i, traceback.format_exc())
@@ -505,6 +511,7 @@ class RobotCommBridge(QObject):
     def disconnectRobot(self, i):
         i = self._clamp_robot(i)
         self.logLine.emit(i, "DISCONNECT requested")
+        _sys_log(SYSTEM_LOG_JSONL, "ROBOT_DISCONNECT", None, {"robot": i})
         self._stop_events[i].set()
         self._state[i] = 0
         self.stateChanged.emit(i)
