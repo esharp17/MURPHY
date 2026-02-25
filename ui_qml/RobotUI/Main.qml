@@ -218,6 +218,7 @@ Timer {
                     onScanZoomChanged: win.weldScanZoom = scanZoom
                     onScanPanXChanged: win.weldScanPanX = scanPanX
                     onScanPanYChanged: win.weldScanPanY = scanPanY
+                    onWeldStarted: win.tabIndex = 2
                 }
             }
         }

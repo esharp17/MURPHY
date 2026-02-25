@@ -13,7 +13,7 @@ Rectangle {
     // TUNING KNOBS (edit these to move/size things)
     // ============================================================
     // Split: left 2/3, right 1/3
-    property real splitLeftFrac: 0.7          // <<< adjust left/right split
+    property real splitLeftFrac: 0.65         // <<< adjust left/right split
 
     // Padding + gaps
     property int  outerPad: Theme.pad            // <<< overall padding inside this screen
@@ -24,8 +24,8 @@ Rectangle {
     property real ringMarginFrac: 0.02           // <<< room around ring inside ringArea
 
     // Robot panel sizing & placement (critical)
-    property real panelWFrac: 0.38               // <<< panel width as fraction of ringArea width
-    property real panelHFrac: 0.18               // <<< panel height as fraction of ringArea height
+    property real panelWFrac: 0.28               // <<< panel width as fraction of ringArea width
+    property real panelHFrac: 0.20               // <<< panel height as fraction of ringArea height
  
     // Robot panel internal control sizes
     property real panelBtnHFrac: 0.28            // <<< button height fraction within panel
@@ -41,10 +41,10 @@ Rectangle {
 
     ListModel {
         id: robots
-        ListElement { name: "Robot 1"; pos: 309; timeLeft: "4:28"; state: "welding" }
-        ListElement { name: "Robot 2"; pos: 125; timeLeft: "2:11"; state: "ready" }
-        ListElement { name: "Robot 3"; pos:  12; timeLeft: "0:54"; state: "paused" }
-        ListElement { name: "Robot 4"; pos: 210; timeLeft: "6:02"; state: "faulted" }
+        ListElement { name: "Robot 1"; pos:  45; timeLeft: "4:28"; state: "welding" }
+        ListElement { name: "Robot 2"; pos: 135; timeLeft: "2:11"; state: "ready" }
+        ListElement { name: "Robot 3"; pos: 225; timeLeft: "0:54"; state: "paused" }
+        ListElement { name: "Robot 4"; pos: 315; timeLeft: "6:02"; state: "faulted" }
     }
 
     ListModel {
@@ -82,29 +82,6 @@ Rectangle {
     // MAIN SPLIT: LEFT 2/3 and RIGHT 1/3
     // ======================================================
 
-// TEMP DEBUG: drives all robot positions
-Slider {
-    id: posSlider
-    from: 1
-    to: 90
-    value: 1
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: parent.bottom
-    anchors.margins: Theme.pad
-    z: 999
-}
-
-Text {
-    text: "POS: " + Math.round(posSlider.value)
-    color: Theme.text
-    font.family: Theme.fontFamily
-    font.pixelSize: Theme.fontMed
-    anchors.left: posSlider.left
-    anchors.bottom: posSlider.top
-    anchors.bottomMargin: 6
-    z: 999
-}
 
     Row {
         anchors.fill: parent
@@ -427,10 +404,8 @@ Binding {
     property: "posDeg"
     when: item
     value: {
-        var local = posSlider.value            // 1..90
-        if (index === 2 || index === 3)        // left-side robots (R2, R3)
-            local = 91 - local                 // reverse: 1->90, 90->1
-        return root.norm360(index * 90 + local)
+        var r = robots.get(index)
+        return r ? root.norm360(r.pos) : 0
     }
 }
 
@@ -457,6 +432,7 @@ Binding {
                         color: Theme.sideBtnpanel
                         border.color: Theme.text
                         border.width: 1
+                        clip: true
 
                         property string name: ""
                         property int pos: 0
@@ -464,56 +440,76 @@ Binding {
                         property string state: "ready"
 
                         // ---- top row: C-STOP + STATUS INDICATOR ----
-                        Button {
-                            id: cstop
-                            text: "C-STOP"
+                        Row {
+                            id: topRow
                             anchors.left: parent.left
-                            anchors.top: parent.top
-                            anchors.margins: Theme.pad
-                            width: parent.width * panelBtnWFrac              // <<< tile width inside panel
-                            height: parent.height * panelBtnHFrac            // <<< tile height inside panel
-                        }
-
-                        Rectangle {
-                            id: status
                             anchors.right: parent.right
                             anchors.top: parent.top
-                            anchors.margins: Theme.pad
-                            width: parent.width * panelBtnWFrac              // <<< tile width inside panel
-                            height: parent.height * panelBtnHFrac            // <<< tile height inside panel
-                            radius: Theme.radius * 0.6
-                            color: root.stateColor(p.state)
+                            anchors.margins: Theme.padSm
+                            height: parent.height * panelBtnHFrac
+                            spacing: Theme.padSm
 
-                            SequentialAnimation on opacity {
-                                running: (p.state === "faulted")
-                                loops: Animation.Infinite
-                                NumberAnimation { to: 0.55; duration: 700 }
-                                NumberAnimation { to: 1.0;  duration: 700 }
-                            }
-
-                            Text {
-                                anchors.centerIn: parent
-                                text: root.stateLabel(p.state)
+                            Rectangle {
+                                id: cstop
+                                width: (parent.width - parent.spacing) * 0.5
+                                height: parent.height
+                                radius: Theme.radiusSm
                                 color: Theme.panel
-                                font.family: Theme.fontFamily
-                                font.pixelSize: Theme.fontSmall
-                                font.bold: true
+                                border.width: 2
+                                border.color: Theme.danger
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: "C-STOP"
+                                    color: Theme.danger
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.caption
+                                    font.bold: true
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: console.log("C-STOP pressed for " + p.name)
+                                }
                             }
 
-                            MouseArea { anchors.fill: parent; enabled: false }
+                            Rectangle {
+                                id: status
+                                width: (parent.width - parent.spacing) * 0.5
+                                height: parent.height
+                                radius: Theme.radiusSm
+                                color: root.stateColor(p.state)
+
+                                SequentialAnimation on opacity {
+                                    running: (p.state === "faulted")
+                                    loops: Animation.Infinite
+                                    NumberAnimation { to: 0.55; duration: 700 }
+                                    NumberAnimation { to: 1.0;  duration: 700 }
+                                }
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: root.stateLabel(p.state)
+                                    color: Theme.panel
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.caption
+                                    font.bold: true
+                                }
+                            }
                         }
 
                         // ---- bottom: readouts ----
                         Text {
                             anchors.left: parent.left
                             anchors.right: parent.right
-                            anchors.top: cstop.bottom
+                            anchors.top: topRow.bottom
                             anchors.bottom: parent.bottom
-                            anchors.margins: Theme.pad
+                            anchors.margins: Theme.padSm
                             text: p.name + "\nPos: " + Math.round(root.norm360(p.pos)) + "\nTime Left: " + p.timeLeft
                             color: Theme.text
                             font.family: Theme.fontFamily
-                            font.pixelSize: Theme.fontSmall
+                            font.pixelSize: Theme.caption
                             wrapMode: Text.WordWrap
                         }
                     }
@@ -531,10 +527,9 @@ Loader {
         item.pos = r.pos
         item.timeLeft = r.timeLeft
         item.state = r.state
-
-        item.x =  item.width  / 2 
-        item.y =  item.height / 2
     }
+    Binding { target: panelTL.item; property: "x"; value: ringArea.width * 0.01; when: panelTL.item }
+    Binding { target: panelTL.item; property: "y"; value: ringArea.height * 0.01; when: panelTL.item }
 }
 
 Loader {
@@ -547,10 +542,9 @@ Loader {
         item.pos = r.pos
         item.timeLeft = r.timeLeft
         item.state = r.state
-
-        item.x = (item.width  / 2) + 750
-        item.y = (item.height / 2) + 0
     }
+    Binding { target: panelBL.item; property: "x"; value: ringArea.width - ringArea.panelW - ringArea.width * 0.01; when: panelBL.item }
+    Binding { target: panelBL.item; property: "y"; value: ringArea.height * 0.01; when: panelBL.item }
 }
 
 Loader {
@@ -563,10 +557,9 @@ Loader {
         item.pos = r.pos
         item.timeLeft = r.timeLeft
         item.state = r.state
-
-        item.x = (item.width  / 2) + 0
-        item.y = (item.height / 2) + 700
     }
+    Binding { target: panelTR.item; property: "x"; value: ringArea.width * 0.01; when: panelTR.item }
+    Binding { target: panelTR.item; property: "y"; value: ringArea.height - ringArea.panelH - ringArea.height * 0.01; when: panelTR.item }
 }
 
 Loader {
@@ -579,10 +572,9 @@ Loader {
         item.pos = r.pos
         item.timeLeft = r.timeLeft
         item.state = r.state
-
-        item.x = (item.width  / 2) + 750
-        item.y = (item.height / 2) + 700
     }
+    Binding { target: panelBR.item; property: "x"; value: ringArea.width - ringArea.panelW - ringArea.width * 0.01; when: panelBR.item }
+    Binding { target: panelBR.item; property: "y"; value: ringArea.height - ringArea.panelH - ringArea.height * 0.01; when: panelBR.item }
 }
 
 
@@ -617,7 +609,7 @@ Loader {
                             text: "Cell I/O"
                             color: Theme.text
                             font.family: Theme.fontFamily
-                            font.pixelSize: Theme.h2
+                            font.pixelSize: Theme.body
                             font.bold: true
                         }
 
@@ -637,15 +629,15 @@ Loader {
 
                                 ColumnLayout {
                                     anchors.fill: parent
-                                    anchors.margins: Theme.pad
-                                    spacing: 6
+                                    anchors.margins: Theme.padSm
+                                    spacing: 2
                                                 
                                     // TOP LINE — label (bold)
                                     Text {
                                         text: t.label
                                         color: Theme.text
                                         font.family: Theme.fontFamily
-                                        font.pixelSize: Theme.fontMed
+                                        font.pixelSize: Theme.body
                                         font.bold: true
                                         Layout.fillWidth: true
                                         horizontalAlignment: Text.AlignHCenter
@@ -658,9 +650,9 @@ Loader {
                                         Layout.alignment: Qt.AlignHCenter
 
                                         Rectangle {
-                                            width: 14
-                                            height: 14
-                                            radius: 7
+                                            width: 10
+                                            height: 10
+                                            radius: 5
                                             color: t.on ? "#1fbf4a" : "#8a8a8a"
                                         }
 
@@ -668,7 +660,7 @@ Loader {
                                             text: t.on ? t.onText : t.offText
                                             color: Theme.text
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.fontMed
+                                            font.pixelSize: Theme.bodySm
                                         }
                                     }
                                 }
@@ -733,7 +725,7 @@ Loader {
                             text: "Messages / Alarms"
                             color: Theme.text
                             font.family: Theme.fontFamily
-                            font.pixelSize: Theme.h2
+                            font.pixelSize: Theme.body
                             font.bold: true
                         }
 
@@ -754,7 +746,7 @@ Loader {
 
                                 delegate: Rectangle {
                                     width: ListView.view.width
-                                    height: 54
+                                    height: 42
                                     radius: Theme.radius * 0.5
                                     color: Theme.sideBtnpanel
 
@@ -767,24 +759,24 @@ Loader {
                                             text: ts
                                             color: Theme.text
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.fontSmall
-                                            Layout.preferredWidth: 80
+                                            font.pixelSize: Theme.caption
+                                            Layout.preferredWidth: 70
                                         }
 
                                         Text {
                                             text: level
                                             color: Theme.text
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.fontSmall
+                                            font.pixelSize: Theme.caption
                                             font.bold: true
-                                            Layout.preferredWidth: 70
+                                            Layout.preferredWidth: 60
                                         }
 
                                         Text {
                                             text: text
                                             color: Theme.text
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.fontSmall
+                                            font.pixelSize: Theme.caption
                                             Layout.fillWidth: true
                                             elide: Text.ElideRight
                                         }

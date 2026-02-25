@@ -42,6 +42,8 @@ Rectangle {
     property var dismissedAlertKeys: ({})
     property bool isLoggedIn: false
 
+    signal weldStarted()
+
     // Essential Variables from WSM PDF
     property var essentialVarsModel: []
     property string wsmPdfName: ""
@@ -1458,7 +1460,20 @@ Rectangle {
                 border.width: 2; border.color: weldBlocked ? "#555e6e" : "#3ab86a"
                 opacity: weldBlocked ? 0.6 : 1.0
                 Text { anchors.centerIn: parent; text: "Start Weld"; color: weldBlocked ? "#555e6e" : Theme.panel; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
-                MouseArea { anchors.fill: parent; enabled: !parent.weldBlocked; cursorShape: parent.weldBlocked ? Qt.ForbiddenCursor : Qt.PointingHandCursor; onClicked: { console.log("Start Weld clicked") } }
+                MouseArea {
+                    anchors.fill: parent
+                    enabled: !parent.weldBlocked
+                    cursorShape: parent.weldBlocked ? Qt.ForbiddenCursor : Qt.PointingHandCursor
+                    onClicked: {
+                        // Set DO2 high: bit 2 (1-indexed) in output word 0, robot 0
+                        var outs = robotComm.getOutputs(0) || []
+                        var w0 = (outs.length > 0) ? (Number(outs[0]) & 0xFFFF) : 0
+                        var newWord = w0 | (1 << 1)  // bit 2 is index 1 (0-based)
+                        robotComm.setOutputWord(0, 0, newWord)
+                        // Switch to Cell Status screen
+                        root.weldStarted()
+                    }
+                }
             }
         }
 
