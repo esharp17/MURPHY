@@ -664,7 +664,7 @@ Rectangle {
                             anchors.rightMargin: Theme.pad
 
                             Text {
-                                width: parent.width * 0.45
+                                width: parent.width * 0.30
                                 height: parent.height
                                 text: "Weld ID"
                                 color: Theme.text
@@ -675,7 +675,7 @@ Rectangle {
                             }
 
                             TextField {
-                                width: parent.width * 0.55
+                                width: parent.width * 0.70
                                 height: parent.height
                                 text: root.weldId
                                 onTextChanged: root.weldId = text
@@ -701,7 +701,7 @@ Rectangle {
                             anchors.rightMargin: Theme.pad
 
                             Text {
-                                width: parent.width * 0.45
+                                width: parent.width * 0.30
                                 height: parent.height
                                 text: "Project"
                                 color: Theme.text
@@ -712,7 +712,7 @@ Rectangle {
                             }
 
                             TextField {
-                                width: parent.width * 0.55
+                                width: parent.width * 0.70
                                 height: parent.height
                                 text: root.weldProject
                                 onTextChanged: root.weldProject = text
@@ -738,7 +738,7 @@ Rectangle {
                             anchors.rightMargin: Theme.pad
 
                             Text {
-                                width: parent.width * 0.45
+                                width: parent.width * 0.30
                                 height: parent.height
                                 text: "Client"
                                 color: Theme.text
@@ -749,7 +749,7 @@ Rectangle {
                             }
 
                             TextField {
-                                width: parent.width * 0.55
+                                width: parent.width * 0.70
                                 height: parent.height
                                 text: root.weldClient
                                 onTextChanged: root.weldClient = text
@@ -775,7 +775,7 @@ Rectangle {
                             anchors.rightMargin: Theme.pad
 
                             Text {
-                                width: parent.width * 0.45
+                                width: parent.width * 0.30
                                 height: parent.height
                                 text: "Operator"
                                 color: Theme.text
@@ -786,7 +786,7 @@ Rectangle {
                             }
 
                             Text {
-                                width: parent.width * 0.55
+                                width: parent.width * 0.70
                                 height: parent.height
                                 text: root.loggedInUserFirstName + " " + root.loggedInUserLastName
                                 color: Theme.muted
@@ -809,7 +809,7 @@ Rectangle {
                             anchors.rightMargin: Theme.pad
 
                             Text {
-                                width: parent.width * 0.45
+                                width: parent.width * 0.30
                                 height: parent.height
                                 text: "Location Coords"
                                 color: Theme.text
@@ -820,13 +820,15 @@ Rectangle {
                             }
 
                             Text {
-                                width: parent.width * 0.55
+                                width: parent.width * 0.70
                                 height: parent.height
                                 text: LocationService.coords
                                 color: Theme.muted
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.bodySm
                                 verticalAlignment: Text.AlignVCenter
+                                elide: Text.ElideRight
+                                clip: true
                             }
                         }
                     }
@@ -843,7 +845,7 @@ Rectangle {
                             anchors.rightMargin: Theme.pad
 
                             Text {
-                                width: parent.width * 0.45
+                                width: parent.width * 0.30
                                 height: parent.height
                                 text: "Upstream Heat #"
                                 color: Theme.text
@@ -854,7 +856,7 @@ Rectangle {
                             }
 
                             TextField {
-                                width: parent.width * 0.55
+                                width: parent.width * 0.70
                                 height: parent.height
                                 text: root.weldUpstreamHeat
                                 onTextChanged: root.weldUpstreamHeat = text
@@ -880,7 +882,7 @@ Rectangle {
                             anchors.rightMargin: Theme.pad
 
                             Text {
-                                width: parent.width * 0.45
+                                width: parent.width * 0.30
                                 height: parent.height
                                 text: "Downstream Heat #"
                                 color: Theme.text
@@ -891,7 +893,7 @@ Rectangle {
                             }
 
                             TextField {
-                                width: parent.width * 0.55
+                                width: parent.width * 0.70
                                 height: parent.height
                                 text: root.weldDownstreamHeat
                                 onTextChanged: root.weldDownstreamHeat = text
@@ -917,7 +919,7 @@ Rectangle {
                             anchors.rightMargin: Theme.pad
 
                             Text {
-                                width: parent.width * 0.45
+                                width: parent.width * 0.30
                                 height: parent.height
                                 text: "Comments"
                                 color: Theme.text
@@ -928,7 +930,7 @@ Rectangle {
                             }
 
                             TextField {
-                                width: parent.width * 0.55
+                                width: parent.width * 0.70
                                 height: parent.height
                                 text: root.weldComments
                                 onTextChanged: root.weldComments = text
