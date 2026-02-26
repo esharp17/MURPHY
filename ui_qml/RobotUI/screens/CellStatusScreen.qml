@@ -128,16 +128,6 @@ Rectangle {
                 textColorStr: tc
             })
         }
-
-        // If no alarms, show a single "OK" line (keeps the window from looking empty)
-        if (alarmModel2.count === 0) {
-            alarmModel2.append({
-                ts: "",
-                level: "INFO",
-                text: "No active alarms",
-                textColorStr: "" + Theme.text
-            })
-        }
     }
 
     // -------------------------------

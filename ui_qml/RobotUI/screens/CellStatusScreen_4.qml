@@ -49,9 +49,6 @@ Rectangle {
 
     ListModel {
         id: messageModel
-        ListElement { ts: "12:01:14"; level: "ALARM"; text: "Door 1 opened during cycle" }
-        ListElement { ts: "12:01:20"; level: "INFO";  text: "Fans enabled" }
-        ListElement { ts: "12:01:42"; level: "WARN";  text: "Low shielding gas flow" }
     }
     // -------------------------------
 

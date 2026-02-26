@@ -19,6 +19,8 @@ Item {
     // local UI state
     property string passcode: ""
     property bool logViewerVisible: false
+    property bool systemInfoVisible: false
+    property bool restartConfirmVisible: false
 
     // keypad tuning knobs
     property int keyCols: 3
@@ -29,6 +31,7 @@ Item {
 
     // log viewer data
     ListModel { id: logViewModel }
+    ListModel { id: systemInfoModel }
 
     // login data (loaded from JSON)
     ListModel { id: usersModel }
@@ -317,7 +320,15 @@ Item {
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onClicked: console.log("ADMIN: system info")
+                            onClicked: {
+                                systemInfoModel.clear()
+                                var raw = LogService.getSystemInfo()
+                                var items = JSON.parse(raw)
+                                for (var i = 0; i < items.length; i++) {
+                                    systemInfoModel.append(items[i])
+                                }
+                                root.systemInfoVisible = true
+                            }
 
                             Text {
                                 anchors.centerIn: parent
@@ -339,7 +350,7 @@ Item {
                             borderWidth: 2
                             borderColor: Theme.border
 
-                            onClicked: console.log("ADMIN: restart ui")
+                            onClicked: root.restartConfirmVisible = true
 
                             Text {
                                 anchors.centerIn: parent
@@ -1236,6 +1247,205 @@ Item {
                             color: Theme.danger
                             font.pixelSize: Theme.body
                             font.bold: true
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // ======================================================
+    // RESTART CONFIRMATION DIALOG
+    // ======================================================
+    Rectangle {
+        anchors.fill: parent
+        visible: root.restartConfirmVisible
+        color: "#ee000000"
+        z: 200
+
+        MouseArea { anchors.fill: parent; onClicked: {} }
+
+        Rectangle {
+            width: 420
+            height: 200
+            anchors.centerIn: parent
+            radius: Theme.radius
+            color: Theme.panel
+            border.width: 2
+            border.color: Theme.border
+
+            Column {
+                anchors.centerIn: parent
+                spacing: Theme.gap
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "Restart Application?"
+                    color: Theme.text
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontMed
+                    font.bold: true
+                }
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "The UI will close and relaunch."
+                    color: Theme.muted
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.body
+                }
+
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: Theme.gap
+
+                    Rectangle {
+                        width: 120; height: 40; radius: Theme.radius
+                        color: Theme.sideBtnBase
+                        border.width: 1; border.color: Theme.border
+                        Text {
+                            anchors.centerIn: parent
+                            text: "Cancel"
+                            color: Theme.text
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: root.restartConfirmVisible = false
+                        }
+                    }
+
+                    Rectangle {
+                        width: 120; height: 40; radius: Theme.radius
+                        color: Theme.danger
+                        Text {
+                            anchors.centerIn: parent
+                            text: "Restart"
+                            color: "white"
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                root.restartConfirmVisible = false
+                                LogService.restartApp()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // ======================================================
+    // SYSTEM INFO OVERLAY
+    // ======================================================
+    Rectangle {
+        anchors.fill: parent
+        visible: root.systemInfoVisible
+        color: "#ee000000"
+        z: 200
+
+        MouseArea { anchors.fill: parent; onClicked: {} }
+
+        Rectangle {
+            width: 600
+            height: sysInfoCol.implicitHeight + 40
+            anchors.centerIn: parent
+            radius: Theme.radius
+            color: Theme.panel
+            border.width: 2
+            border.color: Theme.border
+
+            Column {
+                id: sysInfoCol
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: Theme.pad
+                spacing: 0
+
+                Item {
+                    width: parent.width
+                    height: 44
+
+                    Text {
+                        text: "System Information"
+                        color: Theme.text
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontMed
+                        font.bold: true
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                    }
+
+                    Rectangle {
+                        id: closeSysInfoBtn
+                        width: 100; height: 36; radius: Theme.radius
+                        color: Theme.accent
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        Text {
+                            anchors.centerIn: parent
+                            text: "CLOSE"
+                            color: Theme.panel
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: root.systemInfoVisible = false
+                        }
+                    }
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 1
+                    color: Theme.border
+                }
+
+                Repeater {
+                    model: systemInfoModel
+                    delegate: Rectangle {
+                        width: sysInfoCol.width
+                        height: 36
+                        color: index % 2 === 0 ? "transparent" : Qt.rgba(1,1,1,0.03)
+
+                        Row {
+                            anchors.fill: parent
+                            anchors.leftMargin: Theme.padSm
+                            anchors.rightMargin: Theme.padSm
+
+                            Text {
+                                width: parent.width * 0.35
+                                height: parent.height
+                                text: label
+                                color: Theme.muted
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.body
+                                font.bold: true
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            Text {
+                                width: parent.width * 0.65
+                                height: parent.height
+                                text: value
+                                color: Theme.text
+                                font.family: Theme.fontFamilyMono
+                                font.pixelSize: Theme.bodySm
+                                verticalAlignment: Text.AlignVCenter
+                                elide: Text.ElideRight
+                            }
                         }
                     }
                 }

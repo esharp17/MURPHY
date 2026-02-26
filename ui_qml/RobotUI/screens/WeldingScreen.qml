@@ -25,9 +25,16 @@ Rectangle {
     property string weldDownstreamHeat: ""
     property string saveErrorMessage: ""
     property string saveSuccessMessage: ""
+    property bool weldSaved: false
+    readonly property bool allInputsFilled: weldId.trim().length > 0
+                                            && weldProject.trim().length > 0
+                                            && weldClient.trim().length > 0
+                                            && weldUpstreamHeat.trim().length > 0
+                                            && weldDownstreamHeat.trim().length > 0
+                                            && weldComments.trim().length > 0
     property bool showScanView: false
     property bool scanLoading: false
-    property real scanAzim: 140
+    property real scanAzim: 40
     property real scanElev: 20
     property real scanZoom: 1.0
     property real scanPanX: 0.0
@@ -177,7 +184,7 @@ Rectangle {
 
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
-                        text: LocationService.temperature
+                        text: LocationService ? LocationService.temperature : "..."
                         color: Theme.text
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.body
@@ -822,7 +829,7 @@ Rectangle {
                             Text {
                                 width: parent.width * 0.70
                                 height: parent.height
-                                text: LocationService.coords
+                                text: LocationService ? LocationService.coords : "Fetching..."
                                 color: Theme.muted
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.bodySm
@@ -996,6 +1003,7 @@ Rectangle {
                     root.weldDownstreamHeat = ""
                     root.saveErrorMessage = ""
                     root.saveSuccessMessage = ""
+                    root.weldSaved = false
                 }
 
                 Text {
@@ -1019,7 +1027,7 @@ Rectangle {
                 borderWidth: 2
                 borderColor: Theme.border
 
-                onClicked: console.log("View WSM clicked")
+                onClicked: WsmService.openPdf()
 
                 Text {
                     anchors.centerIn: parent
@@ -1041,6 +1049,7 @@ Rectangle {
                 disabledColor: Theme.btnDisabled
                 borderWidth: 2
                 borderColor: "#3ab86a"
+                enabled: root.allInputsFilled
 
                 onClicked: {
                     root.saveErrorMessage = ""
@@ -1065,6 +1074,7 @@ Rectangle {
                         ev.length > 7 ? ev[7].val1 : ""
                     )
                     if (result === "") {
+                        root.weldSaved = true
                         root.saveSuccessMessage = "Weld record saved successfully!"
                         successTimer.restart()
                     } else {
@@ -1074,7 +1084,7 @@ Rectangle {
 
                 Text {
                     anchors.centerIn: parent
-                    text: "Save Weld"
+                    text: root.allInputsFilled ? "Save Weld" : "Save Weld (fill all fields)"
                     color: Theme.panel
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.body
@@ -1092,6 +1102,7 @@ Rectangle {
                 disabledColor: Theme.btnDisabled
                 borderWidth: 2
                 borderColor: "#3ab86a"
+                enabled: root.weldSaved
 
                 onClicked: {
                     root.scanLoading = true
@@ -1612,9 +1623,9 @@ Rectangle {
 
                     Repeater {
                         model: [
-                            { label: "Top",  elev: 90,  azim: -90 },
-                            { label: "Front", elev: 0,   azim: -90 },
-                            { label: "Iso",  elev: 25,  azim: -60 }
+                            { label: "Top",  elev: 90,  azim: 90 },
+                            { label: "Front", elev: 0,   azim: 90 },
+                            { label: "Iso",  elev: 25,  azim: 60 }
                         ]
                         delegate: Rectangle {
                             width: 80; height: 34; radius: Theme.radius

@@ -78,6 +78,78 @@ class LogService(QObject):
             return False
 
     # ------------------------------------------------------------------
+    # Restart UI
+    # ------------------------------------------------------------------
+
+    @Slot()
+    def restartApp(self):
+        """Log APP_RESTART, spawn a new process, then quit the current one."""
+        import subprocess, sys, os
+        append_log(SYSTEM_LOG_JSONL, "APP_RESTART", None)
+        print("[LogService] restarting app...", flush=True)
+
+        # Determine the script path (works for both frozen and dev)
+        if getattr(sys, "frozen", False):
+            subprocess.Popen([sys.executable])
+        else:
+            script = os.path.abspath(sys.argv[0])
+            subprocess.Popen([sys.executable, script])
+
+        from PySide6.QtWidgets import QApplication
+        app = QApplication.instance()
+        if app is None:
+            from PySide6.QtGui import QGuiApplication
+            app = QGuiApplication.instance()
+        if app:
+            app.quit()
+
+    # ------------------------------------------------------------------
+    # System Info
+    # ------------------------------------------------------------------
+
+    @Slot(result=str)
+    def getSystemInfo(self) -> str:
+        """Return system info as a JSON array of {label, value} objects."""
+        import platform, sys, time
+        try:
+            import PySide6
+            pyside_ver = PySide6.__version__
+        except Exception:
+            pyside_ver = "unknown"
+
+        items = [
+            {"label": "OS",              "value": platform.platform()},
+            {"label": "Machine Name",    "value": platform.node()},
+            {"label": "Processor",       "value": platform.processor() or "N/A"},
+            {"label": "Architecture",    "value": " / ".join(platform.architecture())},
+            {"label": "Python Version",  "value": sys.version.split()[0]},
+            {"label": "PySide6 Version", "value": pyside_ver},
+            {"label": "App Script",      "value": sys.argv[0] if sys.argv else "N/A"},
+            {"label": "Working Dir",     "value": __import__("os").getcwd()},
+        ]
+
+        # Location info (if available)
+        try:
+            from PySide6.QtGui import QGuiApplication
+            app = QGuiApplication.instance()
+            if app:
+                engine = None
+                for child in app.children():
+                    if hasattr(child, "rootContext"):
+                        engine = child
+                        break
+                if engine:
+                    loc = engine.rootContext().contextProperty("LocationService")
+                    if loc:
+                        items.append({"label": "Location Source", "value": loc.source or "pending"})
+                        items.append({"label": "Coordinates",     "value": loc.coords})
+                        items.append({"label": "Temperature",     "value": loc.temperature})
+        except Exception:
+            pass
+
+        return json.dumps(items)
+
+    # ------------------------------------------------------------------
     # Python-callable helper (for bridge / backend use)
     # ------------------------------------------------------------------
 

@@ -36,7 +36,7 @@ Item {
                  ? root.pressedColor
                  : root.normalColor
         border.width: 2
-        border.color: Theme.border
+        border.color: !root.enabled ? root.disabledColor : root.borderColor
 
         Behavior on color {
             ColorAnimation { duration: Theme.animationFast }
@@ -59,6 +59,7 @@ Item {
     Item {
         id: contentItem
         anchors.fill: parent
+        opacity: root.enabled ? 1.0 : 0.4
     }
 
     MouseArea {

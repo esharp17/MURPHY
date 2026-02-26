@@ -340,6 +340,27 @@ class WsmService(QObject):
     shieldGas1 = Property(str, _get_shieldGas1, notify=dataChanged)
     shieldGas2 = Property(str, _get_shieldGas2, notify=dataChanged)
 
+    @Slot()
+    def openPdf(self) -> None:
+        """Open the current WSM PDF in the system's default viewer."""
+        if not self._folder or not self._pdf_name:
+            self.errorOccurred.emit("No WSM PDF loaded.")
+            return
+        full_path = os.path.join(self._folder, self._pdf_name)
+        if not os.path.isfile(full_path):
+            self.errorOccurred.emit(f"PDF not found: {full_path}")
+            return
+        import subprocess, sys
+        try:
+            if sys.platform == "win32":
+                os.startfile(full_path)
+            elif sys.platform == "darwin":
+                subprocess.Popen(["open", full_path])
+            else:
+                subprocess.Popen(["xdg-open", full_path])
+        except Exception as e:
+            self.errorOccurred.emit(f"Failed to open PDF: {e}")
+
     @Slot(result="QVariantList")
     def essentialVariables(self) -> list:
         """
