@@ -437,3 +437,378 @@
 {"ts": "2026-02-25 11:01:32", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
 {"ts": "2026-02-25 11:01:32", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
 {"ts": "2026-02-25 11:01:32", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:00", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-02-25 22:25:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:06", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-02-25 22:25:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:28", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-02-25 22:25:29", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-02-25 22:25:29", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-02-25 22:25:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:32", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-02-25 22:25:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:33", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-02-25 22:25:33", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Login"}}
+{"ts": "2026-02-25 22:25:35", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-02-25 22:25:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:53", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:25:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:25:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:25:56", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:56", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:56", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:25:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:11", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:11", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:11", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:18", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:23", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:26", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:26", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:26", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:28", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:33", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:38", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:43", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:26:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:26:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:26:53", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:53", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:53", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:26:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:27:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:33", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:27:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:27:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:43", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:43", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:43", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:27:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:27:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:53", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:27:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:27:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:27:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:27:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:28:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:28:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:28:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:28:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:18", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:18", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:18", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:28:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:28:28", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:28", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:28", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:28:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:28:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:28:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:19", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-02-25 22:32:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:32:24", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:24", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:24", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:24", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-02-25 22:32:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:25", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-02-25 22:32:26", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-02-25 22:32:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:32:27", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-02-25 22:32:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:32:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:32:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:32:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:32:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:32:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:32:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:32:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:32:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:33:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:33:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:33:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:33:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:33:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:33:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:33:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:33:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:33:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-02-25 22:33:08", "user": "none", "action": "WELD_START", "details": {}}
+{"ts": "2026-02-25 22:33:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-02-25 22:33:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-02-25 22:33:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-02-25 22:33:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:33:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.1.165", "port": 44818}}
+{"ts": "2026-02-25 22:33:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-02-25 22:33:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}

@@ -177,7 +177,7 @@ Rectangle {
 
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
-                        text: "X°F" +"X°C"
+                        text: LocationService.temperature
                         color: Theme.text
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.body
@@ -822,7 +822,7 @@ Rectangle {
                             Text {
                                 width: parent.width * 0.55
                                 height: parent.height
-                                text: "Pulled from tablet GPS"
+                                text: LocationService.coords
                                 color: Theme.muted
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.bodySm

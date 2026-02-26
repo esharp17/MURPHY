@@ -26,6 +26,7 @@ from robot_ui.user_service import UserService
 from robot_ui.weld_record_service import WeldRecordService
 from robot_ui.wsm_service import WsmService
 from robot_ui.log_service import LogService
+from robot_ui.location_service import LocationService
 from robot_ui.scan_data_provider import ScanDataProvider
 from robot_ui.scan_plot_item import ScanPlotItem
 
@@ -67,6 +68,7 @@ def main() -> int:
     weldRecordService = WeldRecordService()
     wsmService = WsmService()
     logService = LogService()
+    locationService = LocationService()
 
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
@@ -85,6 +87,7 @@ def main() -> int:
     engine.rootContext().setContextProperty("WeldRecordService", weldRecordService)
     engine.rootContext().setContextProperty("WsmService", wsmService)
     engine.rootContext().setContextProperty("LogService", logService)
+    engine.rootContext().setContextProperty("LocationService", locationService)
 
     scanDataProvider = ScanDataProvider()
     engine.rootContext().setContextProperty("ScanDataProvider", scanDataProvider)
