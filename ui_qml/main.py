@@ -68,9 +68,10 @@ def main() -> int:
     weldRecordService = WeldRecordService()
     wsmService = WsmService()
     logService = LogService()
-    locationService = LocationService()
 
     app = QGuiApplication(sys.argv)
+
+    locationService = LocationService()
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("robotComm", robotComm)
 
