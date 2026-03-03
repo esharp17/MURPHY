@@ -10,7 +10,7 @@ import json
 from PySide6.QtCore import QObject, Signal, Slot
 
 from robot_ui.config import SYSTEM_LOG_JSONL
-from robot_ui.storage_log import append_log, tail_log
+from robot_ui.storage_log import append_log, tail_log, sync_md_from_jsonl
 
 
 class LogService(QObject):
@@ -20,6 +20,7 @@ class LogService(QObject):
 
     def __init__(self, parent: QObject | None = None):
         super().__init__(parent)
+        sync_md_from_jsonl(SYSTEM_LOG_JSONL)
 
     # ------------------------------------------------------------------
     # QML-callable slots
