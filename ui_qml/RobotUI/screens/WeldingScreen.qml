@@ -985,9 +985,34 @@ Rectangle {
             height: 48
             spacing: Theme.gap
 
+            // Back to Checklist
+            InteractiveSurface {
+                width: (parent.width - Theme.gap * 4) / 5
+                height: parent.height
+                radius: Theme.radius
+                normalColor: Theme.sideBtnBase
+                pressedColor: Theme.btnPressed
+                disabledColor: Theme.btnDisabled
+                borderWidth: 2
+                borderColor: Theme.border
+
+                onClicked: {
+                    root.showWeldRecord = false
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "\u2190  Back"
+                    color: Theme.text
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.body
+                    font.bold: true
+                }
+            }
+
             // New Weld Button
             InteractiveSurface {
-                width: (parent.width - Theme.gap * 3) / 4
+                width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
                 normalColor: Theme.sideBtnBase
@@ -1018,7 +1043,7 @@ Rectangle {
 
             // View WSM Button
             InteractiveSurface {
-                width: (parent.width - Theme.gap * 3) / 4
+                width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
                 normalColor: Theme.sideBtnBase
@@ -1041,7 +1066,7 @@ Rectangle {
 
             // Save Weld Button
             InteractiveSurface {
-                width: (parent.width - Theme.gap * 3) / 4
+                width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
                 normalColor: Theme.success
@@ -1094,7 +1119,7 @@ Rectangle {
 
             // Start Scan Button
             InteractiveSurface {
-                width: (parent.width - Theme.gap * 3) / 4
+                width: (parent.width - Theme.gap * 4) / 5
                 height: parent.height
                 radius: Theme.radius
                 normalColor: Theme.success
@@ -1318,133 +1343,10 @@ Rectangle {
             if (idx >= 0) activeAlertsModel.remove(idx)
         }
 
-        // Right side: alert stack
-        Column {
-            id: alertCol
-            anchors.right: parent.right
-            anchors.top: parent.top
-            spacing: Theme.gapSm
-            width: 300
-
-            Rectangle {
-                width: parent.width
-                height: 300
-                color: Theme.sideBtnBase
-                border.width: 2
-                border.color: Theme.border
-
-                Flickable {
-                    anchors.fill: parent
-                    anchors.margins: Theme.gapSm
-                    clip: true
-                    contentWidth: width
-                    contentHeight: alertStack.implicitHeight
-
-                    Column {
-                        id: alertStack
-                        width: parent.width
-                        spacing: Theme.gapSm
-
-                        Repeater {
-                            model: activeAlertsModel
-                            delegate: Rectangle {
-                                width: alertStack.width
-                                radius: Theme.radius
-                                color: Theme.panel
-                                border.width: 2
-                                border.color: "#cc0000"
-
-                                Column {
-                                    anchors.left: parent.left
-                                    anchors.right: parent.right
-                                    anchors.top: parent.top
-                                    anchors.margins: Theme.gapSm
-                                    spacing: Theme.gapSm
-
-                                    Text {
-                                        text: "Notification:"
-                                        color: Theme.text
-                                        font.family: Theme.fontFamily
-                                        font.pixelSize: Theme.body
-                                        font.bold: true
-                                        wrapMode: Text.WordWrap
-                                        width: parent.width
-                                    }
-
-                                    Text {
-                                        text: label
-                                        color: Theme.text
-                                        font.family: Theme.fontFamily
-                                        font.pixelSize: Theme.body
-                                        wrapMode: Text.WordWrap
-                                        width: parent.width
-                                    }
-
-                                    Rectangle {
-                                        width: 120
-                                        height: 34
-                                        anchors.horizontalCenter: parent.horizontalCenter
-                                        radius: Theme.radius
-                                        color: Theme.sideBtnBase
-                                        border.width: 1
-                                        border.color: Theme.border
-                                        Text {
-                                            anchors.centerIn: parent
-                                            text: "Dismiss"
-                                            color: Theme.text
-                                            font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.body
-                                            font.bold: true
-                                        }
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            cursorShape: Qt.PointingHandCursor
-                                            onClicked: scanView.acknowledgeAlert(key)
-                                        }
-                                    }
-
-                                    Item {
-                                        width: 1
-                                        height: Theme.gapSm
-                                    }
-                                }
-
-                                implicitHeight: childrenRect.height + Theme.gapSm
-                            }
-                        }
-
-                        Rectangle {
-                            visible: activeAlertsModel.count === 0
-                            width: alertStack.width
-                            height: 48
-                            radius: Theme.radius
-                            color: "#e6e6e6"
-                            border.width: 2
-                            border.color: "#3ab86a"
-                            Text {
-                                anchors.centerIn: parent
-                                text: "No Alerts"
-                                color: "#000000"
-                                font.family: Theme.fontFamily
-                                font.pixelSize: Theme.body
-                                font.bold: true
-                            }
-                        }
-                    }
-
-                    ScrollBar.vertical: ScrollBar {
-                        policy: ScrollBar.AsNeeded
-                    }
-                }
-            }
-        }
-
         // Right-side action buttons (Go Back, Scan Data, Start Weld)
         Column {
             id: scanActionCol
             anchors.right: parent.right
-            anchors.top: alertCol.bottom
-            anchors.topMargin: Theme.gapSm
             anchors.bottom: parent.bottom
             width: 300
             spacing: Theme.gapSm
@@ -1453,7 +1355,7 @@ Rectangle {
             Rectangle {
                 width: parent.width; height: 48; radius: Theme.radius
                 color: Theme.sideBtnBase; border.width: 2; border.color: Theme.border
-                Text { anchors.centerIn: parent; text: "Go Back"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
+                Text { anchors.centerIn: parent; text: "\u2190  Back"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
                 MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.showScanView = false } }
             }
 
@@ -1491,12 +1393,129 @@ Rectangle {
             }
         }
 
+        // Right side: alert stack (fills space above buttons)
+        Rectangle {
+            id: alertCol
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: scanActionCol.top
+            anchors.bottomMargin: Theme.gapSm
+            width: 300
+            color: Theme.sideBtnBase
+            border.width: 2
+            border.color: Theme.border
+
+            Flickable {
+                anchors.fill: parent
+                anchors.margins: Theme.gapSm
+                clip: true
+                contentWidth: width
+                contentHeight: alertStack.implicitHeight
+
+                Column {
+                    id: alertStack
+                    width: parent.width
+                    spacing: Theme.gapSm
+
+                    Repeater {
+                        model: activeAlertsModel
+                        delegate: Rectangle {
+                            width: alertStack.width
+                            radius: Theme.radius
+                            color: Theme.panel
+                            border.width: 2
+                            border.color: "#cc0000"
+
+                            Column {
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                anchors.top: parent.top
+                                anchors.margins: Theme.gapSm
+                                spacing: Theme.gapSm
+
+                                Text {
+                                    text: "Notification:"
+                                    color: Theme.text
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.body
+                                    font.bold: true
+                                    wrapMode: Text.WordWrap
+                                    width: parent.width
+                                }
+
+                                Text {
+                                    text: label
+                                    color: Theme.text
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.body
+                                    wrapMode: Text.WordWrap
+                                    width: parent.width
+                                }
+
+                                Rectangle {
+                                    width: 120
+                                    height: 34
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    radius: Theme.radius
+                                    color: Theme.sideBtnBase
+                                    border.width: 1
+                                    border.color: Theme.border
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: "Dismiss"
+                                        color: Theme.text
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.body
+                                        font.bold: true
+                                    }
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        cursorShape: Qt.PointingHandCursor
+                                        onClicked: scanView.acknowledgeAlert(key)
+                                    }
+                                }
+
+                                Item {
+                                    width: 1
+                                    height: Theme.gapSm
+                                }
+                            }
+
+                            implicitHeight: childrenRect.height + Theme.gapSm
+                        }
+                    }
+
+                    Rectangle {
+                        visible: activeAlertsModel.count === 0
+                        width: alertStack.width
+                        height: 48
+                        radius: Theme.radius
+                        color: "#e6e6e6"
+                        border.width: 2
+                        border.color: "#3ab86a"
+                        Text {
+                            anchors.centerIn: parent
+                            text: "No Alerts"
+                            color: "#000000"
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                        }
+                    }
+                }
+
+                ScrollBar.vertical: ScrollBar {
+                    policy: ScrollBar.AsNeeded
+                }
+            }
+        }
+
         // Main plot area with offwhite background and blue border
         Rectangle {
             id: scanPlotContainer
             anchors.left: parent.left
             anchors.top: parent.top
-            anchors.right: scanActionCol.left
+            anchors.right: alertCol.left
             anchors.rightMargin: Theme.gapSm
             anchors.bottom: scanControlBar.top
             anchors.bottomMargin: Theme.gapSm
@@ -1601,7 +1620,7 @@ Rectangle {
         Rectangle {
             id: scanControlBar
             anchors.left: parent.left
-            anchors.right: scanActionCol.left
+            anchors.right: alertCol.left
             anchors.rightMargin: Theme.gapSm
             anchors.bottom: infoStrip.top
             anchors.bottomMargin: Theme.gapSm
@@ -1667,10 +1686,31 @@ Rectangle {
                         stepSize: 0.05
                         value: root.scanZoom
                         onValueChanged: root.scanZoom = value
-                        width: 200
+                        width: 140
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     Text { width: 40; text: root.scanZoom.toFixed(2); color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                }
+
+                Rectangle { width: 1; height: parent.height; color: Theme.border; opacity: 0.5 }
+
+                // Y-Scale slider (stretch points along pipe axis)
+                Row {
+                    spacing: 10
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    Text { width: 60; text: "Y Scale:"; color: Theme.text; font.family: Theme.fontFamily; font.pixelSize: Theme.bodySm; verticalAlignment: Text.AlignVCenter; height: parent.height }
+                    Slider {
+                        id: yScaleSlider
+                        from: 1.0
+                        to: 20.0
+                        stepSize: 0.5
+                        value: root.scanYScale
+                        onValueChanged: root.scanYScale = value
+                        width: 140
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text { width: 40; text: root.scanYScale.toFixed(1) + "x"; color: Theme.muted; font.family: Theme.fontFamilyMono; font.pixelSize: Theme.caption; verticalAlignment: Text.AlignVCenter; height: parent.height }
                 }
             }
         }
@@ -1679,7 +1719,7 @@ Rectangle {
         Rectangle {
             id: infoStrip
             anchors.left: parent.left
-            anchors.right: scanActionCol.left
+            anchors.right: alertCol.left
             anchors.rightMargin: Theme.gapSm
             anchors.bottom: parent.bottom
             height: 36

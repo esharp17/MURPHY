@@ -180,7 +180,7 @@ class ScanPlotItem(QQuickPaintedItem):
         return self._y_scale
 
     def _set_y_scale(self, v):
-        v = max(0.1, min(5.0, v))
+        v = max(0.1, min(20.0, v))
         if self._y_scale != v:
             self._y_scale = v
             self.yScaleChanged.emit()
@@ -277,9 +277,11 @@ class ScanPlotItem(QQuickPaintedItem):
             self._center_z = 0.5 * (min(all_z) + max(all_z))
 
             x_half = 0.5 * (max(all_x) - min(all_x))
+            y_half = max(0.5 * (max(all_y) - min(all_y)), 1.0)
             z_half = 0.5 * (max(all_z) - min(all_z))
+            # Use same extent for all axes so 1 mm looks like 1 mm
             self._xz_half = max(x_half, z_half) * 1.05
-            self._y_half = max(0.5 * (max(all_y) - min(all_y)), 1.0) * 1.3 * 10.0
+            self._y_half = max(y_half, self._xz_half) * 1.05
             self._y_min = min(all_y)
             self._y_max = max(all_y)
 
@@ -463,13 +465,17 @@ class ScanPlotItem(QQuickPaintedItem):
             cx = self._center_x + self._pan_x
             cy = self._center_y + self._pan_y
             cz = self._center_z
-            ax.set_xlim(cx - self._xz_half * zm,
-                        cx + self._xz_half * zm)
-            y_extent = self._y_half * zm * self._y_scale
+            # Equal extent for all axes at y_scale=1 so 1mm = 1mm
+            half = max(self._xz_half, self._y_half)
+            ax.set_xlim(cx - half * zm,
+                        cx + half * zm)
+            y_extent = half * zm / self._y_scale
             ax.set_ylim(cy - y_extent,
                         cy + y_extent)
-            ax.set_zlim(cz - self._xz_half * zm,
-                        cz + self._xz_half * zm)
+            ax.set_zlim(cz - half * zm,
+                        cz + half * zm)
+
+            ax.set_box_aspect([1, 1, 1])
 
             ax.view_init(elev=self._elev, azim=self._azim)
 
