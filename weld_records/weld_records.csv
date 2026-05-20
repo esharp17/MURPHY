@@ -26,3 +26,7 @@ Timestamp,Weld ID,Project,Client,Operator,Location Coords,Upstream Heat #,Downst
 2026-03-02 22:06:34,x,x,x,Andrew,GPS pending,x,x,x,"1,219mm / 48""","15.88mm / 0.625""",30°,250° C / 482°F,LSC (Modified Short Arc),"1.2mm / 0.047""",Lincoln S6,Ar/C02 85/15
 2026-03-02 22:13:14,f,f,f,Andrew,GPS pending,f,f,f,"1,219mm / 48""","15.88mm / 0.625""",30°,250° C / 482°F,LSC (Modified Short Arc),"1.2mm / 0.047""",Lincoln S6,Ar/C02 85/15
 2026-03-02 22:19:25,g,b,b,Andrew,GPS pending,b,b,b,"1,219mm / 48""","15.88mm / 0.625""",30°,250° C / 482°F,LSC (Modified Short Arc),"1.2mm / 0.047""",Lincoln S6,Ar/C02 85/15
+2026-03-03 12:47:41,X,x,x,Andrew,GPS pending,x,x,x,"1,219mm / 48""","15.88mm / 0.625""",30°,250° C / 482°F,LSC (Modified Short Arc),"1.2mm / 0.047""",Lincoln S6,Ar/C02 85/15
+2026-03-03 13:04:57,X,x,xx,Andrew,GPS pending,x,x,x,"1,219mm / 48""","15.88mm / 0.625""",30°,250° C / 482°F,LSC (Modified Short Arc),"1.2mm / 0.047""",Lincoln S6,Ar/C02 85/15
+2026-03-03 13:25:16,X,X,X,Andrew,GPS pending,X,X,X,"1,219mm / 48""","15.88mm / 0.625""",30°,250° C / 482°F,LSC (Modified Short Arc),"1.2mm / 0.047""",Lincoln S6,Ar/C02 85/15
+2026-05-20 11:45:29,x,x,x,Andrew,GPS pending,x,x,x,"1,219mm / 48""","15.88mm / 0.625""",30°,250° C / 482°F,LSC (Modified Short Arc),"1.2mm / 0.047""",Lincoln S6,Ar/C02 85/15

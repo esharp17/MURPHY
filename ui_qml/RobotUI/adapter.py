@@ -142,11 +142,65 @@ class DummyEipAdapter:
         log("ForwardOpen response built")
         return self._encap_header(0x006F, len(rr), self._session) + rr
 
+    def _handle_tcp_client(self, conn, addr):
+        """Handle a single TCP client connection in its own thread."""
+        scanner_ip = addr[0]
+        log(f"TCP connection from {addr}")
+        conn.settimeout(5.0)
+
+        try:
+            while self._run.is_set():
+                hdr = conn.recv(24)
+                if not hdr or len(hdr) < 24:
+                    break
+                cmd, length, session, status, sender_ctx, options = struct.unpack("<HHIIQI", hdr)
+                log(f"TCP RX cmd=0x{cmd:04X} len={length} session=0x{session:08X}")
+                payload = b""
+                while len(payload) < length:
+                    chunk = conn.recv(length - len(payload))
+                    if not chunk:
+                        break
+                    payload += chunk
+
+                if cmd == 0x0004:  # ListServices
+                    resp = self._handle_list_services(session)
+                    conn.sendall(resp)
+                    log("TX ListServices response")
+
+                elif cmd == 0x0065:  # RegisterSession
+                    resp = self._handle_register_session()
+                    conn.sendall(resp)
+                    log("TX RegisterSession response")
+
+                elif cmd == 0x006F:  # SendRRData (ForwardOpen)
+                    # Reply with FO success regardless of exact request contents (since your driver is fixed)
+                    resp = self._build_forward_open_response(scanner_ip)
+                    conn.sendall(resp)
+                    log(f"TX ForwardOpen response (scanner_ip={scanner_ip})")
+
+                    # Also learn scanner ip for UDP
+                    with self._lock:
+                        self._scanner_ip = scanner_ip
+                        self._scanner_udp_port = 2222
+
+                else:
+                    # Ignore unsupported commands
+                    pass
+
+        except Exception:
+            pass
+        finally:
+            try:
+                conn.close()
+                log(f"TCP connection closed ({addr})")
+            except Exception:
+                pass
+
     def _tcp_server(self):
         lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         lsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         lsock.bind((self.bind_ip, self.tcp_port))
-        lsock.listen(1)
+        lsock.listen(8)
         log(f"TCP listening on {self.bind_ip}:{self.tcp_port}")
 
         while self._run.is_set():
@@ -158,57 +212,9 @@ class DummyEipAdapter:
             except OSError:
                 break
 
-            scanner_ip = addr[0]
-            log(f"TCP connection from {addr}")
-            conn.settimeout(2.0)
-
-            try:
-                while self._run.is_set():
-                    hdr = conn.recv(24)
-                    if not hdr or len(hdr) < 24:
-                        break
-                    cmd, length, session, status, sender_ctx, options = struct.unpack("<HHIIQI", hdr)
-                    log(f"TCP RX cmd=0x{cmd:04X} len={length} session=0x{session:08X}")
-                    payload = b""
-                    while len(payload) < length:
-                        chunk = conn.recv(length - len(payload))
-                        if not chunk:
-                            break
-                        payload += chunk
-
-                    if cmd == 0x0004:  # ListServices
-                        resp = self._handle_list_services(session)
-                        conn.sendall(resp)
-                        log("TX ListServices response")
-
-                    elif cmd == 0x0065:  # RegisterSession
-                        resp = self._handle_register_session()
-                        conn.sendall(resp)
-                        log("TX RegisterSession response")
-
-                    elif cmd == 0x006F:  # SendRRData (ForwardOpen)
-                        # Reply with FO success regardless of exact request contents (since your driver is fixed)
-                        resp = self._build_forward_open_response(scanner_ip)
-                        conn.sendall(resp)
-                        log(f"TX ForwardOpen response (scanner_ip={scanner_ip})")
-
-                        # Also learn scanner ip for UDP
-                        with self._lock:
-                            self._scanner_ip = scanner_ip
-                            self._scanner_udp_port = 2222
-
-                    else:
-                        # Ignore unsupported commands
-                        pass
-
-            except Exception:
-                pass
-            finally:
-                try:
-                    conn.close()
-                    log("TCP connection closed")
-                except Exception:
-                    pass
+            # Handle each connection in its own thread
+            t = threading.Thread(target=self._handle_tcp_client, args=(conn, addr), daemon=True)
+            t.start()
 
         try:
             lsock.close()
@@ -219,8 +225,8 @@ class DummyEipAdapter:
     def _udp_open(self):
         self._udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._udp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self._udp_sock.bind((self.bind_ip, self.udp_port))
-        log(f"UDP bound {self.bind_ip}:{self.udp_port}")
+        self._udp_sock.bind(("0.0.0.0", self.udp_port))
+        log(f"UDP bound 0.0.0.0:{self.udp_port}")
         self._udp_sock.settimeout(1.0)
 
     def _parse_scanner_udp(self, data: bytes):
