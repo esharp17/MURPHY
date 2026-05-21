@@ -42,10 +42,10 @@
     "label": "Command Weld Enabled"
   },
   "DI15": {
-    "label": "DI15"
+    "label": "Start Scan"
   },
   "DI16": {
-    "label": "DI16"
+    "label": "Start Weld"
   },
   "DI17": {
     "label": "Controlled Stop"

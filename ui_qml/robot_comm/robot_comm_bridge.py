@@ -627,11 +627,18 @@ class RobotCommBridge(QObject):
 
         payload = data[payload_start:payload_end]
 
-        # B1 payload format: seq16(2) + run_idle(4) + io_words
-        # Skip 6 bytes to get to the actual I/O data
-        if len(payload) < 6:
+        # DEBUG: print first few payloads to understand format
+        if not hasattr(self, '_dbg_count'):
+            self._dbg_count = 0
+        self._dbg_count += 1
+        if self._dbg_count <= 5:
+            print(f"[BRIDGE] B1 payload len={len(payload)} hex={payload.hex()}", flush=True)
+
+        # T->O from real Fanuc: seq16(2) + io_words (no run_idle)
+        # Skip only 2 bytes (seq16)
+        if len(payload) < 2:
             return
-        io_data = payload[6:]
+        io_data = payload[2:]
 
         wc = len(io_data) // 2
         if wc <= 0:

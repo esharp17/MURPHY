@@ -13166,3 +13166,100 @@ port": 44818}}
 {"ts": "2026-05-20 12:05:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
 {"ts": "2026-05-20 12:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
 {"ts": "2026-05-20 12:05:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-05-21 12:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:23:18", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-21 12:23:24", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-21 12:23:25", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-21 12:30:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:30:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:30:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:30:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:30:18", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-21 12:30:23", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-21 12:30:23", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-21 12:34:28", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-21 12:34:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:34:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:34:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:34:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:39:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:39:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:47:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:47:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:47:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:47:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:47:31", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-21 12:47:37", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-21 12:47:38", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-21 12:47:46", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-21 12:47:50", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-21 12:54:07", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:54:07", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:54:07", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:54:07", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 12:54:07", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-21 12:54:18", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-21 12:54:20", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-21 12:54:45", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-21 12:54:46", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-21 12:54:47", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-21 12:55:31", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-21 12:56:25", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-21 12:56:26", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-21 12:56:34", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-21 12:57:27", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-21 12:57:47", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-21 13:05:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:05:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:06:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:06:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:12:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:12:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:12:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:12:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:12:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-05-21 13:13:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-21 13:13:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-21 13:13:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-21 13:13:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-21 13:13:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-21 13:13:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-21 13:13:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:13:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:07", "user": "none", "action": "WELD_START", "details": {}}
+{"ts": "2026-05-21 13:19:12", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-21 13:19:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-05-21 13:19:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:35", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-21 13:19:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:19:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:38:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:38:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:42:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:42:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:50:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:50:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:59:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-05-21 13:59:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}

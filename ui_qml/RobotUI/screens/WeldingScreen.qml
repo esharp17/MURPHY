@@ -51,6 +51,20 @@ Rectangle {
 
     signal weldStarted()
 
+    // Robot I/O bit helpers (1-indexed bits)
+    function inputBitHigh(bit1) {
+        var words = robotComm.in_words
+        if (!words || words.length === 0) return false
+        var wi = Math.floor((bit1 - 1) / 16)
+        var bi = (bit1 - 1) % 16
+        if (wi < 0 || wi >= words.length) return false
+        var w = Number(words[wi]) & 0xFFFF
+        return ((w >> bi) & 1) === 1
+    }
+
+    readonly property bool scanReadyFromRobot: inputBitHigh(15)
+    readonly property bool weldReadyFromRobot: inputBitHigh(16)
+
     // Essential Variables from WSM PDF
     property var essentialVarsModel: []
     property string wsmPdfName: ""
@@ -1127,9 +1141,15 @@ Rectangle {
                 disabledColor: Theme.btnDisabled
                 borderWidth: 2
                 borderColor: "#3ab86a"
-                enabled: root.weldSaved
+                enabled: root.scanReadyFromRobot
 
                 onClicked: {
+                    // Send output bit 15 high to tell robot to start scan
+                    var outs = robotComm.getOutputs(0) || []
+                    var wi = Math.floor((15 - 1) / 16)
+                    var bi = (15 - 1) % 16
+                    var w = (outs.length > wi) ? (Number(outs[wi]) & 0xFFFF) : 0
+                    robotComm.setOutputWord(0, wi, w | (1 << bi))
                     root.scanLoading = true
                     scanLoadTimer.start()
                 }
@@ -1369,7 +1389,7 @@ Rectangle {
 
             // Start Weld
             Rectangle {
-                property bool weldBlocked: activeAlertsModel.count > 0
+                property bool weldBlocked: !root.weldReadyFromRobot || activeAlertsModel.count > 0
                 width: parent.width; height: 48; radius: Theme.radius
                 color: weldBlocked ? "#3a3f4a" : Theme.success
                 border.width: 2; border.color: weldBlocked ? "#555e6e" : "#3ab86a"
@@ -1380,11 +1400,12 @@ Rectangle {
                     enabled: !parent.weldBlocked
                     cursorShape: parent.weldBlocked ? Qt.ForbiddenCursor : Qt.PointingHandCursor
                     onClicked: {
-                        // Set DO2 high: bit 2 (1-indexed) in output word 0, robot 0
+                        // Send output bit 16 high to tell robot to start weld
                         var outs = robotComm.getOutputs(0) || []
-                        var w0 = (outs.length > 0) ? (Number(outs[0]) & 0xFFFF) : 0
-                        var newWord = w0 | (1 << 1)  // bit 2 is index 1 (0-based)
-                        robotComm.setOutputWord(0, 0, newWord)
+                        var wi = Math.floor((16 - 1) / 16)
+                        var bi = (16 - 1) % 16
+                        var w = (outs.length > wi) ? (Number(outs[wi]) & 0xFFFF) : 0
+                        robotComm.setOutputWord(0, wi, w | (1 << bi))
                         LogService.logSimple("WELD_START", "")
                         // Switch to Cell Status screen
                         root.weldStarted()
