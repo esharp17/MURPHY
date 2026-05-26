@@ -280,6 +280,88 @@ Rectangle {
 
     readonly property bool stWeldEnabled: getBit(ioInWords, bit_WELD_ENABLE_FB)
 
+    // ============================================================
+    // C-STOP POPUP STATE
+    // ============================================================
+    property bool cStopActive: false
+    property int cStopRobotIndex: 0
+    property int cStopDesiredPos: 0
+    property bool goHomeLoading: false
+    property bool resumeWeldLoading: false
+
+    // Quadrant limits per robot (with +/-10 deg tolerance)
+    // Robot 0 = top-right (Q1: 0-90), Robot 1 = top-left (Q2: 90-180)
+    // Robot 2 = bottom-left (Q3: 180-270), Robot 3 = bottom-right (Q4: 270-360)
+    function quadrantMin(robotIdx) {
+        var bases = [350, 80, 170, 260]
+        return bases[Math.min(3, Math.max(0, robotIdx))]
+    }
+    function quadrantMax(robotIdx) {
+        var caps = [100, 190, 280, 370]
+        return caps[Math.min(3, Math.max(0, robotIdx))]
+    }
+
+    // Clamp position to quadrant limits (handles wrap-around)
+    function clampToQuadrant(pos, robotIdx) {
+        var mn = quadrantMin(robotIdx)
+        var mx = quadrantMax(robotIdx)
+        // Normalize to 0-360
+        var p = pos % 360
+        if (p < 0) p += 360
+
+        // Handle wrap-around for robot 0 (350-100 crosses 0)
+        if (mn > mx) {
+            // e.g. 350..360..0..100
+            if (p >= mn || p <= (mx % 360)) return p
+            // clamp to nearest bound
+            var distToMin = Math.min(Math.abs(p - mn), Math.abs(p - mn + 360), Math.abs(p - mn - 360))
+            var distToMax = Math.min(Math.abs(p - (mx % 360)), Math.abs(p - (mx % 360) + 360))
+            return distToMin < distToMax ? mn : (mx % 360)
+        }
+        if (p < mn) return mn
+        if (p > mx) return mx
+        return p
+    }
+
+    // Read current position from input bits 65-74 (10-bit integer in word 4)
+    function readCurrentPos() {
+        if (!ioInWords || ioInWords.length <= 4) return 0
+        return ioInWords[4] & 0x03FF
+    }
+
+    // Write desired position to output bits 65-74 (word 4, lower 10 bits)
+    function writeDesiredPos(robotIdx, pos) {
+        var outs = robotComm ? robotComm.getOutputs(robotIdx) : []
+        var w4 = (outs && outs.length > 4) ? (Number(outs[4]) & 0xFFFF) : 0
+        // Clear lower 10 bits, set new value
+        w4 = (w4 & 0xFC00) | (pos & 0x03FF)
+        if (robotComm) robotComm.setOutputWord(robotIdx, 4, w4)
+    }
+
+    // Set/clear a single output bit (1-indexed)
+    function setOutputBit(robotIdx, bit1, value) {
+        var wi = Math.floor((bit1 - 1) / 16)
+        var bi = (bit1 - 1) % 16
+        var outs = robotComm ? robotComm.getOutputs(robotIdx) : []
+        var w = (outs && outs.length > wi) ? (Number(outs[wi]) & 0xFFFF) : 0
+        if (value)
+            w = w | (1 << bi)
+        else
+            w = w & (~(1 << bi))
+        if (robotComm) robotComm.setOutputWord(robotIdx, wi, w)
+    }
+
+    // Open C-Stop popup for a robot
+    function openCStop(robotIdx) {
+        cStopRobotIndex = robotIdx
+        cStopDesiredPos = readCurrentPos()
+        goHomeLoading = false
+        resumeWeldLoading = false
+        // Set output bit 20 high to tell robot c-stop triggered
+        setOutputBit(robotIdx, 20, true)
+        cStopActive = true
+    }
+
     // ======================================================
     // MAIN SPLIT: LEFT and RIGHT
     // ======================================================
@@ -640,6 +722,10 @@ Rectangle {
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSmall
                                 font.bold: true
+                            }
+
+                            onClicked: {
+                                root.openCStop(0)
                             }
                         }
 
@@ -1078,4 +1164,289 @@ Rectangle {
             }
         }
     }
+
+    // ============================================================
+    // C-STOP POPUP OVERLAY
+    // ============================================================
+    Rectangle {
+        id: cStopPopup
+        anchors.fill: parent
+        visible: root.cStopActive
+        color: "#CC000000"
+        z: 100
+
+        // Auto-close when robot sends input bit 20 low
+        Connections {
+            target: robotComm
+            function onInWordsChanged() {
+                if (root.cStopActive && !root.getBit(root.ioInWords, 20)) {
+                    root.cStopActive = false
+                    root.setOutputBit(root.cStopRobotIndex, 20, false)
+                }
+                // Check Go Home complete (input bit 17 goes low)
+                if (root.goHomeLoading && !root.getBit(root.ioInWords, 17)) {
+                    root.goHomeLoading = false
+                }
+                // Check Resume Weld complete (input bit 19 goes low)
+                if (root.resumeWeldLoading && !root.getBit(root.ioInWords, 19)) {
+                    root.resumeWeldLoading = false
+                }
+            }
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {} // block clicks through
+        }
+
+        Rectangle {
+            id: popupCard
+            anchors.centerIn: parent
+            width: Math.min(parent.width * 0.5, 500)
+            height: Math.min(parent.height * 0.7, 520)
+            radius: Theme.radius
+            color: Theme.panel
+            border.color: Theme.danger
+            border.width: 3
+
+            Column {
+                anchors.fill: parent
+                anchors.margins: Theme.pad * 2
+                spacing: Theme.gap
+
+                // Title
+                Text {
+                    text: "CONTROLLED STOP — Robot " + (root.cStopRobotIndex + 1)
+                    color: Theme.danger
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.h2
+                    font.bold: true
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                // Current Position (read-only from robot)
+                Rectangle {
+                    width: parent.width
+                    height: 50
+                    radius: Theme.radius * 0.6
+                    color: "#2a2d35"
+                    border.color: Theme.border
+                    border.width: 1
+
+                    Row {
+                        anchors.fill: parent
+                        anchors.margins: Theme.pad
+                        spacing: Theme.gap
+
+                        Text {
+                            text: "Current Position:"
+                            color: Theme.text
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            text: root.readCurrentPos() + "°"
+                            color: "#1fbf4a"
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.h2
+                            font.bold: true
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                }
+
+                // Desired Position (editable)
+                Rectangle {
+                    width: parent.width
+                    height: 50
+                    radius: Theme.radius * 0.6
+                    color: "#2a2d35"
+                    border.color: Theme.accent
+                    border.width: 1
+
+                    Row {
+                        anchors.fill: parent
+                        anchors.margins: Theme.pad
+                        spacing: Theme.gap
+
+                        Text {
+                            text: "Desired Position:"
+                            color: Theme.text
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        TextInput {
+                            id: desiredPosInput
+                            width: 80
+                            text: String(root.cStopDesiredPos)
+                            color: "#1f6bff"
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.h2
+                            font.bold: true
+                            anchors.verticalCenter: parent.verticalCenter
+                            inputMethodHints: Qt.ImhDigitsOnly
+                            validator: IntValidator { bottom: 0; top: 360 }
+                            onEditingFinished: {
+                                var v = parseInt(text)
+                                if (!isNaN(v)) {
+                                    v = root.clampToQuadrant(v, root.cStopRobotIndex)
+                                    root.cStopDesiredPos = v
+                                    text = String(v)
+                                    root.writeDesiredPos(root.cStopRobotIndex, v)
+                                }
+                            }
+                        }
+
+                        Text {
+                            text: "°"
+                            color: "#1f6bff"
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.h2
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                }
+
+                // Jog Buttons
+                Row {
+                    width: parent.width
+                    spacing: Theme.gap
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    Rectangle {
+                        width: (parent.width - Theme.gap) / 2
+                        height: 48
+                        radius: Theme.radius
+                        color: "#3a3f4a"
+                        border.color: Theme.border
+                        border.width: 2
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: "- 5°"
+                            color: Theme.text
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                var v = root.cStopDesiredPos - 5
+                                v = root.clampToQuadrant(v, root.cStopRobotIndex)
+                                root.cStopDesiredPos = v
+                                desiredPosInput.text = String(v)
+                                root.writeDesiredPos(root.cStopRobotIndex, v)
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        width: (parent.width - Theme.gap) / 2
+                        height: 48
+                        radius: Theme.radius
+                        color: "#3a3f4a"
+                        border.color: Theme.border
+                        border.width: 2
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: "+ 5°"
+                            color: Theme.text
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body
+                            font.bold: true
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                var v = root.cStopDesiredPos + 5
+                                v = root.clampToQuadrant(v, root.cStopRobotIndex)
+                                root.cStopDesiredPos = v
+                                desiredPosInput.text = String(v)
+                                root.writeDesiredPos(root.cStopRobotIndex, v)
+                            }
+                        }
+                    }
+                }
+
+                // Quadrant limits info
+                Text {
+                    text: "Limits: " + root.quadrantMin(root.cStopRobotIndex) + "° — " + (root.quadrantMax(root.cStopRobotIndex) % 360) + "°"
+                    color: "#8a8a8a"
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.caption
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                // Go Home Button
+                Rectangle {
+                    width: parent.width
+                    height: 48
+                    radius: Theme.radius
+                    color: root.goHomeLoading ? "#555e6e" : Theme.accent
+                    border.color: root.goHomeLoading ? "#555e6e" : Theme.accent
+                    border.width: 2
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: root.goHomeLoading ? "Going Home..." : "Go Home"
+                        color: Theme.panel
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.body
+                        font.bold: true
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        enabled: !root.goHomeLoading
+                        cursorShape: root.goHomeLoading ? Qt.WaitCursor : Qt.PointingHandCursor
+                        onClicked: {
+                            root.goHomeLoading = true
+                            root.setOutputBit(root.cStopRobotIndex, 17, true)
+                        }
+                    }
+                }
+
+                // Resume Weld Button
+                Rectangle {
+                    width: parent.width
+                    height: 48
+                    radius: Theme.radius
+                    color: root.resumeWeldLoading ? "#555e6e" : Theme.success
+                    border.color: root.resumeWeldLoading ? "#555e6e" : "#3ab86a"
+                    border.width: 2
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: root.resumeWeldLoading ? "Resuming..." : "Resume Weld"
+                        color: Theme.panel
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.body
+                        font.bold: true
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        enabled: !root.resumeWeldLoading
+                        cursorShape: root.resumeWeldLoading ? Qt.WaitCursor : Qt.PointingHandCursor
+                        onClicked: {
+                            root.resumeWeldLoading = true
+                            root.setOutputBit(root.cStopRobotIndex, 19, true)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

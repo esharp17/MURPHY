@@ -1,6 +1,7 @@
 # ui_qml/robot_comm/robot_comm_bridge.py
 import json
 import os
+import sys
 import threading
 import time
 import traceback
@@ -59,7 +60,11 @@ class RobotCommBridge(QObject):
         # per robot timestamps for watchdog / lastRxMs
         self._last_udp_ts = [0.0] * 4
 
-        self._cfg_path = os.path.join(os.getcwd(), "robot_comm_config.json")
+        if getattr(sys, 'frozen', False):
+            _base = sys._MEIPASS
+        else:
+            _base = os.getcwd()
+        self._cfg_path = os.path.join(_base, "robot_comm_config.json")
         print(f"[BRIDGE] Config file: {self._cfg_path}", flush=True)
 
         self._cfgs = [RobotCfg() for _ in range(4)]

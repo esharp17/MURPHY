@@ -6,7 +6,9 @@ import sys
 from pathlib import Path
 
 # Add parent directory to path so we can import robot_ui and robot_comm packages
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# Skip when frozen (PyInstaller handles sys.path via sys._MEIPASS automatically)
+if not getattr(sys, 'frozen', False):
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 os.environ["QML_XHR_ALLOW_FILE_READ"] = "1"
 os.environ["QT_QUICK_CONTROLS_STYLE"] = "Basic"

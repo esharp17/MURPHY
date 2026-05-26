@@ -12,24 +12,15 @@ Rectangle {
     // ============================================================
     // TUNING KNOBS (edit these to move/size things)
     // ============================================================
-    // Split: left 2/3, right 1/3
-    property real splitLeftFrac: 0.65         // <<< adjust left/right split
-
-    // Padding + gaps
-    property int  outerPad: Theme.pad            // <<< overall padding inside this screen
-    property int  gap: Theme.gap                 // <<< spacing between major panes
-
-    // Ring sizing
-    property real ringFrac: 0.62                 // <<< ring diameter as fraction of LEFT pane min dimension
-    property real ringMarginFrac: 0.02           // <<< room around ring inside ringArea
-
-    // Robot panel sizing & placement (critical)
-    property real panelWFrac: 0.28               // <<< panel width as fraction of ringArea width
-    property real panelHFrac: 0.20               // <<< panel height as fraction of ringArea height
- 
-    // Robot panel internal control sizes
-    property real panelBtnHFrac: 0.28            // <<< button height fraction within panel
-    property real panelBtnWFrac: 0.46            // <<< left/right control tile width fraction within panel
+    property real splitLeftFrac: 0.65
+    property int  outerPad: Theme.pad
+    property int  gap: Theme.gap
+    property real ringFrac: 0.62
+    property real ringMarginFrac: 0.02
+    property real panelWFrac: 0.28
+    property real panelHFrac: 0.20
+    property real panelBtnHFrac: 0.28
+    property real panelBtnWFrac: 0.46
     // ============================================================
 
     // ---------- wire later ----------
@@ -39,12 +30,58 @@ Rectangle {
     property bool fansOn: true
     property bool lightsOn: true
 
-    ListModel {
-        id: robots
-        ListElement { name: "Robot 1"; pos:  45; timeLeft: "4:28"; state: "welding" }
-        ListElement { name: "Robot 2"; pos: 135; timeLeft: "2:11"; state: "ready" }
-        ListElement { name: "Robot 3"; pos: 225; timeLeft: "0:54"; state: "paused" }
-        ListElement { name: "Robot 4"; pos: 315; timeLeft: "6:02"; state: "faulted" }
+    function refreshRobotData() {
+        if (!RobotComm) return
+        r0ConnState = RobotComm.getState(0)
+        r1ConnState = RobotComm.getState(1)
+        r2ConnState = RobotComm.getState(2)
+        r3ConnState = RobotComm.getState(3)
+        r0Words = RobotComm.getInputs(0)
+        r1Words = RobotComm.getInputs(1)
+        r2Words = RobotComm.getInputs(2)
+        r3Words = RobotComm.getInputs(3)
+    }
+
+    // Get input words for a robot index
+    function wordsFor(idx) {
+        if (idx === 0) return root.r0Words
+        if (idx === 1) return root.r1Words
+        if (idx === 2) return root.r2Words
+        if (idx === 3) return root.r3Words
+        return []
+    }
+
+    function connStateFor(idx) {
+        if (idx === 0) return root.r0ConnState
+        if (idx === 1) return root.r1ConnState
+        if (idx === 2) return root.r2ConnState
+        if (idx === 3) return root.r3ConnState
+        return 0
+    }
+
+    // Read position from word 4 (bits 65-80, lower 10 bits) for a robot
+    function robotPos(idx) {
+        var w = wordsFor(idx)
+        if (!w || w.length <= 4) return 0
+        return Number(w[4]) & 0x03FF
+    }
+
+    // Derive robot status string from connection state + I/O bits
+    // Bit 6 = fault, bit 11 = welding, bit 1 = auto/ready
+    // We add: bit 22 = scan data ready (use as "scanning" indicator)
+    function robotStatus(idx) {
+        var cs = connStateFor(idx)
+        if (cs === 0) return "disconnected"
+        if (cs === 1) return "connecting"
+        if (cs === 3) return "faulted"
+        // cs === 2 (cyclic) — read I/O bits
+        var w = wordsFor(idx)
+        if (getBit(w, 6)) return "faulted"
+        if (getBit(w, 11)) return "welding"
+        if (getBit(w, 4)) return "paused"
+        if (getBit(w, 22)) return "scanning"
+        if (getBit(w, 1)) return "ready"
+        return "idle"
     }
 
     ListModel {
@@ -59,20 +96,165 @@ Rectangle {
     }
 
     function stateLabel(s) {
-        if (s === "ready")   return "READY"
-        if (s === "welding") return "WELDING"
-        if (s === "faulted") return "FAULT"
-        if (s === "paused")  return "PAUSED"
-        return "DISABLED"
+        if (s === "ready")        return "READY"
+        if (s === "welding")      return "WELD"
+        if (s === "faulted")      return "FAULT"
+        if (s === "paused")       return "PAUSE"
+        if (s === "scanning")     return "SCAN"
+        if (s === "disconnected") return "DISC"
+        if (s === "connecting")   return "CONN"
+        if (s === "idle")         return "IDLE"
+        return "OFF"
     }
 
     function stateColor(s) {
-        // Hardcoded until Theme has equivalents.
-        if (s === "ready")   return "#1fbf4a"
-        if (s === "welding") return "#1f6bff"
-        if (s === "faulted") return "#e53935"
-        if (s === "paused")  return "#f2c94c"
-        return "#8a8a8a"
+        if (s === "ready")        return Theme.stateReady
+        if (s === "welding")      return Theme.stateWelding
+        if (s === "faulted")      return Theme.stateFaulted
+        if (s === "paused")       return Theme.statePaused
+        if (s === "disconnected") return Theme.stateDisabled
+        if (s === "connecting")   return Theme.warning
+        if (s === "scanning")     return Theme.accent
+        if (s === "idle")         return Theme.muted
+        return Theme.stateDisabled
+    }
+
+    // ============================================================
+    // C-STOP PER-ROBOT STATE (arrays of 4)
+    // ============================================================
+    property var cStopOpen: [false, false, false, false]
+    property var cStopDesiredPos: [0, 0, 0, 0]
+    property var goHomeLoading: [false, false, false, false]
+    property var resumeWeldLoading: [false, false, false, false]
+
+    // Live I/O words from robot comm
+    property var ioInWords: []
+
+    Connections {
+        target: RobotComm || null
+        enabled: RobotComm !== null
+        function onInWordsChanged() {
+            if (RobotComm) root.ioInWords = RobotComm.in_words
+            // Per-robot C-Stop auto-close logic
+            for (var i = 0; i < 4; i++) {
+                var words = root.wordsFor(i)
+                // Auto-close when input bit 20 goes low
+                if (root.cStopOpen[i] && !root.getBit(words, 20)) {
+                    root.closeCStop(i)
+                }
+                // Clear Go Home loading when input bit 17 goes low
+                if (root.goHomeLoading[i] && !root.getBit(words, 17)) {
+                    var gh = root.goHomeLoading.slice()
+                    gh[i] = false
+                    root.goHomeLoading = gh
+                    root.setOutputBit(i, 17, false)
+                }
+                // Clear Resume Weld loading when input bit 19 goes low
+                if (root.resumeWeldLoading[i] && !root.getBit(words, 19)) {
+                    var rw = root.resumeWeldLoading.slice()
+                    rw[i] = false
+                    root.resumeWeldLoading = rw
+                    root.setOutputBit(i, 19, false)
+                }
+            }
+        }
+    }
+
+    // Read a 1-indexed bit from a word array
+    function getBit(words, bit1) {
+        if (!words || bit1 <= 0) return false
+        var wi = Math.floor((bit1 - 1) / 16)
+        var bi = (bit1 - 1) % 16
+        if (wi < 0 || wi >= words.length) return false
+        var w = Number(words[wi]) & 0xFFFF
+        return ((w >> bi) & 1) === 1
+    }
+
+    // Quadrant limits per robot (with +/-10 deg tolerance)
+    // Robot 0 = top-right (Q1: 0-90), Robot 1 = top-left (Q2: 90-180)
+    // Robot 2 = bottom-left (Q3: 180-270), Robot 3 = bottom-right (Q4: 270-360)
+    function quadrantMin(robotIdx) {
+        var bases = [350, 80, 170, 260]
+        return bases[Math.min(3, Math.max(0, robotIdx))]
+    }
+    function quadrantMax(robotIdx) {
+        var caps = [100, 190, 280, 370]
+        return caps[Math.min(3, Math.max(0, robotIdx))]
+    }
+
+    function clampToQuadrant(pos, robotIdx) {
+        var mn = quadrantMin(robotIdx)
+        var mx = quadrantMax(robotIdx)
+        var p = pos % 360
+        if (p < 0) p += 360
+        // Handle wrap for robot 0 (350-100 crosses 0)
+        if (mn > mx % 360) {
+            if (p >= mn || p <= (mx % 360)) return p
+            var distToMin = Math.abs(p - mn) > 180 ? 360 - Math.abs(p - mn) : Math.abs(p - mn)
+            var distToMax = Math.abs(p - (mx % 360)) > 180 ? 360 - Math.abs(p - (mx % 360)) : Math.abs(p - (mx % 360))
+            return distToMin < distToMax ? mn : (mx % 360)
+        }
+        if (p < mn) return mn
+        if (p > mx) return mx
+        return p
+    }
+
+    // Read current position from input bits 65-74 (word 4, lower 10 bits)
+    function readCurrentPos() {
+        if (!ioInWords || ioInWords.length <= 4) return 0
+        return Number(ioInWords[4]) & 0x03FF
+    }
+
+    // Write desired position to output bits 65-74 (word 4, lower 10 bits)
+    function writeDesiredPos(robotIdx, pos) {
+        if (!RobotComm) return
+        var outs = RobotComm.getOutputs(robotIdx) || []
+        var w4 = (outs.length > 4) ? (Number(outs[4]) & 0xFFFF) : 0
+        w4 = (w4 & 0xFC00) | (pos & 0x03FF)
+        RobotComm.setOutputWord(robotIdx, 4, w4)
+    }
+
+    // Set/clear a single output bit (1-indexed)
+    function setOutputBit(robotIdx, bit1, value) {
+        if (!RobotComm) return
+        var wi = Math.floor((bit1 - 1) / 16)
+        var bi = (bit1 - 1) % 16
+        var outs = RobotComm.getOutputs(robotIdx) || []
+        var w = (outs.length > wi) ? (Number(outs[wi]) & 0xFFFF) : 0
+        if (value)
+            w = w | (1 << bi)
+        else
+            w = w & (~(1 << bi))
+        RobotComm.setOutputWord(robotIdx, wi, w)
+    }
+
+    // Toggle C-Stop for a specific robot index
+    function openCStop(robotIdx) {
+        if (cStopOpen[robotIdx]) return  // already open, do nothing
+        var arr = cStopOpen.slice()
+        arr[robotIdx] = true
+        cStopOpen = arr
+        // Initialize desired pos for this robot
+        var posArr = cStopDesiredPos.slice()
+        posArr[robotIdx] = robotPos(robotIdx)
+        cStopDesiredPos = posArr
+        // Clear loading states
+        var ghArr = goHomeLoading.slice()
+        var rwArr = resumeWeldLoading.slice()
+        ghArr[robotIdx] = false
+        rwArr[robotIdx] = false
+        goHomeLoading = ghArr
+        resumeWeldLoading = rwArr
+        // Set output bit 20 for this robot
+        setOutputBit(robotIdx, 20, true)
+    }
+
+    // Close C-Stop for a specific robot
+    function closeCStop(robotIdx) {
+        var arr = cStopOpen.slice()
+        arr[robotIdx] = false
+        cStopOpen = arr
+        setOutputBit(robotIdx, 20, false)
     }
 
     // ======================================================
@@ -400,10 +582,7 @@ Binding {
     target: item
     property: "posDeg"
     when: item
-    value: {
-        var r = robots.get(index)
-        return r ? root.norm360(r.pos) : 0
-    }
+    value: root.norm360(root.robotPos(index))
 }
 
 
@@ -424,90 +603,303 @@ Binding {
                     Rectangle {
                         id: p
                         width: ringArea.panelW
-                        height: ringArea.panelH
+                        // Height: base panel height; expands to fit controls when C-Stop open
+                        height: cStopActive ? ringArea.panelH + 152 : ringArea.panelH
                         radius: Theme.radius
                         color: Theme.sideBtnpanel
-                        border.color: Theme.text
-                        border.width: 1
+                        border.color: cStopActive ? Theme.danger : Theme.text
+                        border.width: cStopActive ? 3 : 1
                         clip: true
 
-                        property string name: ""
-                        property int pos: 0
-                        property string timeLeft: "0:00"
-                        property string state: "ready"
-
-                        // ---- top row: C-STOP + STATUS INDICATOR ----
-                        Row {
-                            id: topRow
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.top: parent.top
-                            anchors.margins: Theme.padSm
-                            height: parent.height * panelBtnHFrac
-                            spacing: Theme.padSm
-
-                            Rectangle {
-                                id: cstop
-                                width: (parent.width - parent.spacing) * 0.5
-                                height: parent.height
-                                radius: Theme.radiusSm
-                                color: Theme.panel
-                                border.width: 2
-                                border.color: Theme.danger
-
-                                Text {
-                                    anchors.centerIn: parent
-                                    text: "C-STOP"
-                                    color: Theme.danger
-                                    font.family: Theme.fontFamily
-                                    font.pixelSize: Theme.caption
-                                    font.bold: true
-                                }
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    cursorShape: Qt.PointingHandCursor
-                                    onClicked: console.log("C-STOP pressed for " + p.name)
-                                }
-                            }
-
-                            Rectangle {
-                                id: status
-                                width: (parent.width - parent.spacing) * 0.5
-                                height: parent.height
-                                radius: Theme.radiusSm
-                                color: root.stateColor(p.state)
-
-                                SequentialAnimation on opacity {
-                                    running: (p.state === "faulted")
-                                    loops: Animation.Infinite
-                                    NumberAnimation { to: 0.55; duration: 700 }
-                                    NumberAnimation { to: 1.0;  duration: 700 }
-                                }
-
-                                Text {
-                                    anchors.centerIn: parent
-                                    text: root.stateLabel(p.state)
-                                    color: Theme.panel
-                                    font.family: Theme.fontFamily
-                                    font.pixelSize: Theme.caption
-                                    font.bold: true
-                                }
-                            }
+                        // Smooth height animation
+                        Behavior on height {
+                            NumberAnimation { duration: 200; easing.type: Easing.OutQuad }
                         }
 
-                        // ---- bottom: readouts ----
-                        Text {
+                        property string name: ""
+                        property int robotIndex: 0
+                        property bool cStopActive: root.cStopOpen[robotIndex] || false
+
+                        Column {
+                            anchors.top: parent.top
                             anchors.left: parent.left
                             anchors.right: parent.right
-                            anchors.top: topRow.bottom
-                            anchors.bottom: parent.bottom
                             anchors.margins: Theme.padSm
-                            text: p.name + "\nPos: " + Math.round(root.norm360(p.pos)) + "\nTime Left: " + p.timeLeft
-                            color: Theme.text
-                            font.family: Theme.fontFamily
-                            font.pixelSize: Theme.caption
-                            wrapMode: Text.WordWrap
+                            spacing: 4
+
+                            // ---- top row: C-STOP + STATUS INDICATOR ----
+                            Row {
+                                id: topRow
+                                width: parent.width
+                                height: 28
+                                spacing: Theme.padSm
+
+                                Rectangle {
+                                    id: cstop
+                                    width: (parent.width - parent.spacing) * 0.5
+                                    height: parent.height
+                                    radius: Theme.radiusSm
+                                    color: cStopActive ? Theme.danger : Theme.panel
+                                    border.width: 2
+                                    border.color: cStopActive ? "#ff5555" : Theme.danger
+
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: cStopActive ? "ACTIVE" : "C-STOP"
+                                        color: cStopActive ? Theme.panel : Theme.danger
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.caption
+                                        font.bold: true
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        cursorShape: Qt.PointingHandCursor
+                                        onClicked: {
+                                            if (!cStopActive) root.openCStop(p.robotIndex)
+                                        }
+                                    }
+                                }
+
+                                Rectangle {
+                                    id: status
+                                    width: (parent.width - parent.spacing) * 0.5
+                                    height: parent.height
+                                    radius: Theme.radiusSm
+                                    color: root.stateColor(root.robotStatus(p.robotIndex))
+
+                                    SequentialAnimation on opacity {
+                                        running: (root.robotStatus(p.robotIndex) === "faulted")
+                                        loops: Animation.Infinite
+                                        NumberAnimation { to: 0.55; duration: 700 }
+                                        NumberAnimation { to: 1.0;  duration: 700 }
+                                    }
+
+                                    Text {
+                                        anchors.centerIn: parent
+                                        width: parent.width - 4
+                                        text: root.stateLabel(root.robotStatus(p.robotIndex))
+                                        color: "#ffffff"
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: 11
+                                        font.bold: true
+                                        horizontalAlignment: Text.AlignHCenter
+                                        elide: Text.ElideRight
+                                    }
+                                }
+                            }
+
+                            // ---- position readout ----
+                            Text {
+                                width: parent.width
+                                // Must set height=0 when hidden so Column doesn't waste space
+                                height: visible ? implicitHeight : 0
+                                text: p.name + "\nPos: " + root.robotPos(p.robotIndex) + "\u00B0"
+                                color: Theme.text
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.caption
+                                wrapMode: Text.WordWrap
+                                visible: !p.cStopActive
+                            }
+
+                            // ---- C-STOP CONTROLS (visible when active) ----
+                            Column {
+                                width: parent.width
+                                height: visible ? implicitHeight : 0
+                                spacing: 4
+                                visible: p.cStopActive
+
+                                // Divider
+                                Rectangle {
+                                    width: parent.width
+                                    height: 2
+                                    color: Theme.danger
+                                    opacity: 0.5
+                                }
+
+                                // Current + Desired Position row
+                                Row {
+                                    width: parent.width
+                                    spacing: 4
+
+                                    Rectangle {
+                                        width: parent.width * 0.48
+                                        height: 28
+                                        radius: 4
+                                        color: "#2a2d35"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "Cur: " + root.robotPos(p.robotIndex) + "\u00B0"
+                                            color: "#1fbf4a"
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.caption
+                                        }
+                                    }
+
+                                    Rectangle {
+                                        width: parent.width * 0.48
+                                        height: 28
+                                        radius: 4
+                                        color: "#2a2d35"
+                                        border.color: Theme.accent
+                                        border.width: 1
+
+                                        TextInput {
+                                            id: desiredInput
+                                            anchors.fill: parent
+                                            anchors.margins: 4
+                                            text: String(root.cStopDesiredPos[p.robotIndex] || 0)
+                                            color: "#1f6bff"
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.caption
+                                            horizontalAlignment: Text.AlignHCenter
+                                            verticalAlignment: Text.AlignVCenter
+                                            inputMethodHints: Qt.ImhDigitsOnly
+                                            validator: IntValidator { bottom: 0; top: 360 }
+                                            onEditingFinished: {
+                                                var v = parseInt(text)
+                                                if (!isNaN(v)) {
+                                                    v = root.clampToQuadrant(v, p.robotIndex)
+                                                    var arr = root.cStopDesiredPos
+                                                    arr[p.robotIndex] = v
+                                                    root.cStopDesiredPos = arr
+                                                    text = String(v)
+                                                    root.writeDesiredPos(p.robotIndex, v)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                // Jog buttons
+                                Row {
+                                    width: parent.width
+                                    spacing: 4
+
+                                    Rectangle {
+                                        width: (parent.width - 4) / 2
+                                        height: 26
+                                        radius: 4
+                                        color: "#3a3f4a"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "-5\u00B0"
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.caption
+                                        }
+
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onClicked: {
+                                                var arr = root.cStopDesiredPos.slice()
+                                                var v = (arr[p.robotIndex] || 0) - 5
+                                                v = root.clampToQuadrant(v, p.robotIndex)
+                                                arr[p.robotIndex] = v
+                                                root.cStopDesiredPos = arr
+                                                desiredInput.text = String(v)
+                                                root.writeDesiredPos(p.robotIndex, v)
+                                            }
+                                        }
+                                    }
+
+                                    Rectangle {
+                                        width: (parent.width - 4) / 2
+                                        height: 26
+                                        radius: 4
+                                        color: "#3a3f4a"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "+5\u00B0"
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.caption
+                                        }
+
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onClicked: {
+                                                var arr = root.cStopDesiredPos.slice()
+                                                var v = (arr[p.robotIndex] || 0) + 5
+                                                v = root.clampToQuadrant(v, p.robotIndex)
+                                                arr[p.robotIndex] = v
+                                                root.cStopDesiredPos = arr
+                                                desiredInput.text = String(v)
+                                                root.writeDesiredPos(p.robotIndex, v)
+                                            }
+                                        }
+                                    }
+                                }
+
+                                // Limits display
+                                Text {
+                                    width: parent.width
+                                    text: "Limits: " + root.quadrantMin(p.robotIndex) + "\u00B0-" + (root.quadrantMax(p.robotIndex) % 360) + "\u00B0"
+                                    color: "#8a8a8a"
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: 9
+                                    horizontalAlignment: Text.AlignHCenter
+                                }
+
+                                // Go Home button
+                                Rectangle {
+                                    width: parent.width
+                                    height: 26
+                                    radius: 4
+                                    color: root.goHomeLoading[p.robotIndex] ? "#555e6e" : Theme.accent
+
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: root.goHomeLoading[p.robotIndex] ? "Going..." : "Go Home"
+                                        color: Theme.panel
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.caption
+                                        font.bold: true
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        enabled: !root.goHomeLoading[p.robotIndex]
+                                        onClicked: {
+                                            var arr = root.goHomeLoading.slice()
+                                            arr[p.robotIndex] = true
+                                            root.goHomeLoading = arr
+                                            root.setOutputBit(p.robotIndex, 17, true)
+                                        }
+                                    }
+                                }
+
+                                // Resume Weld button
+                                Rectangle {
+                                    width: parent.width
+                                    height: 26
+                                    radius: 4
+                                    color: root.resumeWeldLoading[p.robotIndex] ? "#555e6e" : "#1fbf4a"
+
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: root.resumeWeldLoading[p.robotIndex] ? "Resuming..." : "Resume Weld"
+                                        color: Theme.panel
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.caption
+                                        font.bold: true
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        enabled: !root.resumeWeldLoading[p.robotIndex]
+                                        onClicked: {
+                                            var arr = root.resumeWeldLoading.slice()
+                                            arr[p.robotIndex] = true
+                                            root.resumeWeldLoading = arr
+                                            root.setOutputBit(p.robotIndex, 19, true)
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -517,13 +909,10 @@ Binding {
 Loader {
     id: panelTL
     sourceComponent: robotPanel
-    visible: robots.count > 0
+    visible: true
     onLoaded: {
-        var r = robots.get(0)
-        item.name = r.name
-        item.pos = r.pos
-        item.timeLeft = r.timeLeft
-        item.state = r.state
+        item.name = "Robot 1"
+        item.robotIndex = 0
     }
     Binding { target: panelTL.item; property: "x"; value: ringArea.width * 0.01; when: panelTL.item }
     Binding { target: panelTL.item; property: "y"; value: ringArea.height * 0.01; when: panelTL.item }
@@ -532,13 +921,10 @@ Loader {
 Loader {
     id: panelBL
     sourceComponent: robotPanel
-    visible: robots.count > 1
+    visible: true
     onLoaded: {
-        var r = robots.get(1)
-        item.name = r.name
-        item.pos = r.pos
-        item.timeLeft = r.timeLeft
-        item.state = r.state
+        item.name = "Robot 2"
+        item.robotIndex = 1
     }
     Binding { target: panelBL.item; property: "x"; value: ringArea.width - ringArea.panelW - ringArea.width * 0.01; when: panelBL.item }
     Binding { target: panelBL.item; property: "y"; value: ringArea.height * 0.01; when: panelBL.item }
@@ -547,31 +933,25 @@ Loader {
 Loader {
     id: panelTR
     sourceComponent: robotPanel
-    visible: robots.count > 2
+    visible: true
     onLoaded: {
-        var r = robots.get(2)
-        item.name = r.name
-        item.pos = r.pos
-        item.timeLeft = r.timeLeft
-        item.state = r.state
+        item.name = "Robot 3"
+        item.robotIndex = 2
     }
     Binding { target: panelTR.item; property: "x"; value: ringArea.width * 0.01; when: panelTR.item }
-    Binding { target: panelTR.item; property: "y"; value: ringArea.height - ringArea.panelH - ringArea.height * 0.01; when: panelTR.item }
+    Binding { target: panelTR.item; property: "y"; value: ringArea.height - (panelTR.item ? panelTR.item.height : ringArea.panelH) - ringArea.height * 0.01; when: panelTR.item }
 }
 
 Loader {
     id: panelBR
     sourceComponent: robotPanel
-    visible: robots.count > 3
+    visible: true
     onLoaded: {
-        var r = robots.get(3)
-        item.name = r.name
-        item.pos = r.pos
-        item.timeLeft = r.timeLeft
-        item.state = r.state
+        item.name = "Robot 4"
+        item.robotIndex = 3
     }
     Binding { target: panelBR.item; property: "x"; value: ringArea.width - ringArea.panelW - ringArea.width * 0.01; when: panelBR.item }
-    Binding { target: panelBR.item; property: "y"; value: ringArea.height - ringArea.panelH - ringArea.height * 0.01; when: panelBR.item }
+    Binding { target: panelBR.item; property: "y"; value: ringArea.height - (panelBR.item ? panelBR.item.height : ringArea.panelH) - ringArea.height * 0.01; when: panelBR.item }
 }
 
 
@@ -786,4 +1166,6 @@ Loader {
             }
         }
     }
+
+
 }

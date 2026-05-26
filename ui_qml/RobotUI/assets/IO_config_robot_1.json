@@ -48,16 +48,16 @@
     "label": "Start Weld"
   },
   "DI17": {
-    "label": "Controlled Stop"
+    "label": "Go Home"
   },
   "DI18": {
     "label": "Move FWD"
   },
   "DI19": {
-    "label": "Move REV"
+    "label": "Resume Weld"
   },
   "DI20": {
-    "label": "Jump"
+    "label": "C-Stop"
   },
   "DI21": {
     "label": "DI21"
