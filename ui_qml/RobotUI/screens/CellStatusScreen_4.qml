@@ -133,7 +133,6 @@ Rectangle {
     // ============================================================
     property var cStopOpen: [false, false, false, false]
     property var cStopAcknowledged: [false, false, false, false]  // true once robot bit 20 went high
-    property var cStopBit20LowCount: [0, 0, 0, 0]  // debounce: consecutive low readings after ack
     property var cStopDesiredPos: [0, 0, 0, 0]
     property var goHomeLoading: [false, false, false, false]
     property var resumeWeldLoading: [false, false, false, false]
@@ -165,26 +164,16 @@ Rectangle {
             var words = fresh
             var i = robotIdx
 
+            // Wait for robot to set bit 20 HIGH (acknowledgment), then close when it goes LOW
             if (root.cStopOpen[i]) {
                 if (root.getBit(words, 20)) {
-                    // bit 20 HIGH: mark acknowledged, reset low-count debounce
                     if (!root.cStopAcknowledged[i]) {
                         var ackArr = root.cStopAcknowledged.slice()
                         ackArr[i] = true
                         root.cStopAcknowledged = ackArr
                     }
-                    var lcReset = root.cStopBit20LowCount.slice()
-                    lcReset[i] = 0
-                    root.cStopBit20LowCount = lcReset
                 } else if (root.cStopAcknowledged[i]) {
-                    // bit 20 LOW after ack: increment debounce counter
-                    var lc = root.cStopBit20LowCount.slice()
-                    lc[i] = lc[i] + 1
-                    root.cStopBit20LowCount = lc
-                    // Only auto-close after 8 consecutive low readings (prevents glitch-close)
-                    if (lc[i] >= 8) {
-                        root.closeCStop(i)
-                    }
+                    root.closeCStop(i)
                 }
             }
             // Clear Go Home loading when input bit 17 goes low
@@ -281,9 +270,6 @@ Rectangle {
         var ackArr = cStopAcknowledged.slice()
         ackArr[robotIdx] = false
         cStopAcknowledged = ackArr
-        var lcArr = cStopBit20LowCount.slice()
-        lcArr[robotIdx] = 0
-        cStopBit20LowCount = lcArr
         // Initialize desired pos for this robot
         var posArr = cStopDesiredPos.slice()
         posArr[robotIdx] = robotPos(robotIdx)
@@ -307,9 +293,6 @@ Rectangle {
         var ackArr = cStopAcknowledged.slice()
         ackArr[robotIdx] = false
         cStopAcknowledged = ackArr
-        var lcArr = cStopBit20LowCount.slice()
-        lcArr[robotIdx] = 0
-        cStopBit20LowCount = lcArr
         setOutputBit(robotIdx, 20, false)
     }
 

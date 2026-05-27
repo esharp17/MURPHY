@@ -75,6 +75,7 @@ class DummyEipAdapter:
         self._tx_seq16 = 1
 
         self._last_udp_rx_ts = 0.0
+        self._conn_out_words = {}  # conn_id -> List[int] per-connection output words
 
     # ---------------- TCP (44818) ----------------
     @staticmethod
@@ -280,9 +281,15 @@ class DummyEipAdapter:
 
             off += ilen
 
-        if io_words is not None:
+        if io_words is not None and conn_id is not None:
             with self._lock:
-                self.outputs_words = [u16(x) for x in io_words]
+                self._conn_out_words[conn_id] = [u16(x) for x in io_words]
+                # OR across all connections: any connection's HIGH bit wins
+                combined = [0] * self.out_words
+                for cw in self._conn_out_words.values():
+                    for j in range(min(len(cw), self.out_words)):
+                        combined[j] |= cw[j]
+                self.outputs_words = combined
                 self._last_udp_rx_ts = time.time()
 
     def _udp_rx_loop(self):
