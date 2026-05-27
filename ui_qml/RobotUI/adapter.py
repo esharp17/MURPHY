@@ -151,10 +151,16 @@ class DummyEipAdapter:
         scanner_ip = addr[0]
         log(f"TCP connection from {addr}")
         conn.settimeout(5.0)
+        t2o_id = None
 
         try:
             while self._run.is_set():
-                hdr = conn.recv(24)
+                try:
+                    hdr = conn.recv(24)
+                except socket.timeout:
+                    continue  # TCP idle after ForwardOpen is normal; keep connection alive
+                except Exception:
+                    break
                 if not hdr or len(hdr) < 24:
                     break
                 cmd, length, session, status, sender_ctx, options = struct.unpack("<HHIIQI", hdr)
@@ -199,8 +205,9 @@ class DummyEipAdapter:
                 log(f"TCP connection closed ({addr})")
             except Exception:
                 pass
-            with self._lock:
-                self._active_conns = [c for c in self._active_conns if c.get("t2o_id") != t2o_id]
+            if t2o_id is not None:
+                with self._lock:
+                    self._active_conns = [c for c in self._active_conns if c.get("t2o_id") != t2o_id]
 
     def _tcp_server(self):
         lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
