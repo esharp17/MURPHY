@@ -430,9 +430,9 @@ class DummyEipAdapter:
                 was = prev[bit]
                 prev[bit] = cur
 
-                if bit == 20:
-                    # Mirror output bit 20 directly to input bit 20 (panel stays open until user closes)
-                    self._set_in_bit(20, cur)
+                if bit == 20 and cur and not was:
+                    # C-Stop rising edge: latch input bit 20 HIGH; stays HIGH until operator manually clears it in UI
+                    self._set_in_bit(20, 1)
 
                 elif bit == 17 and cur and not was:
                     # Go Home rising edge: ack immediately, clear after 3s
@@ -600,8 +600,8 @@ if __name__ == "__main__":
         bind_ip="0.0.0.0",
         tcp_port=44818,
         udp_port=2222,
-        in_words=4,
-        out_words=4,
+        in_words=7,
+        out_words=7,
     )
     app = App(sim)
     app.mainloop()

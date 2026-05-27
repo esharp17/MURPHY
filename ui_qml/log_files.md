@@ -19632,3 +19632,10 @@
 | 2026-05-26 20:53:38 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
 | 2026-05-26 20:53:39 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
 | 2026-05-26 20:53:51 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-05-26 21:00:28 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 21:00:28 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 21:00:28 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 21:00:28 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 21:00:28 | none | APP_START |  |
+| 2026-05-26 21:00:32 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 21:00:41 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |

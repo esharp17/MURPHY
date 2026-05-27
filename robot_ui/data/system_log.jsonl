@@ -19630,3 +19630,10 @@ port": 44818}}
 {"ts": "2026-05-26 20:53:38", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
 {"ts": "2026-05-26 20:53:39", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
 {"ts": "2026-05-26 20:53:51", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:00:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:00:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:00:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:00:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:00:28", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 21:00:32", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 21:00:41", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
