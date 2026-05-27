@@ -61,7 +61,9 @@ class DummyEipAdapter:
         self.o2t_conn_id = 0x01641234
 
         # T->O conn-id (adapter->scanner). Your driver doesn’t validate on RX, but keep consistent.
-        self.t2o_conn_id = 0x50B04F35
+        self._t2o_base = 0x50B04F00
+        self._next_t2o = self._t2o_base
+        self._active_conns = []  # list of {"t2o_id": int, "scanner_ip": str}
 
         self._tcp_thread = None
         self._udp_rx_thread = None
@@ -93,7 +95,9 @@ class DummyEipAdapter:
         payload = struct.pack("<HH", 1, 0)  # protocol version 1, flags 0
         return self._encap_header(0x0065, len(payload), self._session) + payload
 
-    def _build_forward_open_response(self, scanner_ip: str):
+    def _build_forward_open_response(self, scanner_ip: str, t2o_id: int = None):
+        if t2o_id is None:
+            t2o_id = self._t2o_base
         # Build SendRRData response with 4 CPF items exactly like your capture:
         #  - Null address
         #  - Unconnected data item with CIP ForwardOpen reply (service 0xD4)
@@ -111,7 +115,7 @@ class DummyEipAdapter:
         cip = bytearray()
         cip += struct.pack("BBBB", 0xD4, 0x00, 0x00, 0x00)        # service, status, addn, reserved
         cip += struct.pack("<I", u32(self.o2t_conn_id))            # o->t conn id
-        cip += struct.pack("<I", u32(self.t2o_conn_id))            # t->o conn id (not used by your driver)
+        cip += struct.pack("<I", u32(t2o_id))                      # t->o conn id (unique per connection)
         cip += b"\x00" * 18                                        # padding to look like real-ish reply
 
         # CPF items:
@@ -173,15 +177,15 @@ class DummyEipAdapter:
                     log("TX RegisterSession response")
 
                 elif cmd == 0x006F:  # SendRRData (ForwardOpen)
-                    # Reply with FO success regardless of exact request contents (since your driver is fixed)
-                    resp = self._build_forward_open_response(scanner_ip)
-                    conn.sendall(resp)
-                    log(f"TX ForwardOpen response (scanner_ip={scanner_ip})")
-
-                    # Also learn scanner ip for UDP
                     with self._lock:
+                        t2o_id = u32(self._next_t2o)
+                        self._next_t2o = u32(self._next_t2o + 1)
+                        self._active_conns.append({"t2o_id": t2o_id, "scanner_ip": scanner_ip})
                         self._scanner_ip = scanner_ip
                         self._scanner_udp_port = 2222
+                    resp = self._build_forward_open_response(scanner_ip, t2o_id)
+                    conn.sendall(resp)
+                    log(f"TX ForwardOpen response t2o_id=0x{t2o_id:08X} (scanner_ip={scanner_ip})")
 
                 else:
                     # Ignore unsupported commands
@@ -195,6 +199,8 @@ class DummyEipAdapter:
                 log(f"TCP connection closed ({addr})")
             except Exception:
                 pass
+            with self._lock:
+                self._active_conns = [c for c in self._active_conns if c.get("t2o_id") != t2o_id]
 
     def _tcp_server(self):
         lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -290,24 +296,18 @@ class DummyEipAdapter:
             self._parse_scanner_udp(data)
             log("UDP RX parsed O->T data")
 
-    def _build_adapter_udp(self, scanner_ip: str):
-        # Build CPF just like your robot->scanner UDP frame shape.
-        # item_count=2
-        # item1: 0x8002 len 8 [conn_id][seq32]
-        # item2: 0x00B1 len = 2+4+in_bytes  [seq16][runidle32][inputs bytes]
-        in_bytes = self.in_words * 2
-        run_idle = 1
+    def _build_adapter_udp(self, t2o_id: int):
 
         with self._lock:
             in_words = [u16(x) for x in self.inputs_words]
 
-        io = struct.pack("<H", u16(self._tx_seq16)) + struct.pack("<I", u32(run_idle))
+        io = struct.pack("<H", u16(self._tx_seq16))
         io += struct.pack("<" + "H" * self.in_words, *in_words)
 
         payload = bytearray()
         payload += struct.pack("<H", 2)  # item count
         payload += struct.pack("<HH", 0x8002, 8)
-        payload += struct.pack("<I", u32(self.t2o_conn_id))
+        payload += struct.pack("<I", u32(t2o_id))
         payload += struct.pack("<I", u32(self._tx_seq32))
         payload += struct.pack("<HH", 0x00B1, len(io))
         payload += io
@@ -323,17 +323,17 @@ class DummyEipAdapter:
         period = 0.008
         while self._run.is_set():
             with self._lock:
-                scanner_ip = self._scanner_ip
-                scanner_port = 2222  # always send to 2222
+                conns = list(self._active_conns)
 
-            if scanner_ip:
+            for c in conns:
                 try:
-                    pkt = self._build_adapter_udp(scanner_ip)
-                    self._udp_sock.sendto(pkt, (scanner_ip, scanner_port))
-                    if (self._tx_seq32 % 100) == 0:
-                        log(f"UDP TX seq={self._tx_seq32}")
+                    pkt = self._build_adapter_udp(c["t2o_id"])
+                    self._udp_sock.sendto(pkt, (c["scanner_ip"], 2222))
                 except Exception:
                     pass
+
+            if conns and (self._tx_seq32 % 500) == 0:
+                log(f"UDP TX seq={self._tx_seq32} conns={len(conns)}")
 
             time.sleep(period)
 

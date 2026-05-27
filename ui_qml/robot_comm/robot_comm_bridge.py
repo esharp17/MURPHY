@@ -63,7 +63,7 @@ class RobotCommBridge(QObject):
         if getattr(sys, 'frozen', False):
             _base = sys._MEIPASS
         else:
-            _base = os.getcwd()
+            _base = os.path.dirname(os.path.abspath(__file__))
         self._cfg_path = os.path.join(_base, "robot_comm_config.json")
         print(f"[BRIDGE] Config file: {self._cfg_path}", flush=True)
 

@@ -18397,9 +18397,9 @@
 | 2026-05-26 07:05:59 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:05:59 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:05:59 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 07:05:59 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:05:59 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
 | 2026-05-26 07:05:59 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
-| 2026-05-26 07:05:59 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:06:04 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:06:04 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:06:04 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
@@ -18419,7 +18419,6 @@
 | 2026-05-26 07:06:14 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:06:14 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:06:14 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
-| 2026-05-26 07:06:14 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
 | 2026-05-26 07:06:14 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
 | 2026-05-26 07:06:19 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:06:19 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
@@ -18507,8 +18506,8 @@
 | 2026-05-26 07:13:49 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:13:52 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
 | 2026-05-26 07:13:52 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
-| 2026-05-26 07:13:52 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
 | 2026-05-26 07:13:52 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 07:13:52 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
 | 2026-05-26 07:13:54 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:13:54 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:13:54 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
@@ -18618,8 +18617,8 @@
 | 2026-05-26 07:15:09 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:15:09 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
 | 2026-05-26 07:15:09 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
-| 2026-05-26 07:15:09 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:15:09 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 07:15:09 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:15:09 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
 | 2026-05-26 07:15:09 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
 | 2026-05-26 07:15:14 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
@@ -18716,8 +18715,8 @@
 | 2026-05-26 07:16:19 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:16:19 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:16:19 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
-| 2026-05-26 07:16:19 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
 | 2026-05-26 07:16:19 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 07:16:19 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
 | 2026-05-26 07:16:19 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:16:19 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
 | 2026-05-26 07:16:19 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
@@ -18750,8 +18749,8 @@
 | 2026-05-26 07:18:09 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:18:09 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:18:13 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
-| 2026-05-26 07:18:13 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
 | 2026-05-26 07:18:13 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 07:18:13 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
 | 2026-05-26 07:18:13 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
 | 2026-05-26 07:18:14 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:18:14 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
@@ -18793,5 +18792,578 @@
 | 2026-05-26 07:18:39 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:18:39 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
 | 2026-05-26 07:18:39 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
-| 2026-05-26 07:18:39 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
 | 2026-05-26 07:18:39 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 07:18:39 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:02:47 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:47 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:47 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:47 | none | APP_START |  |
+| 2026-05-26 20:02:52 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:02:52 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:02:52 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:02:52 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:02:52 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:52 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:52 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:52 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:55 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 20:02:57 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:02:57 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:02:57 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:57 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:57 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:57 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:02:57 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:03:02 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:02 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:03:02 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:02 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:03:02 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:03:02 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:02 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:07 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:07 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:07 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:07 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:07 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:03:07 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:03:07 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:03:07 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:03:12 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:12 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:12 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:12 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:17 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:17 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:17 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:17 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:17 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:03:17 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:03:17 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:03:17 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:03:22 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:22 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:22 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:22 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:27 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:27 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:27 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:27 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:27 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:03:27 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:03:27 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:03:27 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:03:32 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:32 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:32 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:32 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:37 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:37 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:37 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:37 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:03:37 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:03:37 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:37 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:03:42 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:42 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:42 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:42 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:42 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:03:47 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:47 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:47 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:47 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:47 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:03:47 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:03:47 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:03:52 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:52 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:52 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:52 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:57 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:57 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:57 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:57 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:03:57 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:03:57 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:03:57 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:05:35 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:35 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:35 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:35 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:35 | none | APP_START |  |
+| 2026-05-26 20:05:40 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 20:05:40 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:05:40 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:05:40 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:05:40 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:05:41 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:41 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:41 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:41 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:41 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:41 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:05:46 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:05:46 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:05:46 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:05:46 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:05:46 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:46 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:46 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:46 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:46 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:51 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:51 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:51 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:51 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:51 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:51 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:05:51 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:05:51 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:05:51 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:05:56 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:56 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:56 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:56 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:05:56 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:01 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:01 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:01 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:01 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:01 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:01 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:06:01 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:06:01 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:06:01 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:06:28 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:28 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:28 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:28 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:28 | none | APP_START |  |
+| 2026-05-26 20:06:33 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:06:33 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:06:33 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:06:33 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:06:33 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:33 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:33 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:33 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:33 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:38 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:38 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:38 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:38 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:38 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:38 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:06:38 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:06:38 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:06:39 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:06:43 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:43 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:43 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:43 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:43 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:48 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:48 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:48 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:48 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:48 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:49 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:06:49 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:06:49 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:06:53 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:53 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:53 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:53 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:53 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:58 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:06:58 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:06:58 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:06:58 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:58 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:58 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:58 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:06:58 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:06:58 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:03 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:03 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:03 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:03 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:03 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:03 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:07:03 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:07:03 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:07:04 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:07:08 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:08 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:08 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:08 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:08 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:13 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:13 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:13 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:13 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:13 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:13 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:07:13 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:07:13 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:07:13 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:07:18 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:18 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:18 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:18 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:18 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:23 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:23 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:23 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:23 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:23 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:23 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:07:23 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:07:23 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:07:23 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:07:28 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:28 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:28 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:28 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:28 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:33 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:33 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:33 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:33 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:33 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:34 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:07:34 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:07:34 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:07:34 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:07:38 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:38 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:38 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:38 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:38 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:43 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:43 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:43 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:43 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:43 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:43 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:07:44 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:07:43 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:07:48 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:48 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:48 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:48 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:48 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:53 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:53 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:53 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:53 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:53 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:07:53 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:07:53 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:07:53 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:07:53 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:13:57 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:13:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:13:57 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:13:57 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:13:57 | none | APP_START |  |
+| 2026-05-26 20:14:02 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:14:02 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:14:02 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:14:02 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:02 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:02 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:02 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:07 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:14:07 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:14:07 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:14:07 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:07 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:07 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:07 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:14:07 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:12 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:12 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:12 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:12 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:12 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:14:12 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:14:12 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:14:17 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:17 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:17 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:17 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:17 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:14:22 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:22 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:22 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:22 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:22 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:14:22 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:14:22 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:14:27 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:14:27 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:27 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:27 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:27 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:32 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 20:14:32 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:32 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:32 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:32 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:32 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:14:32 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:14:32 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:14:36 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:14:37 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:37 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:37 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:37 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:42 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:42 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:42 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:14:42 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:14:42 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-05-26 20:14:42 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:42 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:42 | none | ROBOT_FAULT | {"robot": 3, "error": "timed out"} |
+| 2026-05-26 20:14:47 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:47 | none | ROBOT_FAULT | {"robot": 2, "error": "timed out"} |
+| 2026-05-26 20:14:47 | none | ROBOT_FAULT | {"robot": 1, "error": "timed out"} |
+| 2026-05-26 20:14:47 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:47 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:14:47 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.1", "port": 44818} |
+| 2026-05-26 20:18:24 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:24 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:24 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:24 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:24 | none | APP_START |  |
+| 2026-05-26 20:18:29 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 20:18:29 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:29 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:18:34 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:39 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:44 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:49 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:54 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:18:59 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:04 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:09 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:14 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:19 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:24 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:29 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:34 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:39 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:44 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:49 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:50 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-05-26 20:19:51 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:19:51 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-05-26 20:19:54 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:19:59 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:04 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:20:09 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:14 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:19 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:24 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:29 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:34 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:39 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:44 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:49 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:54 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:20:59 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:04 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:09 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:14 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:19 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:24 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:29 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:34 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:39 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:44 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:49 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:54 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:21:57 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-05-26 20:21:58 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-05-26 20:21:59 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:04 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:09 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:14 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:19 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:24 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:29 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:34 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:39 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:44 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:49 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:54 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:22:59 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:04 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:09 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:37 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:37 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:37 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:37 | none | APP_START |  |
+| 2026-05-26 20:23:42 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 20:23:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:43 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:23:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:23:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:24:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:25:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:26:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:27:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:28:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:29:57 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:02 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:07 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:12 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:17 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:22 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:27 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:32 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:37 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:42 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:47 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:52 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:30:52 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:00 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:00 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:00 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:00 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:00 | none | APP_START |  |
+| 2026-05-26 20:31:02 | none | ROBOT_FAULT | {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-05-26 20:31:02 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-05-26 20:31:02 | none | ROBOT_FAULT | {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-05-26 20:31:02 | none | ROBOT_FAULT | {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-05-26 20:31:05 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:05 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:05 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:05 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:05 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:25 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:25 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:25 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:25 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:25 | none | APP_START |  |
+| 2026-05-26 20:31:29 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 20:31:30 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:35 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:31:35 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:40 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:45 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:50 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:31:55 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:00 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:05 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:10 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:15 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:20 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:25 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:30 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:35 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:40 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:45 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:50 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:32:55 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:33:00 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:33:05 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:33:10 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:33:15 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
