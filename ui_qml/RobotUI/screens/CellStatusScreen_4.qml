@@ -30,6 +30,15 @@ Rectangle {
     property bool fansOn: true
     property bool lightsOn: true
 
+    property var r0Words: []
+    property var r1Words: []
+    property var r2Words: []
+    property var r3Words: []
+    property int r0ConnState: 0
+    property int r1ConnState: 0
+    property int r2ConnState: 0
+    property int r3ConnState: 0
+
     function refreshRobotData() {
         if (!RobotComm) return
         r0ConnState = RobotComm.getState(0)
@@ -134,35 +143,50 @@ Rectangle {
     Connections {
         target: RobotComm || null
         enabled: RobotComm !== null
-        function onInWordsChanged() {
-            if (RobotComm) root.ioInWords = RobotComm.in_words
-            // Per-robot C-Stop auto-close logic
-            for (var i = 0; i < 4; i++) {
-                var words = root.wordsFor(i)
-                // Track acknowledgment: input bit 20 went high
-                if (root.cStopOpen[i] && root.getBit(words, 20) && !root.cStopAcknowledged[i]) {
-                    var ackArr = root.cStopAcknowledged.slice()
-                    ackArr[i] = true
-                    root.cStopAcknowledged = ackArr
-                }
-                // Auto-close only after acknowledgment AND bit 20 goes low
-                if (root.cStopOpen[i] && root.cStopAcknowledged[i] && !root.getBit(words, 20)) {
-                    root.closeCStop(i)
-                }
-                // Clear Go Home loading when input bit 17 goes low
-                if (root.goHomeLoading[i] && !root.getBit(words, 17)) {
-                    var gh = root.goHomeLoading.slice()
-                    gh[i] = false
-                    root.goHomeLoading = gh
-                    root.setOutputBit(i, 17, false)
-                }
-                // Clear Resume Weld loading when input bit 19 goes low
-                if (root.resumeWeldLoading[i] && !root.getBit(words, 19)) {
-                    var rw = root.resumeWeldLoading.slice()
-                    rw[i] = false
-                    root.resumeWeldLoading = rw
-                    root.setOutputBit(i, 19, false)
-                }
+        function onStateChanged(robotIdx) {
+            if (!RobotComm) return
+            var s = RobotComm.getState(robotIdx)
+            if (robotIdx === 0) r0ConnState = s
+            else if (robotIdx === 1) r1ConnState = s
+            else if (robotIdx === 2) r2ConnState = s
+            else if (robotIdx === 3) r3ConnState = s
+        }
+        function onIoUpdated(robotIdx) {
+            if (!RobotComm) return
+            // Refresh the specific robot's word cache and connection state
+            var fresh = RobotComm.getInputs(robotIdx)
+            var s = RobotComm.getState(robotIdx)
+            if (robotIdx === 0) { r0Words = fresh; r0ConnState = s; ioInWords = fresh }
+            else if (robotIdx === 1) { r1Words = fresh; r1ConnState = s }
+            else if (robotIdx === 2) { r2Words = fresh; r2ConnState = s }
+            else if (robotIdx === 3) { r3Words = fresh; r3ConnState = s }
+
+            var words = fresh
+            var i = robotIdx
+
+            // Track acknowledgment: input bit 20 went high
+            if (root.cStopOpen[i] && root.getBit(words, 20) && !root.cStopAcknowledged[i]) {
+                var ackArr = root.cStopAcknowledged.slice()
+                ackArr[i] = true
+                root.cStopAcknowledged = ackArr
+            }
+            // Auto-close only after acknowledgment AND bit 20 goes low
+            if (root.cStopOpen[i] && root.cStopAcknowledged[i] && !root.getBit(words, 20)) {
+                root.closeCStop(i)
+            }
+            // Clear Go Home loading when input bit 17 goes low
+            if (root.goHomeLoading[i] && !root.getBit(words, 17)) {
+                var gh = root.goHomeLoading.slice()
+                gh[i] = false
+                root.goHomeLoading = gh
+                root.setOutputBit(i, 17, false)
+            }
+            // Clear Resume Weld loading when input bit 19 goes low
+            if (root.resumeWeldLoading[i] && !root.getBit(words, 19)) {
+                var rw = root.resumeWeldLoading.slice()
+                rw[i] = false
+                root.resumeWeldLoading = rw
+                root.setOutputBit(i, 19, false)
             }
         }
     }
@@ -617,7 +641,7 @@ Binding {
                         id: p
                         width: ringArea.panelW
                         // Height: base panel height; expands to fit controls when C-Stop open
-                        height: cStopActive ? ringArea.panelH + 152 : ringArea.panelH
+                        height: (cStopActive && isConnected) ? ringArea.panelH + 220 : ringArea.panelH
                         radius: Theme.radius
                         color: Theme.sideBtnpanel
                         border.color: cStopActive ? Theme.danger : Theme.text
@@ -632,6 +656,7 @@ Binding {
                         property string name: ""
                         property int robotIndex: 0
                         property bool cStopActive: root.cStopOpen[robotIndex] || false
+                        property bool isConnected: root.connStateFor(robotIndex) === 2
 
                         Column {
                             anchors.top: parent.top
@@ -640,11 +665,26 @@ Binding {
                             anchors.margins: Theme.padSm
                             spacing: 4
 
+                            // ---- disconnected banner ----
+                            Text {
+                                width: parent.width
+                                height: visible ? implicitHeight + 8 : 0
+                                visible: !p.isConnected
+                                text: p.name + "\nDisconnected"
+                                color: Theme.muted
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.caption
+                                wrapMode: Text.WordWrap
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
                             // ---- top row: C-STOP + STATUS INDICATOR ----
                             Row {
                                 id: topRow
                                 width: parent.width
-                                height: 28
+                                height: p.isConnected ? 28 : 0
+                                visible: p.isConnected
                                 spacing: Theme.padSm
 
                                 Rectangle {
@@ -705,22 +745,21 @@ Binding {
                             // ---- position readout ----
                             Text {
                                 width: parent.width
-                                // Must set height=0 when hidden so Column doesn't waste space
                                 height: visible ? implicitHeight : 0
                                 text: p.name + "\nPos: " + root.robotPos(p.robotIndex) + "\u00B0"
                                 color: Theme.text
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.caption
                                 wrapMode: Text.WordWrap
-                                visible: !p.cStopActive
+                                visible: p.isConnected && !p.cStopActive
                             }
 
-                            // ---- C-STOP CONTROLS (visible when active) ----
+                            // ---- C-STOP CONTROLS (visible when active and connected) ----
                             Column {
                                 width: parent.width
                                 height: visible ? implicitHeight : 0
                                 spacing: 4
-                                visible: p.cStopActive
+                                visible: p.cStopActive && p.isConnected
 
                                 // Divider
                                 Rectangle {
@@ -910,6 +949,31 @@ Binding {
                                             root.resumeWeldLoading = arr
                                             root.setOutputBit(p.robotIndex, 19, true)
                                         }
+                                    }
+                                }
+
+                                // Close C-Stop button
+                                Rectangle {
+                                    width: parent.width
+                                    height: 26
+                                    radius: 4
+                                    color: Theme.panel
+                                    border.color: Theme.danger
+                                    border.width: 1
+
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: "Close"
+                                        color: Theme.danger
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.caption
+                                        font.bold: true
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        cursorShape: Qt.PointingHandCursor
+                                        onClicked: root.closeCStop(p.robotIndex)
                                     }
                                 }
                             }

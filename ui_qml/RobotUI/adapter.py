@@ -430,13 +430,9 @@ class DummyEipAdapter:
                 was = prev[bit]
                 prev[bit] = cur
 
-                if bit == 20 and cur and not was:
-                    # C-Stop rising edge: ack immediately, then release after 2s
-                    self._set_in_bit(20, 1)
-                    def _finish_cstop():
-                        time.sleep(2.0)
-                        self._set_in_bit(20, 0)
-                    threading.Thread(target=_finish_cstop, daemon=True).start()
+                if bit == 20:
+                    # Mirror output bit 20 directly to input bit 20 (panel stays open until user closes)
+                    self._set_in_bit(20, cur)
 
                 elif bit == 17 and cur and not was:
                     # Go Home rising edge: ack immediately, clear after 3s
