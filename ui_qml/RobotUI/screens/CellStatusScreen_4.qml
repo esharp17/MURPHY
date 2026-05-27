@@ -123,6 +123,7 @@ Rectangle {
     // C-STOP PER-ROBOT STATE (arrays of 4)
     // ============================================================
     property var cStopOpen: [false, false, false, false]
+    property var cStopAcknowledged: [false, false, false, false]  // true once robot bit 20 went high
     property var cStopDesiredPos: [0, 0, 0, 0]
     property var goHomeLoading: [false, false, false, false]
     property var resumeWeldLoading: [false, false, false, false]
@@ -138,8 +139,14 @@ Rectangle {
             // Per-robot C-Stop auto-close logic
             for (var i = 0; i < 4; i++) {
                 var words = root.wordsFor(i)
-                // Auto-close when input bit 20 goes low
-                if (root.cStopOpen[i] && !root.getBit(words, 20)) {
+                // Track acknowledgment: input bit 20 went high
+                if (root.cStopOpen[i] && root.getBit(words, 20) && !root.cStopAcknowledged[i]) {
+                    var ackArr = root.cStopAcknowledged.slice()
+                    ackArr[i] = true
+                    root.cStopAcknowledged = ackArr
+                }
+                // Auto-close only after acknowledgment AND bit 20 goes low
+                if (root.cStopOpen[i] && root.cStopAcknowledged[i] && !root.getBit(words, 20)) {
                     root.closeCStop(i)
                 }
                 // Clear Go Home loading when input bit 17 goes low
@@ -234,6 +241,9 @@ Rectangle {
         var arr = cStopOpen.slice()
         arr[robotIdx] = true
         cStopOpen = arr
+        var ackArr = cStopAcknowledged.slice()
+        ackArr[robotIdx] = false
+        cStopAcknowledged = ackArr
         // Initialize desired pos for this robot
         var posArr = cStopDesiredPos.slice()
         posArr[robotIdx] = robotPos(robotIdx)
@@ -254,6 +264,9 @@ Rectangle {
         var arr = cStopOpen.slice()
         arr[robotIdx] = false
         cStopOpen = arr
+        var ackArr = cStopAcknowledged.slice()
+        ackArr[robotIdx] = false
+        cStopAcknowledged = ackArr
         setOutputBit(robotIdx, 20, false)
     }
 

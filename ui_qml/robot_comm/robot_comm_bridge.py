@@ -662,7 +662,10 @@ class RobotCommBridge(QObject):
 
         # publish words to QML
         if robot_i == 0:
-            self._inWordsRx.emit(words)
+            try:
+                self._inWordsRx.emit(words)
+            except RuntimeError:
+                pass
 
     def _build_udp_output(self, robot_i, conn_id):
         c = self._cfgs[robot_i]

@@ -358,9 +358,11 @@ class DummyEipAdapter:
         self._udp_rx_thread = threading.Thread(target=self._udp_rx_loop, daemon=True)
         self._udp_tx_thread = threading.Thread(target=self._udp_tx_loop, daemon=True)
 
+        self._response_thread = threading.Thread(target=self._response_loop, daemon=True)
         self._tcp_thread.start()
         self._udp_rx_thread.start()
         self._udp_tx_thread.start()
+        self._response_thread.start()
         log("TCP/UDP threads started")
 
     def stop(self):
@@ -400,6 +402,59 @@ class DummyEipAdapter:
             if self._last_udp_rx_ts <= 0:
                 return 0
             return int((time.time() - self._last_udp_rx_ts) * 1000)
+
+    def _get_out_bit(self, bit1):
+        """Read a 1-indexed output bit from outputs_words."""
+        wi = (bit1 - 1) // 16
+        bi = (bit1 - 1) % 16
+        with self._lock:
+            if wi >= len(self.outputs_words):
+                return 0
+            return (self.outputs_words[wi] >> bi) & 1
+
+    def _set_in_bit(self, bit1, value):
+        """Set a 1-indexed input bit in inputs_words."""
+        self.set_input_bit(bit1 - 1, value)
+
+    def _response_loop(self):
+        """Simulate robot responses to HMI output commands."""
+        prev = {20: 0, 17: 0, 19: 0}
+        go_home_timer = None
+        resume_timer = None
+
+        while self._run.is_set():
+            time.sleep(0.05)
+
+            for bit in [17, 19, 20]:
+                cur = self._get_out_bit(bit)
+                was = prev[bit]
+                prev[bit] = cur
+
+                if bit == 20 and cur and not was:
+                    # C-Stop rising edge: ack immediately, then release after 2s
+                    self._set_in_bit(20, 1)
+                    def _finish_cstop():
+                        time.sleep(2.0)
+                        self._set_in_bit(20, 0)
+                    threading.Thread(target=_finish_cstop, daemon=True).start()
+
+                elif bit == 17 and cur and not was:
+                    # Go Home rising edge: ack immediately, clear after 3s
+                    self._set_in_bit(17, 1)
+                    def _finish_go_home():
+                        time.sleep(3.0)
+                        self._set_in_bit(17, 0)
+                    go_home_timer = threading.Thread(target=_finish_go_home, daemon=True)
+                    go_home_timer.start()
+
+                elif bit == 19 and cur and not was:
+                    # Resume Weld rising edge: ack immediately, clear after 3s
+                    self._set_in_bit(19, 1)
+                    def _finish_resume():
+                        time.sleep(3.0)
+                        self._set_in_bit(19, 0)
+                    resume_timer = threading.Thread(target=_finish_resume, daemon=True)
+                    resume_timer.start()
 
 
 class App(tk.Tk):

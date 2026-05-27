@@ -19544,3 +19544,24 @@
 | 2026-05-26 20:38:41 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
 | 2026-05-26 20:38:41 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
 | 2026-05-26 20:38:41 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:39:43 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:39:43 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:39:43 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:39:43 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:39:43 | none | APP_START |  |
+| 2026-05-26 20:39:47 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 20:40:01 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-05-26 20:40:02 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:40:10 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-05-26 20:41:04 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:41:05 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-05-26 20:41:40 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:41:44 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-05-26 20:42:20 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:42:20 | none | ROBOT_CONNECT | {"robot": 1, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:42:20 | none | ROBOT_CONNECT | {"robot": 2, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:42:20 | none | ROBOT_CONNECT | {"robot": 3, "ip": "192.168.2.5", "port": 44818} |
+| 2026-05-26 20:42:20 | none | APP_START |  |
+| 2026-05-26 20:42:24 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-05-26 20:42:26 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-05-26 20:42:27 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
