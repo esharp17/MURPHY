@@ -135,10 +135,71 @@ Rectangle {
     property var cStopAcknowledged: [false, false, false, false]  // true once robot bit 20 went high
     property var cStopDesiredPos: [0, 0, 0, 0]
     property var goHomeLoading: [false, false, false, false]
+    property var goHomeAcknowledged: [false, false, false, false]
     property var resumeWeldLoading: [false, false, false, false]
+    property var resumeWeldAcknowledged: [false, false, false, false]
 
     // Live I/O words from robot comm
     property var ioInWords: []
+
+    // ============================================================
+    // ALARMS (bits 40-60, all 4 robots)
+    // ============================================================
+    property var dismissedAlertKeys: ({})
+    property var alarmCatalog: ({})
+    property url alarmCatalogUrl: Qt.resolvedUrl("../assets/alarms.json")
+
+    onDismissedAlertKeysChanged: rebuildAlarms()
+
+    function loadAlarmCatalog() {
+        var xhr = new XMLHttpRequest()
+        xhr.open("GET", alarmCatalogUrl)
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return
+            if (!(xhr.status === 200 || xhr.status === 0)) return
+            if (!xhr.responseText || xhr.responseText.length < 2) return
+            try {
+                var txt = xhr.responseText
+                if (txt.charCodeAt(0) === 0xFEFF) txt = txt.slice(1)
+                var obj = JSON.parse(txt)
+                alarmCatalog = (obj.alarms ? obj.alarms : obj)
+            } catch (e) {
+                console.log("[CellStatus4] alarms.json parse fail:", e)
+            }
+            rebuildAlarms()
+        }
+        xhr.send()
+    }
+
+    function alarmLevel(sev) {
+        if (sev === "Fault")   return "ALARM"
+        if (sev === "Warning") return "WARN"
+        return "INFO"
+    }
+
+    function rebuildAlarms() {
+        messageModel.clear()
+        var robotWords = [r0Words, r1Words, r2Words, r3Words]
+        var robotNames = ["Robot 1", "Robot 2", "Robot 3", "Robot 4"]
+        for (var ri = 0; ri < 4; ri++) {
+            for (var b = 40; b <= 60; b++) {
+                if (!getBit(robotWords[ri], b)) continue
+                var key = "DI" + b
+                if (root.dismissedAlertKeys && root.dismissedAlertKeys[key]) continue
+                var def = alarmCatalog[String(b)]
+                if (!def) def = { name: "Alarm " + b, desc: "Active", severity: "Fault", textColor: "" }
+                var tc = (def.textColor && String(def.textColor).length > 0) ? String(def.textColor) : Theme.text
+                messageModel.append({
+                    ts: "",
+                    level: alarmLevel(def.severity),
+                    msg: robotNames[ri] + ": " + def.name,
+                    textColorStr: tc
+                })
+            }
+        }
+    }
+
+    Component.onCompleted: loadAlarmCatalog()
 
     Connections {
         target: RobotComm || null
@@ -164,6 +225,8 @@ Rectangle {
             var words = fresh
             var i = robotIdx
 
+            rebuildAlarms()
+
             // Wait for robot to set bit 20 HIGH (acknowledgment), then close when it goes LOW
             if (root.cStopOpen[i]) {
                 if (root.getBit(words, 20)) {
@@ -176,19 +239,43 @@ Rectangle {
                     root.closeCStop(i)
                 }
             }
-            // Clear Go Home loading when input bit 17 goes low
-            if (root.goHomeLoading[i] && !root.getBit(words, 17)) {
-                var gh = root.goHomeLoading.slice()
-                gh[i] = false
-                root.goHomeLoading = gh
-                root.setOutputBit(i, 17, false)
+            // Go Home: wait for bit 17 HIGH (ack), then clear when it goes LOW
+            if (root.goHomeLoading[i]) {
+                if (root.getBit(words, 17)) {
+                    if (!root.goHomeAcknowledged[i]) {
+                        var ghAck = root.goHomeAcknowledged.slice()
+                        ghAck[i] = true
+                        root.goHomeAcknowledged = ghAck
+                    }
+                } else if (root.goHomeAcknowledged[i]) {
+                    var gh = root.goHomeLoading.slice()
+                    gh[i] = false
+                    root.goHomeLoading = gh
+                    var ghAck2 = root.goHomeAcknowledged.slice()
+                    ghAck2[i] = false
+                    root.goHomeAcknowledged = ghAck2
+                    root.setOutputBit(i, 17, false)
+                    if (root.cStopOpen[i]) root.closeCStop(i)
+                }
             }
-            // Clear Resume Weld loading when input bit 19 goes low
-            if (root.resumeWeldLoading[i] && !root.getBit(words, 19)) {
-                var rw = root.resumeWeldLoading.slice()
-                rw[i] = false
-                root.resumeWeldLoading = rw
-                root.setOutputBit(i, 19, false)
+            // Resume Weld: wait for bit 19 HIGH (ack), then clear when it goes LOW
+            if (root.resumeWeldLoading[i]) {
+                if (root.getBit(words, 19)) {
+                    if (!root.resumeWeldAcknowledged[i]) {
+                        var rwAck = root.resumeWeldAcknowledged.slice()
+                        rwAck[i] = true
+                        root.resumeWeldAcknowledged = rwAck
+                    }
+                } else if (root.resumeWeldAcknowledged[i]) {
+                    var rw = root.resumeWeldLoading.slice()
+                    rw[i] = false
+                    root.resumeWeldLoading = rw
+                    var rwAck2 = root.resumeWeldAcknowledged.slice()
+                    rwAck2[i] = false
+                    root.resumeWeldAcknowledged = rwAck2
+                    root.setOutputBit(i, 19, false)
+                    if (root.cStopOpen[i]) root.closeCStop(i)
+                }
             }
         }
     }
@@ -274,13 +361,19 @@ Rectangle {
         var posArr = cStopDesiredPos.slice()
         posArr[robotIdx] = robotPos(robotIdx)
         cStopDesiredPos = posArr
-        // Clear loading states
+        // Clear loading states and their acknowledgment flags
         var ghArr = goHomeLoading.slice()
         var rwArr = resumeWeldLoading.slice()
+        var ghAckArr = goHomeAcknowledged.slice()
+        var rwAckArr = resumeWeldAcknowledged.slice()
         ghArr[robotIdx] = false
         rwArr[robotIdx] = false
+        ghAckArr[robotIdx] = false
+        rwAckArr[robotIdx] = false
         goHomeLoading = ghArr
         resumeWeldLoading = rwArr
+        goHomeAcknowledged = ghAckArr
+        resumeWeldAcknowledged = rwAckArr
         // Set output bit 20 for this robot
         setOutputBit(robotIdx, 20, true)
     }
@@ -610,6 +703,7 @@ Item {
 
 Loader {
     sourceComponent: robotArm
+    visible: root.connStateFor(index) === 2
 
     onLoaded: {
         item.sx = modelData.sx
@@ -642,12 +736,11 @@ Binding {
                     Rectangle {
                         id: p
                         width: ringArea.panelW
-                        // Height: base panel height; expands to fit controls when C-Stop open
-                        height: (cStopActive && isConnected) ? ringArea.panelH + 220 : ringArea.panelH
+                        height: contentCol.implicitHeight + Theme.padSm * 2
                         radius: Theme.radius
                         color: Theme.sideBtnpanel
-                        border.color: cStopActive ? Theme.danger : Theme.text
-                        border.width: cStopActive ? 3 : 1
+                        border.color: !p.isConnected ? "#e55a2b" : cStopActive ? Theme.danger : Theme.text
+                        border.width: (!p.isConnected || cStopActive) ? 2 : 1
                         clip: true
 
                         // Smooth height animation
@@ -661,6 +754,7 @@ Binding {
                         property bool isConnected: root.connStateFor(robotIndex) === 2
 
                         Column {
+                            id: contentCol
                             anchors.top: parent.top
                             anchors.left: parent.left
                             anchors.right: parent.right
@@ -668,17 +762,30 @@ Binding {
                             spacing: 4
 
                             // ---- disconnected banner ----
-                            Text {
+                            Column {
                                 width: parent.width
-                                height: visible ? implicitHeight + 8 : 0
+                                height: visible ? implicitHeight + Theme.padSm : 0
                                 visible: !p.isConnected
-                                text: p.name + "\nDisconnected"
-                                color: Theme.muted
-                                font.family: Theme.fontFamily
-                                font.pixelSize: Theme.caption
-                                wrapMode: Text.WordWrap
-                                horizontalAlignment: Text.AlignHCenter
-                                verticalAlignment: Text.AlignVCenter
+                                spacing: 4
+
+                                Text {
+                                    width: parent.width
+                                    text: p.name
+                                    color: "#e55a2b"
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.bodySm
+                                    font.bold: true
+                                    horizontalAlignment: Text.AlignHCenter
+                                }
+
+                                Text {
+                                    width: parent.width
+                                    text: "DISCONNECTED"
+                                    color: "#e55a2b"
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.caption
+                                    horizontalAlignment: Text.AlignHCenter
+                                }
                             }
 
                             // ---- top row: C-STOP + STATUS INDICATOR ----
@@ -1145,6 +1252,7 @@ Loader {
                 Rectangle {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    Layout.maximumHeight: rightPane.height * 0.54
                     radius: Theme.radius
                     color: Theme.sideBtnpanel
 
@@ -1170,6 +1278,7 @@ Loader {
                             border.width: 1
 
                             ListView {
+                                id: msgListView
                                 anchors.fill: parent
                                 anchors.margins: Theme.pad
                                 model: messageModel
@@ -1188,14 +1297,6 @@ Loader {
                                         spacing: Theme.gap
 
                                         Text {
-                                            text: ts
-                                            color: Theme.text
-                                            font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.caption
-                                            Layout.preferredWidth: 70
-                                        }
-
-                                        Text {
                                             text: level
                                             color: Theme.text
                                             font.family: Theme.fontFamily
@@ -1205,8 +1306,8 @@ Loader {
                                         }
 
                                         Text {
-                                            text: text
-                                            color: Theme.text
+                                            text: msg
+                                            color: textColorStr
                                             font.family: Theme.fontFamily
                                             font.pixelSize: Theme.caption
                                             Layout.fillWidth: true

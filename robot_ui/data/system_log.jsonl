@@ -19637,3 +19637,618 @@ port": 44818}}
 {"ts": "2026-05-26 21:00:28", "user": "none", "action": "APP_START", "details": {}}
 {"ts": "2026-05-26 21:00:32", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
 {"ts": "2026-05-26 21:00:41", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:22:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:22:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:22:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:22:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:22:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:22:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:30", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 21:23:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:34", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 21:23:34", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:23:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:35", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:23:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 21:23:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:23:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:27:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:27:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:27:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:27:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:27:39", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 21:27:43", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 21:27:44", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:28:06", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:31:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:31:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:31:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:31:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:31:04", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 21:31:09", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 21:31:10", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:31:15", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:32:43", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:32:45", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:34:09", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-26 21:35:14", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:35:14", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:35:53", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-26 21:36:13", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:36:16", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-26 21:36:58", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:43:27", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:43:27", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:43:27", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:43:27", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:43:27", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 21:43:31", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 21:43:32", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:43:34", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:43:46", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-05-26 21:43:47", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:46:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:46:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:46:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:46:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:46:38", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 21:46:42", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 21:46:43", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:46:44", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:51:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:51:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:51:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:51:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:51:55", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 21:52:03", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 21:52:04", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:52:05", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 21:54:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:54:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:54:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:54:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 21:54:29", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 21:54:32", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 21:54:33", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 21:54:34", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 22:04:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:04:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:04:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:04:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:04:25", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 22:04:30", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 22:04:30", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 22:04:31", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 22:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:05:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:05:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:06:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:06:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:10", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 22:08:13", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 22:08:14", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 22:08:15", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 22:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:08:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:08:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:02", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:29", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 22:09:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:33", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 22:09:34", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 22:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:35", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 22:09:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:09:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:09:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:10:02", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:10:02", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:10:02", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:10:02", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:10:02", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 22:10:05", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 22:10:06", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 22:10:06", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 22:11:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:11:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:11:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:11:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:11:53", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-05-26 22:11:57", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-05-26 22:11:57", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-05-26 22:11:58", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-05-26 22:12:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-05-26 22:12:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.5", "port": 44818}}
+{"ts": "2026-05-26 22:12:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.5", "port": 44818}}

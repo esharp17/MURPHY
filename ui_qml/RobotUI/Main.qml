@@ -182,7 +182,9 @@ Timer {
                 }
 
                 // Tab 2 — Cell Status
-                CellStatusScreen {}
+                CellStatusScreen {
+                    dismissedAlertKeys: win.weldDismissedAlertKeys
+                }
 
                 // Tab 3 — Welding
                 WeldingScreen {
