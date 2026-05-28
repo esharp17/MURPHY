@@ -21,18 +21,22 @@ Rectangle {
     property int stWord: 0              // inputs word index
 
     // OUTPUT command bits (your spec)
-    readonly property int bit_CMD_AUTO:   10
-    readonly property int bit_CMD_MANUAL: 11
-    readonly property int bit_CMD_ENABLE: 8
-    readonly property int bit_CMD_START:  6
-    readonly property int bit_CMD_RESET:  5
-    readonly property int bit_CMD_IMSTP:  1
+    readonly property int bit_CMD_AUTO:        10
+    readonly property int bit_CMD_MANUAL:      11
+    readonly property int bit_CMD_ENABLE:       8
+    readonly property int bit_CMD_START:        6  // Start: resumes paused program
+    readonly property int bit_CMD_HOLD:         7  // Hold: pauses a running program
+    readonly property int bit_CMD_CYCLE_STOP:   4  // Cycle Stop: aborts all programs
+    readonly property int bit_CMD_RESET:        5  // Fault Reset
+    readonly property int bit_CMD_IMSTP:        1  // IMSTP (safe stop)
+    readonly property int bit_CMD_PROD_START:  18  // Production Start: starts Main task when aborted
 
     // INPUT status bits (your spec)
-    // Running=3, Fault=6, TPEN=8
+    // Running=3, Fault=6, TPEN=8, Paused=4
     readonly property int bit_ST_RUNNING: 3
     readonly property int bit_ST_FAULT:   6
     readonly property int bit_ST_TPEN:    8
+    readonly property int bit_ST_PAUSED:  4
 
     // ----------------------------
     // UI states
@@ -55,10 +59,31 @@ Rectangle {
     property bool _autoReq:   false
     property bool _manualReq: false
 
-    readonly property real btnH: (height - (Theme.sideBtngap * 5) - (Theme.sideBtngap * 2)) / 6
+    readonly property real btnH: (height - (Theme.sideBtngap * 6) - (Theme.sideBtngap * 2) - stripH) / 7
+    readonly property real stripH: 28
 
-    // cached inputs for robotIndex (only used if you want local indicators later)
-    property var _ins: []
+    // cached inputs per robot for state strip
+    property var _ins:  []
+    property var _ins0: []
+    property var _ins1: []
+    property var _ins2: []
+    property var _ins3: []
+
+    function _robotState(r) {
+        var w = (r === 0 ? _ins0 : r === 1 ? _ins1 : r === 2 ? _ins2 : _ins3)
+        if (!w || w.length === 0) return "off"
+        var w0 = w[0] >>> 0
+        if ((w0 >> 2) & 1) return "running"   // bit 3
+        if ((w0 >> 3) & 1) return "paused"    // bit 4
+        return "aborted"
+    }
+
+    function _stateColor(st) {
+        if (st === "running") return "#3dba6e"   // green
+        if (st === "paused")  return "#e0a030"   // amber
+        if (st === "aborted") return "#555e6e"   // gray
+        return "#333a44"
+    }
 
     // ----------------------------
     // bit helpers
@@ -126,9 +151,13 @@ Rectangle {
     }
 
 function _pulseCmdBit(robot, bit, ms) {
+    // Compute which word and the local (1-based) bit within that word
+    var wi       = Math.floor((bit - 1) / 16)
+    var localBit = ((bit - 1) % 16) + 1
+
     // turn bit ON now
-    var wOn = _readOutWord(robot, cmdWord)
-    _writeOutputsWord(robot, cmdWord, _setBit(wOn, bit, true))
+    var wOn = _readOutWord(robot, wi)
+    _writeOutputsWord(robot, wi, _setBit(wOn, localBit, true))
 
     // clear ONLY that bit after ms
     var t = Qt.createQmlObject(
@@ -137,8 +166,8 @@ function _pulseCmdBit(robot, bit, ms) {
         "pulseClearTimer"
     )
     t.triggered.connect(function() {
-        var wNow = _readOutWord(robot, cmdWord)
-        _writeOutputsWord(robot, cmdWord, _setBit(wNow, bit, false))
+        var wNow = _readOutWord(robot, wi)
+        _writeOutputsWord(robot, wi, _setBit(wNow, localBit, false))
         t.destroy()
     })
     t.start()
@@ -176,10 +205,19 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
         onTriggered: {
             if (!_autoReq) { startActive = false; return }
 
-            // pulse START (bit 6) to any robot with RUNNING bit OFF
+            // pulse START (bit 6) or RESUME (bit 18) per-robot depending on paused state
             for (var r = 0; r < 4; r++) {
-                if (_robotBitOn(r, bit_ST_RUNNING)) continue
-                _pulseCmdBit(r, bit_CMD_START, 200)
+                var isRunning = _robotBitOn(r, bit_ST_RUNNING)
+                var isPaused  = _robotBitOn(r, bit_ST_PAUSED)
+                console.log("[CYCLESTART] r=" + r + " running=" + isRunning + " paused=" + isPaused)
+                if (isRunning) continue                      // already running → skip
+                if (isPaused) {
+                    console.log("[CYCLESTART] r=" + r + " => START bit 6 (resume paused)")
+                    _pulseCmdBit(r, bit_CMD_START, 2000)       // paused → bit 6 resumes
+                } else {
+                    console.log("[CYCLESTART] r=" + r + " => PROD_START bit 18 (aborted)")
+                    _pulseCmdBit(r, bit_CMD_PROD_START, 2000)  // aborted → bit 18 starts Main task
+                }
             }
             startActive = false
         }
@@ -253,6 +291,10 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
 
             // keep your local cache for robotIndex if you still want it
             if (i === sb.robotIndex) sb._ins = sb.bridge.getInputs(sb.robotIndex)
+            sb._ins0 = sb.bridge.getInputs(0)
+            sb._ins1 = sb.bridge.getInputs(1)
+            sb._ins2 = sb.bridge.getInputs(2)
+            sb._ins3 = sb.bridge.getInputs(3)
         }
     }
 
@@ -302,10 +344,21 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
         }
     }
 
-    // Cycle Stop does nothin
+    // Hold: pulses bit 7 to pause a running program on all robots
+    function pressHold() {
+        if (!bridge) return
+        if (!_autoReq) return
+        for (var r = 0; r < 4; r++) {
+            _pulseCmdBit(r, bit_CMD_HOLD, 200)
+        }
+    }
+
+    // Cycle Stop: pulses bit 4 to abort all programs on all robots
     function pressStop() {
         if (!bridge) return
-        // nothing for now
+        for (var r = 0; r < 4; r++) {
+            _pulseCmdBit(r, bit_CMD_CYCLE_STOP, 200)
+        }
     }
 
     // Fault reset: blue while held; while held, if any fault => hold bit 5 ON. Release => OFF.
@@ -359,6 +412,37 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
         anchors.fill: parent
         anchors.margins: Theme.sideBtngap
         spacing: Theme.sideBtngap
+
+        // ---- Per-robot state strip ----
+        Row {
+            width: parent.width
+            height: sb.stripH
+            spacing: 3
+            visible: sb.loggedInRole !== 0
+
+            Repeater {
+                model: 4
+                delegate: Rectangle {
+                    width: (parent.width - 9) / 4
+                    height: parent.height
+                    radius: 4
+                    color: sb._stateColor(sb._robotState(index))
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "R" + (index + 1) + "\n" +
+                              (sb._robotState(index) === "running" ? "RUNNING" :
+                               sb._robotState(index) === "paused"  ? "PAUSED" :
+                               sb._robotState(index) === "aborted" ? "ABORTED" : "OFF")
+                        color: "#ffffff"
+                        font.pixelSize: 9
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        lineHeight: 1.1
+                    }
+                }
+            }
+        }
 
         InteractiveSurface {
             id: bAuto
@@ -466,6 +550,33 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 anchors.centerIn: parent
                 anchors.verticalCenterOffset: 6
                 text: "Cycle Stop"
+                color: Theme.sideBtnText
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.sideBtnFont
+                font.bold: true
+            }
+        }
+
+        InteractiveSurface {
+            id: bHold
+            height: sb.btnH
+            width: parent.width
+            radius: Theme.sideBtnradius
+            normalColor: Theme.sideBtnBase
+            pressedColor: Theme.btnPressed
+            disabledColor: Theme.btnDisabled
+            borderWidth: 2
+            borderColor: "#2a3442"
+            enabled: sb._autoReq
+            opacity: sb._autoReq ? 1.0 : 0.35
+            visible: sb.loggedInRole !== 0
+
+            onClicked: { sb.pressHold(); sb.pressed("hold") }
+
+            Text {
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: 6
+                text: "Hold"
                 color: Theme.sideBtnText
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.sideBtnFont

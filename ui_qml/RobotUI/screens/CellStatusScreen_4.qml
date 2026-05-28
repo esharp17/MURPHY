@@ -86,11 +86,12 @@ Rectangle {
         // cs === 2 (cyclic) — read I/O bits
         var w = wordsFor(idx)
         if (getBit(w, 6)) return "faulted"
-        if (getBit(w, 11)) return "welding"
+        if (getBit(w, 3)) return "running"
         if (getBit(w, 4)) return "paused"
+        if (getBit(w, 11)) return "welding"
         if (getBit(w, 22)) return "scanning"
         if (getBit(w, 1)) return "ready"
-        return "idle"
+        return "aborted"
     }
 
     ListModel {
@@ -105,10 +106,12 @@ Rectangle {
     }
 
     function stateLabel(s) {
+        if (s === "running")      return "RUNNING"
+        if (s === "paused")       return "PAUSED"
+        if (s === "aborted")      return "ABORTED"
         if (s === "ready")        return "READY"
         if (s === "welding")      return "WELD"
         if (s === "faulted")      return "FAULT"
-        if (s === "paused")       return "PAUSE"
         if (s === "scanning")     return "SCAN"
         if (s === "disconnected") return "DISC"
         if (s === "connecting")   return "CONN"
@@ -117,10 +120,12 @@ Rectangle {
     }
 
     function stateColor(s) {
+        if (s === "running")      return Theme.stateReady
+        if (s === "paused")       return Theme.statePaused
+        if (s === "aborted")      return Theme.muted
         if (s === "ready")        return Theme.stateReady
         if (s === "welding")      return Theme.stateWelding
         if (s === "faulted")      return Theme.stateFaulted
-        if (s === "paused")       return Theme.statePaused
         if (s === "disconnected") return Theme.stateDisabled
         if (s === "connecting")   return Theme.warning
         if (s === "scanning")     return Theme.accent
