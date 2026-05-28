@@ -98,17 +98,21 @@ check("bridge stores 8 in word 0", int(bridge.getOutputs(1)[0]), 8)
 # ── 5. State transitions drive correct Cycle Start bit ───────────────────────
 print("\n─── 5. Cycle Start bit selection per state ─────────────────────")
 BIT_CMD_START      = 6
-BIT_CMD_PROD_START = 18
+BIT_CMD_PROD_START = 9   # changed from 18 → 9
 
 def cycle_start_bit(inputs_word0):
     w = inputs_word0
-    if (w >> 2) & 1: return None           # running → skip
-    if (w >> 3) & 1: return BIT_CMD_START  # paused → bit 6
-    return BIT_CMD_PROD_START              # aborted → bit 18
+    if (w >> 2) & 1: return None           # bit 3 running → skip
+    if (w >> 5) & 1: return None           # bit 6 faulted → skip
+    if (w >> 3) & 1: return BIT_CMD_START  # bit 4 paused → bit 6
+    return BIT_CMD_PROD_START              # bits 3,4,6 all low → bit 9
 
-check("aborted → bit 18", cycle_start_bit(0b00000000), 18)
-check("running → None",   cycle_start_bit(0b00000100), None)
-check("paused  → bit 6",  cycle_start_bit(0b00001000), 6)
+check("all low (3,4,6 off) → bit 9",    cycle_start_bit(0b00000000), 9)
+check("running (bit 3 on) → None",      cycle_start_bit(0b00000100), None)
+check("paused  (bit 4 on) → bit 6",     cycle_start_bit(0b00001000), 6)
+check("faulted (bit 6 on) → None",      cycle_start_bit(0b00100000), None)
+check("bit 9 decompose → word 0",       (9 - 1) // 16, 0)
+check("bit 9 value = 256 (0x0100)",     1 << (9 - 1), 256)
 
 # ── Summary ───────────────────────────────────────────────────────────────────
 print(f"\n{'─'*55}")

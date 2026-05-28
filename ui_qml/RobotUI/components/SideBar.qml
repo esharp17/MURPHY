@@ -24,12 +24,12 @@ Rectangle {
     readonly property int bit_CMD_AUTO:        10
     readonly property int bit_CMD_MANUAL:      11
     readonly property int bit_CMD_ENABLE:       8
+    readonly property int bit_CMD_OPERATE:       2  // Operate: must be ON for robot to run; drop to Hold
     readonly property int bit_CMD_START:        6  // Start: resumes paused program
-    readonly property int bit_CMD_HOLD:         7  // Hold: pauses a running program
     readonly property int bit_CMD_CYCLE_STOP:   4  // Cycle Stop: aborts all programs
     readonly property int bit_CMD_RESET:        5  // Fault Reset
     readonly property int bit_CMD_IMSTP:        1  // IMSTP (safe stop)
-    readonly property int bit_CMD_PROD_START:  18  // Production Start: starts Main task when aborted
+    readonly property int bit_CMD_PROD_START:   9  // Production Start: starts Main task (requires bits 3,4,6 all low)
 
     // INPUT status bits (your spec)
     // Running=3, Fault=6, TPEN=8, Paused=4
@@ -205,18 +205,22 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
         onTriggered: {
             if (!_autoReq) { startActive = false; return }
 
+            _setCmdBitAll(bit_CMD_OPERATE, true)  // bit 2 ON: re-enable operation before starting
+
             // pulse START (bit 6) or RESUME (bit 18) per-robot depending on paused state
             for (var r = 0; r < 4; r++) {
                 var isRunning = _robotBitOn(r, bit_ST_RUNNING)
                 var isPaused  = _robotBitOn(r, bit_ST_PAUSED)
                 console.log("[CYCLESTART] r=" + r + " running=" + isRunning + " paused=" + isPaused)
+                var isFaulted = _robotBitOn(r, bit_ST_FAULT)
                 if (isRunning) continue                      // already running → skip
+                if (isFaulted) continue                      // faulted → skip
                 if (isPaused) {
                     console.log("[CYCLESTART] r=" + r + " => START bit 6 (resume paused)")
                     _pulseCmdBit(r, bit_CMD_START, 2000)       // paused → bit 6 resumes
                 } else {
-                    console.log("[CYCLESTART] r=" + r + " => PROD_START bit 18 (aborted)")
-                    _pulseCmdBit(r, bit_CMD_PROD_START, 2000)  // aborted → bit 18 starts Main task
+                    console.log("[CYCLESTART] r=" + r + " => PROD_START bit 9 (bits 3,4,6 all low)")
+                    _pulseCmdBit(r, bit_CMD_PROD_START, 2000)  // bits 3,4,6 all low → bit 9 starts Main task
                 }
             }
             startActive = false
@@ -315,6 +319,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
 
         _setCmdBitAll(bit_CMD_AUTO, true)
         _setCmdBitAll(bit_CMD_MANUAL, false)
+        _setCmdBitAll(bit_CMD_OPERATE, true)   // bit 2 ON: robot enters operational state
     }
 
     function pressManual() {
@@ -328,6 +333,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
 
         _setCmdBitAll(bit_CMD_MANUAL, true)
         _setCmdBitAll(bit_CMD_AUTO, false)
+        _setCmdBitAll(bit_CMD_OPERATE, false)  // bit 2 OFF: robot leaves operational state
     }
 
     // Start is press-and-hold 500ms; only valid when Auto latched
@@ -344,13 +350,11 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
         }
     }
 
-    // Hold: pulses bit 7 to pause a running program on all robots
+    // Hold: drops bit 2 (OPERATE) so the robot enters its hold state
     function pressHold() {
         if (!bridge) return
         if (!_autoReq) return
-        for (var r = 0; r < 4; r++) {
-            _pulseCmdBit(r, bit_CMD_HOLD, 200)
-        }
+        _setCmdBitAll(bit_CMD_OPERATE, false)  // bit 2 OFF → robot hold state
     }
 
     // Cycle Stop: pulses bit 4 to abort all programs on all robots
