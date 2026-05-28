@@ -244,21 +244,12 @@ Rectangle {
                     root.closeCStop(i)
                 }
             }
-            // Go Home: wait for bit 7 HIGH (ack), then clear when it goes LOW
+            // Go Home: input bit 7 HIGH means robot is at home — close immediately
             if (root.goHomeLoading[i]) {
                 if (root.getBit(words, 7)) {
-                    if (!root.goHomeAcknowledged[i]) {
-                        var ghAck = root.goHomeAcknowledged.slice()
-                        ghAck[i] = true
-                        root.goHomeAcknowledged = ghAck
-                    }
-                } else if (root.goHomeAcknowledged[i]) {
                     var gh = root.goHomeLoading.slice()
                     gh[i] = false
                     root.goHomeLoading = gh
-                    var ghAck2 = root.goHomeAcknowledged.slice()
-                    ghAck2[i] = false
-                    root.goHomeAcknowledged = ghAck2
                     root.setOutputBit(i, 7, false)
                     if (root.cStopOpen[i]) root.closeCStop(i)
                 }
@@ -362,10 +353,12 @@ Rectangle {
         var ackArr = cStopAcknowledged.slice()
         ackArr[robotIdx] = false
         cStopAcknowledged = ackArr
-        // Initialize desired pos for this robot
+        // Initialize desired pos for this robot (UI + output word)
+        var curPos = robotPos(robotIdx)
         var posArr = cStopDesiredPos.slice()
-        posArr[robotIdx] = robotPos(robotIdx)
+        posArr[robotIdx] = curPos
         cStopDesiredPos = posArr
+        writeDesiredPos(robotIdx, curPos)
         // Clear loading states and their acknowledgment flags
         var ghArr = goHomeLoading.slice()
         var rwArr = resumeWeldLoading.slice()
