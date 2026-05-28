@@ -244,9 +244,9 @@ Rectangle {
                     root.closeCStop(i)
                 }
             }
-            // Go Home: wait for bit 17 HIGH (ack), then clear when it goes LOW
+            // Go Home: wait for bit 7 HIGH (ack), then clear when it goes LOW
             if (root.goHomeLoading[i]) {
-                if (root.getBit(words, 17)) {
+                if (root.getBit(words, 7)) {
                     if (!root.goHomeAcknowledged[i]) {
                         var ghAck = root.goHomeAcknowledged.slice()
                         ghAck[i] = true
@@ -259,7 +259,7 @@ Rectangle {
                     var ghAck2 = root.goHomeAcknowledged.slice()
                     ghAck2[i] = false
                     root.goHomeAcknowledged = ghAck2
-                    root.setOutputBit(i, 17, false)
+                    root.setOutputBit(i, 7, false)
                     if (root.cStopOpen[i]) root.closeCStop(i)
                 }
             }
@@ -700,10 +700,10 @@ Item {
     // =========================
     Repeater {
         model: [
-            { sx: +1, sy: -1, elbowUp: true }, // R1: Down
-            { sx: +1, sy: +1, elbowUp: false  }, // R2: Up
-            { sx: -1, sy: +1, elbowUp: true }, // R3: Down
-            { sx: -1, sy: -1, elbowUp: false  }  // R4: Up
+            { sx: -1, sy: -1, elbowUp: false }, // R1: top-left
+            { sx: +1, sy: -1, elbowUp: true  }, // R2: top-right
+            { sx: -1, sy: +1, elbowUp: true  }, // R3: bottom-left
+            { sx: +1, sy: +1, elbowUp: false }  // R4: bottom-right
         ]
 
 Loader {
@@ -1033,7 +1033,7 @@ Binding {
                                             var arr = root.goHomeLoading.slice()
                                             arr[p.robotIndex] = true
                                             root.goHomeLoading = arr
-                                            root.setOutputBit(p.robotIndex, 17, true)
+                                            root.setOutputBit(p.robotIndex, 7, true)
                                         }
                                     }
                                 }
@@ -1078,8 +1078,8 @@ Loader {
     sourceComponent: robotPanel
     visible: true
     onLoaded: {
-        item.name = "Robot 2"
-        item.robotIndex = 1
+        item.name = "Robot 1"
+        item.robotIndex = 0
     }
     Binding { target: panelTL.item; property: "x"; value: ringArea.width * 0.01; when: panelTL.item }
     Binding { target: panelTL.item; property: "y"; value: ringArea.height * 0.01; when: panelTL.item }
@@ -1090,8 +1090,8 @@ Loader {
     sourceComponent: robotPanel
     visible: true
     onLoaded: {
-        item.name = "Robot 1"
-        item.robotIndex = 0
+        item.name = "Robot 2"
+        item.robotIndex = 1
     }
     Binding { target: panelBL.item; property: "x"; value: ringArea.width - ringArea.panelW - ringArea.width * 0.01; when: panelBL.item }
     Binding { target: panelBL.item; property: "y"; value: ringArea.height * 0.01; when: panelBL.item }
