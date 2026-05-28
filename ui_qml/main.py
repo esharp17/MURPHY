@@ -13,6 +13,21 @@ if not getattr(sys, 'frozen', False):
 os.environ["QML_XHR_ALLOW_FILE_READ"] = "1"
 os.environ["QT_QUICK_CONTROLS_STYLE"] = "Basic"
 
+# Windows: ensure Qt DLLs are findable by QML plugin loader
+if sys.platform == "win32" and not getattr(sys, 'frozen', False):
+    try:
+        import PySide6
+        _pyside_root = Path(PySide6.__file__).resolve().parent
+        _qt_bin = _pyside_root / "Qt" / "bin"
+        for _dll_dir in (_pyside_root, _qt_bin):
+            if _dll_dir.exists():
+                try:
+                    os.add_dll_directory(str(_dll_dir))
+                except AttributeError:
+                    os.environ["PATH"] = str(_dll_dir) + os.pathsep + os.environ.get("PATH", "")
+    except Exception:
+        pass
+
 from PySide6.QtCore import Qt, QUrl, QObject, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
