@@ -143,6 +143,7 @@ Rectangle {
     property var goHomeAcknowledged: [false, false, false, false]
     property var resumeWeldLoading: [false, false, false, false]
     property var resumeWeldAcknowledged: [false, false, false, false]
+    property int cStopSeqRobot: -1  // robot index currently running C-Stop sequence (-1 = none)
 
     // Live I/O words from robot comm
     property var ioInWords: []
@@ -372,8 +373,10 @@ Rectangle {
         resumeWeldLoading = rwArr
         goHomeAcknowledged = ghAckArr
         resumeWeldAcknowledged = rwAckArr
-        // Set output bit 20 for this robot
-        setOutputBit(robotIdx, 20, true)
+        // Kick off C-Stop sequence: bit2 LOW → gap → cycle stop → gap → C-Stop + ProdStart
+        cStopSeqRobot = robotIdx
+        setOutputBit(robotIdx, 2, false)  // bit 2 LOW immediately
+        tCS1.restart()
     }
 
     // Close C-Stop for a specific robot
@@ -385,6 +388,52 @@ Rectangle {
         ackArr[robotIdx] = false
         cStopAcknowledged = ackArr
         setOutputBit(robotIdx, 20, false)
+    }
+
+    // ======================================================
+    // C-STOP SEQUENCE TIMERS
+    // Sequence: bit2 LOW → 250ms → bit2 HIGH → 250ms → bit4 HIGH → 250ms → bit4 LOW → 250ms → bit20+bit9 HIGH → 250ms → bit9 LOW
+    // ======================================================
+    Timer {
+        id: tCS1; interval: 250; repeat: false
+        onTriggered: {
+            if (root.cStopSeqRobot < 0) return
+            root.setOutputBit(root.cStopSeqRobot, 2, true)   // bit 2 back HIGH
+            tCS2.restart()
+        }
+    }
+    Timer {
+        id: tCS2; interval: 250; repeat: false
+        onTriggered: {
+            if (root.cStopSeqRobot < 0) return
+            root.setOutputBit(root.cStopSeqRobot, 4, true)   // bit 4 HIGH (Cycle Stop)
+            tCS3.restart()
+        }
+    }
+    Timer {
+        id: tCS3; interval: 250; repeat: false
+        onTriggered: {
+            if (root.cStopSeqRobot < 0) return
+            root.setOutputBit(root.cStopSeqRobot, 4, false)  // bit 4 LOW
+            tCS4.restart()
+        }
+    }
+    Timer {
+        id: tCS4; interval: 250; repeat: false
+        onTriggered: {
+            if (root.cStopSeqRobot < 0) return
+            root.setOutputBit(root.cStopSeqRobot, 20, true)  // bit 20 HIGH (C-Stop signal)
+            root.setOutputBit(root.cStopSeqRobot, 9, true)   // bit 9 HIGH (Production Start)
+            tCS5.restart()
+        }
+    }
+    Timer {
+        id: tCS5; interval: 250; repeat: false
+        onTriggered: {
+            if (root.cStopSeqRobot < 0) return
+            root.setOutputBit(root.cStopSeqRobot, 9, false)  // bit 9 LOW — sequence complete
+            root.cStopSeqRobot = -1
+        }
     }
 
     // ======================================================
@@ -733,7 +782,7 @@ Binding {
 
                     Rectangle {
                         id: p
-                        width: ringArea.panelW
+                        width: cStopActive ? ringArea.panelW * 2 : ringArea.panelW
                         height: contentCol.implicitHeight + Theme.padSm * 2
                         radius: Theme.radius
                         color: Theme.sideBtnpanel
@@ -741,8 +790,11 @@ Binding {
                         border.width: (!p.isConnected || cStopActive) ? 2 : 1
                         clip: true
 
-                        // Smooth height animation
+                        // Smooth size animations
                         Behavior on height {
+                            NumberAnimation { duration: 200; easing.type: Easing.OutQuad }
+                        }
+                        Behavior on width {
                             NumberAnimation { duration: 200; easing.type: Easing.OutQuad }
                         }
 
@@ -865,13 +917,13 @@ Binding {
                             Column {
                                 width: parent.width
                                 height: visible ? implicitHeight : 0
-                                spacing: 4
+                                spacing: 8
                                 visible: p.cStopActive && p.isConnected
 
                                 // Divider
                                 Rectangle {
                                     width: parent.width
-                                    height: 2
+                                    height: 4
                                     color: Theme.danger
                                     opacity: 0.5
                                 }
@@ -879,11 +931,11 @@ Binding {
                                 // Current + Desired Position row
                                 Row {
                                     width: parent.width
-                                    spacing: 4
+                                    spacing: 8
 
                                     Rectangle {
                                         width: parent.width * 0.48
-                                        height: 28
+                                        height: 56
                                         radius: 4
                                         color: "#2a2d35"
 
@@ -892,13 +944,13 @@ Binding {
                                             text: "Cur: " + root.robotPos(p.robotIndex) + "\u00B0"
                                             color: "#1fbf4a"
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.caption
+                                            font.pixelSize: Theme.body
                                         }
                                     }
 
                                     Rectangle {
                                         width: parent.width * 0.48
-                                        height: 28
+                                        height: 56
                                         radius: 4
                                         color: "#2a2d35"
                                         border.color: Theme.accent
@@ -907,11 +959,11 @@ Binding {
                                         TextInput {
                                             id: desiredInput
                                             anchors.fill: parent
-                                            anchors.margins: 4
+                                            anchors.margins: 8
                                             text: String(root.cStopDesiredPos[p.robotIndex] || 0)
                                             color: "#1f6bff"
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.caption
+                                            font.pixelSize: Theme.body
                                             horizontalAlignment: Text.AlignHCenter
                                             verticalAlignment: Text.AlignVCenter
                                             inputMethodHints: Qt.ImhDigitsOnly
@@ -931,14 +983,14 @@ Binding {
                                     }
                                 }
 
-                                // Jog buttons
+                                // Jog buttons ±5°
                                 Row {
                                     width: parent.width
-                                    spacing: 4
+                                    spacing: 8
 
                                     Rectangle {
-                                        width: (parent.width - 4) / 2
-                                        height: 26
+                                        width: (parent.width - 8) / 2
+                                        height: 52
                                         radius: 4
                                         color: "#3a3f4a"
 
@@ -947,7 +999,8 @@ Binding {
                                             text: "-5\u00B0"
                                             color: Theme.text
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.caption
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
                                         }
 
                                         MouseArea {
@@ -965,8 +1018,8 @@ Binding {
                                     }
 
                                     Rectangle {
-                                        width: (parent.width - 4) / 2
-                                        height: 26
+                                        width: (parent.width - 8) / 2
+                                        height: 52
                                         radius: 4
                                         color: "#3a3f4a"
 
@@ -975,7 +1028,8 @@ Binding {
                                             text: "+5\u00B0"
                                             color: Theme.text
                                             font.family: Theme.fontFamily
-                                            font.pixelSize: Theme.caption
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
                                         }
 
                                         MouseArea {
@@ -993,20 +1047,88 @@ Binding {
                                     }
                                 }
 
+                                // Jog buttons ±1°
+                                Row {
+                                    width: parent.width
+                                    spacing: 8
+
+                                    Rectangle {
+                                        width: (parent.width - 8) / 2
+                                        height: 52
+                                        radius: 4
+                                        color: "#2e3340"
+                                        border.color: "#556070"
+                                        border.width: 1
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "-1\u00B0"
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
+                                        }
+
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onClicked: {
+                                                var arr = root.cStopDesiredPos.slice()
+                                                var v = (arr[p.robotIndex] || 0) - 1
+                                                v = root.clampToQuadrant(v, p.robotIndex)
+                                                arr[p.robotIndex] = v
+                                                root.cStopDesiredPos = arr
+                                                desiredInput.text = String(v)
+                                                root.writeDesiredPos(p.robotIndex, v)
+                                            }
+                                        }
+                                    }
+
+                                    Rectangle {
+                                        width: (parent.width - 8) / 2
+                                        height: 52
+                                        radius: 4
+                                        color: "#2e3340"
+                                        border.color: "#556070"
+                                        border.width: 1
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "+1\u00B0"
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
+                                        }
+
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onClicked: {
+                                                var arr = root.cStopDesiredPos.slice()
+                                                var v = (arr[p.robotIndex] || 0) + 1
+                                                v = root.clampToQuadrant(v, p.robotIndex)
+                                                arr[p.robotIndex] = v
+                                                root.cStopDesiredPos = arr
+                                                desiredInput.text = String(v)
+                                                root.writeDesiredPos(p.robotIndex, v)
+                                            }
+                                        }
+                                    }
+                                }
+
                                 // Limits display
                                 Text {
                                     width: parent.width
                                     text: "Limits: " + root.quadrantMin(p.robotIndex) + "\u00B0-" + (root.quadrantMax(p.robotIndex) % 360) + "\u00B0"
                                     color: "#8a8a8a"
                                     font.family: Theme.fontFamily
-                                    font.pixelSize: 9
+                                    font.pixelSize: 16
                                     horizontalAlignment: Text.AlignHCenter
                                 }
 
                                 // Go Home button
                                 Rectangle {
                                     width: parent.width
-                                    height: 26
+                                    height: 52
                                     radius: 4
                                     color: root.goHomeLoading[p.robotIndex] ? "#555e6e" : Theme.accent
 
@@ -1015,7 +1137,7 @@ Binding {
                                         text: root.goHomeLoading[p.robotIndex] ? "Going..." : "Go Home"
                                         color: Theme.panel
                                         font.family: Theme.fontFamily
-                                        font.pixelSize: Theme.caption
+                                        font.pixelSize: Theme.body
                                         font.bold: true
                                     }
 
@@ -1034,7 +1156,7 @@ Binding {
                                 // Resume Weld button
                                 Rectangle {
                                     width: parent.width
-                                    height: 26
+                                    height: 52
                                     radius: 4
                                     color: root.resumeWeldLoading[p.robotIndex] ? "#555e6e" : "#1fbf4a"
 
@@ -1043,7 +1165,7 @@ Binding {
                                         text: root.resumeWeldLoading[p.robotIndex] ? "Resuming..." : "Resume Weld"
                                         color: Theme.panel
                                         font.family: Theme.fontFamily
-                                        font.pixelSize: Theme.caption
+                                        font.pixelSize: Theme.body
                                         font.bold: true
                                     }
 
@@ -1086,7 +1208,7 @@ Loader {
         item.name = "Robot 2"
         item.robotIndex = 1
     }
-    Binding { target: panelBL.item; property: "x"; value: ringArea.width - ringArea.panelW - ringArea.width * 0.01; when: panelBL.item }
+    Binding { target: panelBL.item; property: "x"; value: ringArea.width - (panelBL.item ? panelBL.item.width : ringArea.panelW) - ringArea.width * 0.01; when: panelBL.item }
     Binding { target: panelBL.item; property: "y"; value: ringArea.height * 0.01; when: panelBL.item }
 }
 
@@ -1110,7 +1232,7 @@ Loader {
         item.name = "Robot 4"
         item.robotIndex = 3
     }
-    Binding { target: panelBR.item; property: "x"; value: ringArea.width - ringArea.panelW - ringArea.width * 0.01; when: panelBR.item }
+    Binding { target: panelBR.item; property: "x"; value: ringArea.width - (panelBR.item ? panelBR.item.width : ringArea.panelW) - ringArea.width * 0.01; when: panelBR.item }
     Binding { target: panelBR.item; property: "y"; value: ringArea.height - (panelBR.item ? panelBR.item.height : ringArea.panelH) - ringArea.height * 0.01; when: panelBR.item }
 }
 
