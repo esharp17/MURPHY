@@ -5,28 +5,18 @@ print("QML_XHR_ALLOW_FILE_READ =", os.environ.get("QML_XHR_ALLOW_FILE_READ"))
 import sys
 from pathlib import Path
 
+# When running from the project venv, expose PySide6 native DLLs to the Windows loader
+if os.name == "nt" and hasattr(os, "add_dll_directory"):
+    venv_root = Path(sys.prefix)
+    pyside_root = venv_root / "Lib" / "site-packages" / "PySide6"
+    if pyside_root.exists():
+        os.add_dll_directory(str(pyside_root))
+
 # Add parent directory to path so we can import robot_ui and robot_comm packages
-# Skip when frozen (PyInstaller handles sys.path via sys._MEIPASS automatically)
-if not getattr(sys, 'frozen', False):
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 os.environ["QML_XHR_ALLOW_FILE_READ"] = "1"
 os.environ["QT_QUICK_CONTROLS_STYLE"] = "Basic"
-
-# Windows: ensure Qt DLLs are findable by QML plugin loader
-if sys.platform == "win32" and not getattr(sys, 'frozen', False):
-    try:
-        import PySide6
-        _pyside_root = Path(PySide6.__file__).resolve().parent
-        _qt_bin = _pyside_root / "Qt" / "bin"
-        for _dll_dir in (_pyside_root, _qt_bin):
-            if _dll_dir.exists():
-                try:
-                    os.add_dll_directory(str(_dll_dir))
-                except AttributeError:
-                    os.environ["PATH"] = str(_dll_dir) + os.pathsep + os.environ.get("PATH", "")
-    except Exception:
-        pass
 
 from PySide6.QtCore import Qt, QUrl, QObject, Slot
 from PySide6.QtGui import QGuiApplication

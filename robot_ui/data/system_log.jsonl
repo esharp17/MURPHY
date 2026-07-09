@@ -33801,3 +33801,1208 @@ port": 44818}}
 {"ts": "2026-06-23 15:18:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
 {"ts": "2026-06-23 15:18:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
 {"ts": "2026-06-23 15:18:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:29:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:25", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:29:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:29:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:29:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:49", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-07-08 13:29:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:29:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 13:29:52", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-07-08 13:29:52", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-07-08 13:29:54", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-07-08 13:29:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:29:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:29:58", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-07-08 13:30:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 13:30:00", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-07-08 13:30:05", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-07-08 13:30:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:30:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:06", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Robot Comm"}}
+{"ts": "2026-07-08 13:30:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:30:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 13:30:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-07-08 13:30:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 13:30:14", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Login"}}
+{"ts": "2026-07-08 13:30:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 13:30:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 13:30:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:00:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:00:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:00:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:00:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:00:53", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-07-08 16:00:57", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-07-08 16:00:57", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-07-08 16:00:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:00:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:00:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:00:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:00:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:00:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:18", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:18", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:18", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:23", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:23", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:23", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:28", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:28", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:28", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:38", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:38", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:38", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:43", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:43", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:53", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:53", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:01:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:01:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:14", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:14", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:19", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:24", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:24", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:24", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:24", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:24", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:24", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:34", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:34", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:34", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:34", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:34", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:34", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:39", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:39", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:44", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:44", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:44", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:44", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:44", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:44", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:44", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:49", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:49", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:49", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:49", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:49", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:49", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:49", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:54", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:54", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:54", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:59", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:59", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:59", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:02:59", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:59", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:59", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:02:59", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:04", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:04", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:04", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:09", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:09", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:09", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:14", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:14", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:14", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:19", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:19", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:19", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:24", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:24", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:24", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:24", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:24", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:24", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:24", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:29", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:29", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:34", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:34", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:34", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:34", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:34", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:34", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:39", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:39", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:39", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:39", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:44", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:44", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:44", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:44", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:44", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:44", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:44", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:49", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:49", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:49", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:49", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:49", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:49", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:49", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:54", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:59", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:59", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:59", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:59", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:59", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:03:59", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:03:59", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:04", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:04", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:09", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:09", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:09", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:14", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:14", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:14", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:19", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:04:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:04:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:05:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:06:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+"port": 44818}}
+{"ts": "2026-07-08 16:07:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+"port": 44818}}
+{"ts": "2026-07-08 16:07:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:07:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:08:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:08:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:09:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:09:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:10:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:10:56", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Welding"}}
+{"ts": "2026-07-08 16:11:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:26", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:26", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:46", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:46", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:11:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:11:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:01", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:01", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:46", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:51", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:51", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:12:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:12:56", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:01", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:01", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:01", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:01", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:06", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:06", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:11", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:16", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:16", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:21", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:21", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:26", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:26", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:26", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:26", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:31", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:31", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:36", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:36", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:41", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:41", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:46", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:46", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:46", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:47", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:47", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:47", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:47", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:52", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:52", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:52", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:52", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:57", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:57", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:57", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:13:57", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:13:57", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:02", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:02", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:02", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:02", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:07", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:07", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:07", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:07", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:07", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:12", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:12", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:12", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:12", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:12", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:17", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:17", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:17", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:17", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:17", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:22", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:22", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:22", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:22", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:22", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:27", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:27", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:27", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:27", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:27", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:32", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:32", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:32", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:32", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:32", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:37", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:37", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:37", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:37", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:37", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:42", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:42", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:42", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:42", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:42", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:47", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:47", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:47", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:47", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:47", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:14:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:50", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:52", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:14:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:14:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:58", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:14:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:14:58", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:03", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:03", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:08", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:08", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:13", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:13", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:18", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:23", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:28", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10053] An established connection was aborted by the software in your host machine"}}
+{"ts": "2026-07-08 16:15:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10053] An established connection was aborted by the software in your host machine"}}
+{"ts": "2026-07-08 16:15:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10053] An established connection was aborted by the software in your host machine"}}
+{"ts": "2026-07-08 16:15:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "[WinError 10053] An established connection was aborted by the software in your host machine"}}
+{"ts": "2026-07-08 16:15:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:33", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-07-08 16:15:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:38", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:38", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:38", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:38", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-07-08 16:15:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:43", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-07-08 16:15:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "timed out"}}
+{"ts": "2026-07-08 16:15:50", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"}}
+{"ts": "2026-07-08 16:15:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-08 16:15:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "192.168.2.60", "port": 44818}}
+{"ts": "2026-07-08 16:15:53", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "192.168.2.60", "port": 44818}}

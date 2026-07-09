@@ -1,7 +1,6 @@
 # ui_qml/robot_comm/robot_comm_bridge.py
 import json
 import os
-import sys
 import threading
 import time
 import traceback
@@ -22,7 +21,7 @@ print("USING ROBOT_COMM_BRIDGE FROM:", __file__, flush=True)
 
 @dataclass
 class RobotCfg:
-    ip: str = "192.168.2.1"
+    ip: str = ""
     port: int = 44818
     slot: int = 3
     in_words: int = 16
@@ -60,14 +59,11 @@ class RobotCommBridge(QObject):
         # per robot timestamps for watchdog / lastRxMs
         self._last_udp_ts = [0.0] * 4
 
-        if getattr(sys, 'frozen', False):
-            _base = sys._MEIPASS
-        else:
-            _base = os.path.dirname(os.path.abspath(__file__))
-        self._cfg_path = os.path.join(_base, "robot_comm_config.json")
+        self._cfg_path = os.path.join(os.getcwd(), "robot_comm_config.json")
         print(f"[BRIDGE] Config file: {self._cfg_path}", flush=True)
 
         self._cfgs = [RobotCfg() for _ in range(4)]
+        self._cfgs[0].ip = "192.168.2.1"
 
         self._inWordsRx.connect(self._on_in_words_rx)
 
@@ -662,10 +658,7 @@ class RobotCommBridge(QObject):
 
         # publish words to QML
         if robot_i == 0:
-            try:
-                self._inWordsRx.emit(words)
-            except RuntimeError:
-                pass
+            self._inWordsRx.emit(words)
 
     def _build_udp_output(self, robot_i, conn_id):
         c = self._cfgs[robot_i]
