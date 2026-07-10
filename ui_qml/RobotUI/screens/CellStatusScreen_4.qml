@@ -808,8 +808,8 @@ Item {
     // =========================
     Repeater {
         model: [
-            { sx: -1, sy: -1, elbowUp: false }, // R1: top-left
-            { sx: +1, sy: -1, elbowUp: true  }, // R2: top-right
+            { sx: +1, sy: -1, elbowUp: true  }, // R1: top-right
+            { sx: -1, sy: -1, elbowUp: false }, // R2: top-left
             { sx: -1, sy: +1, elbowUp: true  }, // R3: bottom-left
             { sx: +1, sy: +1, elbowUp: false }  // R4: bottom-right
         ]
@@ -1461,8 +1461,8 @@ Loader {
     sourceComponent: robotPanel
     visible: true
     onLoaded: {
-        item.name = "Robot 1"
-        item.robotIndex = 0
+        item.name = "Robot 2"
+        item.robotIndex = 1
     }
     Binding { target: panelTL.item; property: "x"; value: ringArea.width * 0.01; when: panelTL.item }
     Binding { target: panelTL.item; property: "y"; value: ringArea.height * 0.01; when: panelTL.item }
@@ -1473,8 +1473,8 @@ Loader {
     sourceComponent: robotPanel
     visible: true
     onLoaded: {
-        item.name = "Robot 2"
-        item.robotIndex = 1
+        item.name = "Robot 1"
+        item.robotIndex = 0
     }
     Binding { target: panelBL.item; property: "x"; value: ringArea.width - (panelBL.item ? panelBL.item.width : ringArea.panelW) - ringArea.width * 0.01; when: panelBL.item }
     Binding { target: panelBL.item; property: "y"; value: ringArea.height * 0.01; when: panelBL.item }

@@ -37802,3 +37802,80 @@ port": 44818}}
 {"ts": "2026-07-09 20:34:43", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
 {"ts": "2026-07-09 20:34:48", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
 {"ts": "2026-07-09 20:34:48", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-09 21:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:07:55", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:07:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:07:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:07:55", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:07:55", "user": "none", "action": "APP_START", "details": {}}
+{"ts": "2026-07-09 21:08:00", "user": "Andrew Lenehan", "action": "LOGIN", "details": {"role": "Administrator"}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:00", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:01", "user": "Andrew Lenehan", "action": "TAB_SWITCH", "details": {"tab": "Cell Status"}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 0, "ip": "192.168.2.1", "port": 44818}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 0, "error": "timed out"}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:05", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:06", "user": "none", "action": "ROBOT_SIMULATE", "details": {"robot": 0}}
+{"ts": "2026-07-09 21:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:10", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:10", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:15", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:15", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:20", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:20", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:25", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:25", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:30", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:30", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:35", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:35", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:40", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:40", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 1, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 2, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 1, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:45", "user": "none", "action": "ROBOT_CONNECT", "details": {"robot": 3, "ip": "", "port": 44818}}
+{"ts": "2026-07-09 21:08:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 2, "error": "[WinError 10049] The requested address is not valid in its context"}}
+{"ts": "2026-07-09 21:08:45", "user": "none", "action": "ROBOT_FAULT", "details": {"robot": 3, "error": "[WinError 10049] The requested address is not valid in its context"}}
