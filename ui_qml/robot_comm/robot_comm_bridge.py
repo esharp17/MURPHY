@@ -72,6 +72,11 @@ class RobotCommBridge(QObject):
         self._fault = [""] * 4
         self._last_rx_ms = [0] * 4
 
+        # ---- SIMULATION (backdoor "act as robot") ----
+        # When _sim[i] is True, robot i is faked as CYCLIC with no networking;
+        # the operator drives the input words manually via setInputWord/Bit.
+        self._sim = [False] * 4
+
         # backing buffers; getters slice to configured size
         self._inputs = [[0] * 256 for _ in range(4)]
         self._outputs = [[0] * 256 for _ in range(4)]
@@ -304,6 +309,11 @@ class RobotCommBridge(QObject):
     @Slot(int)
     def connectRobot(self, i):
         i = self._clamp_robot(i)
+
+        # Ignore real-connection requests (incl. the auto watchdog) while simulating.
+        if self._sim[i]:
+            return
+
         c = self._cfgs[i]
 
         print(f"[BRIDGE] connectRobot({i}) ip={c.ip} port={c.port} slot={c.slot}", flush=True)
@@ -425,6 +435,8 @@ class RobotCommBridge(QObject):
                 self.logLine.emit(i, "Worker stopping (stop_event set)")
 
             except Exception as e:
+                if self._sim[i]:
+                    return
                 self._state[i] = 3
                 self._fault[i] = str(e)
                 self.stateChanged.emit(i)
@@ -435,8 +447,10 @@ class RobotCommBridge(QObject):
                 self.logLine.emit(i, traceback.format_exc())
 
             finally:
-                self._state[i] = 0 if self._state[i] != 3 else 3
-                self.stateChanged.emit(i)
+                # Don't clobber simulation state if sim was enabled mid-flight.
+                if not self._sim[i]:
+                    self._state[i] = 0 if self._state[i] != 3 else 3
+                    self.stateChanged.emit(i)
 
                 if tx_sock:
                     try:
@@ -513,6 +527,7 @@ class RobotCommBridge(QObject):
         i = self._clamp_robot(i)
         self.logLine.emit(i, "DISCONNECT requested")
         _sys_log(SYSTEM_LOG_JSONL, "ROBOT_DISCONNECT", None, {"robot": i})
+        self._sim[i] = False
         self._stop_events[i].set()
         self._state[i] = 0
         self.stateChanged.emit(i)
@@ -521,6 +536,142 @@ class RobotCommBridge(QObject):
             tid = self._t2o_conn_id[i]
             if tid in self._rx_map and self._rx_map[tid] == i:
                 del self._rx_map[tid]
+
+    # =========================================================
+    # SIMULATION / BACKDOOR API  ("act as the robot")
+    # Lets an operator exercise the full HMI<->robot handshake
+    # without any physical robot or network connection.
+    # =========================================================
+    @Slot(int)
+    def simulateRobot(self, i):
+        """Fake robot i as CYCLIC (connected) with no networking. The
+        operator then drives the input words via setInputBit/Word."""
+        i = self._clamp_robot(i)
+
+        # Kill any real worker so it can't overwrite our fake I/O.
+        self._stop_events[i].set()
+        with self._rx_map_lock:
+            tid = self._t2o_conn_id[i]
+            if tid in self._rx_map and self._rx_map[tid] == i:
+                del self._rx_map[tid]
+
+        self._sim[i] = True
+        self._fault[i] = ""
+        self._last_rx_ms[i] = 0
+        self._state[i] = 2  # CYCLIC
+
+        # Seed a sane "ready" default (input bit 1 = ready/auto).
+        with self._io_lock:
+            if not any(self._inputs[i]):
+                self._inputs[i][0] = 0x0001
+
+        print(f"[BRIDGE] Robot {i}: SIMULATION enabled (acting as robot)", flush=True)
+        self.logLine.emit(i, "SIMULATION enabled — operator acting as robot")
+        _sys_log(SYSTEM_LOG_JSONL, "ROBOT_SIMULATE", None, {"robot": i})
+        self.stateChanged.emit(i)
+        self.ioUpdated.emit(i)
+
+    @Slot(int, result=bool)
+    def isSimulated(self, i):
+        i = self._clamp_robot(i)
+        return bool(self._sim[i])
+
+    @Slot(int, int, int)
+    def setInputWord(self, i, word_index, value):
+        """Operator (acting as robot) writes a single INPUT word."""
+        i = self._clamp_robot(i)
+        try:
+            wi = int(word_index)
+        except Exception:
+            wi = 0
+        wi = max(0, min(255, wi))
+        try:
+            v = int(value) & 0xFFFF
+        except Exception:
+            v = 0
+        with self._io_lock:
+            self._inputs[i][wi] = v
+        try:
+            self.ioUpdated.emit(i)
+        except Exception:
+            pass
+
+    @Slot(int, int, bool)
+    def setInputBit(self, i, bit1, on):
+        """Operator (acting as robot) sets/clears a single 1-indexed INPUT bit."""
+        i = self._clamp_robot(i)
+        try:
+            b = int(bit1)
+        except Exception:
+            return
+        if b <= 0:
+            return
+        wi = (b - 1) // 16
+        bi = (b - 1) % 16
+        wi = max(0, min(255, wi))
+        with self._io_lock:
+            w = int(self._inputs[i][wi]) & 0xFFFF
+            if on:
+                w |= (1 << bi)
+            else:
+                w &= ~(1 << bi)
+            self._inputs[i][wi] = w & 0xFFFF
+        try:
+            self.ioUpdated.emit(i)
+        except Exception:
+            pass
+
+    @Slot(int, int, result=bool)
+    def getInputBit(self, i, bit1):
+        i = self._clamp_robot(i)
+        try:
+            b = int(bit1)
+        except Exception:
+            return False
+        if b <= 0:
+            return False
+        wi = (b - 1) // 16
+        bi = (b - 1) % 16
+        if wi < 0 or wi > 255:
+            return False
+        with self._io_lock:
+            w = int(self._inputs[i][wi]) & 0xFFFF
+        return bool((w >> bi) & 1)
+
+    @Slot(int, int, result=bool)
+    def getOutputBit(self, i, bit1):
+        i = self._clamp_robot(i)
+        try:
+            b = int(bit1)
+        except Exception:
+            return False
+        if b <= 0:
+            return False
+        wi = (b - 1) // 16
+        bi = (b - 1) % 16
+        if wi < 0 or wi > 255:
+            return False
+        with self._io_lock:
+            w = int(self._outputs[i][wi]) & 0xFFFF
+        return bool((w >> bi) & 1)
+
+    @Slot(int, int)
+    def setInputPos(self, i, pos):
+        """Operator (acting as robot) sets the reported position
+        (input word 4, lower 10 bits = bits 65-74)."""
+        i = self._clamp_robot(i)
+        try:
+            p = int(pos) & 0x03FF
+        except Exception:
+            p = 0
+        with self._io_lock:
+            w4 = int(self._inputs[i][4]) & 0xFFFF
+            w4 = (w4 & 0xFC00) | p
+            self._inputs[i][4] = w4
+        try:
+            self.ioUpdated.emit(i)
+        except Exception:
+            pass
 
     # -------------------------
     # EtherNet/IP / CIP helpers

@@ -73,6 +73,18 @@ Timer {
     // Drives tab label swap (Splash <-> Admin)
     property bool adminLoggedIn: false
 
+    // ============================================================
+    // HIDDEN BACKDOOR: Robot Simulator ("act as the robot")
+    // Open with Ctrl+Shift+R (or triple-tap the tiny top-left hotspot).
+    // Fake a robot connection and drive its input bits by hand to
+    // exercise the full HMI<->robot handshake with no physical robot.
+    // ============================================================
+    Shortcut {
+        sequences: ["Ctrl+Shift+R"]
+        context: Qt.ApplicationShortcut
+        onActivated: robotSimPanel.open(robotSimPanel.sel)
+    }
+
     Item {
         anchors.fill: parent
 
@@ -225,6 +237,37 @@ Timer {
                     onWeldStarted: win.tabIndex = 2
                 }
             }
+        }
+
+        // Tiny hidden hotspot (top-left corner): triple-tap to open the
+        // Robot Simulator backdoor, for touchscreens without a keyboard.
+        MouseArea {
+            id: simHotspot
+            width: 48; height: 48
+            anchors.top: parent.top
+            anchors.left: parent.left
+            z: 9998
+            property int taps: 0
+            Timer {
+                id: tapReset; interval: 800; repeat: false
+                onTriggered: simHotspot.taps = 0
+            }
+            onClicked: {
+                taps += 1
+                tapReset.restart()
+                if (taps >= 3) {
+                    taps = 0
+                    robotSimPanel.open(robotSimPanel.sel)
+                }
+            }
+        }
+
+        // Robot Simulator backdoor overlay (drawn on top of everything)
+        RobotSimPanel {
+            id: robotSimPanel
+            anchors.fill: parent
+            z: 9999
+            visible: false
         }
     }
 }

@@ -75,6 +75,13 @@ Rectangle {
         return Number(w[4]) & 0x03FF
     }
 
+    // Read pass number from word 10 (bits 161-176, 16-bit value) for a robot
+    function robotPassNum(idx) {
+        var w = wordsFor(idx)
+        if (!w || w.length <= 10) return 0
+        return Number(w[10]) & 0xFFFF
+    }
+
     // Derive robot status string from connection state + I/O bits
     // Bit 6 = fault, bit 11 = welding, bit 1 = auto/ready
     // We add: bit 22 = scan data ready (use as "scanning" indicator)
@@ -139,11 +146,16 @@ Rectangle {
     property var cStopOpen: [false, false, false, false]
     property var cStopAcknowledged: [false, false, false, false]  // true once robot bit 20 went high
     property var cStopDesiredPos: [0, 0, 0, 0]
+    // Fine position offsets (mm), range -10.0..+10.0 in 0.1 steps.
+    // Vertical  -> output bits 97-112 (word 6); Horizontal -> bits 113-128 (word 7).
+    property var cStopVertMm: [0, 0, 0, 0]
+    property var cStopHorizMm: [0, 0, 0, 0]
     property var goHomeLoading: [false, false, false, false]
     property var goHomeAcknowledged: [false, false, false, false]
     property var resumeWeldLoading: [false, false, false, false]
     property var resumeWeldAcknowledged: [false, false, false, false]
     property int cStopSeqRobot: -1  // robot index currently running C-Stop sequence (-1 = none)
+    property var prevDI21: [false, false, false, false]  // rising-edge detect for pass-number reset
 
     // Live I/O words from robot comm
     property var ioInWords: []
@@ -232,6 +244,24 @@ Rectangle {
             var i = robotIdx
 
             rebuildAlarms()
+
+            // DI21 rising edge: reset pass number + vertical/horizontal offsets
+            var di21 = root.getBit(words, 21)
+            var di21Was = root.prevDI21[i]
+            var di21Arr = root.prevDI21.slice()
+            di21Arr[i] = di21
+            root.prevDI21 = di21Arr
+            if (di21 && !di21Was) {
+                // Reset fine offsets (UI + output words 6/7) to zero
+                var vArr = root.cStopVertMm.slice()
+                var hArr = root.cStopHorizMm.slice()
+                vArr[i] = 0
+                hArr[i] = 0
+                root.cStopVertMm = vArr
+                root.cStopHorizMm = hArr
+                root.writeVertOffset(i, 0)
+                root.writeHorizOffset(i, 0)
+            }
 
             // Wait for robot to set bit 20 HIGH (acknowledgment), then close when it goes LOW
             if (root.cStopOpen[i]) {
@@ -345,6 +375,33 @@ Rectangle {
         RobotComm.setOutputWord(robotIdx, wi, w)
     }
 
+    // Clamp a mm offset to -10.0..+10.0 in 0.1 steps (avoids FP drift)
+    function clampMm(v) {
+        v = Math.round(v * 10) / 10
+        if (v > 10) v = 10
+        if (v < -10) v = -10
+        return v
+    }
+
+    // 16-bit two's-complement of an integer (binary/decimal conversion for the wire)
+    function to16(v) {
+        var iv = Math.round(v)
+        if (iv < 0) iv = 0x10000 + iv
+        return iv & 0xFFFF
+    }
+
+    // Write vertical offset (mm) as 0.1mm units -> output word 6 (bits 97-112)
+    function writeVertOffset(robotIdx, mm) {
+        if (!RobotComm) return
+        RobotComm.setOutputWord(robotIdx, 6, to16(mm * 10))
+    }
+
+    // Write horizontal offset (mm) as 0.1mm units -> output word 7 (bits 113-128)
+    function writeHorizOffset(robotIdx, mm) {
+        if (!RobotComm) return
+        RobotComm.setOutputWord(robotIdx, 7, to16(mm * 10))
+    }
+
     // Toggle C-Stop for a specific robot index
     function openCStop(robotIdx) {
         if (cStopOpen[robotIdx]) return  // already open, do nothing
@@ -360,6 +417,15 @@ Rectangle {
         posArr[robotIdx] = curPos
         cStopDesiredPos = posArr
         writeDesiredPos(robotIdx, curPos)
+        // Reset fine offsets (UI + output words 6/7) to zero
+        var vArr = cStopVertMm.slice()
+        var hArr = cStopHorizMm.slice()
+        vArr[robotIdx] = 0
+        hArr[robotIdx] = 0
+        cStopVertMm = vArr
+        cStopHorizMm = hArr
+        writeVertOffset(robotIdx, 0)
+        writeHorizOffset(robotIdx, 0)
         // Clear loading states and their acknowledgment flags
         var ghArr = goHomeLoading.slice()
         var rwArr = resumeWeldLoading.slice()
@@ -901,10 +967,30 @@ Binding {
                                 }
                             }
 
+                            // ---- Pass # display (outside C-Stop, under top row) ----
+                            Rectangle {
+                                width: parent.width
+                                height: visible ? 28 : 0
+                                radius: Theme.radiusSm
+                                color: Theme.bg
+                                border.color: Theme.accent
+                                border.width: 1
+                                visible: p.isConnected && !p.cStopActive
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: "Pass #: " + root.robotPassNum(p.robotIndex)
+                                    color: Theme.accent
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.body
+                                    font.bold: true
+                                }
+                            }
+
                             // ---- position readout ----
                             Text {
                                 width: parent.width
-                                height: visible ? implicitHeight : 0
+                                height: visible ? contentHeight : 0
                                 text: p.name + "\nPos: " + root.robotPos(p.robotIndex) + "\u00B0"
                                 color: Theme.text
                                 font.family: Theme.fontFamily
@@ -926,6 +1012,25 @@ Binding {
                                     height: 4
                                     color: Theme.danger
                                     opacity: 0.5
+                                }
+
+                                // Pass # display
+                                Rectangle {
+                                    width: parent.width
+                                    height: 32
+                                    radius: 4
+                                    color: "#2a2d35"
+                                    border.color: Theme.accent
+                                    border.width: 1
+
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: "Pass #: " + root.robotPassNum(p.robotIndex)
+                                        color: Theme.accent
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.body
+                                        font.bold: true
+                                    }
                                 }
 
                                 // Current + Desired Position row
@@ -1123,6 +1228,169 @@ Binding {
                                     font.family: Theme.fontFamily
                                     font.pixelSize: 16
                                     horizontalAlignment: Text.AlignHCenter
+                                }
+
+                                // ---- Fine offset rows (mm): Vertical -> word 6, Horizontal -> word 7 ----
+                                // Vertical fine adjust row
+                                Row {
+                                    width: parent.width
+                                    spacing: 8
+
+                                    // minus (left, -10mm limit)
+                                    Rectangle {
+                                        width: (parent.width - 16) * 0.25
+                                        height: 52
+                                        radius: 4
+                                        color: vMinusMa.pressed ? "#d97706" : "#F28500"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "\u2212"
+                                            color: "#ffffff"
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.h2
+                                            font.bold: true
+                                        }
+                                        MouseArea {
+                                            id: vMinusMa
+                                            anchors.fill: parent
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                var arr = root.cStopVertMm.slice()
+                                                var v = root.clampMm((arr[p.robotIndex] || 0) - 0.1)
+                                                arr[p.robotIndex] = v
+                                                root.cStopVertMm = arr
+                                                root.writeVertOffset(p.robotIndex, v)
+                                            }
+                                        }
+                                    }
+
+                                    // value (middle)
+                                    Rectangle {
+                                        width: (parent.width - 16) * 0.5
+                                        height: 52
+                                        radius: 4
+                                        color: "#2a2d35"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "Vertical: " + (root.cStopVertMm[p.robotIndex] || 0).toFixed(1) + " mm"
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
+                                        }
+                                    }
+
+                                    // plus (right, +10mm limit)
+                                    Rectangle {
+                                        width: (parent.width - 16) * 0.25
+                                        height: 52
+                                        radius: 4
+                                        color: vPlusMa.pressed ? "#d97706" : "#F28500"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "+"
+                                            color: "#ffffff"
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.h2
+                                            font.bold: true
+                                        }
+                                        MouseArea {
+                                            id: vPlusMa
+                                            anchors.fill: parent
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                var arr = root.cStopVertMm.slice()
+                                                var v = root.clampMm((arr[p.robotIndex] || 0) + 0.1)
+                                                arr[p.robotIndex] = v
+                                                root.cStopVertMm = arr
+                                                root.writeVertOffset(p.robotIndex, v)
+                                            }
+                                        }
+                                    }
+                                }
+
+                                // Horizontal fine adjust row
+                                Row {
+                                    width: parent.width
+                                    spacing: 8
+
+                                    // minus (left, -10mm limit)
+                                    Rectangle {
+                                        width: (parent.width - 16) * 0.25
+                                        height: 52
+                                        radius: 4
+                                        color: hMinusMa.pressed ? "#d97706" : "#F28500"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "\u2212"
+                                            color: "#ffffff"
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.h2
+                                            font.bold: true
+                                        }
+                                        MouseArea {
+                                            id: hMinusMa
+                                            anchors.fill: parent
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                var arr = root.cStopHorizMm.slice()
+                                                var v = root.clampMm((arr[p.robotIndex] || 0) - 0.1)
+                                                arr[p.robotIndex] = v
+                                                root.cStopHorizMm = arr
+                                                root.writeHorizOffset(p.robotIndex, v)
+                                            }
+                                        }
+                                    }
+
+                                    // value (middle)
+                                    Rectangle {
+                                        width: (parent.width - 16) * 0.5
+                                        height: 52
+                                        radius: 4
+                                        color: "#2a2d35"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "Horizontal: " + (root.cStopHorizMm[p.robotIndex] || 0).toFixed(1) + " mm"
+                                            color: Theme.text
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.body
+                                            font.bold: true
+                                        }
+                                    }
+
+                                    // plus (right, +10mm limit)
+                                    Rectangle {
+                                        width: (parent.width - 16) * 0.25
+                                        height: 52
+                                        radius: 4
+                                        color: hPlusMa.pressed ? "#d97706" : "#F28500"
+
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "+"
+                                            color: "#ffffff"
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.h2
+                                            font.bold: true
+                                        }
+                                        MouseArea {
+                                            id: hPlusMa
+                                            anchors.fill: parent
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                var arr = root.cStopHorizMm.slice()
+                                                var v = root.clampMm((arr[p.robotIndex] || 0) + 0.1)
+                                                arr[p.robotIndex] = v
+                                                root.cStopHorizMm = arr
+                                                root.writeHorizOffset(p.robotIndex, v)
+                                            }
+                                        }
+                                    }
                                 }
 
                                 // Go Home button

@@ -1,0 +1,32 @@
+{
+  "robots": [
+    {
+      "ip": "192.168.2.1",
+      "port": 44818,
+      "slot": 3,
+      "in_words": 16,
+      "out_words": 16
+    },
+    {
+      "ip": "",
+      "port": 44818,
+      "slot": 3,
+      "in_words": 16,
+      "out_words": 16
+    },
+    {
+      "ip": "",
+      "port": 44818,
+      "slot": 3,
+      "in_words": 16,
+      "out_words": 16
+    },
+    {
+      "ip": "",
+      "port": 44818,
+      "slot": 3,
+      "in_words": 16,
+      "out_words": 16
+    }
+  ]
+}
