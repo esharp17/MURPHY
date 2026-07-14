@@ -9,6 +9,8 @@ import xml.etree.ElementTree as ET
 
 from PySide6.QtCore import QObject, Signal, Slot, Property
 
+from robot_comm.scan_plot_helpers import fetch_offsets_xml_from_robot, normalize_offsets_xml
+
 MAX_POINTS = 180
 OFFSETS_XML = "offsets_norm.xml"
 BASE_XML = "base_points.xml"
@@ -100,11 +102,30 @@ class ScanDataProvider(QObject):
         self._y_max = 0.0
         self._scene_radius = 500.0
 
+    @Slot(result=bool)
+    def refreshFromRobot(self):
+        """Fetch the latest scan offsets XML from the robot and load it into the provider."""
+        try:
+            robot_ip = os.environ.get("MURPHY_ROBOT_IP", "192.168.2.1")
+            ftp_user = os.environ.get("MURPHY_FTP_USER", "PC")
+            ftp_pass = os.environ.get("MURPHY_FTP_PASS", "1234")
+            local_xml = fetch_offsets_xml_from_robot(robot_ip, ftp_user, ftp_pass, self._base_dir)
+            normalized_xml = normalize_offsets_xml(local_xml, self._base_dir)
+            if not os.path.exists(normalized_xml):
+                raise FileNotFoundError(f"Normalized scan XML missing: {normalized_xml}")
+            self.loadData(force_path=normalized_xml)
+            return True
+        except Exception as e:
+            self._error = f"Scan fetch failed: {e}"
+            self._loaded = False
+            self.dataChanged.emit()
+            return False
+
     @Slot()
-    def loadData(self):
+    def loadData(self, force_path=None):
         """Load and process XML data files."""
         try:
-            offsets_path = os.path.join(self._base_dir, OFFSETS_XML)
+            offsets_path = force_path or os.path.join(self._base_dir, OFFSETS_XML)
             base_path = os.path.join(self._base_dir, BASE_XML)
 
             o_pos, o_x, o_y, o_z, o_gap, o_sched = _load_offsets_xml(offsets_path)

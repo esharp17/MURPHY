@@ -38,6 +38,7 @@ Rectangle {
     property int r1ConnState: 0
     property int r2ConnState: 0
     property int r3ConnState: 0
+    property var passNumberValues: ({})
 
     function refreshRobotData() {
         if (!RobotComm) return
@@ -75,11 +76,22 @@ Rectangle {
         return Number(w[4]) & 0x03FF
     }
 
-    // Read pass number from word 10 (bits 161-176, 16-bit value) for a robot
+    // Read pass number from a 16-bit value starting at bit 145 (1-based)
+    // bit 145 => word index 9, bits 145..160
+    function readPassNumberValue(words) {
+        if (!words || words.length <= 9) return 0
+        return Number(words[9]) & 0xFFFF
+    }
+
     function robotPassNum(idx) {
-        var w = wordsFor(idx)
-        if (!w || w.length <= 10) return 0
-        return Number(w[10]) & 0xFFFF
+        var words = wordsFor(idx)
+        if (words && words.length > 9) {
+            return root.readPassNumberValue(words)
+        }
+
+        var cached = root.passNumberValues[idx]
+        if (cached !== undefined) return cached
+        return 0
     }
 
     // Derive robot status string from connection state + I/O bits
@@ -967,23 +979,33 @@ Binding {
                                 }
                             }
 
-                            // ---- Pass # display (outside C-Stop, under top row) ----
+                            // ---- weld enable toggle ----
                             Rectangle {
                                 width: parent.width
                                 height: visible ? 28 : 0
-                                radius: Theme.radiusSm
-                                color: Theme.bg
-                                border.color: Theme.accent
-                                border.width: 1
                                 visible: p.isConnected && !p.cStopActive
+                                radius: Theme.radiusSm
+                                property bool weldOn: root.getBit(root.wordsFor(p.robotIndex), 14)
+                                color: weldOn ? "#1a3a26" : "#3a3a3a"
+                                border.width: 1
+                                border.color: weldOn ? "#1fbf4a" : Theme.border
 
                                 Text {
                                     anchors.centerIn: parent
-                                    text: "Pass #: " + root.robotPassNum(p.robotIndex)
-                                    color: Theme.accent
+                                    text: parent.weldOn ? "Weld Enabled" : "Weld Disabled"
+                                    color: parent.weldOn ? "#1fbf4a" : "#aaaaaa"
                                     font.family: Theme.fontFamily
-                                    font.pixelSize: Theme.body
+                                    font.pixelSize: Theme.caption
                                     font.bold: true
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: {
+                                        // Bit 14 HMI→Robot = "Weld Enabled"
+                                        root.setOutputBit(p.robotIndex, 14, !parent.weldOn)
+                                    }
                                 }
                             }
 
@@ -1014,7 +1036,7 @@ Binding {
                                     opacity: 0.5
                                 }
 
-                                // Pass # display
+                                // Pass Number display
                                 Rectangle {
                                     width: parent.width
                                     height: 32
@@ -1025,7 +1047,7 @@ Binding {
 
                                     Text {
                                         anchors.centerIn: parent
-                                        text: "Pass #: " + root.robotPassNum(p.robotIndex)
+                                        text: "Pass Number: " + root.robotPassNum(p.robotIndex)
                                         color: Theme.accent
                                         font.family: Theme.fontFamily
                                         font.pixelSize: Theme.body
@@ -1504,6 +1526,49 @@ Loader {
     Binding { target: panelBR.item; property: "y"; value: ringArea.height - (panelBR.item ? panelBR.item.height : ringArea.panelH) - ringArea.height * 0.01; when: panelBR.item }
 }
 
+                Rectangle {
+                    id: passNumberCard
+                    width: Math.min(ringArea.width * 0.32, 300)
+                    height: 78
+                    // Center horizontally between Robot 2 (panelTL) and Robot 1 (panelBL)
+                    // when both panels are in their normal (closed) state. Otherwise
+                    // keep the left-side offset so the C-STOP layout doesn't overlap.
+                    x: (panelTL.item && panelBL.item && !panelTL.item.cStopActive && !panelBL.item.cStopActive)
+                        ? (((panelTL.item.x + panelTL.item.width * 0.5) + (panelBL.item.x + panelBL.item.width * 0.5)) / 2 - width * 0.5)
+                        : (ringArea.width * 0.06)
+                    y: ringArea.height * 0.01
+                    radius: Theme.radius
+                    color: Theme.panel
+                    border.color: Theme.accent
+                    border.width: 1
+                    z: 2
+
+                    Column {
+                        anchors.fill: parent
+                        anchors.margins: Theme.padSm
+                        spacing: 4
+
+                        Text {
+                            text: "Pass Number"
+                            color: Theme.text
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body + 2
+                            font.bold: true
+                            horizontalAlignment: Text.AlignHCenter
+                            width: parent.width
+                        }
+
+                        Text {
+                            text: root.robotPassNum(0)
+                            color: Theme.accent
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.body + 6
+                            font.bold: true
+                            horizontalAlignment: Text.AlignHCenter
+                            width: parent.width
+                        }
+                    }
+                }
 
 }
       // ======================================================

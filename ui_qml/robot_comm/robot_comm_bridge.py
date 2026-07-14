@@ -8,6 +8,7 @@ import socket
 import struct
 import binascii
 from dataclasses import dataclass, asdict
+from pathlib import Path
 
 from PySide6.QtCore import QObject, Signal, Slot, Property
 
@@ -59,7 +60,7 @@ class RobotCommBridge(QObject):
         # per robot timestamps for watchdog / lastRxMs
         self._last_udp_ts = [0.0] * 4
 
-        self._cfg_path = os.path.join(os.getcwd(), "robot_comm_config.json")
+        self._cfg_path = self._resolve_config_path()
         print(f"[BRIDGE] Config file: {self._cfg_path}", flush=True)
 
         self._cfgs = [RobotCfg() for _ in range(4)]
@@ -101,6 +102,26 @@ class RobotCommBridge(QObject):
         for idx in range(4):
             c = self._cfgs[idx]
             print(f"[BRIDGE] Robot {idx}: ip={c.ip} port={c.port} slot={c.slot} in={c.in_words} out={c.out_words}", flush=True)
+
+    def _resolve_config_path(self):
+        root_dir = Path(__file__).resolve().parents[2]
+        env_path = os.environ.get("MURPHY_ROBOT_COMM_CONFIG", "").strip()
+        candidates = []
+
+        if env_path:
+            candidates.append(Path(env_path).expanduser())
+
+        candidates.extend([
+            root_dir / "robot_comm_config.json",
+            Path.cwd() / "robot_comm_config.json",
+            Path(__file__).resolve().parents[1] / "robot_comm_config.json",
+        ])
+
+        for candidate in candidates:
+            if candidate.exists():
+                return str(candidate.resolve())
+
+        return str((root_dir / "robot_comm_config.json").resolve())
 
     def get_in_words(self):
         return self._in_words
@@ -207,9 +228,6 @@ class RobotCommBridge(QObject):
                 except RuntimeError:
                     break
 
-                if rx_count <= 3 or (rx_count % 500) == 0:
-                    print(f"[BRIDGE] UDP RX #{rx_count} from {addr} robot={i} len={len(data)}", flush=True)
-
         self._udp_rx_thread = threading.Thread(target=rx_loop, daemon=True)
         self._udp_rx_thread.start()
 
@@ -315,6 +333,11 @@ class RobotCommBridge(QObject):
             return
 
         c = self._cfgs[i]
+
+        # If IP is blank/empty, abort connect attempts quietly to avoid spamming
+        # the log and repeatedly trying to connect to an invalid target.
+        if not str(c.ip).strip():
+            return
 
         print(f"[BRIDGE] connectRobot({i}) ip={c.ip} port={c.port} slot={c.slot}", flush=True)
 

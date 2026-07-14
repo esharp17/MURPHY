@@ -43,6 +43,7 @@ Rectangle {
     // ----------------------------
     property bool autoActive:   false
     property bool manualActive: false
+    property bool holdActive:   false
     property bool startActive:  false
     property bool resetActive:  false
 
@@ -316,10 +317,11 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
 
         autoActive = true
         manualActive = false
+        holdActive = false  // reset hold latch when switching modes
 
+        _setCmdBitAll(bit_CMD_ENABLE, true)    // bit 8 ON: enable robot
         _setCmdBitAll(bit_CMD_AUTO, true)
         _setCmdBitAll(bit_CMD_MANUAL, false)
-        _setCmdBitAll(bit_CMD_OPERATE, true)   // bit 2 ON: robot enters operational state
     }
 
     function pressManual() {
@@ -330,10 +332,11 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
 
         manualActive = true
         autoActive = false
+        holdActive = false  // reset hold latch when switching modes
 
+        _setCmdBitAll(bit_CMD_ENABLE, true)    // bit 8 ON: enable robot
         _setCmdBitAll(bit_CMD_MANUAL, true)
         _setCmdBitAll(bit_CMD_AUTO, false)
-        _setCmdBitAll(bit_CMD_OPERATE, false)  // bit 2 OFF: robot leaves operational state
     }
 
     // Start is press-and-hold 500ms; only valid when Auto latched
@@ -350,11 +353,13 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
         }
     }
 
-    // Hold: drops bit 2 (OPERATE) so the robot enters its hold state
+    // Hold: latching toggle of bit 2 (OPERATE); available in manual or auto
     function pressHold() {
         if (!bridge) return
-        if (!_autoReq) return
-        _setCmdBitAll(bit_CMD_OPERATE, false)  // bit 2 OFF → robot hold state
+        if (!_autoReq && !_manualReq) return
+        holdActive = !holdActive
+        // bit 2 ON = running, OFF = hold
+        _setCmdBitAll(bit_CMD_OPERATE, !holdActive)
     }
 
     // Cycle Stop: pulses bit 4 to abort all programs on all robots
@@ -453,15 +458,16 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            normalColor: Theme.sideBtnBase
-            pressedColor: Theme.btnPressed
+            normalColor:  sb.autoActive ? "#1a4d2e" : Theme.sideBtnBase
+            pressedColor: "#1a6b3a"
             disabledColor: Theme.btnDisabled
-            borderWidth: 2
-            borderColor: "#2a3442"
+            glowColor: "#2ecc71"
+            borderWidth: sb.autoActive ? 2 : 2
+            borderColor: sb.autoActive ? "#2ecc71" : "#2a3442"
             enabled: sb.autoEnabled()
             active: sb.autoActive
             opacity: sb.autoEnabled() ? 1.0 : 0.35
-            visible: sb.loggedInRole !== 0  // hide if not logged in
+            visible: sb.loggedInRole !== 0
 
             onClicked: { sb.pressAuto(); sb.pressed("auto") }
 
@@ -469,7 +475,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 anchors.centerIn: parent
                 anchors.verticalCenterOffset: 6
                 text: "Automatic Mode"
-                color: Theme.sideBtnText
+                color: "#ffffff"
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.sideBtnFont
                 font.bold: true
@@ -481,14 +487,15 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            normalColor: Theme.sideBtnBase
-            pressedColor: Theme.btnPressed
+            normalColor:  sb.manualActive ? "#4d3a00" : Theme.sideBtnBase
+            pressedColor: "#6b5200"
             disabledColor: Theme.btnDisabled
+            glowColor: "#f0b429"
             borderWidth: 2
-            borderColor: "#2a3442"
+            borderColor: sb.manualActive ? "#f0b429" : "#2a3442"
             enabled: sb.loggedInRole !== 0
             active: sb.manualActive
-            visible: sb.loggedInRole !== 0  // hide if not logged in
+            visible: sb.loggedInRole !== 0
 
             onClicked: { sb.pressManual(); sb.pressed("manual") }
 
@@ -496,7 +503,7 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
                 anchors.centerIn: parent
                 anchors.verticalCenterOffset: 6
                 text: "Manual Mode"
-                color: sb.manualActive ? "black" : Theme.sideBtnText
+                color: "#ffffff"
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.sideBtnFont
                 font.bold: true
@@ -566,13 +573,15 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             height: sb.btnH
             width: parent.width
             radius: Theme.sideBtnradius
-            normalColor: Theme.sideBtnBase
-            pressedColor: Theme.btnPressed
+            normalColor:  sb.holdActive ? "#4d2e00" : Theme.sideBtnBase
+            pressedColor: "#6b4000"
             disabledColor: Theme.btnDisabled
+            glowColor: "#e07b20"
             borderWidth: 2
-            borderColor: "#2a3442"
-            enabled: sb._autoReq
-            opacity: sb._autoReq ? 1.0 : 0.35
+            borderColor: sb.holdActive ? "#e07b20" : "#2a3442"
+            enabled: sb._autoReq || sb._manualReq
+            active: sb.holdActive
+            opacity: (sb._autoReq || sb._manualReq) ? 1.0 : 0.35
             visible: sb.loggedInRole !== 0
 
             onClicked: { sb.pressHold(); sb.pressed("hold") }
@@ -580,8 +589,8 @@ function autoEnabled() { return (!anyFault() && !anyTPEN()) }
             Text {
                 anchors.centerIn: parent
                 anchors.verticalCenterOffset: 6
-                text: "Hold"
-                color: Theme.sideBtnText
+                text: sb.holdActive ? "Hold  (ON)" : "Hold"
+                color: "#ffffff"
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.sideBtnFont
                 font.bold: true

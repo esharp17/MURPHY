@@ -1171,9 +1171,9 @@ Rectangle {
         id: scanLoadTimer
         interval: 100
         onTriggered: {
-            ScanDataProvider.loadData()
+            var ok = ScanDataProvider.refreshFromRobot()
             root.scanLoading = false
-            if (ScanDataProvider.isLoaded()) {
+            if (ok && ScanDataProvider.isLoaded()) {
                 root.scanDataLoaded = true
                 root.showScanView = true
             } else {

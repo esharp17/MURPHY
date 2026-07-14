@@ -34,7 +34,7 @@ from robot_ui.weld_record_service import WeldRecordService
 from robot_ui.wsm_service import WsmService
 from robot_ui.log_service import LogService
 from robot_ui.location_service import LocationService
-from robot_ui.scan_data_provider import ScanDataProvider
+from ui_qml.robot_ui.scan_data_provider import ScanDataProvider
 from robot_ui.scan_plot_item import ScanPlotItem
 
 
