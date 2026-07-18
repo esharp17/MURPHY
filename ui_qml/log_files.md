@@ -43182,3 +43182,397 @@
 | 2026-07-14 18:18:06 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
 | 2026-07-14 18:18:09 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
 | 2026-07-14 18:18:09 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 09:31:27 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 09:31:27 | none | APP_START |  |
+| 2026-07-15 09:31:32 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-15 09:31:32 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:31:33 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:36:51 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 09:36:51 | none | APP_START |  |
+| 2026-07-15 09:36:57 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-15 09:40:34 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 09:40:34 | none | APP_START |  |
+| 2026-07-15 09:40:47 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-15 09:40:51 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:42:29 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:42:31 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-15 09:42:34 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 09:43:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:43:09 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:43:09 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-15 09:46:12 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 09:46:12 | none | APP_START |  |
+| 2026-07-15 09:46:35 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-15 09:46:39 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:46:40 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:46:42 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 09:46:42 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:46:43 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:46:43 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-15 09:46:44 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:46:44 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:46:45 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 09:46:48 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:46:48 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:46:50 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-15 09:46:51 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:46:51 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:46:52 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 09:46:53 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-15 09:47:10 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 09:47:10 | none | APP_START |  |
+| 2026-07-15 09:47:17 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-15 09:47:54 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:47:54 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:48:23 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:48:24 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-15 09:48:25 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 09:48:26 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:48:26 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-15 09:48:27 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 09:50:58 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 09:50:58 | none | APP_START |  |
+| 2026-07-15 09:51:02 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-15 09:51:04 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 10:06:51 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 10:08:18 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 10:08:18 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 10:22:59 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 10:22:59 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 10:23:00 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 10:23:01 | none | WELD_START |  |
+| 2026-07-15 10:23:03 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 10:23:03 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 10:56:59 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 10:57:23 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 10:57:23 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 10:57:48 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 10:57:48 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 10:58:11 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 14:22:52 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 14:44:12 | none | WELD_START |  |
+| 2026-07-15 14:49:46 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 14:57:46 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 14:57:53 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 14:58:02 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 14:58:04 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 14:59:19 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 15:39:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 15:50:26 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-15 16:54:39 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-15 17:14:33 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 17:14:33 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 17:14:38 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 17:14:38 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 17:14:38 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-15 17:14:43 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 17:14:43 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-15 17:14:45 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 08:30:52 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 08:30:52 | none | APP_START |  |
+| 2026-07-16 08:32:20 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 08:32:20 | none | APP_START |  |
+| 2026-07-16 08:34:50 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 08:34:50 | none | APP_START |  |
+| 2026-07-16 08:35:42 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 08:35:42 | none | APP_START |  |
+| 2026-07-16 08:38:02 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-16 08:38:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-16 08:38:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 08:38:55 | none | APP_START |  |
+| 2026-07-16 08:38:55 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 08:43:51 | none | APP_START |  |
+| 2026-07-16 08:43:51 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 08:44:12 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-16 08:44:18 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-16 08:44:19 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 08:49:13 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 08:56:08 | none | APP_START |  |
+| 2026-07-16 08:56:08 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 08:56:47 | none | APP_START |  |
+| 2026-07-16 08:56:47 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 08:56:54 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-16 08:57:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 08:57:53 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 08:57:53 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 08:58:00 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-16 08:58:01 | Andrew Lenehan | LOGOUT |  |
+| 2026-07-16 08:59:19 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-16 08:59:47 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-16 08:59:48 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-16 08:59:52 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-16 08:59:52 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 08:59:53 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-16 08:59:56 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 09:00:00 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-16 09:00:02 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-16 09:00:03 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 09:00:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-16 09:00:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-16 09:00:12 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 09:00:17 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:00:37 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 09:00:52 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:22:52 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 09:23:12 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 09:23:19 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 09:23:19 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:25:14 | none | APP_START |  |
+| 2026-07-16 09:25:14 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 09:25:19 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-16 09:25:21 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:25:41 | none | APP_START |  |
+| 2026-07-16 09:25:41 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 09:25:59 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 09:26:24 | none | APP_START |  |
+| 2026-07-16 09:26:24 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 09:26:28 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-16 09:26:31 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:26:40 | none | APP_START |  |
+| 2026-07-16 09:26:40 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 09:27:10 | none | APP_START |  |
+| 2026-07-16 09:27:10 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 09:27:17 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-16 09:27:24 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:28:11 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 09:31:27 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:31:36 | none | WELD_START |  |
+| 2026-07-16 09:35:33 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:35:40 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 09:42:20 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 09:43:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 10:03:56 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 10:12:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-16 10:35:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:35:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:36:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:37:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:37:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:37:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:37:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 10:37:21 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 12:24:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:24:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:25:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:26:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 12:27:51 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 13:24:25 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 13:36:51 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 13:58:42 | none | WELD_START |  |
+| 2026-07-16 15:15:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 15:18:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-16 15:18:54 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-16 16:27:58 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-16 16:28:13 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 08:43:48 | none | APP_START |  |
+| 2026-07-17 08:43:48 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 08:44:06 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 08:44:09 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 08:45:00 | none | APP_START |  |
+| 2026-07-17 08:45:00 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 08:45:05 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 08:45:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 09:09:19 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 09:09:41 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:10:11 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:18:21 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:18:51 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:19:56 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:20:20 | none | WELD_START |  |
+| 2026-07-17 09:32:08 | none | APP_START |  |
+| 2026-07-17 09:32:08 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:32:12 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 09:32:31 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 09:37:41 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 09:56:19 | none | APP_START |  |
+| 2026-07-17 09:56:19 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:56:23 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 09:56:26 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 09:56:31 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 09:56:55 | none | APP_START |  |
+| 2026-07-17 09:56:55 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:56:58 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 09:57:00 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 09:58:03 | none | APP_START |  |
+| 2026-07-17 09:58:03 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 09:58:07 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 09:58:11 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 09:58:49 | none | WELD_START |  |
+| 2026-07-17 09:58:53 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 09:58:55 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 11:25:21 | none | APP_START |  |
+| 2026-07-17 11:25:21 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 11:25:25 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 11:25:32 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 11:27:22 | none | APP_START |  |
+| 2026-07-17 11:27:22 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 11:27:57 | none | APP_START |  |
+| 2026-07-17 11:27:57 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 11:28:29 | none | APP_START |  |
+| 2026-07-17 11:28:29 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 11:31:44 | none | APP_START |  |
+| 2026-07-17 11:31:44 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 11:31:47 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 11:31:49 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 11:32:11 | none | WELD_START |  |
+| 2026-07-17 11:33:27 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 11:33:27 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 11:33:28 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 11:33:48 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 11:33:50 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 11:33:52 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 11:33:56 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 11:34:00 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 11:34:03 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 11:35:04 | none | APP_START |  |
+| 2026-07-17 11:35:04 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 11:35:08 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-17 11:35:12 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 11:35:14 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 11:35:16 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 12:12:43 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 12:15:05 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-17 12:15:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-17 12:15:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 12:15:10 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 12:15:11 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 12:15:11 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 13:07:54 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 13:07:54 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-17 13:07:55 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 13:16:15 | none | WELD_START |  |
+| 2026-07-17 13:24:42 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 13:28:35 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 14:43:29 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-17 14:43:36 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:43:41 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:43:46 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:43:51 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:43:56 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:01 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:06 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:11 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:16 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:22 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:26 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:31 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:36 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:41 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-17 14:44:44 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 14:46:21 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 14:46:22 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 14:46:24 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-17 16:06:44 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 16:21:28 | none | WELD_START |  |
+| 2026-07-17 16:27:21 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 16:27:37 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 16:27:38 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 16:31:12 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-17 16:53:37 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-17 16:55:34 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 08:31:50 | none | APP_START |  |
+| 2026-07-18 08:31:52 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-18 08:31:54 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-18 08:31:57 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-18 08:32:02 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-18 08:32:07 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10061] No connection could be made because the target machine actively refused it"} |
+| 2026-07-18 08:32:10 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-18 08:32:27 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 08:32:39 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-18 08:32:40 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 08:32:41 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 08:36:08 | none | APP_START |  |
+| 2026-07-18 08:36:08 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-18 08:37:24 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-18 08:37:32 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 08:37:45 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 08:37:45 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 08:39:35 | none | APP_START |  |
+| 2026-07-18 08:39:35 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-18 08:39:40 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-18 08:39:41 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 08:39:47 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 08:39:48 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 08:39:49 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 08:40:01 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-18 08:40:02 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-18 08:40:03 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 08:40:25 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-18 08:40:55 | none | APP_START |  |
+| 2026-07-18 08:40:55 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-18 08:40:59 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-18 08:41:01 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 08:41:13 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 11:17:24 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 11:17:25 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 11:17:54 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 11:20:24 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 11:20:27 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 11:20:39 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 11:27:21 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 11:28:36 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-18 11:30:43 | none | WELD_START |  |
+| 2026-07-18 12:35:31 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 12:35:56 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-18 12:36:08 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-18 14:35:44 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 14:46:56 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-18 15:15:31 | none | WELD_START |  |
+| 2026-07-18 15:15:49 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 15:15:49 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 15:15:50 | none | WELD_START |  |
+| 2026-07-18 16:00:57 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-07-18 16:01:36 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |

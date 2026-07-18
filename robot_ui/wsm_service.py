@@ -13,12 +13,11 @@ import os
 import re
 import glob
 import json
+import traceback
 from pathlib import Path
 from typing import Optional
 
 from PySide6.QtCore import QObject, Signal, Slot, Property
-
-import pdfplumber
 
 
 # Default WSM folder relative to project root
@@ -38,6 +37,26 @@ ALL_KEYS = [
 
 # Persistence file for the chosen WSM folder path
 _SETTINGS_FILE = "wsm_settings.json"
+
+_PDFPLUMBER = None
+_PDFPLUMBER_IMPORT_ERROR: Optional[Exception] = None
+
+
+def _get_pdfplumber():
+    """Import pdfplumber lazily to avoid startup-time import side effects."""
+    global _PDFPLUMBER, _PDFPLUMBER_IMPORT_ERROR
+    if _PDFPLUMBER is not None:
+        return _PDFPLUMBER
+    if _PDFPLUMBER_IMPORT_ERROR is not None:
+        return None
+
+    try:
+        import pdfplumber as _pdfplumber  # type: ignore[import-not-found]
+        _PDFPLUMBER = _pdfplumber
+        return _PDFPLUMBER
+    except Exception as e:
+        _PDFPLUMBER_IMPORT_ERROR = e
+        return None
 
 
 def _project_root() -> Path:
@@ -107,6 +126,13 @@ def _parse_essential_variables(pdf_path: str) -> dict[str, list[str]]:
       - Additional rows in side tables (Wire Diamiter, Min Pre-Heat Temp, etc.)
     """
     result: dict[str, list[str]] = {k: [] for k in ALL_KEYS}
+    pdfplumber = _get_pdfplumber()
+    if pdfplumber is None:
+        print("[WsmService] pdfplumber import failed.")
+        if _PDFPLUMBER_IMPORT_ERROR is not None:
+            print(f"[WsmService] import error: {_PDFPLUMBER_IMPORT_ERROR}")
+            traceback.print_exception(_PDFPLUMBER_IMPORT_ERROR)
+        return result
 
     try:
         with pdfplumber.open(pdf_path) as pdf:

@@ -1,0 +1,137 @@
+FILE: .\ui_qml\RobotUI\components\RobotSimPanel.qml
+  L50 [qml_function] stateName
+  L58 [qml_function] bitOf
+  L67 [qml_function] bitLabel
+  L77 [qml_function] refreshHighBits
+  L106 [qml_function] inPos
+  L107 [qml_function] outPos
+  L109 [qml_function] hasComm
+  L111 [qml_function] refresh
+  L120 [qml_function] toggleInput
+  L126 [qml_function] open
+  L147 [qml_function] pulseInput
+  L158 [qml_function] onIoUpdated
+  L159 [qml_function] onStateChanged
+
+FILE: .\ui_qml\RobotUI\components\SideBar.qml
+  L74 [qml_function] _robotState
+  L83 [qml_function] _stateColor
+  L94 [qml_function] _bit
+  L102 [qml_function] _getInputs
+  L107 [qml_function] _getOutputs
+  L112 [qml_function] _readInWord
+  L118 [qml_function] _readOutWord
+  L124 [qml_function] _writeOutputsWord
+  L129 [qml_function] _writeCmdWordAll
+  L142 [qml_function] _setBit
+  L148 [qml_function] _setCmdBitAll
+  L155 [qml_function] _pulseCmdBit
+  L181 [qml_function] _anyRobotBitOn
+  L189 [qml_function] _robotBitOn
+  L194 [qml_function] anyFault
+  L195 [qml_function] anyTPEN
+  L196 [qml_function] autoEnabled
+  L294 [qml_function] onIoUpdated
+  L312 [qml_function] pressAuto
+  L328 [qml_function] pressManual
+  L344 [qml_function] pressStart
+  L358 [qml_function] pressHold
+  L367 [qml_function] pressStop
+  L375 [qml_function] pressReset
+  L390 [qml_function] pressImstp
+  L412 [qml_function] stopButtonColor
+
+FILE: .\ui_qml\RobotUI\Main.qml
+  L58 [qml_function] tick
+
+FILE: .\ui_qml\RobotUI\screens\CellStatusScreen.qml
+  L55 [qml_function] loadAlarmCatalog
+  L96 [qml_function] alarmLevel
+  L106 [qml_function] rebuildAlarms
+  L135 [qml_function] norm360
+  L142 [qml_function] stateLabel
+  L158 [qml_function] stateColor
+  L192 [qml_function] readSpeedPctFromWords
+  L208 [qml_function] readPosDegFromWords
+  L237 [qml_function] onInWordsChanged
+  L261 [qml_function] getBit
+  L295 [qml_function] quadrantMin
+  L299 [qml_function] quadrantMax
+  L305 [qml_function] clampToQuadrant
+  L327 [qml_function] readCurrentPos
+  L333 [qml_function] writeDesiredPos
+  L342 [qml_function] setOutputBit
+  L355 [qml_function] openCStop
+  L1181 [qml_function] onInWordsChanged
+
+FILE: .\ui_qml\RobotUI\screens\CellStatusScreen_4.qml
+  L43 [qml_function] refreshRobotData
+  L56 [qml_function] wordsFor
+  L64 [qml_function] connStateFor
+  L73 [qml_function] robotPos
+  L81 [qml_function] readPassNumberValue
+  L86 [qml_function] robotPassNum
+  L100 [qml_function] robotStatus
+  L121 [qml_function] norm360
+  L127 [qml_function] stateLabel
+  L141 [qml_function] stateColor
+  L184 [qml_function] loadAlarmCatalog
+  L204 [qml_function] alarmLevel
+  L210 [qml_function] rebuildAlarms
+  L237 [qml_function] onStateChanged
+  L245 [qml_function] onIoUpdated
+  L323 [qml_function] getBit
+  L335 [qml_function] quadrantMin
+  L339 [qml_function] quadrantMax
+  L344 [qml_function] clampToQuadrant
+  L362 [qml_function] readCurrentPos
+  L368 [qml_function] writeDesiredPos
+  L377 [qml_function] setOutputBit
+  L391 [qml_function] clampMm
+  L399 [qml_function] to16
+  L406 [qml_function] writeVertOffset
+  L412 [qml_function] writeHorizOffset
+  L418 [qml_function] openCStop
+  L461 [qml_function] closeCStop
+
+FILE: .\ui_qml\RobotUI\screens\RobotCommScreen.qml
+  L61 [qml_function] _defaultOutNames
+  L66 [qml_function] _defaultInNames
+  L72 [qml_function] _ioFileUrlForRobot
+  L79 [qml_function] loadIoNames
+  L119 [qml_function] bitFromWords
+  L128 [qml_function] refresh
+  L144 [qml_function] onIoUpdated
+  L145 [qml_function] onStateChanged
+  L146 [qml_function] onFaulted
+  L147 [qml_function] onConfigChanged
+  L148 [qml_function] onLogUpdated
+
+FILE: .\ui_qml\RobotUI\screens\SplashAdminScreen.qml
+  L48 [qml_function] loadUsers
+  L78 [qml_function] onUsersChanged
+
+FILE: .\ui_qml\RobotUI\screens\test.qml
+  L156 [qml_function] onValueChanged
+
+FILE: .\ui_qml\RobotUI\screens\WeldingScreen.qml
+  L54 [qml_function] inputBitHigh
+  L64 [qml_function] setOutputBit
+  L77 [qml_function] pulseOutputBitAllConnected
+  L123 [qml_function] onDataChanged
+  L145 [qml_function] getCurrentDate
+  L1296 [qml_function] onInWordsChanged
+  L1349 [qml_function] generateAlertKeys
+  L1359 [qml_function] _alarmCatalogUrl
+  L1363 [qml_function] loadAlarmCatalog
+  L1394 [qml_function] _bitFromWords
+  L1403 [qml_function] _ioKeyToBit1
+  L1412 [qml_function] _isAlertActiveForKey
+  L1419 [qml_function] _alertLabelForKey
+  L1430 [qml_function] _indexOfAlertKey
+  L1437 [qml_function] refreshAlerts
+  L1467 [qml_function] acknowledgeAlert
+  L1898 [qml_function] feedDataToPlot
+  L2037 [qml_function] onError
+  L2043 [qml_function] onLaunched
+

@@ -7,7 +7,6 @@ import RobotUI 1.0
 
 Item {
     id: root
-    anchors.fill: parent
 
     // app-level state
     property bool loggedIn: false

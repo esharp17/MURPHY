@@ -12,8 +12,6 @@ import RobotUI 1.0
 
 Item {
     id: root
-    anchors.fill: parent
-    anchors.margins: 10
 
     property int loggedInRole: 0  // User's current role (0=NONE, 1=OPERATOR, 2=TECHNICIAN, 3=ADMIN)
     property bool isLoggedIn: false

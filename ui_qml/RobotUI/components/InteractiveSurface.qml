@@ -12,8 +12,6 @@ Item {
     property color pressedColor: Theme.btnPressed
     property color disabledColor: Theme.btnDisabled
     property color glowColor: Theme.accent
-
-    property bool enabled: true
     property bool latched: false
     property bool active: false
 

@@ -47,6 +47,7 @@ QtObject {
     property int bodySm: 14
     property int caption: 13           // Small labels
     
+    property int fontSm: 15            // Compatibility alias used by older screens
     property int fontSmall: 15         // Adjusted
     property int fontMed: 24           // Adjusted
     property int fontLg: 36            // Adjusted

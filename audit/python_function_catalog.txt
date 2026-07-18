@@ -1,0 +1,502 @@
+FILE: .\fanuc_eip_probe.py
+  L23 [def] encap_header
+  L36 [def] build_list_services
+  L42 [def] build_register_session
+  L49 [def] parse_register_session
+  L60 [def] build_send_rr_data
+  L74 [def] build_forward_open_cip
+  L114 [def] parse_forward_open_response
+  L184 [def] udp_listen
+  L196 [def] build_udp_o2t
+  L210 [def] udp_send_loop
+  L223 [def] main
+
+FILE: .\robot_ui\app_state.py
+  L9 [class] AppState
+  L16 [def] role
+  L21 [def] set_user
+  L28 [def] can_access_page
+
+FILE: .\robot_ui\backend\robot_backend_base.py
+  L5 [class] MockRobotBackend
+  L10 [def] __init__
+  L21 [def] tick
+  L40 [def] get_robot_io
+
+FILE: .\robot_ui\backend\robot_backend_mock.py
+  L5 [class] MockRobotBackend
+  L10 [def] __init__
+  L21 [def] tick
+  L40 [def] get_robot_io
+
+FILE: .\robot_ui\backend\robot_backend_real.py
+  L5 [class] MockRobotBackend
+  L10 [def] __init__
+  L21 [def] tick
+  L40 [def] get_robot_io
+
+FILE: .\robot_ui\config.py
+  L125 [def] tk_frame_kwargs
+  L130 [def] tk_panel_kwargs
+
+FILE: .\robot_ui\location_service.py
+  L27 [def] _url_open
+  L78 [class] LocationService
+  L83 [def] __init__
+  L102 [def] coords
+  L106 [def] temperature
+  L110 [def] lat
+  L114 [def] lon
+  L118 [def] tempF
+  L122 [def] tempC
+  L126 [def] ready
+  L130 [def] source
+  L138 [def] refresh
+  L146 [def] _fetch_all
+  L180 [def] _fetch_location
+  L195 [def] _fetch_location_windows
+  L239 [def] _fetch_location_ip
+  L260 [def] _fetch_weather
+
+FILE: .\robot_ui\log_service.py
+  L16 [class] LogService
+  L21 [def] __init__
+  L30 [def] log
+  L41 [def] logSimple
+  L47 [def] tail
+  L53 [def] exportToFile
+  L86 [def] restartApp
+  L112 [def] getSystemInfo
+  L157 [def] log_from_python
+
+FILE: .\robot_ui\models.py
+  L5 [class] Role
+  L12 [class] User
+  L17 [class] Alarm
+  L25 [class] RobotIO
+
+FILE: .\robot_ui\permissions.py
+  L20 [def] can_access_page
+  L25 [def] can_access_page_by_index
+
+FILE: .\robot_ui\scan_data_provider.py
+  L19 [def] _find_base_dir
+  L26 [def] _load_xml_points
+  L47 [def] _load_offsets_xml
+  L71 [class] ScanDataProvider
+  L74 [def] __init__
+  L105 [def] loadData
+  L174 [def] isLoaded
+  L178 [def] errorString
+  L182 [def] pointCount
+  L186 [def] gapMin
+  L190 [def] gapMax
+  L194 [def] centerX
+  L198 [def] centerY
+  L202 [def] centerZ
+  L206 [def] sceneRadius
+  L210 [def] yMin
+  L214 [def] yMax
+  L218 [def] cylinderRadius
+  L224 [def] getBasePoints
+  L230 [def] getActualPoints
+  L236 [def] getGaps
+  L241 [def] getSchedules
+  L246 [def] getPositions
+  L251 [def] getPointInfo
+  L265 [def] getAllRowData
+  L286 [def] getGapColor
+  L296 [def] _gap_to_color
+
+FILE: .\robot_ui\scan_plot_item.py
+  L26 [def] _gap_to_rgba
+  L40 [class] ScanPlotItem
+  L53 [def] __init__
+  L123 [def] _get_elev
+  L126 [def] _set_elev
+  L134 [def] _get_azim
+  L137 [def] _set_azim
+  L145 [def] _get_zoom
+  L148 [def] _set_zoom
+  L157 [def] _get_pan_x
+  L160 [def] _set_pan_x
+  L168 [def] _get_pan_y
+  L171 [def] _set_pan_y
+  L179 [def] _get_y_scale
+  L182 [def] _set_y_scale
+  L191 [def] _get_cyl_diam
+  L194 [def] _set_cyl_diam
+  L203 [def] _get_transparency
+  L206 [def] _set_transparency
+  L215 [def] _get_selected_info
+  L220 [def] _get_point_count
+  L225 [def] _get_gap_range_str
+  L232 [def] _get_xz_half
+  L237 [def] _get_y_half
+  L245 [def] loadFromProvider
+  L312 [def] pickPoint
+  L356 [def] _schedule_update
+  L366 [def] _on_render_tick
+  L371 [def] _on_quality_tick
+  L379 [def] _render_plot
+  L528 [def] paint
+
+FILE: .\robot_ui\security.py
+  L5 [def] hash_passcode
+  L16 [def] verify_passcode
+
+FILE: .\robot_ui\storage_log.py
+  L9 [def] _get_log_md_path
+  L17 [def] _append_to_md
+  L38 [def] ensure_log_file
+  L43 [def] append_log
+  L55 [def] sync_md_from_jsonl
+  L83 [def] tail_log
+
+FILE: .\robot_ui\storage_signals.py
+  L5 [def] ensure_signal_names_file
+  L19 [def] load_signal_names
+  L22 [def] get_name
+
+FILE: .\robot_ui\storage_users.py
+  L6 [def] _default_users
+  L16 [def] ensure_users_file
+  L28 [def] load_users
+  L31 [def] list_usernames
+  L35 [def] get_user_record
+  L42 [def] upsert_user
+  L58 [def] delete_user
+
+FILE: .\robot_ui\user_manager.py
+  L13 [class] UserManager
+  L16 [def] __init__
+  L21 [def] load_users
+  L34 [def] save_users
+  L44 [def] get_all_users
+  L48 [def] get_user_by_username
+  L55 [def] add_user
+  L105 [def] delete_user
+  L115 [def] update_user
+  L171 [def] _map_role_to_int
+
+FILE: .\robot_ui\user_service.py
+  L12 [class] UserService
+  L20 [def] __init__
+  L25 [def] getAllUsers
+  L34 [def] getUserByUsername
+  L48 [def] addUser
+  L57 [def] deleteUser
+  L66 [def] updateUser
+
+FILE: .\robot_ui\weld_record_service.py
+  L7 [class] WeldRecordService
+  L33 [def] __init__
+  L46 [def] saveWeldRecord
+
+FILE: .\robot_ui\wsm_service.py
+  L45 [def] _get_pdfplumber
+  L62 [def] _project_root
+  L67 [def] _default_wsm_folder
+  L75 [def] _settings_path
+  L80 [def] _save_folder_setting
+  L87 [def] _load_folder_setting
+  L101 [def] _find_latest_pdf
+  L113 [def] _fmt_inches
+  L119 [def] _parse_essential_variables
+  L245 [class] WsmService
+  L259 [def] __init__
+  L270 [def] setFolder
+  L280 [def] _get_folder
+  L286 [def] _get_pdf_name
+  L293 [def] reload
+  L297 [def] _reload
+  L319 [def] _val
+  L325 [def] _val1
+  L328 [def] _val2
+  L333 [def] _get_pipeDiameter1
+  L334 [def] _get_wallThickness1
+  L335 [def] _get_bevelPrep1
+  L336 [def] _get_preHeatTemp1
+  L337 [def] _get_wireType1
+  L338 [def] _get_wireDiameter1
+  L339 [def] _get_wireBrand1
+  L340 [def] _get_shieldGas1
+  L343 [def] _get_pipeDiameter2
+  L344 [def] _get_wallThickness2
+  L345 [def] _get_bevelPrep2
+  L346 [def] _get_preHeatTemp2
+  L347 [def] _get_wireType2
+  L348 [def] _get_wireDiameter2
+  L349 [def] _get_wireBrand2
+  L350 [def] _get_shieldGas2
+  L370 [def] openPdf
+  L391 [def] essentialVariables
+
+FILE: .\test.py
+  L9 [def] main
+
+FILE: .\ui_qml\main.py
+  L41 [class] PermissionChecker
+  L45 [def] canAccessPage
+  L54 [def] _runtime_root
+  L59 [def] find_base_dir
+  L66 [def] main
+
+FILE: .\ui_qml\Plot_Points.py
+  L23 [def] find_base_dir
+  L30 [def] load_xml_points
+  L67 [def] load_offsets_xml
+  L122 [def] draw_nominal_cylinder_yaxis
+  L147 [def] main
+  L276 [def] apply_limits
+  L287 [def] update_cylinder
+  L304 [def] on_scroll
+  L337 [def] set_view
+  L341 [def] on_top
+  L344 [def] on_side
+  L347 [def] on_front
+  L353 [def] on_iso
+  L370 [def] on_y_scale
+  L387 [def] on_cyl_diam
+  L401 [def] on_cyl_alpha
+  L419 [def] on_pick
+
+FILE: .\ui_qml\Plot_to_image.py
+  L25 [def] find_base_dir
+  L31 [def] load_xml_points
+  L52 [def] load_offsets_xml
+  L76 [def] draw_nominal_cylinder_yaxis
+  L92 [def] render_plot
+
+FILE: .\ui_qml\robot_comm\fanuc_eip_driver.py
+  L12 [def] _hexdump
+  L22 [class] FanucEipDriver
+  L23 [def] __init__
+  L53 [def] _dbg
+  L63 [def] get_debug_log
+  L67 [def] clear_debug_log
+  L72 [def] get_state
+  L73 [def] get_fault
+  L74 [def] get_last_rx_ms
+  L79 [def] get_udp_counts
+  L82 [def] get_inputs
+  L86 [def] get_outputs
+  L91 [def] configure
+  L102 [def] start
+  L112 [def] stop
+  L126 [def] _encap_header
+  L129 [def] _build_list_services
+  L139 [def] _register_session
+  L150 [def] _build_forward_open
+  L191 [def] _extract_multicast_info
+  L230 [def] _do_tcp_connect
+  L247 [def] _process_io_data
+  L268 [def] _udp_sender_loop
+  L292 [def] _listen_loop
+  L315 [def] _udp_watchdog
+  L326 [def] _start_udp
+  L348 [def] _worker
+
+FILE: .\ui_qml\robot_comm\robot_comm_bridge.py
+  L20 [class] RobotCfg
+  L28 [class] RobotCommBridge
+  L41 [def] __init__
+  L98 [def] _resolve_config_path
+  L118 [def] get_in_words
+  L126 [def] _clamp_robot
+  L134 [def] _on_in_words_rx
+  L139 [def] _on_log_line
+  L143 [def] _append_log
+  L151 [def] _save_config
+  L156 [def] _load_config
+  L179 [def] _ensure_udp_rx_listener
+  L189 [def] rx_loop
+  L233 [def] getState
+  L238 [def] getInputs
+  L245 [def] getOutputs
+  L252 [def] getLastRxMs
+  L257 [def] getFault
+  L262 [def] getUdpCounts
+  L267 [def] getDebugLog
+  L273 [def] clearDebugLog
+  L280 [def] getConfig
+  L295 [def] setConfig
+  L323 [def] connectRobot
+  L350 [def] worker
+  L401 [def] udp_tx
+  L413 [def] watchdog
+  L468 [def] setOutputWord
+  L491 [def] setOutputWordAll
+  L515 [def] disconnectRobot
+  L535 [def] simulateRobot
+  L563 [def] isSimulated
+  L568 [def] setInputWord
+  L588 [def] setInputBit
+  L613 [def] getInputBit
+  L630 [def] getOutputBit
+  L647 [def] setInputPos
+  L667 [def] _encap_header
+  L670 [def] _build_list_services
+  L680 [def] _register_session
+  L689 [def] _build_forward_open
+  L729 [def] _extract_conn_ids
+  L750 [def] _process_io_data
+  L797 [def] _build_udp_output
+
+FILE: .\ui_qml\robot_comm\robot_controller.py
+  L4 [class] RobotController
+  L7 [def] __init__
+  L22 [def] _on_io
+  L26 [def] _on_state
+  L30 [def] _on_fault
+  L33 [def] _refresh_io
+  L39 [def] _refresh_state
+  L43 [def] _refresh_all
+  L50 [def] connectRobot
+  L54 [def] disconnectRobot
+  L58 [def] setOutputWord
+
+FILE: .\ui_qml\robot_comm\robot_state.py
+  L4 [class] RobotState
+  L9 [def] __init__
+  L18 [def] setIO
+  L26 [def] setState
+  L32 [def] setFault
+  L39 [def] state
+  L42 [def] fault
+  L45 [def] lastRxMs
+  L48 [def] inputs
+  L51 [def] outputs
+
+FILE: .\ui_qml\robot_comm\scan_plot_bridge.py
+  L9 [class] _Worker
+  L10 [def] __init__
+  L16 [def] run
+  L24 [class] ScanPlotBridge
+  L28 [def] __init__
+  L38 [def] showScanData
+  L39 [def] job
+  L54 [def] showScanDataLocal
+  L56 [def] job
+
+FILE: .\ui_qml\robot_comm\scan_plot_helpers.py
+  L7 [def] fetch_offsets_xml_from_robot
+  L31 [def] normalize_offsets_xml
+
+FILE: .\ui_qml\robot_sim.py
+  L70 [class] RobotSim
+  L71 [def] __init__
+  L104 [def] start
+  L125 [def] stop
+  L136 [def] _tcp_accept_loop
+  L147 [def] _handle_tcp_client
+  L200 [def] _recv_exact
+  L212 [def] _build_list_services_reply
+  L222 [def] _build_register_session_reply
+  L226 [def] _handle_forward_open
+  L266 [def] _encap_header
+  L271 [def] _udp_rx_loop
+  L321 [def] _udp_tx_loop
+  L341 [def] _build_input_packet
+  L362 [def] set_bit
+  L374 [def] get_bit
+  L379 [def] toggle_bit
+  L384 [def] set_word
+  L390 [def] get_state_str
+  L416 [def] print_help
+  L433 [def] main
+
+FILE: .\ui_qml\robot_sim_ui.py
+  L45 [class] RobotSimWindow
+  L46 [def] __init__
+  L98 [def] _robot_index
+  L101 [def] _on_bit_changed
+  L106 [def] _apply_word
+  L121 [def] closeEvent
+  L128 [def] main
+
+FILE: .\ui_qml\robot_ui\scan_data_provider.py
+  L21 [def] _find_base_dir
+  L27 [def] _load_xml_points
+  L48 [def] _load_offsets_xml
+  L72 [class] ScanDataProvider
+  L75 [def] __init__
+  L106 [def] refreshFromRobot
+  L125 [def] loadData
+  L194 [def] isLoaded
+  L198 [def] errorString
+  L202 [def] pointCount
+  L206 [def] gapMin
+  L210 [def] gapMax
+  L214 [def] centerX
+  L218 [def] centerY
+  L222 [def] centerZ
+  L226 [def] sceneRadius
+  L230 [def] yMin
+  L234 [def] yMax
+  L238 [def] cylinderRadius
+  L244 [def] getBasePoints
+  L250 [def] getActualPoints
+  L256 [def] getGaps
+  L261 [def] getSchedules
+  L266 [def] getPositions
+  L271 [def] getPointInfo
+  L285 [def] getAllRowData
+  L306 [def] getGapColor
+  L316 [def] _gap_to_color
+
+FILE: .\ui_qml\robot_ui\scan_plot_item.py
+  L26 [def] _gap_to_rgba
+  L40 [class] ScanPlotItem
+  L48 [def] __init__
+  L97 [def] _get_elev
+  L100 [def] _set_elev
+  L109 [def] _get_azim
+  L112 [def] _set_azim
+  L121 [def] _get_zoom
+  L124 [def] _set_zoom
+  L134 [def] _get_selected_info
+  L139 [def] _get_point_count
+  L144 [def] _get_gap_range_str
+  L154 [def] loadFromProvider
+  L210 [def] pickPoint
+  L254 [def] _render_plot
+  L399 [def] paint
+
+FILE: .\ui_qml\RobotUI\adapter.py
+  L26 [def] log
+  L30 [def] u16
+  L32 [def] u32
+  L35 [class] DummyEipAdapter
+  L36 [def] __init__
+  L82 [def] _encap_header
+  L86 [def] _handle_list_services
+  L95 [def] _handle_register_session
+  L99 [def] _build_forward_open_response
+  L150 [def] _handle_tcp_client
+  L213 [def] _tcp_server
+  L239 [def] _udp_open
+  L246 [def] _parse_scanner_udp
+  L295 [def] _udp_rx_loop
+  L313 [def] _build_adapter_udp
+  L335 [def] _udp_tx_loop
+  L355 [def] start
+  L375 [def] stop
+  L387 [def] set_input_bit
+  L399 [def] get_inputs_words
+  L403 [def] get_outputs_words
+  L407 [def] get_last_rx_ms
+  L413 [def] _get_out_bit
+  L422 [def] _set_in_bit
+  L426 [def] _response_loop
+  L447 [def] _finish_go_home
+  L456 [def] _finish_resume
+  L463 [class] App
+  L464 [def] __init__
+  L517 [def] _build_bits_panel
+  L547 [def] _set_word4_from_entry
+  L565 [def] _sync_word4_entry_from_bits
+  L572 [def] on_start
+  L577 [def] on_stop
+  L582 [def] _ui_tick
+

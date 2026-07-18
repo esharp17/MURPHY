@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 os.environ["QML_XHR_ALLOW_FILE_READ"] = "1"
 os.environ["QT_QUICK_CONTROLS_STYLE"] = "Basic"
 
-from PySide6.QtCore import Qt, QUrl, QObject, Slot
+from PySide6.QtCore import QUrl, QObject, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
 
@@ -100,6 +100,18 @@ def main() -> int:
     scanDataProvider = ScanDataProvider()
     engine.rootContext().setContextProperty("ScanDataProvider", scanDataProvider)
 
+    robot_ip  = "192.168.2.1"
+    ftp_user  = "PC"
+    ftp_pass  = "1234"
+
+    scan_plot = ScanPlotBridge(
+        base_dir=BASE_DIR,
+        fetch_offsets_xml_from_robot=lambda: fetch_offsets_xml_from_robot(robot_ip, ftp_user, ftp_pass, BASE_DIR),
+        normalize_offsets_xml=lambda p: normalize_offsets_xml(p, BASE_DIR),
+        plot_script_name="Plot_points.py",
+    )
+    engine.rootContext().setContextProperty("ScanPlot", scan_plot)
+
     # Register ScanPlotItem as a QML type
     qmlRegisterType(ScanPlotItem, "ScanPlot", 1, 0, "ScanPlotItem")
 
@@ -112,23 +124,10 @@ def main() -> int:
     if not engine.rootObjects():
         return 1
 
-    robot_ip  = "192.168.2.1"
-    ftp_user  = "PC"
-    ftp_pass  = "1234"
-
-    scan_plot = ScanPlotBridge(
-        base_dir=BASE_DIR,
-        fetch_offsets_xml_from_robot=lambda: fetch_offsets_xml_from_robot(robot_ip, ftp_user, ftp_pass, BASE_DIR),
-        normalize_offsets_xml=lambda p: normalize_offsets_xml(p, BASE_DIR),
-        plot_script_name="Plot_points.py",
-    )
-
-    engine.rootContext().setContextProperty("ScanPlot", scan_plot)
-
 
     win = engine.rootObjects()[0]
-    win.setFlags(win.flags() | Qt.FramelessWindowHint)
-    win.showMaximized()
+    # Keep native window chrome so users can drag the app between monitors.
+    win.show()
 
     logService.log_from_python("APP_START")
 

@@ -1,0 +1,21 @@
+
+Name                                     Count
+----                                     -----
+.\ui_qml\robot_comm\robot_comm_bridge.py    44
+.\robot_ui\wsm_service.py                   37
+.\ui_qml\RobotUI\adapter.py                 35
+.\robot_ui\scan_plot_item.py                31
+.\ui_qml\robot_ui\scan_data_provider.py     28
+.\robot_ui\scan_data_provider.py            27
+.\ui_qml\robot_comm\fanuc_eip_driver.py     27
+.\ui_qml\robot_sim.py                       21
+.\ui_qml\Plot_Points.py                     17
+.\robot_ui\location_service.py              17
+.\ui_qml\robot_ui\scan_plot_item.py         16
+.\ui_qml\robot_comm\robot_controller.py     11
+.\fanuc_eip_probe.py                        11
+.\robot_ui\user_manager.py                  10
+.\ui_qml\robot_comm\robot_state.py          10
+
+
+

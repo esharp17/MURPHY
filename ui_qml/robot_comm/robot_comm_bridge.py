@@ -16,10 +16,6 @@ from robot_ui.config import SYSTEM_LOG_JSONL
 from robot_ui.storage_log import append_log as _sys_log
 
 
-print("LOADED RobotCommBridge FROM:", __file__)
-print("USING ROBOT_COMM_BRIDGE FROM:", __file__, flush=True)
-
-
 @dataclass
 class RobotCfg:
     ip: str = ""
@@ -61,7 +57,6 @@ class RobotCommBridge(QObject):
         self._last_udp_ts = [0.0] * 4
 
         self._cfg_path = self._resolve_config_path()
-        print(f"[BRIDGE] Config file: {self._cfg_path}", flush=True)
 
         self._cfgs = [RobotCfg() for _ in range(4)]
         self._cfgs[0].ip = "192.168.2.1"
@@ -99,9 +94,6 @@ class RobotCommBridge(QObject):
         self.logLine.connect(self._on_log_line)
 
         self._load_config()
-        for idx in range(4):
-            c = self._cfgs[idx]
-            print(f"[BRIDGE] Robot {idx}: ip={c.ip} port={c.port} slot={c.slot} in={c.in_words} out={c.out_words}", flush=True)
 
     def _resolve_config_path(self):
         root_dir = Path(__file__).resolve().parents[2]
@@ -193,7 +185,6 @@ class RobotCommBridge(QObject):
         s.settimeout(0.5)
         s.bind(("", 2222))
         self._udp_rx_sock = s
-        print("[BRIDGE] UDP listener bound *:2222", flush=True)
 
         def rx_loop():
             rx_count = 0
@@ -222,7 +213,11 @@ class RobotCommBridge(QObject):
                 self._last_rx_ms[i] = 0
                 rx_count += 1
 
-                self._process_io_data(i, data)
+                try:
+                    self._process_io_data(i, data)
+                except RuntimeError:
+                    # Bridge QObject is being destroyed; stop RX thread quietly.
+                    break
                 try:
                     self.ioUpdated.emit(i)
                 except RuntimeError:
@@ -339,14 +334,6 @@ class RobotCommBridge(QObject):
         if not str(c.ip).strip():
             return
 
-        print(f"[BRIDGE] connectRobot({i}) ip={c.ip} port={c.port} slot={c.slot}", flush=True)
-
-        self.logLine.emit(
-            i,
-            f"CONNECT requested: ip={c.ip} port={c.port} slot={c.slot} in={c.in_words} out={c.out_words}",
-        )
-        _sys_log(SYSTEM_LOG_JSONL, "ROBOT_CONNECT", None, {"robot": i, "ip": c.ip, "port": c.port})
-
         t = self._threads[i]
         if t and t.is_alive():
             return
@@ -365,30 +352,19 @@ class RobotCommBridge(QObject):
             tx_sock = None
 
             try:
-                self.logLine.emit(i, "Worker started")
-
                 # TCP connect (no ping — it wastes 4+ seconds)
                 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 tcp.settimeout(5.0)
-                print(f"[BRIDGE] Robot {i}: TCP connecting to {c.ip}:{c.port} ...", flush=True)
-                self.logLine.emit(i, f"TCP connect -> {c.ip}:{c.port}")
                 tcp.connect((c.ip, int(c.port)))
-                print(f"[BRIDGE] Robot {i}: TCP connected!", flush=True)
-                self.logLine.emit(i, "TCP connected")
 
                 # ListServices
-                self.logLine.emit(i, "EIP: ListServices")
                 tcp.sendall(self._build_list_services())
                 _ = tcp.recv(1024)
 
                 # RegisterSession
-                self.logLine.emit(i, "EIP: RegisterSession")
                 session = self._register_session(tcp, i)
-                print(f"[BRIDGE] Robot {i}: session=0x{session:08X}", flush=True)
-                self.logLine.emit(i, f"EIP: session=0x{session:08X}")
 
                 # ForwardOpen
-                self.logLine.emit(i, "CIP: ForwardOpen send")
                 fwd = self._build_forward_open(i, session)
                 tcp.sendall(fwd)
                 resp = tcp.recv(2048)
@@ -396,7 +372,6 @@ class RobotCommBridge(QObject):
                 # Verify FO reply
                 svc = resp[40] if len(resp) > 40 else 0
                 if svc != 0xD4:
-                    self.logLine.emit(i, f"ForwardOpen bad service byte at [40]=0x{svc:02X}")
                     raise RuntimeError("ForwardOpen failed (service != 0xD4)")
 
                 # Extract both conn ids
@@ -410,9 +385,6 @@ class RobotCommBridge(QObject):
                 with self._rx_map_lock:
                     self._rx_map[t2o_conn_id] = i
 
-                print(f"[BRIDGE] Robot {i}: ForwardOpen OK  o2t=0x{o2t_conn_id:08X} t2o=0x{t2o_conn_id:08X}", flush=True)
-                self.logLine.emit(i, f"FO OK: o2t=0x{o2t_conn_id:08X} t2o=0x{t2o_conn_id:08X}")
-
                 # Ensure shared UDP RX is running
                 self._ensure_udp_rx_listener()
 
@@ -423,8 +395,8 @@ class RobotCommBridge(QObject):
                 # Set CYCLIC now
                 self._state[i] = 2
                 self.stateChanged.emit(i)
-                print(f"[BRIDGE] Robot {i}: CYCLIC — sending/receiving UDP on port 2222", flush=True)
-                self.logLine.emit(i, "State -> CYCLIC")
+                print(f"[BRIDGE] Robot {i}: connected", flush=True)
+                _sys_log(SYSTEM_LOG_JSONL, "ROBOT_CONNECT", None, {"robot": i, "ip": c.ip, "port": c.port})
 
                 def udp_tx():
                     interval = 0.008
@@ -445,7 +417,6 @@ class RobotCommBridge(QObject):
                         if ts > 0:
                             self._last_rx_ms[i] = int((time.time() - ts) * 1000.0)
                             if (time.time() - ts) > 2.0:
-                                self.logLine.emit(i, "WATCHDOG: no UDP RX for 2.0s -> stopping")
                                 self._stop_events[i].set()
                                 break
 
@@ -454,8 +425,6 @@ class RobotCommBridge(QObject):
 
                 while not self._stop_events[i].is_set():
                     time.sleep(0.2)
-
-                self.logLine.emit(i, "Worker stopping (stop_event set)")
 
             except Exception as e:
                 if self._sim[i]:
@@ -490,9 +459,6 @@ class RobotCommBridge(QObject):
                     tid = self._t2o_conn_id[i]
                     if tid in self._rx_map and self._rx_map[tid] == i:
                         del self._rx_map[tid]
-
-                print(f"[BRIDGE] Robot {i}: worker exit (state={self._state[i]})", flush=True)
-                self.logLine.emit(i, "Worker exit")
 
         t = threading.Thread(target=worker, daemon=True)
         self._threads[i] = t
@@ -548,7 +514,7 @@ class RobotCommBridge(QObject):
     @Slot(int)
     def disconnectRobot(self, i):
         i = self._clamp_robot(i)
-        self.logLine.emit(i, "DISCONNECT requested")
+        print(f"[BRIDGE] Robot {i}: disconnected", flush=True)
         _sys_log(SYSTEM_LOG_JSONL, "ROBOT_DISCONNECT", None, {"robot": i})
         self._sim[i] = False
         self._stop_events[i].set()
@@ -588,8 +554,7 @@ class RobotCommBridge(QObject):
             if not any(self._inputs[i]):
                 self._inputs[i][0] = 0x0001
 
-        print(f"[BRIDGE] Robot {i}: SIMULATION enabled (acting as robot)", flush=True)
-        self.logLine.emit(i, "SIMULATION enabled — operator acting as robot")
+        print(f"[BRIDGE] Robot {i}: connected (simulation)", flush=True)
         _sys_log(SYSTEM_LOG_JSONL, "ROBOT_SIMULATE", None, {"robot": i})
         self.stateChanged.emit(i)
         self.ioUpdated.emit(i)
@@ -742,8 +707,6 @@ class RobotCommBridge(QObject):
         in_param = CONN_TYPE_P2P | CONN_FIXED | in_size
         out_param = CONN_TYPE_P2P | CONN_FIXED | out_size
 
-        self.logLine.emit(robot_i, f"FO params: in_param=0x{in_param:04X} out_param=0x{out_param:04X}")
-
         cip += struct.pack("<I", 0x00004E20) + struct.pack("<H", out_param)
         cip += struct.pack("<I", 0x00004E20) + struct.pack("<H", in_param) + b"\x01"
 
@@ -802,13 +765,6 @@ class RobotCommBridge(QObject):
 
         payload = data[payload_start:payload_end]
 
-        # DEBUG: print first few payloads to understand format
-        if not hasattr(self, '_dbg_count'):
-            self._dbg_count = 0
-        self._dbg_count += 1
-        if self._dbg_count <= 5:
-            print(f"[BRIDGE] B1 payload len={len(payload)} hex={payload.hex()}", flush=True)
-
         # T->O from real Fanuc: seq16(2) + io_words (no run_idle)
         # Skip only 2 bytes (seq16)
         if len(payload) < 2:
@@ -832,7 +788,11 @@ class RobotCommBridge(QObject):
 
         # publish words to QML
         if robot_i == 0:
-            self._inWordsRx.emit(words)
+            try:
+                self._inWordsRx.emit(words)
+            except RuntimeError:
+                # Bridge QObject is being destroyed; caller handles thread exit.
+                raise
 
     def _build_udp_output(self, robot_i, conn_id):
         c = self._cfgs[robot_i]

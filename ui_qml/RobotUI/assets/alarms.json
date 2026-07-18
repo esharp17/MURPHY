@@ -1,4 +1,5 @@
 {
+  "27": { "name": "Program Generation", "desc": "Robot is generating program. Hold please!", "severity": "Warning", "stop": "ROBOT", "textColor": "#61F527" },
   "40": { "name": "Robot not in Auto", "desc": "Robot # is not in Automatic Mode. Please check Key switch.", "severity": "Fault", "stop": "ROBOT", "textColor": "#e53935" },
   "41": { "name": "TP Enabled", "desc": "Teach pendant enabled. Please check robot # and set the pendant to auto.", "severity": "Fault", "stop": "ALL", "textColor": "#e53935" },
   "42": { "name": "Shielding Gas Low", "desc": "Shielding gas level is low. Weld quality may be affected.", "severity": "Warning", "stop": "NONE", "textColor": "#f2c94c" },

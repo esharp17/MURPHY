@@ -45,6 +45,7 @@ Rectangle {
     property bool manualActive: false
     property bool holdActive:   false
     property bool startActive:  false
+    property bool stopActive:   false
     property bool resetActive:  false
 
     // derived / cached indicators (bindings must depend on QML properties)

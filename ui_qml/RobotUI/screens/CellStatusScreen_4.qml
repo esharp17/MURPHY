@@ -52,6 +52,12 @@ Rectangle {
         r3Words = RobotComm.getInputs(3)
     }
 
+    function refreshOnOpen() {
+        refreshRobotData()
+        ioInWords = r0Words
+        rebuildAlarms()
+    }
+
     // Get input words for a robot index
     function wordsFor(idx) {
         if (idx === 0) return root.r0Words
@@ -207,17 +213,42 @@ Rectangle {
         return "INFO"
     }
 
+    function alarmBitNumber(entryKey) {
+        var n = parseInt(String(entryKey), 10)
+        if (isNaN(n) || n <= 0) return -1
+        return n
+    }
+
     function rebuildAlarms() {
         messageModel.clear()
-        var robotWords = [r0Words, r1Words, r2Words, r3Words]
+        var robotInputs = [r0Words, r1Words, r2Words, r3Words]
         var robotNames = ["Robot 1", "Robot 2", "Robot 3", "Robot 4"]
+        var catalogKeys = Object.keys(alarmCatalog || {})
+        var watchKeys = []
+
+        for (var i = 0; i < catalogKeys.length; i++) {
+            var bitNum = alarmBitNumber(catalogKeys[i])
+            if (bitNum > 0) {
+                watchKeys.push("DO" + bitNum)
+            }
+        }
+
+        if (watchKeys.length === 0) {
+            for (var fallbackBit = 40; fallbackBit <= 60; fallbackBit++) {
+                watchKeys.push("DO" + fallbackBit)
+            }
+        }
+
         for (var ri = 0; ri < 4; ri++) {
-            for (var b = 40; b <= 60; b++) {
-                if (!getBit(robotWords[ri], b)) continue
-                var key = "DI" + b
+            for (var wk = 0; wk < watchKeys.length; wk++) {
+                var key = watchKeys[wk]
+                var bitNum = alarmBitNumber(String(key).replace(/^(DI|DO)/, ""))
+                if (bitNum <= 0) continue
+                var words = robotInputs[ri]
+                if (!getBit(words, bitNum)) continue
                 if (root.dismissedAlertKeys && root.dismissedAlertKeys[key]) continue
-                var def = alarmCatalog[String(b)]
-                if (!def) def = { name: "Alarm " + b, desc: "Active", severity: "Fault", textColor: "" }
+                var def = alarmCatalog[String(bitNum)]
+                if (!def) def = { name: "Alarm " + bitNum, desc: "Active", severity: "Fault", textColor: "" }
                 var tc = (def.textColor && String(def.textColor).length > 0) ? String(def.textColor) : Theme.text
                 messageModel.append({
                     ts: "",
@@ -229,7 +260,14 @@ Rectangle {
         }
     }
 
-    Component.onCompleted: loadAlarmCatalog()
+    Component.onCompleted: {
+        loadAlarmCatalog()
+        refreshOnOpen()
+    }
+
+    onVisibleChanged: {
+        if (visible) refreshOnOpen()
+    }
 
     Connections {
         target: RobotComm || null
@@ -329,15 +367,14 @@ Rectangle {
         return ((w >> bi) & 1) === 1
     }
 
-    // Quadrant limits per robot (with +/-10 deg tolerance)
-    // Robot 0 = top-right (Q1: 0-90), Robot 1 = top-left (Q2: 90-180)
-    // Robot 2 = bottom-left (Q3: 180-270), Robot 3 = bottom-right (Q4: 270-360)
+    // C-stop limits per robot.
+    // Robot index 0 uses an extended wrap-around window: 350..190.
     function quadrantMin(robotIdx) {
         var bases = [350, 80, 170, 260]
         return bases[Math.min(3, Math.max(0, robotIdx))]
     }
     function quadrantMax(robotIdx) {
-        var caps = [100, 190, 280, 370]
+        var caps = [190, 190, 280, 370]
         return caps[Math.min(3, Math.max(0, robotIdx))]
     }
 

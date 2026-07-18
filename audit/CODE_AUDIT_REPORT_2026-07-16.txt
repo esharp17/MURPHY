@@ -1,0 +1,149 @@
+MURPHY CODE AUDIT REPORT
+Date: 2026-07-16
+Mode: Read-only audit (no behavior/code refactor changes)
+
+1) Scope
+- Included: production Python and QML under MURPHY/robot_ui, MURPHY/ui_qml, MURPHY/ui_qml/RobotUI.
+- Excluded from findings priority: Testing/* and .venv third-party files.
+- Goal: inventory functions/classes, note usage paths, detect duplicates/overlap, and identify consolidation opportunities.
+
+2) Method
+- Built full symbol inventories:
+  - audit/python_symbol_usage.csv
+  - audit/qml_function_usage.csv
+- Built grouped catalogs (function-by-function with file + line):
+  - audit/python_function_catalog.txt
+  - audit/qml_function_catalog.txt
+- Built duplicate name indexes:
+  - audit/python_duplicate_symbol_names.csv
+  - audit/qml_duplicate_function_names.csv
+- Built density summaries:
+  - audit/python_symbol_density.txt
+  - audit/qml_symbol_density.csv
+
+3) Inventory Summary
+- Python symbols discovered: 471
+  - Functions/methods: 441
+  - Classes: 30
+- QML functions discovered: 502 total (includes .venv framework QML)
+  - Workspace QML files with highest function density:
+    - ui_qml/RobotUI/screens/CellStatusScreen_4.qml
+    - ui_qml/RobotUI/components/SideBar.qml
+    - ui_qml/RobotUI/screens/WeldingScreen.qml
+    - ui_qml/RobotUI/screens/CellStatusScreen.qml
+
+4) High-Confidence Duplicate/Overlap Findings
+
+4.1 Duplicate Python modules with overlapping responsibility (High)
+- scan provider duplicated:
+  - robot_ui/scan_data_provider.py
+  - ui_qml/robot_ui/scan_data_provider.py
+- Evidence:
+  - Both define class ScanDataProvider and near-identical API surface (getBasePoints/getActualPoints/getAllRowData/etc).
+  - Runtime uses ui_qml/robot_ui/scan_data_provider.py (imported in ui_qml/main.py).
+- Risk:
+  - Bug fixes can land in wrong copy (already observed with getAllRowData mismatch earlier).
+
+4.2 Duplicate plot item modules (High)
+- scan plot item duplicated:
+  - robot_ui/scan_plot_item.py
+  - ui_qml/robot_ui/scan_plot_item.py
+- Evidence:
+  - Both define class ScanPlotItem and same core methods (loadFromProvider, pickPoint, paint, rendering pipeline).
+- Risk:
+  - Divergent behavior between copies; difficult debugging.
+
+4.3 Backend mock/real/base appear copy-equivalent (High)
+- Files:
+  - robot_ui/backend/robot_backend_base.py
+  - robot_ui/backend/robot_backend_mock.py
+  - robot_ui/backend/robot_backend_real.py
+- Evidence:
+  - All define class MockRobotBackend with same method set (__init__, tick, get_robot_io).
+- Risk:
+  - Naming/structure implies abstraction but implementation does not yet differentiate real vs mock.
+
+4.4 EtherNet/IP stack overlap across multiple implementations (High)
+- Overlapping protocol implementations in:
+  - ui_qml/robot_comm/robot_comm_bridge.py
+  - ui_qml/robot_comm/fanuc_eip_driver.py
+  - ui_qml/robot_sim.py
+  - ui_qml/RobotUI/adapter.py
+- Evidence:
+  - Repeated low-level helpers and loops: _encap_header, _register_session, _build_forward_open, _process_io_data, UDP RX/TX loops.
+- Risk:
+  - Protocol fixes may be patched in one implementation and missed in others.
+
+4.5 QML screen variant duplication (High)
+- Cell status duplication:
+  - ui_qml/RobotUI/screens/CellStatusScreen.qml (used in Main.qml)
+  - ui_qml/RobotUI/screens/CellStatusScreen_4.qml (not referenced by Main.qml)
+- Evidence:
+  - Repeated function families: loadAlarmCatalog, rebuildAlarms, stateLabel/stateColor, quadrant math, openCStop, setOutputBit.
+- Risk:
+  - Parallel maintenance and stale variant drift.
+
+5) Usage Map (Key Runtime Paths)
+
+5.1 Startup and wiring
+- ui_qml/main.py is the composition root.
+- Context properties wired to QML include:
+  - RobotComm / RobotCommBridge (bridge)
+  - RobotState / RobotCtl
+  - ScanDataProvider (from ui_qml.robot_ui.scan_data_provider)
+  - WsmService / LogService / UserService / WeldRecordService / LocationService
+
+5.2 Welding scan data flow
+- In WeldingScreen.qml:
+  - Start Scan path pulses output bit 15, then calls ScanDataProvider.refreshFromRobot().
+  - Scan Data path now loads from provider and can fetch when not loaded.
+- Fetch implementation path:
+  - ui_qml/robot_ui/scan_data_provider.py -> robot_comm/scan_plot_helpers.py
+
+5.3 Robot comm control path
+- QML action buttons -> RobotCommBridge slots/methods.
+- Bridge drives TCP/EIP setup + UDP cyclic I/O and emits state/io signals to QML/controller.
+
+6) Probable Orphan / Low-Use Candidates (Review Before Removal)
+- ui_qml/RobotUI/screens/CellStatusScreen_4.qml
+  - Not referenced by Main.qml.
+- ui_qml/robot_comm/fanuc_eip_driver.py
+  - Class present, no clear production import path found from active startup chain.
+- ui_qml/Plot_to_image.py and ui_qml/Plot_Points.py
+  - Legacy/utility scripts; evaluate whether still required in current in-process ScanPlotItem flow.
+- ui_qml/RobotUI/adapter.py and ui_qml/robot_sim.py
+  - Both include substantial simulator/protocol code; likely overlap, confirm intended ownership.
+
+7) Function-Level Documentation Deliverables
+- Full Python function/class catalog with line references:
+  - audit/python_function_catalog.txt
+- Full QML function catalog with line references:
+  - audit/qml_function_catalog.txt
+- These files satisfy the "each function documented" requirement at inventory level.
+
+8) Duplicate Comparison Deliverables
+- Python duplicate names and locations:
+  - audit/python_duplicate_symbol_names.csv
+- QML duplicate function names and locations:
+  - audit/qml_duplicate_function_names.csv
+- Note: duplicate-name index includes conventional duplicates (e.g., __init__). Focus on domain duplicates listed in section 4.
+
+9) Recommended Consolidation Order (No Changes Applied Yet)
+- Priority 1: unify ScanDataProvider and ScanPlotItem into single authoritative location.
+- Priority 2: choose one cell-status screen variant; archive/remove the other.
+- Priority 3: decide protocol ownership:
+  - either RobotCommBridge remains source-of-truth and other stacks are adapter/sim only,
+  - or extract shared protocol helpers into one common module.
+- Priority 4: split backend mock/real/base into true abstraction with distinct implementations.
+
+10) Audit Risks / Caveats
+- QML dynamic invocation and signal wiring can hide some call paths from static text search.
+- Name-based duplicate detection may over-report generic names (__init__, main, tick).
+- This pass is static-analysis-heavy; runtime coverage correlation (test/trace-based) can be added in phase 2.
+
+11) Suggested Phase 2 (if approved)
+- Build a normalized call graph for production modules only.
+- Add confidence tags per function: active, indirectly active, likely orphan.
+- Produce a safe merge plan per duplicate cluster with test checkpoints and rollback points.
+
+END OF REPORT

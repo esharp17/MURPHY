@@ -6,7 +6,6 @@ import ScanPlot 1.0
 
 Rectangle {
     id: root
-    anchors.fill: parent
     color: Theme.panel
     radius: Theme.radius
 
@@ -46,6 +45,7 @@ Rectangle {
     property real scanYScale: 1.0
     property real scanCylDiam: 45.0
     property real scanTransparency: 0.25
+    property bool resumedWeldActive: false
     property var dismissedAlertKeys: ({})
     property bool isLoggedIn: false
 
@@ -60,6 +60,55 @@ Rectangle {
         if (wi < 0 || wi >= words.length) return false
         var w = Number(words[wi]) & 0xFFFF
         return ((w >> bi) & 1) === 1
+    }
+
+    function setOutputBit(robotIdx, bit1, value) {
+        if (!robotComm) return
+        var wi = Math.floor((bit1 - 1) / 16)
+        var bi = (bit1 - 1) % 16
+        var outs = robotComm.getOutputs(robotIdx) || []
+        var w = (outs.length > wi) ? (Number(outs[wi]) & 0xFFFF) : 0
+        if (value)
+            w = w | (1 << bi)
+        else
+            w = w & (~(1 << bi))
+        robotComm.setOutputWord(robotIdx, wi, w)
+    }
+
+    function pulseOutputBitAllConnected(bit1, pulseMs) {
+        if (!robotComm) return
+
+        var wi = Math.floor((bit1 - 1) / 16)
+        var bi = (bit1 - 1) % 16
+        var mask = (1 << bi)
+        var touchedRobots = []
+
+        for (var r = 0; r < 4; r++) {
+            if (robotComm.getState && robotComm.getState(r) !== 2) continue
+            var outs = robotComm.getOutputs(r) || []
+            var w = (outs.length > wi) ? (Number(outs[wi]) & 0xFFFF) : 0
+            robotComm.setOutputWord(r, wi, w | mask)
+            touchedRobots.push(r)
+        }
+
+        if (touchedRobots.length === 0) return
+
+        var t = Qt.createQmlObject(
+            "import QtQuick 2.15; Timer { repeat: false }",
+            root,
+            "pulseBitTimer"
+        )
+        t.interval = Math.max(1, Number(pulseMs) || 250)
+        t.triggered.connect(function() {
+            for (var idx = 0; idx < touchedRobots.length; idx++) {
+                var robotIdx = touchedRobots[idx]
+                var outsNow = robotComm.getOutputs(robotIdx) || []
+                var wNow = (outsNow.length > wi) ? (Number(outsNow[wi]) & 0xFFFF) : 0
+                robotComm.setOutputWord(robotIdx, wi, wNow & (~mask))
+            }
+            t.destroy()
+        })
+        t.start()
     }
 
     readonly property bool scanReadyFromRobot: inputBitHigh(15)
@@ -99,6 +148,21 @@ Rectangle {
         var months = ["January", "February", "March", "April", "May", "June",
                       "July", "August", "September", "October", "November", "December"]
         return months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
+    }
+
+    function showScanWorkspace() {
+        if (!ScanDataProvider.isLoaded()) {
+            var ok = ScanDataProvider.refreshFromRobot()
+            if (!ok || !ScanDataProvider.isLoaded()) {
+                root.saveErrorMessage = "Failed to load scan data: " + ScanDataProvider.errorString()
+                return false
+            }
+        }
+        root.scanRowData = ScanDataProvider.getAllRowData()
+        root.scanDataLoaded = true
+        root.showScanDataPage = false
+        root.showScanView = true
+        return true
     }
 
     // =========================================================
@@ -405,33 +469,79 @@ Rectangle {
         }
     }
 
-    // New Weld Button - bottom right (pre-check view only)
-    Rectangle {
-        width: 180
-        height: 56
-        radius: Theme.radius
-        color: root.preCheckConfirmed ? Theme.accent : Theme.stateDisabled
+    // Continue/New Weld buttons - bottom right (pre-check view only)
+    Row {
+        id: precheckActionButtons
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.rightMargin: Theme.pad
         anchors.bottomMargin: Theme.pad
-        visible: !root.showWeldRecord
+        spacing: Theme.gapSm
+        visible: !root.showWeldRecord && !root.showScanView
 
-        Text {
-            anchors.centerIn: parent
-            text: "New Weld"
-            color: root.preCheckConfirmed ? Theme.panel : Theme.muted
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.body
-            font.bold: true
+        Rectangle {
+            width: 220
+            height: 56
+            radius: Theme.radius
+            color: root.preCheckConfirmed ? Theme.accent : Theme.stateDisabled
+
+            Text {
+                anchors.centerIn: parent
+                text: "Continue Previous Weld"
+                color: root.preCheckConfirmed ? Theme.panel : Theme.muted
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.body
+                font.bold: true
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                enabled: root.preCheckConfirmed
+                cursorShape: root.preCheckConfirmed ? Qt.PointingHandCursor : Qt.ArrowCursor
+                onClicked: {
+                    root.resumedWeldActive = true
+                    root.showWeldRecord = false
+                    root.showScanWorkspace()
+                }
+            }
         }
 
-        MouseArea {
-            anchors.fill: parent
-            enabled: root.preCheckConfirmed
-            cursorShape: root.preCheckConfirmed ? Qt.PointingHandCursor : Qt.ArrowCursor
-            onClicked: {
-                root.showWeldRecord = true
+        Rectangle {
+            id: newWeldButton
+            width: 180
+            height: 56
+            radius: Theme.radius
+            color: root.preCheckConfirmed ? Theme.accent : Theme.stateDisabled
+
+            Text {
+                anchors.centerIn: parent
+                text: "New Weld"
+                color: root.preCheckConfirmed ? Theme.panel : Theme.muted
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.body
+                font.bold: true
+            }
+
+            Timer {
+                id: newWeldHoldTimer
+                interval: 1000
+                repeat: false
+                onTriggered: {
+                    if (!newWeldMouse.pressed) return
+                    root.resumedWeldActive = false
+                    root.pulseOutputBitAllConnected(12, 250)
+                    root.showWeldRecord = true
+                }
+            }
+
+            MouseArea {
+                id: newWeldMouse
+                anchors.fill: parent
+                enabled: root.preCheckConfirmed
+                cursorShape: root.preCheckConfirmed ? Qt.PointingHandCursor : Qt.ArrowCursor
+                onPressed: newWeldHoldTimer.restart()
+                onReleased: newWeldHoldTimer.stop()
+                onCanceled: newWeldHoldTimer.stop()
             }
         }
     }
@@ -1144,14 +1254,10 @@ Rectangle {
                 enabled: root.scanReadyFromRobot
 
                 onClicked: {
-                    // Send output bit 15 high to tell robot to start scan
-                    var outs = robotComm.getOutputs(0) || []
-                    var wi = Math.floor((15 - 1) / 16)
-                    var bi = (15 - 1) % 16
-                    var w = (outs.length > wi) ? (Number(outs[wi]) & 0xFFFF) : 0
-                    robotComm.setOutputWord(0, wi, w | (1 << bi))
+                    // Pulse output bit 15 high to tell robot to start scan
+                    root.setOutputBit(0, 15, true)
                     root.scanLoading = true
-                    scanLoadTimer.start()
+                    scanPulseTimer.start()
                 }
 
                 Text {
@@ -1163,6 +1269,28 @@ Rectangle {
                     font.bold: true
                 }
             }
+        }
+    }
+
+    // Scan pulse timer - clears bit 15 after 250ms, then loads data
+    Timer {
+        id: scanPulseTimer
+        interval: 250
+        repeat: false
+        onTriggered: {
+            root.setOutputBit(0, 15, false)  // Clear bit 15 after pulse
+            scanLoadTimer.start()  // Then load the data
+        }
+    }
+
+    // Weld pulse timer - clears bit 16 after 250ms, then switches screen
+    Timer {
+        id: weldPulseTimer
+        interval: 250
+        repeat: false
+        onTriggered: {
+            root.setOutputBit(0, 16, false)  // Clear bit 16 after pulse
+            root.weldStarted()  // Switch to Cell Status screen
         }
     }
 
@@ -1186,6 +1314,10 @@ Rectangle {
         target: robotComm
         function onInWordsChanged() {
             scanView.refreshAlerts()
+        }
+        function onIoUpdated(robotIdx) {
+            if (robotIdx === scanView.alertRobotIndex)
+                scanView.refreshAlerts()
         }
     }
 
@@ -1236,11 +1368,26 @@ Rectangle {
         property bool debugForceAlerts: false
         property var inputsWords: []
 
-        // Generate DI 40-60 keys to monitor
+        function _alarmBitNumber(entryKey) {
+            var n = parseInt(String(entryKey), 10)
+            if (isNaN(n) || n <= 0) return -1
+            return n
+        }
+
+        // Alarms are always robot -> HMI DO bits in this project.
         function generateAlertKeys() {
             var keys = []
-            for (var i = 40; i <= 60; i++) {
-                keys.push("DI" + i)
+            var catalogKeys = Object.keys(alarmCatalog || {})
+            for (var i = 0; i < catalogKeys.length; i++) {
+                var bitNum = _alarmBitNumber(catalogKeys[i])
+                if (bitNum > 0) {
+                    keys.push("DO" + bitNum)
+                }
+            }
+            if (keys.length === 0) {
+                for (var fallbackBit = 40; fallbackBit <= 60; fallbackBit++) {
+                    keys.push("DO" + fallbackBit)
+                }
             }
             watchAlertKeys = keys
         }
@@ -1270,6 +1417,7 @@ Rectangle {
                     return 
                 }
                 alarmCatalog = obj
+                generateAlertKeys()
                 console.log("[WeldingScreen] alarmCatalog loaded:", Object.keys(alarmCatalog).length, "entries")
                 refreshAlerts()
             }
@@ -1278,7 +1426,6 @@ Rectangle {
 
         Component.onCompleted: {
             loadAlarmCatalog()
-            generateAlertKeys()
             debugForceAlerts = false
         }
 
@@ -1308,8 +1455,7 @@ Rectangle {
         }
 
         function _alertLabelForKey(key) {
-            // Extract bit number from key (e.g., "DI40" -> "40")
-            var bitNum = key.replace(/^DI/, "")
+            var bitNum = String(key).replace(/^(DI|DO)/, "")
             var def = alarmCatalog[bitNum]
             if (def && def.desc)
                 return String(def.desc)
@@ -1384,31 +1530,41 @@ Rectangle {
                 width: parent.width; height: 48; radius: Theme.radius
                 color: Theme.accent; border.width: 2; border.color: Theme.accent
                 Text { anchors.centerIn: parent; text: "Scan Data"; color: Theme.panel; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
-                MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { root.scanRowData = ScanDataProvider.getAllRowData(); root.showScanDataPage = true } }
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        if (!ScanDataProvider.isLoaded()) {
+                            var ok = ScanDataProvider.refreshFromRobot()
+                            if (!ok || !ScanDataProvider.isLoaded()) {
+                                root.saveErrorMessage = "Failed to load scan data: " + ScanDataProvider.errorString()
+                                return
+                            }
+                        }
+                        root.scanRowData = ScanDataProvider.getAllRowData()
+                        root.showScanDataPage = true
+                    }
+                }
             }
 
             // Start Weld
             Rectangle {
-                property bool weldBlocked: !root.weldReadyFromRobot || activeAlertsModel.count > 0
+                property bool weldBlocked: root.resumedWeldActive || !root.weldReadyFromRobot || activeAlertsModel.count > 0
                 width: parent.width; height: 48; radius: Theme.radius
                 color: weldBlocked ? "#3a3f4a" : Theme.success
                 border.width: 2; border.color: weldBlocked ? "#555e6e" : "#3ab86a"
                 opacity: weldBlocked ? 0.6 : 1.0
-                Text { anchors.centerIn: parent; text: "Start Weld"; color: weldBlocked ? "#555e6e" : Theme.panel; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
+                Text { anchors.centerIn: parent; text: root.resumedWeldActive ? "Weld In Progress" : "Start Weld"; color: parent.weldBlocked ? "#555e6e" : Theme.panel; font.family: Theme.fontFamily; font.pixelSize: Theme.body; font.bold: true }
                 MouseArea {
                     anchors.fill: parent
                     enabled: !parent.weldBlocked
                     cursorShape: parent.weldBlocked ? Qt.ForbiddenCursor : Qt.PointingHandCursor
                     onClicked: {
-                        // Send output bit 16 high to tell robot to start weld
-                        var outs = robotComm.getOutputs(0) || []
-                        var wi = Math.floor((16 - 1) / 16)
-                        var bi = (16 - 1) % 16
-                        var w = (outs.length > wi) ? (Number(outs[wi]) & 0xFFFF) : 0
-                        robotComm.setOutputWord(0, wi, w | (1 << bi))
+                        // Pulse output bit 16 high to tell robot to start weld
+                        root.setOutputBit(0, 16, true)
                         LogService.logSimple("WELD_START", "")
-                        // Switch to Cell Status screen
-                        root.weldStarted()
+                        weldPulseTimer.start()
+                        // Switch to Cell Status screen will happen after bit clears
                     }
                 }
             }
@@ -1914,7 +2070,7 @@ Rectangle {
     }
 
     Connections {
-        target: ScanPlot
+        target: (typeof ScanPlot !== "undefined") ? ScanPlot : null
         function onError(msg) {
             console.log("ScanPlot error:", msg)
             root.scanLoading = false

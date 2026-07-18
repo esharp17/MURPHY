@@ -37,12 +37,14 @@ ApplicationWindow {
     property string weldDownstreamHeat: ""
     property bool weldShowScanView: false
     property bool weldScanDataLoaded: false
+    property bool weldResumedActive: false
     property real weldScanAzim: 140
     property real weldScanElev: 20
     property real weldScanZoom: 1.0
     property real weldScanPanX: 0.0
     property real weldScanPanY: 0.0
     property var weldDismissedAlertKeys: ({})
+    property var cellStatusDismissedAlertKeys: ({})
 
 // Main.qml (ApplicationWindow)
 // Global robot comm watchdog:
@@ -138,6 +140,7 @@ Timer {
                 var tabNames = ["Login", "Welding", "Cell Status", "Robot Comm"]
                 LogService.log("TAB_SWITCH", win.sessionUser, JSON.stringify({"tab": tabNames[i] || String(i)}))
                 win.tabIndex = i
+                if (i === 2) Qt.callLater(cellStatusScreen.refreshOnOpen)
             }
 
             // safety net if someone sets tabIndex directly
@@ -175,6 +178,8 @@ Timer {
 
                 // Tab 0 — Login / Admin
                 SplashAdminScreen {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
                     loggedIn: win.sessionLoggedIn
                     loggedInUser: win.sessionUser
                     loggedInIsAdmin: win.sessionIsAdmin
@@ -189,17 +194,25 @@ Timer {
 
                 // Tab 1 — Robot Comm
                 RobotCommScreen {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
                     loggedInRole: win.sessionRole
                     isLoggedIn: win.sessionLoggedIn
                 }
 
                 // Tab 2 — Cell Status
                 CellStatusScreen {
-                    dismissedAlertKeys: win.weldDismissedAlertKeys
+                    id: cellStatusScreen
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    dismissedAlertKeys: win.cellStatusDismissedAlertKeys
+                    onDismissedAlertKeysChanged: win.cellStatusDismissedAlertKeys = dismissedAlertKeys
                 }
 
                 // Tab 3 — Welding
                 WeldingScreen {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
                     loggedInUserFirstName: win.sessionUserFirstName
                     preCheckConfirmed: win.weldPreCheckConfirmed
                     showWeldRecord: win.weldShowWeldRecord
@@ -219,6 +232,7 @@ Timer {
                     onWeldDownstreamHeatChanged: win.weldDownstreamHeat = weldDownstreamHeat
                     showScanView: win.weldShowScanView
                     scanDataLoaded: win.weldScanDataLoaded
+                    resumedWeldActive: win.weldResumedActive
                     scanAzim: win.weldScanAzim
                     scanElev: win.weldScanElev
                     scanZoom: win.weldScanZoom
@@ -229,12 +243,16 @@ Timer {
                     onShowScanViewChanged: win.weldShowScanView = showScanView
                     onDismissedAlertKeysChanged: win.weldDismissedAlertKeys = dismissedAlertKeys
                     onScanDataLoadedChanged: win.weldScanDataLoaded = scanDataLoaded
+                    onResumedWeldActiveChanged: win.weldResumedActive = resumedWeldActive
                     onScanAzimChanged: win.weldScanAzim = scanAzim
                     onScanElevChanged: win.weldScanElev = scanElev
                     onScanZoomChanged: win.weldScanZoom = scanZoom
                     onScanPanXChanged: win.weldScanPanX = scanPanX
                     onScanPanYChanged: win.weldScanPanY = scanPanY
-                    onWeldStarted: win.tabIndex = 2
+                    onWeldStarted: {
+                        win.tabIndex = 2
+                        Qt.callLater(cellStatusScreen.refreshOnOpen)
+                    }
                 }
             }
         }

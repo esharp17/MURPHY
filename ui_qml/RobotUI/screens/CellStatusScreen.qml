@@ -103,17 +103,42 @@ Rectangle {
         return "INFO"
     }
 
+    function alarmBitNumber(entryKey) {
+        var n = parseInt(String(entryKey), 10)
+        if (isNaN(n) || n <= 0)
+            return -1
+        return n
+    }
+
     function rebuildAlarms() {
         alarmModel2.clear()
 
-        // bits 40..60 inclusive
-        for (var b = 40; b <= 60; b++) {
-            if (!getBit(ioInWords, b))
+        var watchKeys = []
+        var catalogKeys = Object.keys(alarmCatalog || {})
+        for (var i = 0; i < catalogKeys.length; i++) {
+            var bitNum = alarmBitNumber(catalogKeys[i])
+            if (bitNum > 0)
+                watchKeys.push("DO" + bitNum)
+        }
+        if (watchKeys.length === 0) {
+            for (var fallbackBit = 40; fallbackBit <= 60; fallbackBit++)
+                watchKeys.push("DO" + fallbackBit)
+        }
+
+        for (var wk = 0; wk < watchKeys.length; wk++) {
+            var key = watchKeys[wk]
+            var bitNum = alarmBitNumber(String(key).replace(/^(DI|DO)/, ""))
+            if (bitNum <= 0)
                 continue
 
-            var def = alarmCatalog[String(b)]
+            var words = ioInWords
+
+            if (!getBit(words, bitNum))
+                continue
+
+            var def = alarmCatalog[String(bitNum)]
             if (!def)
-                def = { name: "Alarm " + b, desc: "Active", severity: "Fault", stop: "NONE", textColor: Theme.text }
+                def = { name: "Alarm " + bitNum, desc: "Active", severity: "Fault", stop: "NONE", textColor: Theme.text }
 
             var tc = def.textColor
             if (tc === undefined || tc === null || tc === "")
@@ -124,7 +149,7 @@ Rectangle {
             alarmModel2.append({
                 ts: "", // placeholder for later timestamping
                 level: alarmLevel(def.severity),
-                text: "(" + b + ") " + def.name + " — " + def.desc + "  [Stop: " + def.stop + "]",
+                text: "(" + bitNum + ") " + def.name + " — " + def.desc + "  [Stop: " + def.stop + "]",
                 textColorStr: tc
             })
         }
@@ -289,15 +314,14 @@ Rectangle {
     property bool goHomeLoading: false
     property bool resumeWeldLoading: false
 
-    // Quadrant limits per robot (with +/-10 deg tolerance)
-    // Robot 0 = top-right (Q1: 0-90), Robot 1 = top-left (Q2: 90-180)
-    // Robot 2 = bottom-left (Q3: 180-270), Robot 3 = bottom-right (Q4: 270-360)
+    // C-stop limits per robot.
+    // Robot index 0 uses an extended wrap-around window: 350..190.
     function quadrantMin(robotIdx) {
         var bases = [350, 80, 170, 260]
         return bases[Math.min(3, Math.max(0, robotIdx))]
     }
     function quadrantMax(robotIdx) {
-        var caps = [100, 190, 280, 370]
+        var caps = [190, 190, 280, 370]
         return caps[Math.min(3, Math.max(0, robotIdx))]
     }
 
