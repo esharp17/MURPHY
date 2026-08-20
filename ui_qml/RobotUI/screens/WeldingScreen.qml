@@ -53,6 +53,7 @@ Rectangle {
 
     // Robot I/O bit helpers (1-indexed bits)
     function inputBitHigh(bit1) {
+        if (!robotComm) return false
         var words = robotComm.in_words
         if (!words || words.length === 0) return false
         var wi = Math.floor((bit1 - 1) / 16)

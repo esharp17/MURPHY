@@ -43576,3 +43576,517 @@
 | 2026-07-18 15:15:50 | none | WELD_START |  |
 | 2026-07-18 16:00:57 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
 | 2026-07-18 16:01:36 | none | ROBOT_CONNECT | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-07-22 13:13:18 | none | APP_START |  |
+| 2026-07-22 13:13:23 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:13:29 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:13:39 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:13:49 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:13:52 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-07-22 13:13:59 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:14:09 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:14:17 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-07-22 13:14:19 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:14:29 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:14:39 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:14:41 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-07-22 13:14:43 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-07-22 13:14:49 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:14:59 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:15:09 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:15:19 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:15:29 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:15:39 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:15:49 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-07-22 13:15:55 | none | ROBOT_SIMULATE | {"robot": 0} |
+| 2026-07-22 13:16:12 | none | ROBOT_SIMULATE | {"robot": 0} |
+| 2026-07-22 13:16:34 | none | ROBOT_SIMULATE | {"robot": 1} |
+| 2026-07-22 13:29:43 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-08-01 16:04:40 | none | APP_START |  |
+| 2026-08-01 16:04:45 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:04:49 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-08-01 16:04:51 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:04:52 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-08-01 16:04:53 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-08-01 16:05:01 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:05:06 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-08-01 16:05:11 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:05:21 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:05:31 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:05:31 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-08-01 16:05:32 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-08-01 16:05:41 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:05:51 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:06:01 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:06:11 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:06:13 | Andrew Lenehan | TAB_SWITCH | {"tab": "Login"} |
+| 2026-08-01 16:06:14 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-08-01 16:06:21 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:06:31 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:06:41 | none | ROBOT_FAULT | {"robot": 0, "error": "timed out"} |
+| 2026-08-01 16:06:42 | none | ROBOT_SIMULATE | {"robot": 0} |
+| 2026-08-01 16:07:42 | none | ROBOT_SIMULATE | {"robot": 1} |
+| 2026-08-01 16:08:12 | Andrew Lenehan | TAB_SWITCH | {"tab": "Robot Comm"} |
+| 2026-08-01 16:08:16 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-08-01 16:08:17 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-08-01 16:08:17 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-08-20 09:55:08 | none | APP_START |  |
+| 2026-08-20 09:55:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:19 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:34 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:55:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:56:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:57:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:58:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 09:59:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:00:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:01:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:02:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:03:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:04:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:05:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:06:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:07:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:27 | Andrew Lenehan | LOGIN | {"role": "Administrator"} |
+| 2026-08-20 10:08:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:32 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-08-20 10:08:33 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-08-20 10:08:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:39 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-08-20 10:08:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:44 | none | ROBOT_CONFIG_SAVE | {"robot": 0, "ip": "192.168.2.1", "port": 44818} |
+| 2026-08-20 10:08:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:08:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:09:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:10:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:11:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:12:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:01 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-08-20 10:13:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:13:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:14:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:15:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:16:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:17:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:18:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:19:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:20:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:43 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-08-20 10:21:45 | Andrew Lenehan | TAB_SWITCH | {"tab": "Cell Status"} |
+| 2026-08-20 10:21:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:21:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:22 | Andrew Lenehan | TAB_SWITCH | {"tab": "Welding"} |
+| 2026-08-20 10:22:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:22:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:23:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:24:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:25:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:17 | none | ROBOT_DISCONNECT | {"robot": 0} |
+| 2026-08-20 10:26:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:20 | none | ROBOT_DISCONNECT | {"robot": 0} |
+| 2026-08-20 10:26:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:37 | none | ROBOT_SIMULATE | {"robot": 1} |
+| 2026-08-20 10:26:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:46 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:26:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:26:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:03 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:27:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:03 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:27:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:09 | none | ROBOT_SIMULATE | {"robot": 1} |
+| 2026-08-20 10:27:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:13 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:27:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:50 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:27:50 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:27:50 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:27:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:27:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:33 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:28:34 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:28:34 | none | ROBOT_DISCONNECT | {"robot": 1} |
+| 2026-08-20 10:28:36 | none | ROBOT_DISCONNECT | {"robot": 0} |
+| 2026-08-20 10:28:37 | none | ROBOT_SIMULATE | {"robot": 0} |
+| 2026-08-20 10:28:43 | none | ROBOT_DISCONNECT | {"robot": 0} |
+| 2026-08-20 10:28:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:28:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:29:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:23 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:28 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:33 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:38 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:43 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:48 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:53 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:30:58 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:31:03 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:31:08 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:31:13 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
+| 2026-08-20 10:31:18 | none | ROBOT_FAULT | {"robot": 0, "error": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"} |
